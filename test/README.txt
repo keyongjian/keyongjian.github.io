@@ -1,19 +1,24 @@
 
 TITLE: 
-Profile - 100% Fully Responsive Free HTML5 Bootstrap Template
+Slant - Responsive Free HTML5 template
 
 AUTHOR:
-DESIGNED & DEVELOPED by FreeHTML5.co
-
-Website: http://freehtml5.co/
-Twitter: http://twitter.com/fh5co
-Facebook: http://facebook.com/fh5co
+DESIGNED & DEVELOPED by FREEHTML5.co
+http://freehtml5.co/
+http://twitter.com/fh5co
+http://facebook.com/fh5co
 
 
 CREDITS:
 
 Bootstrap
 http://getbootstrap.com/
+
+Unsplash for Photos
+http://unsplash.com/
+
+plmd.me for Photos
+http://plmd.me/
 
 jQuery
 http://jquery.com/
@@ -24,17 +29,24 @@ http://gsgd.co.uk/sandbox/jquery/easing/
 Modernizr
 http://modernizr.com/
 
+Magnific Popup
+http://dimsemenov.com/plugins/magnific-popup/
+
 Google Fonts
 https://www.google.com/fonts/
 
-Google Map
-http://maps.google.com/
-
-Icomoon
+Icomoon Entypo
 https://icomoon.io/app/
+http://www.entypo.com/
 
 Respond JS
 https://github.com/scottjehl/Respond/blob/master/LICENSE-MIT
+
+countTo JS
+https://github.com/mhuggins/jquery-countTo
+
+Stellar JS
+http://markdalgleish.com/projects/stellar.js
 
 animate.css
 http://daneden.me/animate
@@ -42,15 +54,4 @@ http://daneden.me/animate
 jQuery Waypoint
 https://github.com/imakewebthings/waypoints/blog/master/licenses.txt
 
-Stellar Parallax
-http://markdalgleish.com/projects/stellar.js/
-
-jQuery countTo
-http://www.owlcarousel.owlgraphic.com/
-
-EasyPieChart
-https://github.com/rendro/easy-pie-chart
-
-Demo Images:
-http://unsplash.com
 
