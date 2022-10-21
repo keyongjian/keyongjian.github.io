@@ -16,13 +16,23 @@
         <meta name="description" content="This is the personal website of Dr Yongjian Ke from the University of Technology Sydney in Australia"/>
         <link rel="canonical" href="https://yke.me"/>
         <style>
-            body {margin: 5% auto; background: #f2f2f2; color: #444444; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.8; text-shadow: 0 1px 0 #ffffff; max-width: 73%;}
-            code {background: white;}
+            body {background: #f2f2f2; color: #444444; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.8; text-shadow: 0 1px 0 #ffffff;}
             a {border-bottom: 1px solid #444444; color: #444444; text-decoration: none;}
             a:hover {border-bottom: 0;}
+            .main {
+                margin: 5% auto;
+                max-width: 73%;
+                }
+            @media screen and (max-width: 800px) {
+            .main {
+                margin: 0 auto;
+                max-width: 95%;
+                }
+            }
         </style>
     </head>
     <body>
+        <div class="main">
         <header>
             <h1>Dr Yongjian Ke</h1>
             <aside>Hi 👋 I am an Associate Professor of Project Management in the <a href="https://www.uts.edu.au/about/faculty-design-architecture-and-building/built-environment">School of Built Environment</a>, <a href="https://www.uts.edu.au">University of Technology Sydney</a>, Australia. "Yongjian Ke" is pronounced as the audio below.</aside>
@@ -72,5 +82,6 @@
         <footer>
             <p class="copyright">&copy; Dr Yongjian Ke. Last Updated on 21 Oct 2022.</p>
         </footer>
+        </div>
     </body>
 </html>
