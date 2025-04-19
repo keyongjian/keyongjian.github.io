@@ -1,23 +1,23 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L2Y4XX34DE"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-L2Y4XX34DE');
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0"/>
     <title>Yongjian Ke @ UTS</title>
     <meta name="description" content="This is the personal website of Associate Professor Yongjian Ke from the University of Technology Sydney in Australia"/>
+    <meta name="author" content="Yongjian Ke"/>
     <link rel="canonical" href="https://pm-professor.com"/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon"/>
+
+    <!-- Open Graph Tags for better social sharing -->
+    <meta property="og:title" content="Yongjian Ke @ UTS" />
+    <meta property="og:description" content="Personal website of Associate Professor Yongjian Ke, University of Technology Sydney" />
+    <meta property="og:url" content="https://pm-professor.com" />
+    <meta property="og:type" content="website" />
+    
     <style>
       body {
-        font-family: 'Roboto', sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
         margin: 0;
         padding: 0;
         background-color: white;
@@ -25,31 +25,73 @@
       }
       header, main, footer {
         margin: 15px auto;
-        max-width: 80%;
+        max-width: 1080px;
         padding: 15px;
       }
       a {
         color: #757575;
       }
+
+      /* Skip link for accessibility */
+      .skip-link {
+        position: absolute;
+        left: -999px;
+        top: auto;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        z-index: -1;
+      }
+      .skip-link:focus {
+        position: static;
+        width: auto;
+        height: auto;
+        padding: 10px;
+        background: #eeeeee;
+        display: block;
+        z-index: 1000;
+      }
+
+      /* Mobile responsiveness */
+      @media (max-width: 768px) {
+        header, main, footer {
+          max-width: 95%;
+        }
+      }
+
+      /* Print-friendly styles */
+      @media print {
+        nav, footer {
+          display: none;
+        }
+        a::after {
+          content: " (" attr(href) ")";
+        }
+      }
     </style>
   </head>
   <body>
+    <a href="#main" class="skip-link">Skip to main content</a>
+
     <header>
       <h1>YONGJIAN KE</h1>
-      <p>
-        <a href="index.html">Home</a> |
-        <a href="mailto:Yongjian.Ke@uts.edu.au?subject=Enquiry%20from%20pm-professor.com">Email</a> |
-        <a href="https://www.linkedin.com/in/pm-professor/">LinkedIn</a> |
-        <a href="https://profiles.uts.edu.au/yongjian.ke">UTS Profile</a> |
-        <a href="https://scholar.google.com.au/citations?user=8hby4hcAAAAJ">Google Scholar</a> |
-        <a href="https://orcid.org/0000-0003-3426-703X">ORCID</a> |
-        <a href="https://www.researchgate.net/profile/Yongjian-Ke">ResearchGate</a> |
-        <a href="https://www.webofscience.com/wos/author/record/C-6071-2014">ResearcherID</a>
-      </p>
+      <nav>
+        <p>
+          <a href="index.html">Home</a> |
+          <a href="mailto:Yongjian.Ke@uts.edu.au?subject=Enquiry%20from%20pm-professor.com">Email</a> |
+          <a href="https://www.linkedin.com/in/pm-professor/">LinkedIn</a> |
+          <a href="https://profiles.uts.edu.au/yongjian.ke">UTS Profile</a> |
+          <a href="https://scholar.google.com.au/citations?user=8hby4hcAAAAJ">Google Scholar</a> |
+          <a href="https://orcid.org/0000-0003-3426-703X">ORCID</a> |
+          <a href="https://www.researchgate.net/profile/Yongjian-Ke">ResearchGate</a> |
+          <a href="https://www.webofscience.com/wos/author/record/C-6071-2014">ResearcherID</a>
+        </p>
+      </nav>
     </header>
-    <main>
+
+    <main id="main">
       <h2>G'day!</h2>
-        <p>I am an Associate Professor of Project Management at the School of Built Environment, University of Technology Sydney, Australia, which is why the domain name is "<a href="https://pm-professor.com">pm-professor.com</a>". My name is pronounced "yong-jyen kuh".</p>
+      <p>I am an Associate Professor of Project Management at the School of Built Environment, University of Technology Sydney, Australia, which is why the domain name is "<a href="https://pm-professor.com">pm-professor.com</a>". My name is pronounced "yong-jyen kuh".</p>
       <h2>Education</h2>
         <ul>
           <li>PhD in Management Science and Engineering, Tsinghua University, China (2005–2010)</li>
