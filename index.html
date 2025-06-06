@@ -30,41 +30,10 @@
       a {
         color: #757575;
       }
-
-      /* Skip link for accessibility */
-      .skip-link {
-        position: absolute;
-        left: -999px;
-        top: auto;
-        width: 1px;
-        height: 1px;
-        overflow: hidden;
-        z-index: -1;
-      }
-      .skip-link:focus {
-        position: static;
-        width: auto;
-        height: auto;
-        padding: 10px;
-        background: #eeeeee;
-        display: block;
-        z-index: 1000;
-      }
-
       /* Mobile responsiveness */
       @media (max-width: 768px) {
         header, main, footer {
           max-width: 95%;
-        }
-      }
-
-      /* Print-friendly styles */
-      @media print {
-        nav, footer {
-          display: none;
-        }
-        a::after {
-          content: " (" attr(href) ")";
         }
       }
     </style>
