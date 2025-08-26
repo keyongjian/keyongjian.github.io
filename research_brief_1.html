@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yongjian Ke @ UTS</title>
+    <style>
+        :root {
+            --primary-color: #1e3a5f;
+            --secondary-color: #f0f4f8;
+            --accent-color: #3d7b9e;
+            --text-color: #2d3748;
+            --light-text: #4a5568;
+            --border-color: #e2e8f0;
+            --highlight: #f6ad55;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f8fafc;
+        }
+        
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+        
+        .sidebar {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2.5rem 1.5rem;
+            position: relative;
+        }
+        
+        .main-content {
+            padding: 2.5rem;
+            background-color: white;
+        }
+        
+        h1, h2, h3 {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            font-weight: 700;
+        }
+        
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+        
+        h2 {
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 3rem;
+            height: 3px;
+            background-color: var(--highlight);
+        }
+        
+        h3 {
+            font-size: 1.2rem;
+            margin: 1.5rem 0 0.75rem;
+            color: var(--accent-color);
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        ul {
+            list-style-type: none;
+            margin-bottom: 1.5rem;
+        }
+        
+        li {
+            margin-bottom: 0.75rem;
+            position: relative;
+            padding-left: 1.25rem;
+        }
+        
+        li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+        }
+        
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        a:hover {
+            color: var(--highlight);
+        }
+        
+        .profile-header {
+            margin-bottom: 2rem;
+        }
+        
+        .profile-title {
+            color: white;
+            margin-bottom: 0.25rem;
+        }
+        
+        .profile-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        .profile-pronunciation {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+        
+        .profile-image {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.75rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+        }
+        
+        .contact-item a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .contact-item a:hover {
+            color: white;
+        }
+        
+        .contact-icon {
+            margin-right: 0.75rem;
+            width: 1rem;
+            height: 1rem;
+            opacity: 0.8;
+        }
+        
+        .sidebar-section {
+            margin-bottom: 2rem;
+        }
+        
+        .sidebar-heading {
+            color: white;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .profile-links {
+            margin-top: 0.5rem;
+        }
+        
+        .profile-link {
+            display: block;
+            padding: 0.5rem 0.75rem;
+            margin-bottom: 0.5rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+        
+        .profile-link:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            transform: translateX(3px);
+        }
+        
+        .profile-link-text {
+            display: flex;
+            align-items: center;
+        }
+        
+        .profile-link-logo {
+            width: 16px;
+            height: 16px;
+            margin-right: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .section {
+            margin-bottom: 3rem;
+        }
+        
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .research-card {
+            background-color: var(--secondary-color);
+            padding: 1.5rem;
+            border-radius: 4px;
+            border-left: 3px solid var(--accent-color);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .research-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .research-card h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+        
+        .research-card p {
+            color: var(--light-text);
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+        
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .tag {
+            background-color: var(--secondary-color);
+            color: var(--accent-color);
+            font-size: 0.85rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 2rem;
+            transition: background-color 0.2s;
+        }
+        
+        .tag:hover {
+            background-color: #e2e8f0;
+        }
+        
+        .publication {
+            padding: 1.25rem;
+            border-left: 3px solid transparent;
+            margin-bottom: 0.25rem;
+            transition: border-color 0.2s, background-color 0.2s;
+        }
+        
+        .publication:hover {
+            border-left-color: var(--highlight);
+            background-color: var(--secondary-color);
+        }
+        
+        .publication-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .publication-authors {
+            font-size: 0.95rem;
+            color: var(--light-text);
+            margin-bottom: 0.25rem;
+        }
+        
+        .publication-journal {
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            font-style: italic;
+        }
+        
+        .view-more {
+            display: inline-block;
+            margin-top: 1rem;
+            font-weight: 600;
+        }
+        
+        footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--light-text);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 900px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                padding: 2rem 1.5rem;
+            }
+            
+            .profile-image {
+                width: 100px;
+                height: 100px;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .main-content {
+                padding: 1.5rem;
+            }
+            
+            .research-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="profile-header">
+                <div class="profile-image">
+                <img src="yongjian.jpeg" alt="Yongjian Ke" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;" />
+                </div>
+                <h1 class="profile-title">Yongjian Ke</h1>
+                <div class="profile-subtitle">Associate Professor @ UTS</div>
+                <div class="profile-pronunciation">(Pronounced "yong-jyen ker")</div>
+            </div>
+            
+            <div class="sidebar-section">
+                <h2 class="sidebar-heading">Contact</h2>
+                <div class="contact-item">
+                    <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    <a href="mailto:Yongjian.Ke@uts.edu.au">Yongjian.Ke@uts.edu.au</a>
+                </div>
+                <div class="contact-item">
+                    <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <a href="https://maps.app.goo.gl/cz8Apj4tEcQkfwbs9" target="_blank">City Campus CB06.05.022</a>
+                </div>
+                <div class="contact-item">
+                    <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                    </svg>
+                    <a href="https://pm-professor.com">pm-professor.com</a>
+                </div>
+            </div>
+            
+            <div class="sidebar-section">
+                <h2 class="sidebar-heading">Academic Profiles</h2>
+                <div class="profile-links">
+                    <a href="https://www.linkedin.com/in/pm-professor" target="_blank" class="profile-link">
+                        <span class="profile-link-text">
+                            <span class="profile-link-logo">in</span>
+                            LinkedIn
+                        </span>
+                    </a>
+                    <a href="https://scholar.google.com.au/citations?user=8hby4hcAAAAJ" target="_blank" class="profile-link">
+                        <span class="profile-link-text">
+                            <span class="profile-link-logo">G</span>
+                            Google Scholar
+                        </span>
+                    </a>
+                    <a href="https://profiles.uts.edu.au/yongjian.ke" target="_blank" class="profile-link">
+                        <span class="profile-link-text">
+                            <span class="profile-link-logo">U</span>
+                            UTS Profile
+                        </span>
+                    </a>
+                    <a href="https://orcid.org/0000-0003-3426-703X" target="_blank" class="profile-link">
+                        <span class="profile-link-text">
+                            <span class="profile-link-logo">iD</span>
+                            ORCID
+                        </span>
+                    </a>
+                    <a href="https://www.researchgate.net/profile/Yongjian-Ke" target="_blank" class="profile-link">
+                        <span class="profile-link-text">
+                            <span class="profile-link-logo">RG</span>
+                            ResearchGate
+                        </span>
+                    </a>
+                    <a href="https://www.webofscience.com/wos/author/record/C-6071-2014" target="_blank" class="profile-link">
+                        <span class="profile-link-text">
+                            <span class="profile-link-logo">W</span>
+                            ResearcherID
+                        </span>
+                    </a>
+                    <a href="/CV_Ke.pdf" target="_blank" class="profile-link">
+                        <span class="profile-link-text">
+                            <span class="profile-link-logo">CV</span>
+                            Curriculum Vitae
+                        </span>
+                    </a>
+                </div>
+            </div>
+            
+        </aside>
+        
+        <main class="main-content">
+            <div class="section">
+                <p>G'day! I am an Associate Professor in Project Management at the <a href="https://www.uts.edu.au/about/faculties/design-architecture-and-building/built-environment" target="_blank">School of Built Environment</a>, <a href="https://www.uts.edu.au/" target="_blank">University of Technology Sydney</a>, Australia, which is why the domain name is "<a href="https://pm-professor.com">pm-professor.com</a>".</p>
+            </div>
+            
+            <div class="section">
+                <h2>Education</h2>
+                <ul>
+                    <li>PhD in Management Science and Engineering, <a href="https://www.civil.tsinghua.edu.cn/cmen/" target="_blank">Tsinghua University</a> (2005-2010)</li>
+                    <li>Bachelor of Engineering in Project Management, <a href="https://www.civil.tsinghua.edu.cn/cmen/" target="_blank">Tsinghua University</a> (2001-2005)</li>
+                </ul>
+            </div>        
+
+            <div class="section">
+                <h2>Academic Positions</h2>
+                <ul>
+                    <li>Associate Professor in Project Management, <a href="https://www.uts.edu.au/about/faculties/design-architecture-and-building/built-environment" target="_blank">University of Technology Sydney</a>, Australia (2022-present)</li>
+                    <li>Senior Lecturer in Project Management, <a href="https://www.uts.edu.au/about/faculties/design-architecture-and-building/built-environment" target="_blank">University of Technology Sydney</a>, Australia (2016-2021)</li>
+                    <li>Lecturer in Construction Management, <a href="https://www.newcastle.edu.au/school/sabe" target="_blank">University of Newcastle</a>, Australia (2013-2016)</li>
+                    <li>Research Fellow, <a href="https://cde.nus.edu.sg/dbe/" target="_blank">National University of Singapore</a>, Singapore (2010-2013)</li>
+                    <li>Research Assistant, <a href="https://www.polyu.edu.hk/bre/" target="_blank">Hong Kong Polytechnic University</a>, Hong Kong SAR (2007-2008)</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>Affiliations</h2>
+                <ul>
+                    <li><a href="https://www.uts.edu.au/about/faculties/design-architecture-and-building/built-environment" target="_blank">UTS School of Built Environment</a>, HDR Coordinator, Short Forms of Learning Coordinator</li>
+                    <li><a href="https://cibworld.org/cib-commissions/w122-public-private-partnership/" target="_blank">CIB Working Commission W122 ‐ Public Private Partnership</a>, Communications Coordinator</li>
+                    <li><a href="https://journals.sagepub.com/home/pmx" target="_blank">Project Management Journal</a>, Department Editor</li>
+                    <li><a href="https://www.inderscience.com/jhome.php?jcode=ijpom" target="_blank">International Journal of Project Organisation and Management</a>, Australian Editor</li>
+                    <li><a href="https://www.emeraldgrouppublishing.com/journal/bepam" target="_blank">Built Environment Project and Asset Management</a>, Associate Editor</li>
+                    <li><a href="https://www.standards.org.au/standards-catalogue/sa-snz/standards-by-committee?committee=MB-012" target="_blank">Standards Australia MB012 - Project, Programme and Portfolio Management</a>, UTS Representative</li>
+                    <li><a href="https://www.uts.edu.au/research/centres/australia-china-relations-institute" target="_blank">Australia-China Relations Institute (UTS:ACRI)</a>, Research Associate</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>Research Summary</h2>
+                <p>My research focuses on the dynamics of infrastructure delivery, with particular emphasis on project management and public-private partnerships in the Australian and Chinese contexts. I explore how large-scale projects can achieve sustainable outcomes through effective risk allocation, stakeholder engagement, and collaborative governance.</p>
+                <p>To date, I have authored over 100 journal papers, with more than 8,000 citations, an h-index of 37, and an i10-index of 80. I was recognised among the Stanford-listed Top 2% Scientist.</p>
+                
+                <h3>Current Research Interests</h3>
+                <div class="research-grid">
+                    <div class="research-card">
+                        <h3>Social Licence for Infrastructure</h3>
+                        <p>Developing a unique framework to define, assess, and sustain social licence in infrastructure projects</p>
+                    </div>
+                    <div class="research-card">
+                        <h3>Social Procurement in China</h3>
+                        <p>Examining how procurement practices can generate social value in project delivery in China</p>
+                    </div>
+                    <div class="research-card">
+                        <h3>AI Readiness of Construction Projects</h3>
+                        <p>Developing an AI readiness framework tailored to the temporary construction projects</p>
+                    </div>
+                </div>
+                
+                <div class="tags">
+                    <span class="tag">Project Management</span>
+                    <span class="tag">Public-Private Partnerships</span>
+                    <span class="tag">Infrastructure Delivery</span>
+                    <span class="tag">Stakeholder Engagement</span>
+                    <span class="tag">Risk Allocation</span>
+                    <span class="tag">Collaborative Governance</span>
+                    <span class="tag">Social Sustainability</span>
+                    <span class="tag">Construction Management</span>
+                    <span class="tag">Mega Projects</span>
+                    <span class="tag">China-Australia Research</span>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Updates</h2>
+
+                <h3>Q3 2025 (Jul-Sep)</h3>
+                <ul>
+                    <li>Published in <em>Project Management Journal</em> and <em>Environmental Science and Policy</em></li>
+                </ul>
+
+                <h3>Q2 2025 (Apr-Jun)</h3>
+                <ul>
+                    <li>Launched a special issue on PPPs in <em>Built Environment Project and Asset Management</em></li>
+                    <li>Attended the EURAM 2025 conference in Florence, Italy (22-25 June 2025)</li>
+                    <li>Received UTS Key Technology Partnerships Seed Funding Scheme for research on AI readiness for construction projects</li>
+                </ul>
+
+                <h3>Q1 2025 (Jan-Mar)</h3>
+                <ul>
+                    <li>Appointed Associate Editor for <em>Built Environment Project and Asset Management</em></li>
+                    <li>Welcomed a new PhD student (RTP scholarship recipient) researching AI and leadership</li>
+                    <li>Published in <em>Environmental Impact Assessment Review</em>, <em>Sustainability</em>, and <em>International Journal of Modelling and Simulation</em> </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Recent Publications (from 2024)</h2>
+                <div class="publication">
+                    <div class="publication-title"><a href="" target="_blank">The future of project management in industry 5.0: A narrative literature review</a></div>
+                    <div class="publication-authors">Ibrahim Dani, Yongjian Ke, Suhair Alkilani</div>
+                    <div class="publication-journal">Project Management Journal</div>
+                </div>
+
+                <div class="publication">
+                    <div class="publication-title"><a href="https://doi.org/10.1007/s12053-025-10358-6" target="_blank">Effects of emotional amplification on public perceptions of waste-to-energy incineration facilities: evidence from a behavioral survey experiment</a></div>
+                    <div class="publication-authors">Menglei Jiang, Xiaoyan Luo, Bo Xia, Yongjian Ke, Martin Skitmore, Yong Liu</div>
+                    <div class="publication-journal">Energy Efficiency</div>
+                </div>
+                
+                <div class="publication">
+                    <div class="publication-title"><a href="https://doi.org/10.1016/j.envsci.2025.104163" target="_blank">Conceptualizing the state of the art of social license to operate: a visualization-based word frequency analysis</a></div>
+                    <div class="publication-authors">Yu Chen, Xiaoyan Luo, Min Xu, Bo Xia, Yongjian Ke, Martin Skitmore, Yong Liu</div>
+                    <div class="publication-journal">Environmental Science and Policy</div>
+                </div>
+
+                <div class="publication">
+                    <div class="publication-title"><a href="https://doi.org/10.1177/87569728251352466" target="_blank">How to write a literature review article in the Project Management Journal: A review of reviews</a></div>
+                    <div class="publication-authors">Yongjian Ke, Kun Wang, Shankar Sankaran</div>
+                    <div class="publication-journal">Project Management Journal</div>
+                </div>
+                
+                <div class="publication">
+                    <div class="publication-title"><a href="https://doi.org/10.1177/87569728251350667" target="_blank">Cross-boundary tensions between the project owner and project manager in value creation</a></div>
+                    <div class="publication-authors">Ning Sun, Yan Ning, Yongjian Ke, Fengjing Zheng, Yadi Li</div>
+                    <div class="publication-journal">Project Management Journal</div>
+                </div>
+                
+                <div class="publication">
+                    <div class="publication-title"><a href="https://doi.org/10.1080/09537287.2024.2427645" target="_blank">Does opportunism always reduce stakeholder satisfaction in Public-Private Partnership (PPP) projects? A theory of benign opportunism</a></div>
+                    <div class="publication-authors">Xiaohang Xu, Linzhuo Wang, Shankar Sankaran, Yongjian Ke, Ralf Müller</div>
+                    <div class="publication-journal">Production Planning & Control</div>
+                </div>
+                
+                <div class="publication">
+                    <div class="publication-title"><a href="https://doi.org/10.1108/ECAM-11-2023-1179" target="_blank">Exploring the impact of job satisfaction on turnover intention among professionals in the construction industry</a></div>
+                    <div class="publication-authors">Shang Zhang, Jinpeng Wang, Yongjian Ke, Nan Li, Zhenwen Su</div>
+                    <div class="publication-journal">Engineering, Construction and Architectural Management</div>
+                </div>
+                
+                <div class="publication">
+                    <div class="publication-title"><a href="https://doi.org/10.1080/02286203.2023.2238370" target="_blank">Modeling for project portfolio synergy benefits measurement</a></div>
+                    <div class="publication-authors">Libiao Bai, Jiachen Lin, Luyao Zhang, Tong Pan, Yongjian Ke, Xinyu Zhou</div>
+                    <div class="publication-journal">International Journal of Modelling and Simulation</div>
+                </div>
+
+                <div class="publication">
+                    <div class="publication-title"><a href="https://doi.org/10.3390/su17062451" target="_blank">Local government’s intention to use public-private partnerships for infrastructure projects in China: Antecedents in a technology acceptance model</a></div>
+                    <div class="publication-authors">Menglei Jiang, Caiyun Cui, Bo Xia, Martin Skitmore, Yongjian Ke, Yong Liu</div>
+                    <div class="publication-journal">Sustainability</div>
+                </div>
+
+                <div class="publication">
+                    <div class="publication-title"><a href="https://doi.org/10.1016/j.eiar.2025.107808" target="_blank">Evaluating the resilience of social license to operate towards NIMBY facilities: A cloud model-based approach</a></div>
+                    <div class="publication-authors">Tao Jiang, Zhenchao Xu, Xinyao He, Bo Xia, Yongjian Ke, Martin Skitmore, Yong Liu</div>
+                    <div class="publication-journal">Environmental Impact Assessment Review</div>
+                </div>
+
+                <div class="publication">
+                    <div class="publication-title"><a href="https://doi.org/10.1061/JPCFEV.CFENG-4862" target="_blank">The causation of design error in the construction industry: A multi-stakeholder perspective</a></div>
+                    <div class="publication-authors">Shang Zhang, Riza Yosia Sunindijo, Jinpeng Wang, Zhenwen Su, Yongjian Ke, Xiaoping Liu</div>
+                    <div class="publication-journal">Journal of Performance of Constructed Facilities</div>
+                </div>
+
+                <div class="publication">
+                    <div class="publication-title"><a href="https://doi.org/10.1002/sd.3086" target="_blank">Towards sustainable development: assessing social sustainability of Australian aged care system</a></div>
+                    <div class="publication-authors">Kun Wang, Yongjian Ke</div>
+                    <div class="publication-journal">Sustainable Development</div>
+                </div>
+
+                <div class="publication">
+                    <div class="publication-title"><a href="https://doi.org/10.1038/s41598-024-72372-5" target="_blank">A dynamic framework for contractors to measure the performance of highway maintenance based on grey theory</a></div>
+                    <div class="publication-authors">Xuelian Wu, Xiaoli Shi, Yongjian Ke, Yuhuan Li, Malongzhi Wan, Xiaotian Gong</div>
+                    <div class="publication-journal">Scientific Reports</div>
+                </div>
+
+                <div class="publication">
+                    <div class="publication-title"><a href="https://doi.org/10.3390/buildings14092953" target="_blank">How socially sustainable is the institutional care environment in China: A content analysis of media reporting</a></div>
+                    <div class="publication-authors">Kun Wang, Yongjian Ke, Shankar Sankaran</div>
+                    <div class="publication-journal">Buildings</div>
+                </div>
+
+                <div class="publication">
+                    <div class="publication-title"><a href="https://doi.org/10.1057/s41599-024-03733-8" target="_blank">Developing a suitability assessment model for public private partnerships: A case in urban China</a></div>
+                    <div class="publication-authors">Zhe Cheng, Yixin Zhu, Huanming Wang, Yongjian Ke</div>
+                    <div class="publication-journal">Humanities and Social Sciences Communications</div>
+                </div>
+
+                <div class="publication">
+                    <div class="publication-title"><a href="https://doi.org/10.1016/j.eiar.2024.107631" target="_blank">Impact of psychological distance on public acceptance of waste-to-energy combustion projects</a></div>
+                    <div class="publication-authors">Qianqian Zhou, Xiaoyan Luo, Xin Gao, Bo Xia, Yongjian Ke, Martin Skitmore, Yong Liu</div>
+                    <div class="publication-journal">Environmental Impact Assessment Review</div>
+                </div>
+
+                <div class="publication">
+                    <div class="publication-title"><a href="https://doi.org/10.1016/J.RESOURPOL.2024.105242" target="_blank">Exploring the effect of procedural fairness on the social license to operate of resource development projects: A meta-analysis</a></div>
+                    <div class="publication-authors">Keying Jin, Shiwang Yu, Bo Xia, Yongjian Ke, Martin Skitmore, Yong Liu</div>
+                    <div class="publication-journal">Resources Policy</div>
+                </div>
+
+                <div class="publication">
+                    <div class="publication-title"><a href="https://doi.org/10.1080/09537287.2022.2146018" target="_blank">A (meta)governance framework for multi-level governance of inter-organizational project networks</a></div>
+                    <div class="publication-authors">Ralf Müller, Charlotte Alix-Séguin, Raimonda Alonderienė, Mario Bourgault, Alfredas Chmieliauskas, Nathalie Drouin, Yongjian Ke, Inga Minelgaite, Margarita Pilkienė, Saulius Šimkonis, Christine Unterhitzenberger, Anne Live Vaagaasar, Linzhuo Wang, Fangwei Zhu</div>
+                    <div class="publication-journal">Production Planning & Control</div>
+                </div>
+
+                <div class="publication">
+                    <div class="publication-title"><a href="https://doi.org/10.1016/j.spc.2024.04.031" target="_blank">Social sustainability of communities: A systematic literature review</a></div>
+                    <div class="publication-authors">Kun Wang, Yongjian Ke</div>
+                    <div class="publication-journal">Sustainable Production and Consumption</div>
+                </div>
+
+                <div class="publication">
+                    <div class="publication-title"><a href="https://doi.org/10.1002/sd.2654" target="_blank">The social pillar of sustainable development: measurement and current status of social sustainability of aged care projects in China</a></div>
+                    <div class="publication-authors">Kun Wang, Yongjian Ke, Shankar Sankaran</div>
+                    <div class="publication-journal">Sustainable Development</div>
+                </div>
+
+                <div class="publication">
+                    <div class="publication-title"><a href="https://doi.org/10.1080/15623599.2023.2245629" target="_blank">Public-private partnerships: pro-cyclical or counter-cyclical? An empirical study</a></div>
+                    <div class="publication-authors">Vicente Alcaraz Carrillo de Albornoz, Yongjian Ke, Juan Molina Millán</div>
+                    <div class="publication-journal">International Journal of Construction Management</div>
+                </div>
+
+                <div class="publication">
+                    <div class="publication-title"><a href="https://doi.org/10.1108/BEPAM-02-2024-207" target="_blank">Guest editorial: Public private partnerships: past, present and future</a></div>
+                    <div class="publication-authors">Boeing Laishram, Ganesh Devkar, Yongjian Ke, Ahmed Abdel Aziz</div>
+                    <div class="publication-journal">Built Environment Project and Asset Management</div>
+                </div>
+
+                <div class="publication">
+                    <div class="publication-title"><a href="https://doi.org/10.1108/BEPAM-01-2023-0009" target="_blank">Making sense of the definition of public-private partnerships</a></div>
+                    <div class="publication-authors">Yongjian Ke, Zhe Cheng, Jingxiao Zhang, Yong Liu</div>
+                    <div class="publication-journal">Built Environment Project and Asset Management</div>
+                </div>
+              
+                <a href="https://scholar.google.com.au/citations?user=8hby4hcAAAAJ" target="_blank" class="view-more">View full publication list on Google Scholar →</a>
+            </div>
+            
+            <footer>
+                <p>Last updated: August 2025</p>
+                <p>© Associate Professor Yongjian Ke. All rights reserved.</p>
+            </footer>
+        </main>
+    </div>
+</html>
