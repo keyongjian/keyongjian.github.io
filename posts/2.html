@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yongjian Ke @ UTS</title>
+    <style>
+        :root {
+            --primary-color: #1e3a5f;
+            --secondary-color: #f0f4f8;
+            --accent-color: #3d7b9e;
+            --text-color: #2d3748;
+            --light-text: #4a5568;
+            --border-color: #e2e8f0;
+            --highlight: #f6ad55;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f8fafc;
+        }
+        
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+        
+        .sidebar {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2.5rem 1.5rem;
+            position: relative;
+        }
+        
+        .main-content {
+            padding: 2.5rem;
+            background-color: white;
+        }
+        
+        h1, h2, h3 {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            font-weight: 700;
+        }
+        
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+        
+        h2 {
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 3rem;
+            height: 3px;
+            background-color: var(--highlight);
+        }
+        
+        h3 {
+            font-size: 1.2rem;
+            margin: 1.5rem 0 0.75rem;
+            color: var(--accent-color);
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        ul {
+            list-style-type: none;
+            margin-bottom: 1.5rem;
+        }
+        
+        li {
+            margin-bottom: 0.75rem;
+            position: relative;
+            padding-left: 1.25rem;
+        }
+        
+        li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+        }
+        
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        a:hover {
+            color: var(--highlight);
+        }
+        
+        .profile-header {
+            margin-bottom: 2rem;
+        }
+        
+        .profile-title {
+            color: white;
+            margin-bottom: 0.25rem;
+        }
+        
+        .profile-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        .profile-pronunciation {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+        
+        .profile-image {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.75rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+        }
+        
+        .contact-item a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .contact-item a:hover {
+            color: white;
+        }
+        
+        .contact-icon {
+            margin-right: 0.75rem;
+            width: 1rem;
+            height: 1rem;
+            opacity: 0.8;
+        }
+        
+        .sidebar-section {
+            margin-bottom: 2rem;
+        }
+        
+        .sidebar-heading {
+            color: white;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .profile-links {
+            margin-top: 0.5rem;
+        }
+        
+        .profile-link {
+            display: block;
+            padding: 0.5rem 0.75rem;
+            margin-bottom: 0.5rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+        
+        .profile-link:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            transform: translateX(3px);
+        }
+        
+        .profile-link-text {
+            display: flex;
+            align-items: center;
+        }
+        
+        .profile-link-logo {
+            width: 16px;
+            height: 16px;
+            margin-right: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .section {
+            margin-bottom: 3rem;
+        }
+        
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .research-card {
+            background-color: var(--secondary-color);
+            padding: 1.5rem;
+            border-radius: 4px;
+            border-left: 3px solid var(--accent-color);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .research-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .research-card h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+        
+        .research-card p {
+            color: var(--light-text);
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+        
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .tag {
+            background-color: var(--secondary-color);
+            color: var(--accent-color);
+            font-size: 0.85rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 2rem;
+            transition: background-color 0.2s;
+        }
+        
+        .tag:hover {
+            background-color: #e2e8f0;
+        }
+        
+        .publication {
+            padding: 1.25rem;
+            border-left: 3px solid transparent;
+            margin-bottom: 0.25rem;
+            transition: border-color 0.2s, background-color 0.2s;
+        }
+        
+        .publication:hover {
+            border-left-color: var(--highlight);
+            background-color: var(--secondary-color);
+        }
+        
+        .publication-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .publication-authors {
+            font-size: 0.95rem;
+            color: var(--light-text);
+            margin-bottom: 0.25rem;
+        }
+        
+        .publication-journal {
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            font-style: italic;
+        }
+        
+        .view-more {
+            display: inline-block;
+            margin-top: 1rem;
+            font-weight: 600;
+        }
+        
+        footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--light-text);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 900px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                padding: 2rem 1.5rem;
+            }
+            
+            .profile-image {
+                width: 100px;
+                height: 100px;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .main-content {
+                padding: 1.5rem;
+            }
+            
+            .research-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="profile-header">
+                <div class="profile-image">
+                <img src="../files/yongjian.jpeg" alt="Yongjian Ke" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;" />
+                </div>
+                <h1 class="profile-title">Yongjian Ke</h1>
+                <div class="profile-subtitle">Associate Professor @ UTS</div>
+                <div class="profile-pronunciation">(Pronounced "yong-jyen ker")</div>
+            </div>
+            
+            <div class="sidebar-section">
+                <h2 class="sidebar-heading">Contact</h2>
+                <div class="contact-item">
+                    <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    <a href="mailto:Yongjian.Ke@uts.edu.au">Yongjian.Ke@uts.edu.au</a>
+                </div>
+                <div class="contact-item">
+                    <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <a href="https://maps.app.goo.gl/cz8Apj4tEcQkfwbs9" target="_blank">City Campus CB06.05.022</a>
+                </div>
+                <div class="contact-item">
+                    <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                    </svg>
+                    <a href="https://pm-professor.com">pm-professor.com</a>
+                </div>
+            </div>
+            
+            <div class="sidebar-section">
+                <h2 class="sidebar-heading">Academic Profiles</h2>
+                <div class="profile-links">
+                    <a href="https://www.linkedin.com/in/pm-professor" target="_blank" class="profile-link">
+                        <span class="profile-link-text">
+                            <span class="profile-link-logo">in</span>
+                            LinkedIn
+                        </span>
+                    </a>
+                    <a href="https://scholar.google.com.au/citations?user=8hby4hcAAAAJ" target="_blank" class="profile-link">
+                        <span class="profile-link-text">
+                            <span class="profile-link-logo">G</span>
+                            Google Scholar
+                        </span>
+                    </a>
+                    <a href="https://profiles.uts.edu.au/yongjian.ke" target="_blank" class="profile-link">
+                        <span class="profile-link-text">
+                            <span class="profile-link-logo">U</span>
+                            UTS Profile
+                        </span>
+                    </a>
+                    <a href="https://orcid.org/0000-0003-3426-703X" target="_blank" class="profile-link">
+                        <span class="profile-link-text">
+                            <span class="profile-link-logo">iD</span>
+                            ORCID
+                        </span>
+                    </a>
+                    <a href="https://www.researchgate.net/profile/Yongjian-Ke" target="_blank" class="profile-link">
+                        <span class="profile-link-text">
+                            <span class="profile-link-logo">RG</span>
+                            ResearchGate
+                        </span>
+                    </a>
+                    <a href="https://www.webofscience.com/wos/author/record/C-6071-2014" target="_blank" class="profile-link">
+                        <span class="profile-link-text">
+                            <span class="profile-link-logo">W</span>
+                            ResearcherID
+                        </span>
+                    </a>
+                    <a href="../files/CV_Ke.pdf" target="_blank" class="profile-link">
+                        <span class="profile-link-text">
+                            <span class="profile-link-logo">CV</span>
+                            Curriculum Vitae
+                        </span>
+                    </a>
+                </div>
+            </div>
+            
+        </aside>
+        
+        <main class="main-content">
+            
+            <div class="section">
+                <h2>Advancing social sustainability in aged care</h2>
+                <p>Working with my PhD graduate, Dr Kun Wang, I have helped develop an evidence-based program that defines, measures, and improves the social sustainability of aged-care systems and projects across China and Australia. Her work integrates systematic review, content analysis, project case studies (including PPPs), cross-country assessment, and a practice-oriented preprint, creating a coherent path from concepts to indicators to implementation.</p>
+                <h3>1) Foundations: concepts, indicators, and cross-country assessment</h3>
+                <p>We began by consolidating what “social sustainability” means at community and care-delivery levels. Dr Wang's systematic review mapped core constructs (e.g., equity, inclusion, participation, wellbeing, cohesion) and operationalised them into measurable indicators usable by researchers and commissioners (Wang & Ke, 2024a). Building on that conceptual base, she assessed Australia's aged-care system through a structured indicator set, demonstrating how country-level policies and service models can be appraised consistently for social outcomes (Wang & Ke, 2024b). In parallel, we quantified the “social pillar” of sustainable development in Chinese aged-care projects, providing a baseline of current practice and a diagnostic view of where improvement is most needed (Wang et al., 2024b). Together, these studies move the field beyond high-level statements toward repeatable, indicator-driven evaluation that is comparable across settings.</p>
+                <h3>2) Public discourse and lived experience: what media reveal</h3>
+                <p>To understand societal expectations and pain points, Dr Wang analysed news reporting on home- and community-based long-term care in China (Wang et al., 2021). The findings surface recurring concerns—access, affordability, quality, workforce capacity, and family burden—that shape public legitimacy for reforms. A companion content analysis of media reporting on institutional care highlights how the built environment, staffing, and care processes are framed and scrutinised in practice (Wang et al., 2024a). These studies complement indicator frameworks by showing how social acceptability is constructed in the public sphere: what citizens read, share, and worry about becomes a de facto checklist for socially sustainable care.</p>
+                <h3>3) Delivery mechanisms: PPP pathways and project-level practice</h3>
+                <p>Because governance and contracting influence social outcomes, Dr Wang examined how public-private partnerships (PPPs) can support socially sustainable aged-care delivery. A case study of Sydney's Northern Beaches Hospital PPP traces how contractual choices, risk allocation, performance incentives, and stakeholder engagement relate to social outcomes in a complex health-infrastructure setting (Wang et al., 2022). Extending this line, a study of aged-care PPPs in China identifies critical practices and realisation paths—translating high-level social objectives into procurement requirements, performance criteria, and day-to-day management behaviours that affect dignity, access, and continuity of care (Wang et al., 2023). These papers demonstrate that social sustainability is not an “add-on”; it must be designed into delivery models and backed by enforceable metrics.</p>
+                <h3>4) Integration and application: a practice-oriented case guide</h3>
+                <p>Dr Wang's most recent preprint distils the above strands into an applied, case-based guide for achieving social sustainability in PPP aged-care projects in China (Wang et al., 2025). It shows how to (i) select context-appropriate indicators, (ii) embed them contractually and managerially, and (iii) track them over time to support continuous improvement. In practical terms, it turns the conceptual and empirical insights from earlier work into a stepwise approach for commissioners and providers tasked with delivering measurable social value.</p>
+                <h3>What this program of research contributes</h3>
+                <p>Across eight publications, Dr Wang's contributions provide:</p>
+                <ul>
+                    <li>A consolidated indicator toolkit for social sustainability at system and project levels (Wang & Ke, 2024a, 2024b; Wang et al., 2024b).</li>
+                    <li>Evidence on public expectations and legitimacy drawn from media discourse in both community-based and institutional care (Wang et al., 2021; Wang et al., 2024a).</li>
+                    <li>Actionable pathways inside delivery models, especially PPPs, linking procurement design, performance management, and stakeholder engagement to social outcomes (Wang et al., 2022, 2023).</li>
+                    <li>An applied case guide that operationalises “social sustainability” for decision-makers responsible for commissioning and running aged-care services (Wang et al., 2025).</li>
+                </ul>
+                <p>For my website audience—policy leaders, providers, and researchers—the takeaway is clear: if we want aged-care systems and projects to be socially sustainable, we must (1) measure what matters to people, (2) align contracts and governance with those measures, and (3) track performance transparently over time. Dr Wang's work offers the integrated evidence base to do exactly that.</p>
+                <h3>Journal papers discussed on this page</h3>
+                <ul> 
+                    <li>Wang, K., Ke, Y., &amp; Sankaran, S. (2025). Achieving social sustainability in public-private partnership aged care projects: A Chinese case study. <i>Preprints</i>. <a href="https://doi.org/10.20944/preprints202508.0746.v1">https://doi.org/10.20944/preprints202508.0746.v1</a></li>
+                    <li>Wang, K., &amp; Ke, Y. (2024a). Social sustainability of communities: A systematic literature review. <i>Sustainable Production and Consumption</i>, <i>47</i>, 585-597. <a href="https://doi.org/10.1016/j.spc.2024.04.031">https://doi.org/10.1016/j.spc.2024.04.031</a></li> 
+                    <li>Wang, K., &amp; Ke, Y. (2024b). Towards sustainable development: Assessing social sustainability of Australian aged care system. <i>Sustainable Development</i>, <i>32</i>(6), 7186-7200. <a href="https://doi.org/10.1002/sd.3086">https://doi.org/10.1002/sd.3086</a></li> 
+                    <li>Wang, K., Ke, Y., &amp; Sankaran, S. (2024a). How socially sustainable is the institutional care environment in China: A content analysis of media reporting. <i>Buildings</i>, <i>14</i>(9), 2953. <a href="https://doi.org/10.3390/buildings14092953">https://doi.org/10.3390/buildings14092953</a></li> 
+                    <li>Wang, K., Ke, Y., &amp; Sankaran, S. (2024b). The social pillar of sustainable development: Measurement and current status of social sustainability of aged care projects in China. <i>Sustainable Development</i>, <i>32</i>(1), 227-243. <a href="https://doi.org/10.1002/sd.2654">https://doi.org/10.1002/sd.2654</a></li> 
+                    <li>Wang, K., Ke, Y., &amp; Sankaran, S. (2023). Social sustainability of aged care public-private partnership projects in China: Critical practices and realisation paths. <i>Journal of Cleaner Production</i>, <i>422</i>, 138644. <a href="https://doi.org/10.1016/j.jclepro.2023.138644">https://doi.org/10.1016/j.jclepro.2023.138644</a></li> 
+                    <li>Wang, K., Ke, Y., Liu, T., &amp; Sankaran, S. (2022). Social sustainability in public-private partnership projects: Case study of the Northern Beaches Hospital in Sydney. <i>Engineering, Construction and Architectural Management</i>, <i>29</i>(6), 2437-2460. <a href="https://doi.org/10.1108/ECAM-10-2020-0835">https://doi.org/10.1108/ECAM-10-2020-0835</a></li> 
+                    <li>Wang, K., Ke, Y., Sankaran, S., &amp; Xia, B. (2021). Problems in the home and community-based long-term care for the elderly in China: A content analysis of news coverage. <i>International Journal of Health Planning and Management</i>, <i>36</i>(5), 1727-1741. <a href="https://doi.org/10.1002/hpm.3255">https://doi.org/10.1002/hpm.3255</a></li> 
+                </ul>
+            </div>        
+            
+            <footer>
+                <p>Last updated: August 2025</p>
+                <p>© Associate Professor Yongjian Ke. All rights reserved.</p>
+            </footer>
+        </main>
+    </div>
+</html>
