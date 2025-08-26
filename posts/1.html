@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yongjian Ke @ UTS</title>
+    <style>
+        :root {
+            --primary-color: #1e3a5f;
+            --secondary-color: #f0f4f8;
+            --accent-color: #3d7b9e;
+            --text-color: #2d3748;
+            --light-text: #4a5568;
+            --border-color: #e2e8f0;
+            --highlight: #f6ad55;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f8fafc;
+        }
+        
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+        
+        .sidebar {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2.5rem 1.5rem;
+            position: relative;
+        }
+        
+        .main-content {
+            padding: 2.5rem;
+            background-color: white;
+        }
+        
+        h1, h2, h3 {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            font-weight: 700;
+        }
+        
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+        
+        h2 {
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 3rem;
+            height: 3px;
+            background-color: var(--highlight);
+        }
+        
+        h3 {
+            font-size: 1.2rem;
+            margin: 1.5rem 0 0.75rem;
+            color: var(--accent-color);
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        ul {
+            list-style-type: none;
+            margin-bottom: 1.5rem;
+        }
+        
+        li {
+            margin-bottom: 0.75rem;
+            position: relative;
+            padding-left: 1.25rem;
+        }
+        
+        li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+        }
+        
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        a:hover {
+            color: var(--highlight);
+        }
+        
+        .profile-header {
+            margin-bottom: 2rem;
+        }
+        
+        .profile-title {
+            color: white;
+            margin-bottom: 0.25rem;
+        }
+        
+        .profile-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        .profile-pronunciation {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+        
+        .profile-image {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.75rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+        }
+        
+        .contact-item a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .contact-item a:hover {
+            color: white;
+        }
+        
+        .contact-icon {
+            margin-right: 0.75rem;
+            width: 1rem;
+            height: 1rem;
+            opacity: 0.8;
+        }
+        
+        .sidebar-section {
+            margin-bottom: 2rem;
+        }
+        
+        .sidebar-heading {
+            color: white;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .profile-links {
+            margin-top: 0.5rem;
+        }
+        
+        .profile-link {
+            display: block;
+            padding: 0.5rem 0.75rem;
+            margin-bottom: 0.5rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+        
+        .profile-link:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            transform: translateX(3px);
+        }
+        
+        .profile-link-text {
+            display: flex;
+            align-items: center;
+        }
+        
+        .profile-link-logo {
+            width: 16px;
+            height: 16px;
+            margin-right: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .section {
+            margin-bottom: 3rem;
+        }
+        
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .research-card {
+            background-color: var(--secondary-color);
+            padding: 1.5rem;
+            border-radius: 4px;
+            border-left: 3px solid var(--accent-color);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .research-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .research-card h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+        
+        .research-card p {
+            color: var(--light-text);
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+        
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .tag {
+            background-color: var(--secondary-color);
+            color: var(--accent-color);
+            font-size: 0.85rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 2rem;
+            transition: background-color 0.2s;
+        }
+        
+        .tag:hover {
+            background-color: #e2e8f0;
+        }
+        
+        .publication {
+            padding: 1.25rem;
+            border-left: 3px solid transparent;
+            margin-bottom: 0.25rem;
+            transition: border-color 0.2s, background-color 0.2s;
+        }
+        
+        .publication:hover {
+            border-left-color: var(--highlight);
+            background-color: var(--secondary-color);
+        }
+        
+        .publication-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .publication-authors {
+            font-size: 0.95rem;
+            color: var(--light-text);
+            margin-bottom: 0.25rem;
+        }
+        
+        .publication-journal {
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            font-style: italic;
+        }
+        
+        .view-more {
+            display: inline-block;
+            margin-top: 1rem;
+            font-weight: 600;
+        }
+        
+        footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--light-text);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 900px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                padding: 2rem 1.5rem;
+            }
+            
+            .profile-image {
+                width: 100px;
+                height: 100px;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .main-content {
+                padding: 1.5rem;
+            }
+            
+            .research-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="profile-header">
+                <div class="profile-image">
+                <img src="../files/yongjian.jpeg" alt="Yongjian Ke" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;" />
+                </div>
+                <h1 class="profile-title">Yongjian Ke</h1>
+                <div class="profile-subtitle">Associate Professor @ UTS</div>
+                <div class="profile-pronunciation">(Pronounced "yong-jyen ker")</div>
+            </div>
+            
+            <div class="sidebar-section">
+                <h2 class="sidebar-heading">Contact</h2>
+                <div class="contact-item">
+                    <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    <a href="mailto:Yongjian.Ke@uts.edu.au">Yongjian.Ke@uts.edu.au</a>
+                </div>
+                <div class="contact-item">
+                    <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <a href="https://maps.app.goo.gl/cz8Apj4tEcQkfwbs9" target="_blank">City Campus CB06.05.022</a>
+                </div>
+                <div class="contact-item">
+                    <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                    </svg>
+                    <a href="https://pm-professor.com">pm-professor.com</a>
+                </div>
+            </div>
+            
+            <div class="sidebar-section">
+                <h2 class="sidebar-heading">Academic Profiles</h2>
+                <div class="profile-links">
+                    <a href="https://www.linkedin.com/in/pm-professor" target="_blank" class="profile-link">
+                        <span class="profile-link-text">
+                            <span class="profile-link-logo">in</span>
+                            LinkedIn
+                        </span>
+                    </a>
+                    <a href="https://scholar.google.com.au/citations?user=8hby4hcAAAAJ" target="_blank" class="profile-link">
+                        <span class="profile-link-text">
+                            <span class="profile-link-logo">G</span>
+                            Google Scholar
+                        </span>
+                    </a>
+                    <a href="https://profiles.uts.edu.au/yongjian.ke" target="_blank" class="profile-link">
+                        <span class="profile-link-text">
+                            <span class="profile-link-logo">U</span>
+                            UTS Profile
+                        </span>
+                    </a>
+                    <a href="https://orcid.org/0000-0003-3426-703X" target="_blank" class="profile-link">
+                        <span class="profile-link-text">
+                            <span class="profile-link-logo">iD</span>
+                            ORCID
+                        </span>
+                    </a>
+                    <a href="https://www.researchgate.net/profile/Yongjian-Ke" target="_blank" class="profile-link">
+                        <span class="profile-link-text">
+                            <span class="profile-link-logo">RG</span>
+                            ResearchGate
+                        </span>
+                    </a>
+                    <a href="https://www.webofscience.com/wos/author/record/C-6071-2014" target="_blank" class="profile-link">
+                        <span class="profile-link-text">
+                            <span class="profile-link-logo">W</span>
+                            ResearcherID
+                        </span>
+                    </a>
+                    <a href="../files/CV_Ke.pdf" target="_blank" class="profile-link">
+                        <span class="profile-link-text">
+                            <span class="profile-link-logo">CV</span>
+                            Curriculum Vitae
+                        </span>
+                    </a>
+                </div>
+            </div>
+            
+        </aside>
+        
+        <main class="main-content">
+            
+            <div class="section">
+                <h2>Social licence and public acceptance in infrastructure projects</h2>
+                <h3>What my program of research shows, in brief</h3>
+                <p>Across ten papers spanning field surveys, behavioural experiments, meta-analysis, modelling, and bibliometric mapping, my collaboration with Prof. Yong Liu from Zhejiang Sci-Tech University shows that communities judge contentious infrastructure, especially waste-to-energy incineration, through a layered blend of procedural fairness, emotions and narratives, and perceived distance and power asymmetry. “Social licence to operate” and “public acceptance” are related but not identical lenses. Social licence captures the ongoing, conditional nature of community consent, and its vulnerability to sudden shifts, while public acceptance often reflects a point-in-time attitude. Together, the studies show that social licence and public acceptance can be measured, explained, and strengthened when proponents, regulators, and communities co-produce fair processes, transparent information, and visible local benefits (He et al., 2023; Xu et al., 2023).</p>
+                <h3>Conceptual foundations, public acceptance versus social licence</h3>
+                <p>The comparative study in Land Use Policy disentangles public acceptance and social licence to operate in a NIMBY setting. It argues that social licence better reflects relational legitimacy, such as trust, reciprocity, and fairness, than a static attitude score. It positions social licence as a multidimensional, maintainable state that is earned and preserved over time, not simply captured at a single survey wave (Xu et al., 2023).</p>
+                <p>Complementing this, our empirical assessment across waste-to-energy facilities in the Yangtze River Delta finds that baseline social licence levels are relatively low and uneven, with clear structure across dimensions. Practical levers include information disclosure, procedural justice, and community education (He et al., 2023). This helps explain why social licence can lag behind legal approval, since what matters locally is how decisions are made and who bears risks and gains, not only what is technically safe.</p>
+                <h3>What builds, or breaks, acceptance</h3>
+                <p><strong>1) Procedural fairness</strong></p>
+                <p>Two quantitative syntheses point to the same finding, process fairness matters. Our meta-analysis shows that perceived procedural fairness has a clear positive association with social licence and acceptance across sectors and study designs. The size of the effect varies by context, yet the direction remains positive, fair procedures increase willingness to grant social licence (Jin et al., 2024).</p>
+                <p><strong>Practice implication:</strong> invest up-front in inclusive engagement, two-way influence, and equitable benefit-sharing. These are not add-ons, they are core drivers of legitimacy.</p>
+                <p><strong>2) Emotions and narrative framing</strong></p>
+                <p>Experimental evidence shows that acceptance can shift with emotional framing. Negatively framed, fear-inducing information increases perceived risks and opposition, whereas positively framed, efficacy-building narratives increase support. This “emotional amplification” aligns with emotional contagion theory and loss aversion, and it reminds us that attitudes are not formed in a vacuum of technical facts (Jiang, Luo, Xia, Ke, Skitmore, & Liu, 2025).</p>
+                <p><strong>Practice implication:</strong> treat communication as dialogue, not one-way transmission. Acknowledge fears, be transparent about uncertainty, and use trusted messengers to prevent emotive counter-narratives from eroding social licence.</p>
+                <p><strong>3) Distance and power asymmetry</strong></p>
+                <p>Initial work shows that spatial distance shapes perceptions, those who feel “closer” to a facility perceive higher risks and fewer benefits (Zhou, Xu, Liu, Cui, Xia, Ke, & Skitmore, 2022). Follow-on work integrates psychological distance with power distance, showing that narrowing perceived power gaps, by placing authorities and communities on a more equal footing, increases acceptance, even when physical proximity is close (Zhou, Luo, Gao, Xia, Ke, Skitmore, & Liu, 2024).</p>
+                <p><strong>Practice implication:</strong> go beyond siting metrics. Share decision power through co-design, citizen panels, and independent monitoring to counter NIMBY responses rooted in perceived exclusion.</p>
+                <p><strong>4) Social-cognitive pathways</strong></p>
+                <p>Using social cognitive theory, a large-sample study identifies how risk and benefit beliefs, self- and collective-efficacy, and social influence shape acceptance intentions, and it maps policy levers to each construct, for example efficacy-building communication and visible local benefits (Bao et al., 2023).</p>
+                <p><strong>Practice implication:</strong> build capability and agency in host communities, not only knowledge. People support projects when they believe they can influence outcomes and will share in the benefits.</p>
+                <h3>Measuring and strengthening social licence over time, resilience</h3>
+                <p>A cloud-model framework proposes indicators for social-licence resilience, the capacity of acceptance to withstand shocks, for example accidents, rumours, policy changes. The model partitions contributions from government, business, and community, and it highlights information disclosure, procedural fairness, and public education as pillars of resilience. A case application shows where social licence is brittle and how targeted interventions can shore it up before a crisis (Jiang, Xu, He, Xia, Ke, Skitmore, & Liu, 2025).</p>       
+                <p><strong>Practice implication:</strong> treat social licence as part of risk management. Monitor early-warning indicators, institutionalise grievance handling, and maintain open reporting so that social licence remains elastic under stress.</p>    
+                <h3>Taking stock of the field, bibliometric mapping</h3>     
+                <p>A bibliometric analysis maps global SLO scholarship, surfacing core clusters, measurement methods, influencing factors, mechanisms to gain or maintain SLO, and the spatio-temporal evolution of attitudes. It also identifies a geographic skew toward Western contexts, which elevates the value of our China-based evidence for broadening the knowledge base. The study proposes a forward agenda, including comparative, longitudinal, and sector-diverse designs (Chen et al., 2025).</p>
+                <h3>An integrated sequence for practitioners and policymakers</h3>
+                <p>Pooling the ten studies suggests a practical sequence:</p>
+                <ul>
+                    <li>Diagnose the baseline social licence and weak links with a structured dashboard, then prioritise disclosure, fairness, and education (He et al., 2023; Jiang, Xu, He, Xia, Ke, Skitmore, & Liu, 2025).</li>
+                    <li>Design fair processes with genuine influence, since fairness has a consistent positive effect on acceptance (Jin et al., 2024).</li>
+                    <li>Communicate with empathy, manage emotional narratives by acknowledging concerns and providing credible success examples (Jiang, Luo, Xia, Ke, Skitmore, & Liu, 2025).</li>
+                    <li>Close distance and share power, reduce psychological and institutional gaps through citizen panels and open data to convert opposition into partnership (Zhou et al., 2022; Zhou et al., 2024).</li>
+                    <li>Institutionalise resilience, maintain early-warning dashboards, grievance resolution, and community education so social licence can withstand shocks (Jiang, Xu, He, Xia, Ke, Skitmore, & Liu, 2025).</li>
+                </ul>
+                <h3>Closing thought</h3>
+                <p>Across methods and cases, this program reframes social acceptance as co-governance. Communities grant legitimacy when they experience fairness, voice, and credibility, and that legitimacy can be quantified, monitored, and reinforced across a project’s life cycle. This is relevant not only for siting waste-to-energy plants, but for any infrastructure that seeks to operate with its host communities, not merely in them (He et al., 2023; Jin et al., 2024; Chen et al., 2025).</p>
+                <h3>Journal papers discussed on this page</h3>
+                <ul>
+                    <li>Chen, Y., Luo, X., Xu, M., Xia, B., Ke, Y., Skitmore, M., &amp; Liu, Y. (2025). Conceptualizing the state of the art of social license to operate: A visualization-based word frequency analysis. <i>Environmental Science and Policy</i>, <i>171</i>, 104163. <a href="https://doi.org/10.1016/j.envsci.2025.104163">https://doi.org/10.1016/j.envsci.2025.104163</a></li>
+                    <li>Jiang, T., Xu, Z., He, X., Xia, B., Ke, Y., Skitmore, M., &amp; Liu, Y. (2025). Evaluating the resilience of social license to operate towards NIMBY facilities: A cloud model-based approach. <i>Environmental Impact Assessment Review</i>, <i>112</i>, 107808. <a href="https://doi.org/10.1016/j.eiar.2025.107808">https://doi.org/10.1016/j.eiar.2025.107808</a></li>
+                    <li>Jiang, M., Luo, X., Xia, B., Ke, Y., Skitmore, M., &amp; Liu, Y. (2025). Effects of emotional amplification on public perceptions of waste-to-energy incineration facilities: Evidence from a behavioral survey experiment. <i>Energy Efficiency</i>, <i>18</i>, Article 70. <a href="https://doi.org/10.1007/s12053-025-10358-6">https://doi.org/10.1007/s12053-025-10358-6</a></li>
+                    <li>Zhou, Q., Luo, X., Gao, X., Xia, B., Ke, Y., Skitmore, M., &amp; Liu, Y. (2024). Impact of psychological distance on public acceptance of waste-to-energy combustion projects. <i>Environmental Impact Assessment Review</i>, <i>109</i>, 107631. <a href="https://doi.org/10.1016/j.eiar.2024.107631">https://doi.org/10.1016/j.eiar.2024.107631</a></li>
+                    <li>Jin, K., Yu, S., Xia, B., Ke, Y., Skitmore, M., &amp; Liu, Y. (2024). Exploring the effect of procedural fairness on the social license to operate of resource development projects: A meta-analysis. <i>Resources Policy</i>, <i>96</i>, 105242. <a href="https://doi.org/10.1016/j.resourpol.2024.105242">https://doi.org/10.1016/j.resourpol.2024.105242</a></li>
+                    <li>He, X., Xu, M., Cui, C., Xia, B., Ke, Y., Skitmore, M., &amp; Liu, Y. (2023). Evaluating the social license to operate of waste-to-energy incineration projects: A case study from the Yangtze River Delta of China. <i>Journal of Cleaner Production</i>, <i>388</i>, 135966. <a href="https://doi.org/10.1016/j.jclepro.2023.135966">https://doi.org/10.1016/j.jclepro.2023.135966</a></li>
+                    <li>Xu, M., Liu, Y., Cui, C., Xia, B., Ke, Y., &amp; Skitmore, M. (2023). Social acceptance of NIMBY facilities: A comparative study between public acceptance and the social license to operate analytical frameworks. <i>Land Use Policy</i>, <i>124</i>, 106453. <a href="https://doi.org/10.1016/j.landusepol.2022.106453">https://doi.org/10.1016/j.landusepol.2022.106453</a></li>
+                    <li>Bao, W., Chen, Y., Cui, C., Xia, B., Ke, Y., Skitmore, M., &amp; Liu, Y. (2023). How to shape local public acceptance of Not-In-My-Backyard infrastructures? A social cognitive theory perspective. <i>Sustainability</i>, <i>15</i>(22), 15835. <a href="https://doi.org/10.3390/su152215835">https://doi.org/10.3390/su152215835</a></li>
+                    <li>Zhou, Q., Xu, M., Liu, Y., Cui, C., Xia, B., Ke, Y., &amp; Skitmore, M. (2022). Exploring the effects of spatial distance on public perception of waste-to-energy incineration projects. <i>Waste Management</i>, <i>143</i>, 168–176. <a href="https://doi.org/10.1016/j.wasman.2022.02.033">https://doi.org/10.1016/j.wasman.2022.02.033</a></li>
+                    <li>Ge, Y., Cui, C., Zhang, C., Ke, Y., &amp; Liu, Y. (2021). Testing a social-psychological model of public acceptance towards highway infrastructure projects: A case study from China. <i>Engineering, Construction and Architectural Management</i>, <i>28</i>(9), 2772–2787. <a href="https://doi.org/10.1108/ECAM-03-2020-0183">https://doi.org/10.1108/ECAM-03-2020-0183</a></li>
+                </ul>
+            </div>        
+            
+            <footer>
+                <p>Last updated: August 2025</p>
+                <p>© Associate Professor Yongjian Ke. All rights reserved.</p>
+            </footer>
+        </main>
+    </div>
+</html>
