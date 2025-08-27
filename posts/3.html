@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yongjian Ke @ UTS</title>
+    <style>
+        :root {
+            --primary-color: #1e3a5f;
+            --secondary-color: #f0f4f8;
+            --accent-color: #3d7b9e;
+            --text-color: #2d3748;
+            --light-text: #4a5568;
+            --border-color: #e2e8f0;
+            --highlight: #f6ad55;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f8fafc;
+        }
+        
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            min-height: 100vh;
+        }
+        
+        .sidebar {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2.5rem 1.5rem;
+            position: relative;
+        }
+        
+        .main-content {
+            padding: 2.5rem;
+            background-color: white;
+        }
+        
+        h1, h2, h3 {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            font-weight: 700;
+        }
+        
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.2;
+        }
+        
+        h2 {
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 3rem;
+            height: 3px;
+            background-color: var(--highlight);
+        }
+        
+        h3 {
+            font-size: 1.2rem;
+            margin: 1.5rem 0 0.75rem;
+            color: var(--accent-color);
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        ul {
+            list-style-type: none;
+            margin-bottom: 1.5rem;
+        }
+        
+        li {
+            margin-bottom: 0.75rem;
+            position: relative;
+            padding-left: 1.25rem;
+        }
+        
+        li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+        }
+        
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        a:hover {
+            color: var(--highlight);
+        }
+        
+        .profile-header {
+            margin-bottom: 2rem;
+        }
+        
+        .profile-title {
+            color: white;
+            margin-bottom: 0.25rem;
+        }
+        
+        .profile-subtitle {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        .profile-pronunciation {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+        
+        .profile-image {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.75rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+        }
+        
+        .contact-item a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .contact-item a:hover {
+            color: white;
+        }
+        
+        .contact-icon {
+            margin-right: 0.75rem;
+            width: 1rem;
+            height: 1rem;
+            opacity: 0.8;
+        }
+        
+        .sidebar-section {
+            margin-bottom: 2rem;
+        }
+        
+        .sidebar-heading {
+            color: white;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .profile-links {
+            margin-top: 0.5rem;
+        }
+        
+        .profile-link {
+            display: block;
+            padding: 0.5rem 0.75rem;
+            margin-bottom: 0.5rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+        
+        .profile-link:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            transform: translateX(3px);
+        }
+        
+        .profile-link-text {
+            display: flex;
+            align-items: center;
+        }
+        
+        .profile-link-logo {
+            width: 16px;
+            height: 16px;
+            margin-right: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .section {
+            margin-bottom: 3rem;
+        }
+        
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .research-card {
+            background-color: var(--secondary-color);
+            padding: 1.5rem;
+            border-radius: 4px;
+            border-left: 3px solid var(--accent-color);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .research-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .research-card h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+        
+        .research-card p {
+            color: var(--light-text);
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+        
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .tag {
+            background-color: var(--secondary-color);
+            color: var(--accent-color);
+            font-size: 0.85rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 2rem;
+            transition: background-color 0.2s;
+        }
+        
+        .tag:hover {
+            background-color: #e2e8f0;
+        }
+        
+        .publication {
+            padding: 1.25rem;
+            border-left: 3px solid transparent;
+            margin-bottom: 0.25rem;
+            transition: border-color 0.2s, background-color 0.2s;
+        }
+        
+        .publication:hover {
+            border-left-color: var(--highlight);
+            background-color: var(--secondary-color);
+        }
+        
+        .publication-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .publication-authors {
+            font-size: 0.95rem;
+            color: var(--light-text);
+            margin-bottom: 0.25rem;
+        }
+        
+        .publication-journal {
+            font-size: 0.9rem;
+            color: var(--accent-color);
+            font-style: italic;
+        }
+        
+        .view-more {
+            display: inline-block;
+            margin-top: 1rem;
+            font-weight: 600;
+        }
+        
+        footer {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--light-text);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 900px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                padding: 2rem 1.5rem;
+            }
+            
+            .profile-image {
+                width: 100px;
+                height: 100px;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .main-content {
+                padding: 1.5rem;
+            }
+            
+            .research-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="profile-header">
+                <div class="profile-image">
+                <img src="../files/yongjian.jpeg" alt="Yongjian Ke" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;" />
+                </div>
+                <h1 class="profile-title">Yongjian Ke</h1>
+                <div class="profile-subtitle">Associate Professor @ UTS</div>
+                <div class="profile-pronunciation">(Pronounced "yong-jyen ker")</div>
+            </div>
+            
+            <div class="sidebar-section">
+                <h2 class="sidebar-heading">Contact</h2>
+                <div class="contact-item">
+                    <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    <a href="mailto:Yongjian.Ke@uts.edu.au">Yongjian.Ke@uts.edu.au</a>
+                </div>
+                <div class="contact-item">
+                    <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <a href="https://maps.app.goo.gl/cz8Apj4tEcQkfwbs9" target="_blank">City Campus CB06.05.022</a>
+                </div>
+                <div class="contact-item">
+                    <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                    </svg>
+                    <a href="https://pm-professor.com">pm-professor.com</a>
+                </div>
+            </div>
+            
+            <div class="sidebar-section">
+                <h2 class="sidebar-heading">Academic Profiles</h2>
+                <div class="profile-links">
+                    <a href="https://www.linkedin.com/in/pm-professor" target="_blank" class="profile-link">
+                        <span class="profile-link-text">
+                            <span class="profile-link-logo">in</span>
+                            LinkedIn
+                        </span>
+                    </a>
+                    <a href="https://scholar.google.com.au/citations?user=8hby4hcAAAAJ" target="_blank" class="profile-link">
+                        <span class="profile-link-text">
+                            <span class="profile-link-logo">G</span>
+                            Google Scholar
+                        </span>
+                    </a>
+                    <a href="https://profiles.uts.edu.au/yongjian.ke" target="_blank" class="profile-link">
+                        <span class="profile-link-text">
+                            <span class="profile-link-logo">U</span>
+                            UTS Profile
+                        </span>
+                    </a>
+                    <a href="https://orcid.org/0000-0003-3426-703X" target="_blank" class="profile-link">
+                        <span class="profile-link-text">
+                            <span class="profile-link-logo">iD</span>
+                            ORCID
+                        </span>
+                    </a>
+                    <a href="https://www.researchgate.net/profile/Yongjian-Ke" target="_blank" class="profile-link">
+                        <span class="profile-link-text">
+                            <span class="profile-link-logo">RG</span>
+                            ResearchGate
+                        </span>
+                    </a>
+                    <a href="https://www.webofscience.com/wos/author/record/C-6071-2014" target="_blank" class="profile-link">
+                        <span class="profile-link-text">
+                            <span class="profile-link-logo">W</span>
+                            ResearcherID
+                        </span>
+                    </a>
+                    <a href="../files/CV_Ke.pdf" target="_blank" class="profile-link">
+                        <span class="profile-link-text">
+                            <span class="profile-link-logo">CV</span>
+                            Curriculum Vitae
+                        </span>
+                    </a>
+                </div>
+            </div>
+            
+        </aside>
+        
+        <main class="main-content">
+            
+            <div class="section">
+                <h2>Risk allocation and management in public-private partnerships</h2>
+                <p>Over the past decade and a half, my research program on risk in public-private partnerships (PPPs) has built a cumulative, evidence-based playbook for identifying, assessing, allocating, and governing risk—especially in the Chinese PPP context with insights generalizable to other settings. Taken together, these nine papers (2,758 citations as of 27 Aug 2025) move from foundations (what risks matter and how they should be shared) to methods (how to evaluate and allocate fairly), to practice (what actually happens, why misallocation persists), and finally to sectoral application (how critical risk factors manifest in water PPPs).</p>
+                <h3>Laying the foundations: what to allocate, to whom, and why (2010-2011)</h3>
+                <p>I began by clarifying who should hold which risks in China's PPPs and how those preferences compare across contexts. Two 2010 studies mapped the terrain: one established preferred risk allocation patterns for Chinese PPPs (Ke et al., 2010a), while a comparative analysis showed how risk allocation varies across PPP infrastructure projects by context and project characteristics (Ke et al., 2010b). To support practical decision-making, I co-developed a fuzzy synthetic evaluation model that integrates multiple criteria to assess PPP risks systematically (Xu et al., 2010).</p>
+                <p>In 2011, I extended this base in three ways. First, I led a Delphi study to articulate equitable risk allocation—not merely preferred, but defensible against principles of control and incentive alignment (Ke et al., 2011a). Second, I produced a risk ranking that orders risks by probability and consequence, giving practitioners a prioritized risk landscape (Ke et al., 2011b). Third, with collaborators I documented how Chinese practitioners assess and allocate risks empirically on real PPPs (Chan et al., 2011). This early body of work established a coherent chain: identify salient risks → measure/compare them → allocate to the party best able to manage/mitigate them → verify against practice.</p>
+                <h3>From methods to practice: what's happening on the ground (2012-2013)</h3>
+                <p>Having specified principles and tools, I examined how risk is actually managed in practice and where gaps remain. A survey of risk management practice in China's PPPs mapped common processes and shortfalls—e.g., limited integration between early risk assessment and downstream contract management (Ke et al., 2012). I then investigated risk misallocation—when risks are placed with parties lacking control or capacity—and its consequences for disputes, cost/schedule performance, and value for money (Ke et al., 2013). This work showed that even when organizations know “textbook” allocations, institutional incentives, bargaining power, and information asymmetries can push allocations off-optimal, creating latent vulnerabilities that surface during delivery.</p>
+                <h3>Sectoral specificity: critical risk factors in water PPPs (2015)</h3>
+                <p>To demonstrate portability and nuance, I contributed to a cross-sectional analysis of critical risk factors for PPP water projects in China (Chan et al., 2015). The study highlights sector-specific exposures—demand uncertainty, tariff/affordability risks, regulatory change, and interface risks—showing why allocation must be contextual: even robust general rules (e.g., allocate to the party best able to manage) require tailoring to sector economics, policy regimes, and stakeholder salience.</p>
+                <h3>What this program changes in practice</h3>
+                <p>Across these papers, four practice-ready messages recur:</p>
+                <ul>
+                    <li>Prioritize with evidence. Risk rankings and structured assessment (including fuzzy evaluation) help teams focus resources on the few risks that drive outcomes (Ke et al., 2010b; Ke et al., 2011b; Xu et al., 2010).</li>
+                    <li>Allocate by controllability and incentives. “Equitable” allocation is not equal sharing; it's aligning responsibility with capability to reduce residual risk and transaction costs (Ke et al., 2010a; Ke et al., 2011a).</li>
+                    <li>Watch for misallocation drift. Negotiation dynamics, policy pressure, and optimism bias can distort allocation; governance checks are needed to keep allocations feasible over the life cycle (Ke et al., 2012; Ke et al., 2013).</li>
+                    <li>Context matters. Sector economics and regulatory frameworks (e.g., water tariffs, environmental standards) reshape both the risk set and the feasible allocation (Chan et al., 2015; Chan et al., 2011).</li>
+                </ul>
+                <h3>Methodological through-line</h3>
+                <p>Methodologically, I combine expert elicitation (Delphi), large-sample surveys, comparative analysis, and multi-criteria modeling to triangulate findings. This mixed-methods approach improves external validity (what practitioners prefer and do), internal coherence (allocations track control and incentives), and actionability (tools like fuzzy evaluation can be embedded in PPP appraisal and contracting).</p>
+                <h3>Lasting impact</h3>
+                <p>By linking principles (equitable allocation), tools (risk ranking and fuzzy assessment), practice diagnostics (state of play, misallocation pathways), and sectoral insights (water PPP risk structure), this program provides a governance-first template for PPP risk that agencies and concessionaires can use to design contracts that perform under stress, not just on paper. That, ultimately, is what effective PPP risk management requires.</p>
+                <h3>Journal papers discussed on this page</h3>
+                <ul>
+                    <li>Chan, A. P. C., Lam, P. T. I., Wen, Y., Ameyaw, E. E., Wang, S. Q., &amp; Ke, Y. (2015). Cross-sectional analysis of critical risk factors for PPP water projects in China. <i>Journal of Infrastructure Systems</i>, <i>21</i>(1), 04014031. <a href="https://doi.org/10.1061/(ASCE)IS.1943-555X.0000214">https://doi.org/10.1061/(ASCE)IS.1943-555X.0000214</a></li> 
+                    <li>Ke, Y., Wang, S. Q., &amp; Chan, A. P. C. (2013). Risk misallocation in public-private partnership projects in China. <i>International Public Management Journal</i>, <i>16</i>(3), 438-460. <a href="https://doi.org/10.1080/10967494.2013.825508">https://doi.org/10.1080/10967494.2013.825508</a></li> 
+                    <li>Ke, Y., Wang, S. Q., &amp; Chan, A. P. C. (2012). Risk management practice in China's public-private partnership projects. <i>Journal of Civil Engineering and Management</i>, <i>18</i>(5), 675-684. <a href="https://doi.org/10.3846/13923730.2012.723380">https://doi.org/10.3846/13923730.2012.723380</a></li> 
+                    <li>Chan, A. P. C., Yeung, J. F. Y., Yu, C. C. P., Wang, S. Q., &amp; Ke, Y. (2011). Empirical study of risk assessment and allocation of public-private partnership projects in China. <i>Journal of Management in Engineering</i>, <i>27</i>(3), 136-148. <a href="https://doi.org/10.1061/(ASCE)ME.1943-5479.0000049">https://doi.org/10.1061/(ASCE)ME.1943-5479.0000049</a></li> 
+                    <li>Ke, Y., Wang, S. Q., Chan, A. P. C., &amp; Cheung, E. (2011b). Understanding the risks in China's PPP projects: Ranking of their probability and consequence. <i>Engineering, Construction and Architectural Management</i>, <i>18</i>(5), 481-496. <a href="https://doi.org/10.1108/09699981111165176">https://doi.org/10.1108/09699981111165176</a></li> 
+                    <li>Ke, Y., Wang, S. Q., &amp; Chan, A. P. C. (2011a). Equitable risk allocation of projects inside China: Analyses from Delphi survey studies. <i>Chinese Management Studies</i>, <i>5</i>(3), 298-310. <a href="https://doi.org/10.1108/17506141111163372">https://doi.org/10.1108/17506141111163372</a></li> 
+                    <li>Xu, Y., Yeung, J. F. Y., Chan, A. P. C., Chan, D. W. M., Wang, S. Q., &amp; Ke, Y. (2010). Developing a risk assessment model for PPP projects in China: A fuzzy synthetic evaluation approach. <i>Automation in Construction</i>, <i>19</i>(7), 929-943. <a href="https://doi.org/10.1016/j.autcon.2010.06.006">https://doi.org/10.1016/j.autcon.2010.06.006</a></li> 
+                    <li>Ke, Y., Wang, S. Q., &amp; Chan, A. P. C. (2010a). Preferred risk allocation in China's public-private partnership projects. <i>International Journal of Project Management</i>, <i>28</i>(5), 482-492. <a href="https://doi.org/10.1016/j.ijproman.2009.08.007">https://doi.org/10.1016/j.ijproman.2009.08.007</a></li> 
+                    <li>Ke, Y., Wang, S. Q., &amp; Chan, A. P. C. (2010b). Risk allocation in public-private partnership infrastructure projects: Comparative study. <i>Journal of Infrastructure Systems</i>, <i>16</i>(4), 343-351. <a href="https://doi.org/10.1061/(ASCE)IS.1943-555X.0000030">https://doi.org/10.1061/(ASCE)IS.1943-555X.0000030</a></li>
+                </ul>
+            </div>        
+            
+            <footer>
+                <p>Last updated: August 2025</p>
+                <p>© Associate Professor Yongjian Ke. All rights reserved.</p>
+            </footer>
+        </main>
+    </div>
+</html>
