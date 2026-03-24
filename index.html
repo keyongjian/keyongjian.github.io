@@ -11,6 +11,7 @@
     <meta property="og:description" content="Personal website of Associate Professor Yongjian Ke, University of Technology Sydney" />
     <meta property="og:url" content="https://pm-professor.com" />
     <meta property="og:type" content="website" />
+    <meta name="color-scheme" content="light" />
     <style>
       :root {
         --bg: #f3efe7;
@@ -22,6 +23,11 @@
         --accent: #7b4f2a;
         --accent-soft: #efe4d5;
         --max: 820px;
+        --section-x: 38px;
+        --section-y: 28px;
+        --section-gap: 26px;
+        --radius-lg: 20px;
+        --radius-md: 10px;
       }
 
       * {
@@ -62,7 +68,7 @@
       .sheet {
         background: var(--paper);
         border: 1px solid rgba(221, 211, 196, 0.9);
-        border-radius: 20px;
+        border-radius: var(--radius-lg);
         overflow: hidden;
         box-shadow: 0 10px 30px rgba(50, 42, 30, 0.06);
       }
@@ -94,7 +100,7 @@
         padding: 16px 18px;
         background: var(--paper-2);
         border-left: 4px solid var(--accent);
-        border-radius: 10px;
+        border-radius: var(--radius-md);
       }
 
       .summary-note p {
@@ -110,16 +116,16 @@
       }
 
       .section {
-        padding: 0 38px 28px;
+        padding: 0 var(--section-x) var(--section-y);
       }
 
       .section:first-child {
-        padding-top: 26px;
+        padding-top: var(--section-gap);
       }
 
       .section + .section {
         border-top: 1px solid var(--line);
-        padding-top: 26px;
+        padding-top: var(--section-gap);
       }
 
       .section-head {
@@ -207,11 +213,11 @@
         padding: 12px 14px;
         background: var(--paper-2);
         border: 1px solid rgba(123, 79, 42, 0.1);
-        border-radius: 10px;
+        border-radius: var(--radius-md);
       }
 
       footer {
-        padding: 20px 38px 24px;
+        padding: 20px var(--section-x) 24px;
         border-top: 1px solid var(--line);
         color: var(--muted);
         font-size: 0.9rem;
@@ -219,13 +225,20 @@
       }
 
       @media (max-width: 680px) {
+        :root {
+          --section-x: 16px;
+          --section-y: 20px;
+          --section-gap: 18px;
+          --radius-lg: 16px;
+        }
+
         .page {
           width: min(calc(100% - 14px), var(--max));
           margin: 14px auto 20px;
         }
 
         .sheet {
-          border-radius: 16px;
+          border-radius: var(--radius-lg);
         }
 
         .hero {
@@ -234,18 +247,6 @@
         p,
         li {
           font-size: 0.97rem;
-        }
-
-        .section {
-          padding: 0 16px 20px;
-        }
-
-        .section:first-child {
-          padding-top: 18px;
-        }
-
-        .section + .section {
-          padding-top: 18px;
         }
 
         footer {
@@ -361,15 +362,15 @@
             </p>
             <ul class="reading-list">
               <li>
-                <a href="1.html" target="_blank">Social licence and public acceptance in infrastructure projects</a><br>
+                <a href="1.html" target="_blank" rel="noopener noreferrer">Social licence and public acceptance in infrastructure projects</a><br>
                 Why technically approved projects still face resistance, how social licence differs from public acceptance, and what this means for governing contentious infrastructure.
               </li>
               <li>
-                <a href="2.html" target="_blank">Advancing social sustainability in aged care</a><br>
+                <a href="2.html" target="_blank" rel="noopener noreferrer">Advancing social sustainability in aged care</a><br>
                 How social sustainability can be understood, assessed, and strengthened in aged care systems, with attention to access, workforce conditions, and lived experience.
               </li>
               <li>
-                <a href="3.html" target="_blank">Risk allocation and management in public private partnerships</a><br>
+                <a href="3.html" target="_blank" rel="noopener noreferrer">Risk allocation and management in public private partnerships</a><br>
                 Why risk allocation is a governance choice that shapes behaviour, incentives, and long-term outcomes, rather than a contractual afterthought.
               </li>
             </ul>
@@ -381,31 +382,31 @@
               <h2>Start here</h2>
             </div>
             <p>
-              A small set of entry points into my work. I keep this list short by design. For the complete publication record, please use <a href="https://scholar.google.com.au/citations?user=8hby4hcAAAAJ&hl=en" target="_blank">Google Scholar</a>.
+              A small set of entry points into my work. I keep this list short by design. For the complete publication record, please use <a href="https://scholar.google.com.au/citations?user=8hby4hcAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>.
             </p>
             <ul class="reading-list">
               <li>
-                <a href="https://doi.org/10.1016/j.ijproman.2009.08.007" target="_blank">Preferred risk allocation in China's public-private partnership (PPP) projects</a> (my most cited paper)<br>
+                <a href="https://doi.org/10.1016/j.ijproman.2009.08.007" target="_blank" rel="noopener noreferrer">Preferred risk allocation in China's public-private partnership (PPP) projects</a> (my most cited paper)<br>
                 <i>International Journal of Project Management</i>, 2010<br>
                 A foundation for treating risk allocation as a governance choice that shapes incentives and accountability.
               </li>
               <li>
-                <a href="https://doi.org/10.1016/j.landusepol.2022.106453" target="_blank">Social acceptance of NIMBY facilities: A comparative study between public acceptance and the social license to operate analytical frameworks</a><br>
+                <a href="https://doi.org/10.1016/j.landusepol.2022.106453" target="_blank" rel="noopener noreferrer">Social acceptance of NIMBY facilities: A comparative study between public acceptance and the social license to operate analytical frameworks</a><br>
                 <i>Land Use Policy</i>, 2023<br>
                 Clarifies two related lenses and explains why consent can shift even after formal approvals.
               </li>
               <li>
-                <a href="https://doi.org/10.1177/87569728251352466" target="_blank">How to Write a Literature Review Article in Project Management Journal®: A Review of Reviews</a><br>
+                <a href="https://doi.org/10.1177/87569728251352466" target="_blank" rel="noopener noreferrer">How to Write a Literature Review Article in Project Management Journal®: A Review of Reviews</a><br>
                 <i>Project Management Journal</i>, 2025<br>
                 A practical map of how review articles are designed, evaluated, and published in PMJ, based on evidence from the journal's own review papers.
               </li>
               <li>
-                <a href="https://doi.org/10.1177/87569728221131254" target="_blank">A Multilevel Governance Model for Interorganizational Project Networks</a><br>
+                <a href="https://doi.org/10.1177/87569728221131254" target="_blank" rel="noopener noreferrer">A Multilevel Governance Model for Interorganizational Project Networks</a><br>
                 <i>Project Management Journal</i>, 2023<br>
                 A governance lens on how authority, coordination, and accountability operate across organisations and levels in complex project networks.
               </li>
               <li>
-                <a href="https://doi.org/10.1002/sd.2654" target="_blank">The social pillar of sustainable development: Measurement and current status of social sustainability of aged care projects in China</a><br>
+                <a href="https://doi.org/10.1002/sd.2654" target="_blank" rel="noopener noreferrer">The social pillar of sustainable development: Measurement and current status of social sustainability of aged care projects in China</a><br>
                 <i>Sustainable Development</i>, 2024<br>
                 A structured approach to defining and measuring social sustainability in a high-stakes public service context.
               </li>
@@ -422,11 +423,11 @@
               It has been cited widely across disciplines and policy contexts.
             </p>
             <p>
-              I serve on the editorial teams of several international journals, including <a href="https://journals.sagepub.com/editorial-board/PMX" target="_blank">Project Management Journal</a>, <a href="https://www.emeraldgrouppublishing.com/journal/bepam" target="_blank">Built Environment Project and Asset Management</a>, and contribute to academic and professional communities through reviewing, editing, and standards work.
+              I serve on the editorial teams of several international journals, including <a href="https://journals.sagepub.com/editorial-board/PMX" target="_blank" rel="noopener noreferrer">Project Management Journal</a>, <a href="https://www.emeraldgrouppublishing.com/journal/bepam" target="_blank" rel="noopener noreferrer">Built Environment Project and Asset Management</a>, and contribute to academic and professional communities through reviewing, editing, and standards work.
               These roles keep me close to how research fields evolve, how quality is judged, and how ideas travel from scholarship into practice.
             </p>
             <p>
-              For formal records of publications, metrics, and appointments, please refer to my <a href="CV_Ke.pdf" target="_blank">full CV</a>.
+              For formal records of publications, metrics, and appointments, please refer to my <a href="CV_Ke.pdf" target="_blank" rel="noopener noreferrer">full CV</a>.
               This page focuses on how the work fits together.
             </p>
           </section>
@@ -458,13 +459,13 @@
               For formal records, publication databases, and profile verification, my work can also be found at the following sites.
             </p>
             <div class="links-list">
-              <a href="CV_Ke.pdf" target="_blank">Curriculum Vitae (PDF)</a>
-              <a href="https://profiles.uts.edu.au/yongjian.ke" target="_blank">University of Technology Sydney profile</a>
-              <a href="https://scholar.google.com.au/citations?user=8hby4hcAAAAJ" target="_blank">Google Scholar</a>
-              <a href="https://orcid.org/0000-0003-3426-703X" target="_blank">ORCID</a>
-              <a href="https://www.webofscience.com/wos/author/record/C-6071-2014" target="_blank">Web of Science ResearcherID</a>
-              <a href="https://www.researchgate.net/profile/Yongjian-Ke" target="_blank">ResearchGate</a>
-              <a href="https://www.linkedin.com/in/pm-professor" target="_blank">LinkedIn</a>
+              <a href="CV_Ke.pdf" target="_blank" rel="noopener noreferrer">Curriculum Vitae (PDF)</a>
+              <a href="https://profiles.uts.edu.au/yongjian.ke" target="_blank" rel="noopener noreferrer">University of Technology Sydney profile</a>
+              <a href="https://scholar.google.com.au/citations?user=8hby4hcAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+              <a href="https://orcid.org/0000-0003-3426-703X" target="_blank" rel="noopener noreferrer">ORCID</a>
+              <a href="https://www.webofscience.com/wos/author/record/C-6071-2014" target="_blank" rel="noopener noreferrer">Web of Science ResearcherID</a>
+              <a href="https://www.researchgate.net/profile/Yongjian-Ke" target="_blank" rel="noopener noreferrer">ResearchGate</a>
+              <a href="https://www.linkedin.com/in/pm-professor" target="_blank" rel="noopener noreferrer">LinkedIn</a>
               <a href="mailto:Yongjian.Ke@uts.edu.au?subject=Enquiry%20from%20pm-professor.com">Email</a>
             </div>
           </section>
