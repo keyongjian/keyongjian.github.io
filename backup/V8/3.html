@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Risk allocation and management in public-private partnerships</title>
+    <meta name="description" content="Over the past decade and a half, my research program on risk in public-private partnerships (PPPs) has built a cumulative, evidence-based playbook for identifying, assessing, allocating, and governing risk, especially in the Chinese PPP context with insights generalizable to other settings. Taken together, these nine papers (2,758 citations as of 27 Aug 2025) move from foundations (what risks matter and how they should be shared) to methods (how to evaluate and allocate fairly), to practice (what actually happens, why misallocation persists), and finally to sectoral application (how critical risk factors manifest in water PPPs)."/>
+    <meta name="author" content="Yongjian Ke"/>
+    <link rel="canonical" href="https://pm-professor.com/3.html"/>
+    <meta property="og:title" content="Risk allocation and management in public-private partnerships" />
+    <meta property="og:description" content="Over the past decade and a half, my research program on risk in public-private partnerships (PPPs) has built a cumulative, evidence-based playbook for identifying, assessing, allocating, and governing risk, especially in the Chinese PPP context with insights generalizable to other settings. Taken together, these nine papers (2,758 citations as of 27 Aug 2025) move from foundations (what risks matter and how they should be shared) to methods (how to evaluate and allocate fairly), to practice (what actually happens, why misallocation persists), and finally to sectoral application (how critical risk factors manifest in water PPPs)." />
+    <meta property="og:url" content="https://pm-professor.com/3.html" />
+    <meta property="og:type" content="website" />
+    <meta name="color-scheme" content="light" />
+    <style>
+      :root {
+        --bg: #f3efe7;
+        --paper: #fffdf8;
+        --paper-2: #f8f3ea;
+        --ink: #1f2329;
+        --muted: #636b75;
+        --line: #ddd3c4;
+        --accent: #7b4f2a;
+        --accent-soft: #efe4d5;
+        --max: 820px;
+        --section-x: 38px;
+        --section-y: 28px;
+        --section-gap: 26px;
+        --radius-lg: 20px;
+        --radius-md: 10px;
+        --card-border: 1px solid rgba(221, 211, 196, 0.9);
+        --card-shadow: 0 8px 22px rgba(50, 42, 30, 0.04);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Avenir Next", "Segoe UI", Inter, Arial, sans-serif;
+        background:
+          linear-gradient(180deg, rgba(123, 79, 42, 0.06) 0, rgba(123, 79, 42, 0.06) 160px, transparent 160px),
+          var(--bg);
+        color: var(--ink);
+        line-height: 1.76;
+        -webkit-text-size-adjust: 100%;
+      }
+
+      a {
+        color: var(--accent);
+        text-decoration: none;
+        border-bottom: 1px solid rgba(123, 79, 42, 0.28);
+        transition: color 0.2s ease, border-color 0.2s ease;
+      }
+
+      a:hover {
+        border-color: transparent;
+      }
+
+      .page {
+        width: min(calc(100% - 32px), var(--max));
+        margin: 28px auto 34px;
+      }
+
+      .sheet {
+        background: var(--paper);
+        border: var(--card-border);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(50, 42, 30, 0.06);
+      }
+
+      .hero {
+        padding: 34px 38px 28px;
+        background:
+          linear-gradient(180deg, rgba(255, 253, 248, 0.98), rgba(255, 253, 248, 0.98)),
+          repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 18px,
+            rgba(123, 79, 42, 0.03) 18px,
+            rgba(123, 79, 42, 0.03) 19px
+          );
+        border-bottom: 1px solid var(--line);
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(1.45rem, 3vw, 2.15rem);
+        line-height: 1.04;
+        letter-spacing: -0.03em;
+        font-weight: 700;
+      }
+
+      .summary-note {
+        margin-top: 18px;
+        padding: 16px 18px;
+        background: var(--paper-2);
+        border-left: 4px solid var(--accent);
+        border-radius: var(--radius-md);
+      }
+
+      .summary-note p {
+        margin: 0;
+      }
+
+      main {
+        padding: 18px;
+        display: grid;
+        gap: 18px;
+      }
+
+      .section {
+        padding: 22px 24px 20px;
+        background: var(--paper);
+        border: var(--card-border);
+        border-radius: calc(var(--radius-md) + 6px);
+        box-shadow: var(--card-shadow);
+      }
+
+      .section-head {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 14px;
+      }
+
+      .section-number {
+        width: 32px;
+        height: 32px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: var(--accent-soft);
+        color: var(--accent);
+        font-size: 0.84rem;
+        font-weight: 700;
+        flex: 0 0 auto;
+      }
+
+      h2 {
+        margin: 0;
+        font-size: 1.06rem;
+        line-height: 1.35;
+        font-weight: 700;
+      }
+
+      p {
+        margin: 0 0 14px;
+        font-size: 1rem;
+      }
+
+      p:last-child,
+      ul:last-child,
+      li:last-child {
+        margin-bottom: 0;
+      }
+
+      ul {
+        margin: 10px 0 0;
+        padding-left: 1.15rem;
+      }
+
+      li {
+        margin-bottom: 14px;
+      }
+
+      li::marker {
+        color: var(--accent);
+      }
+
+      footer {
+        padding: 20px var(--section-x) 24px;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 0.9rem;
+        background: rgba(248, 243, 234, 0.55);
+      }
+
+      @media (max-width: 680px) {
+        :root {
+          --section-x: 16px;
+          --section-y: 20px;
+          --section-gap: 18px;
+          --radius-lg: 16px;
+        }
+
+        .page {
+          width: min(calc(100% - 14px), var(--max));
+          margin: 14px auto 20px;
+        }
+
+        .sheet {
+          border-radius: var(--radius-lg);
+        }
+
+        .hero {
+          padding: 22px 16px 18px;
+        }
+
+        main {
+          padding: 12px;
+          gap: 12px;
+        }
+
+        .section {
+          padding: 16px 14px 14px;
+          border-radius: calc(var(--radius-md) + 4px);
+        }
+
+        .section-head {
+          gap: 10px;
+          margin-bottom: 12px;
+        }
+
+        .section-number {
+          width: 28px;
+          height: 28px;
+          font-size: 0.78rem;
+        }
+
+        p,
+        li {
+          font-size: 0.97rem;
+        }
+
+        h2 {
+          font-size: 1rem;
+        }
+
+        footer {
+          padding: 16px;
+        }
+      }
+
+      @media (max-width: 420px) {
+        h1 {
+          font-size: 1.28rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <div class="sheet">
+        <header class="hero">
+          <h1>Risk allocation and management in public-private partnerships</h1>
+          <div class="summary-note">
+            <p>Over the past decade and a half, my research program on risk in public-private partnerships (PPPs) has built a cumulative, evidence-based playbook for identifying, assessing, allocating, and governing risk, especially in the Chinese PPP context with insights generalizable to other settings. Taken together, these nine papers (2,758 citations as of 27 Aug 2025) move from foundations (what risks matter and how they should be shared) to methods (how to evaluate and allocate fairly), to practice (what actually happens, why misallocation persists), and finally to sectoral application (how critical risk factors manifest in water PPPs).</p>
+          </div>
+        </header>
+
+        <main id="main-content">
+          <section class="section">
+            <div class="section-head">
+              <span class="section-number">01</span>
+              <h2>Laying the foundations: what to allocate, to whom, and why (2010-2011)</h2>
+            </div>
+            <p>I began by clarifying who should hold which risks in China's PPPs and how those preferences compare across contexts. Two 2010 studies mapped the terrain: one established preferred risk allocation patterns for Chinese PPPs (Ke et al., 2010a), while a comparative analysis showed how risk allocation varies across PPP infrastructure projects by context and project characteristics (Ke et al., 2010b). To support practical decision-making, I co-developed a fuzzy synthetic evaluation model that integrates multiple criteria to assess PPP risks systematically (Xu et al., 2010).</p>
+            <p>In 2011, I extended this base in three ways. First, I led a Delphi study to articulate equitable risk allocation, not merely preferred, but defensible against principles of control and incentive alignment (Ke et al., 2011a). Second, I produced a risk ranking that orders risks by probability and consequence, giving practitioners a prioritized risk landscape (Ke et al., 2011b). Third, with collaborators I documented how Chinese practitioners assess and allocate risks empirically on real PPPs (Chan et al., 2011). This early body of work established a coherent chain: identify salient risks → measure/compare them → allocate to the party best able to manage/mitigate them → verify against practice.</p>
+          </section>
+
+          <section class="section">
+            <div class="section-head">
+              <span class="section-number">02</span>
+              <h2>From methods to practice: what's happening on the ground (2012-2013)</h2>
+            </div>
+            <p>Having specified principles and tools, I examined how risk is actually managed in practice and where gaps remain. A survey of risk management practice in China's PPPs mapped common processes and shortfalls, e.g., limited integration between early risk assessment and downstream contract management (Ke et al., 2012). I then investigated risk misallocation, i.e. when risks are placed with parties lacking control or capacity, and its consequences for disputes, cost/schedule performance, and value for money (Ke et al., 2013). This work showed that even when organizations know “textbook” allocations, institutional incentives, bargaining power, and information asymmetries can push allocations off-optimal, creating latent vulnerabilities that surface during delivery.</p>
+          </section>
+
+          <section class="section">
+            <div class="section-head">
+              <span class="section-number">03</span>
+              <h2>Sectoral specificity: critical risk factors in water PPPs (2015)</h2>
+            </div>
+            <p>To demonstrate portability and nuance, I contributed to a cross-sectional analysis of critical risk factors for PPP water projects in China (Chan et al., 2015). The study highlights sector-specific exposures, such as demand uncertainty, tariff/affordability risks, regulatory change, and interface risks, showing why allocation must be contextual: even robust general rules (e.g., allocate to the party best able to manage) require tailoring to sector economics, policy regimes, and stakeholder salience.</p>
+          </section>
+
+          <section class="section">
+            <div class="section-head">
+              <span class="section-number">04</span>
+              <h2>What this program changes in practice</h2>
+            </div>
+            <p>Across these papers, four practice-ready messages recur:</p>
+            <ul>
+              <li>Prioritize with evidence. Risk rankings and structured assessment (including fuzzy evaluation) help teams focus resources on the few risks that drive outcomes (Ke et al., 2010b; Ke et al., 2011b; Xu et al., 2010).</li>
+              <li>Allocate by controllability and incentives. “Equitable” allocation is not equal sharing; it's aligning responsibility with capability to reduce residual risk and transaction costs (Ke et al., 2010a; Ke et al., 2011a).</li>
+              <li>Watch for misallocation drift. Negotiation dynamics, policy pressure, and optimism bias can distort allocation; governance checks are needed to keep allocations feasible over the life cycle (Ke et al., 2012; Ke et al., 2013).</li>
+              <li>Context matters. Sector economics and regulatory frameworks (e.g., water tariffs, environmental standards) reshape both the risk set and the feasible allocation (Chan et al., 2015; Chan et al., 2011).</li>
+            </ul>
+          </section>
+
+          <section class="section">
+            <div class="section-head">
+              <span class="section-number">05</span>
+              <h2>Methodological through-line</h2>
+            </div>
+            <p>Methodologically, I combine expert elicitation (Delphi), large-sample surveys, comparative analysis, and multi-criteria modeling to triangulate findings. This mixed-methods approach improves external validity (what practitioners prefer and do), internal coherence (allocations track control and incentives), and actionability (tools like fuzzy evaluation can be embedded in PPP appraisal and contracting).</p>
+          </section>
+
+          <section class="section">
+            <div class="section-head">
+              <span class="section-number">06</span>
+              <h2>Lasting impact</h2>
+            </div>
+            <p>By linking principles (equitable allocation), tools (risk ranking and fuzzy assessment), practice diagnostics (state of play, misallocation pathways), and sectoral insights (water PPP risk structure), this program provides a governance-first template for PPP risk that agencies and concessionaires can use to design contracts that perform under stress, not just on paper. That, ultimately, is what effective PPP risk management requires.</p>
+          </section>
+
+          <section class="section">
+            <div class="section-head">
+              <span class="section-number">07</span>
+              <h2>Journal papers discussed on this page</h2>
+            </div>
+            <ul>
+              <li>Chan, A. P. C., Lam, P. T. I., Wen, Y., Ameyaw, E. E., Wang, S. Q., &amp; Ke, Y. (2015). Cross-sectional analysis of critical risk factors for PPP water projects in China. <i>Journal of Infrastructure Systems</i>, <i>21</i>(1), 04014031. <a href="https://doi.org/10.1061/(ASCE)IS.1943-555X.0000214" target="_blank" rel="noopener noreferrer">https://doi.org/10.1061/(ASCE)IS.1943-555X.0000214</a></li>
+              <li>Ke, Y., Wang, S. Q., &amp; Chan, A. P. C. (2013). Risk misallocation in public-private partnership projects in China. <i>International Public Management Journal</i>, <i>16</i>(3), 438-460. <a href="https://doi.org/10.1080/10967494.2013.825508" target="_blank" rel="noopener noreferrer">https://doi.org/10.1080/10967494.2013.825508</a></li>
+              <li>Ke, Y., Wang, S. Q., &amp; Chan, A. P. C. (2012). Risk management practice in China's public-private partnership projects. <i>Journal of Civil Engineering and Management</i>, <i>18</i>(5), 675-684. <a href="https://doi.org/10.3846/13923730.2012.723380" target="_blank" rel="noopener noreferrer">https://doi.org/10.3846/13923730.2012.723380</a></li>
+              <li>Chan, A. P. C., Yeung, J. F. Y., Yu, C. C. P., Wang, S. Q., &amp; Ke, Y. (2011). Empirical study of risk assessment and allocation of public-private partnership projects in China. <i>Journal of Management in Engineering</i>, <i>27</i>(3), 136-148. <a href="https://doi.org/10.1061/(ASCE)ME.1943-5479.0000049" target="_blank" rel="noopener noreferrer">https://doi.org/10.1061/(ASCE)ME.1943-5479.0000049</a></li>
+              <li>Ke, Y., Wang, S. Q., Chan, A. P. C., &amp; Cheung, E. (2011b). Understanding the risks in China's PPP projects: Ranking of their probability and consequence. <i>Engineering, Construction and Architectural Management</i>, <i>18</i>(5), 481-496. <a href="https://doi.org/10.1108/09699981111165176" target="_blank" rel="noopener noreferrer">https://doi.org/10.1108/09699981111165176</a></li>
+              <li>Ke, Y., Wang, S. Q., &amp; Chan, A. P. C. (2011a). Equitable risk allocation of projects inside China: Analyses from Delphi survey studies. <i>Chinese Management Studies</i>, <i>5</i>(3), 298-310. <a href="https://doi.org/10.1108/17506141111163372" target="_blank" rel="noopener noreferrer">https://doi.org/10.1108/17506141111163372</a></li>
+              <li>Xu, Y., Yeung, J. F. Y., Chan, A. P. C., Chan, D. W. M., Wang, S. Q., &amp; Ke, Y. (2010). Developing a risk assessment model for PPP projects in China: A fuzzy synthetic evaluation approach. <i>Automation in Construction</i>, <i>19</i>(7), 929-943. <a href="https://doi.org/10.1016/j.autcon.2010.06.006" target="_blank" rel="noopener noreferrer">https://doi.org/10.1016/j.autcon.2010.06.006</a></li>
+              <li>Ke, Y., Wang, S. Q., &amp; Chan, A. P. C. (2010a). Preferred risk allocation in China's public-private partnership projects. <i>International Journal of Project Management</i>, <i>28</i>(5), 482-492. <a href="https://doi.org/10.1016/j.ijproman.2009.08.007" target="_blank" rel="noopener noreferrer">https://doi.org/10.1016/j.ijproman.2009.08.007</a></li>
+              <li>Ke, Y., Wang, S. Q., &amp; Chan, A. P. C. (2010b). Risk allocation in public-private partnership infrastructure projects: Comparative study. <i>Journal of Infrastructure Systems</i>, <i>16</i>(4), 343-351. <a href="https://doi.org/10.1061/(ASCE)IS.1943-555X.0000030" target="_blank" rel="noopener noreferrer">https://doi.org/10.1061/(ASCE)IS.1943-555X.0000030</a></li>
+            </ul>
+          </section>
+        </main>
+
+        <footer>&copy; Yongjian Ke. Last Updated on 24 Mar 2026.</footer>
+      </div>
+    </div>
+  </body>
+</html>

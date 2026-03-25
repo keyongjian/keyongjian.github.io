@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Advancing social sustainability in aged care</title>
+    <meta name="description" content="Working with my PhD graduate, Dr Kun Wang, I have helped develop an evidence-based program that defines, measures, and improves the social sustainability of aged-care systems and projects across China and Australia. Her work integrates systematic review, content analysis, project case studies (including PPPs), cross-country assessment, and a practice-oriented preprint, creating a coherent path from concepts to indicators to implementation."/>
+    <meta name="author" content="Yongjian Ke"/>
+    <link rel="canonical" href="https://pm-professor.com/2.html"/>
+    <meta property="og:title" content="Advancing social sustainability in aged care" />
+    <meta property="og:description" content="Working with my PhD graduate, Dr Kun Wang, I have helped develop an evidence-based program that defines, measures, and improves the social sustainability of aged-care systems and projects across China and Australia. Her work integrates systematic review, content analysis, project case studies (including PPPs), cross-country assessment, and a practice-oriented preprint, creating a coherent path from concepts to indicators to implementation." />
+    <meta property="og:url" content="https://pm-professor.com/2.html" />
+    <meta property="og:type" content="website" />
+    <meta name="color-scheme" content="light" />
+    <style>
+      :root {
+        --bg: #f3efe7;
+        --paper: #fffdf8;
+        --paper-2: #f8f3ea;
+        --ink: #1f2329;
+        --muted: #636b75;
+        --line: #ddd3c4;
+        --accent: #7b4f2a;
+        --accent-soft: #efe4d5;
+        --max: 820px;
+        --section-x: 38px;
+        --section-y: 28px;
+        --section-gap: 26px;
+        --radius-lg: 20px;
+        --radius-md: 10px;
+        --card-border: 1px solid rgba(221, 211, 196, 0.9);
+        --card-shadow: 0 8px 22px rgba(50, 42, 30, 0.04);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Avenir Next", "Segoe UI", Inter, Arial, sans-serif;
+        background:
+          linear-gradient(180deg, rgba(123, 79, 42, 0.06) 0, rgba(123, 79, 42, 0.06) 160px, transparent 160px),
+          var(--bg);
+        color: var(--ink);
+        line-height: 1.76;
+        -webkit-text-size-adjust: 100%;
+      }
+
+      a {
+        color: var(--accent);
+        text-decoration: none;
+        border-bottom: 1px solid rgba(123, 79, 42, 0.28);
+        transition: color 0.2s ease, border-color 0.2s ease;
+      }
+
+      a:hover {
+        border-color: transparent;
+      }
+
+      .page {
+        width: min(calc(100% - 32px), var(--max));
+        margin: 28px auto 34px;
+      }
+
+      .sheet {
+        background: var(--paper);
+        border: var(--card-border);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(50, 42, 30, 0.06);
+      }
+
+      .hero {
+        padding: 34px 38px 28px;
+        background:
+          linear-gradient(180deg, rgba(255, 253, 248, 0.98), rgba(255, 253, 248, 0.98)),
+          repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 18px,
+            rgba(123, 79, 42, 0.03) 18px,
+            rgba(123, 79, 42, 0.03) 19px
+          );
+        border-bottom: 1px solid var(--line);
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(1.45rem, 3vw, 2.15rem);
+        line-height: 1.04;
+        letter-spacing: -0.03em;
+        font-weight: 700;
+      }
+
+      .summary-note {
+        margin-top: 18px;
+        padding: 16px 18px;
+        background: var(--paper-2);
+        border-left: 4px solid var(--accent);
+        border-radius: var(--radius-md);
+      }
+
+      .summary-note p {
+        margin: 0;
+      }
+
+      main {
+        padding: 18px;
+        display: grid;
+        gap: 18px;
+      }
+
+      .section {
+        padding: 22px 24px 20px;
+        background: var(--paper);
+        border: var(--card-border);
+        border-radius: calc(var(--radius-md) + 6px);
+        box-shadow: var(--card-shadow);
+      }
+
+      .section-head {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 14px;
+      }
+
+      .section-number {
+        width: 32px;
+        height: 32px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: var(--accent-soft);
+        color: var(--accent);
+        font-size: 0.84rem;
+        font-weight: 700;
+        flex: 0 0 auto;
+      }
+
+      h2 {
+        margin: 0;
+        font-size: 1.06rem;
+        line-height: 1.35;
+        font-weight: 700;
+      }
+
+      p {
+        margin: 0 0 14px;
+        font-size: 1rem;
+      }
+
+      p:last-child,
+      ul:last-child,
+      li:last-child {
+        margin-bottom: 0;
+      }
+
+      ul {
+        margin: 10px 0 0;
+        padding-left: 1.15rem;
+      }
+
+      li {
+        margin-bottom: 14px;
+      }
+
+      li::marker {
+        color: var(--accent);
+      }
+
+      footer {
+        padding: 20px var(--section-x) 24px;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 0.9rem;
+        background: rgba(248, 243, 234, 0.55);
+      }
+
+      @media (max-width: 680px) {
+        :root {
+          --section-x: 16px;
+          --section-y: 20px;
+          --section-gap: 18px;
+          --radius-lg: 16px;
+        }
+
+        .page {
+          width: min(calc(100% - 14px), var(--max));
+          margin: 14px auto 20px;
+        }
+
+        .sheet {
+          border-radius: var(--radius-lg);
+        }
+
+        .hero {
+          padding: 22px 16px 18px;
+        }
+
+        main {
+          padding: 12px;
+          gap: 12px;
+        }
+
+        .section {
+          padding: 16px 14px 14px;
+          border-radius: calc(var(--radius-md) + 4px);
+        }
+
+        .section-head {
+          gap: 10px;
+          margin-bottom: 12px;
+        }
+
+        .section-number {
+          width: 28px;
+          height: 28px;
+          font-size: 0.78rem;
+        }
+
+        p,
+        li {
+          font-size: 0.97rem;
+        }
+
+        h2 {
+          font-size: 1rem;
+        }
+
+        footer {
+          padding: 16px;
+        }
+      }
+
+      @media (max-width: 420px) {
+        h1 {
+          font-size: 1.28rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <div class="sheet">
+        <header class="hero">
+          <h1>Advancing social sustainability in aged care</h1>
+          <div class="summary-note">
+            <p>Working with my PhD graduate, Dr Kun Wang, I have helped develop an evidence-based program that defines, measures, and improves the social sustainability of aged-care systems and projects across China and Australia. Her work integrates systematic review, content analysis, project case studies (including PPPs), cross-country assessment, and a practice-oriented preprint, creating a coherent path from concepts to indicators to implementation.</p>
+          </div>
+        </header>
+
+        <main id="main-content">
+          <section class="section">
+            <div class="section-head">
+              <span class="section-number">01</span>
+              <h2>Foundations: concepts, indicators, and cross-country assessment</h2>
+            </div>
+            <p>We began by consolidating what “social sustainability” means at community and care-delivery levels. Dr Wang's systematic review mapped core constructs (e.g., equity, inclusion, participation, wellbeing, cohesion) and operationalised them into measurable indicators usable by researchers and commissioners (Wang &amp; Ke, 2024a). Building on that conceptual base, she assessed Australia's aged-care system through a structured indicator set, demonstrating how country-level policies and service models can be appraised consistently for social outcomes (Wang &amp; Ke, 2024b). In parallel, we quantified the “social pillar” of sustainable development in Chinese aged-care projects, providing a baseline of current practice and a diagnostic view of where improvement is most needed (Wang et al., 2024b). Together, these studies move the field beyond high-level statements toward repeatable, indicator-driven evaluation that is comparable across settings.</p>
+          </section>
+
+          <section class="section">
+            <div class="section-head">
+              <span class="section-number">02</span>
+              <h2>Public discourse and lived experience: what media reveal</h2>
+            </div>
+            <p>To understand societal expectations and pain points, Dr Wang analysed news reporting on home- and community-based long-term care in China (Wang et al., 2021). The findings surface recurring concerns, such as access, affordability, quality, workforce capacity, and family burden, that shape public legitimacy for reforms. A companion content analysis of media reporting on institutional care highlights how the built environment, staffing, and care processes are framed and scrutinised in practice (Wang et al., 2024a). These studies complement indicator frameworks by showing how social acceptability is constructed in the public sphere: what citizens read, share, and worry about becomes a de facto checklist for socially sustainable care.</p>
+          </section>
+
+          <section class="section">
+            <div class="section-head">
+              <span class="section-number">03</span>
+              <h2>Delivery mechanisms: PPP pathways and project-level practice</h2>
+            </div>
+            <p>Because governance and contracting influence social outcomes, Dr Wang examined how public-private partnerships (PPPs) can support socially sustainable aged-care delivery. A case study of Sydney's Northern Beaches Hospital PPP traces how contractual choices, risk allocation, performance incentives, and stakeholder engagement relate to social outcomes in a complex health-infrastructure setting (Wang et al., 2022). Extending this line, a study of aged-care PPPs in China identifies critical practices and realisation paths, translating high-level social objectives into procurement requirements, performance criteria, and day-to-day management behaviours that affect dignity, access, and continuity of care (Wang et al., 2023). These papers demonstrate that social sustainability is not an “add-on”; it must be designed into delivery models and backed by enforceable metrics.</p>
+          </section>
+
+          <section class="section">
+            <div class="section-head">
+              <span class="section-number">04</span>
+              <h2>Integration and application: a practice-oriented case guide</h2>
+            </div>
+            <p>Dr Wang's most recent preprint distils the above strands into an applied, case-based guide for achieving social sustainability in PPP aged-care projects in China (Wang et al., 2025). It shows how to (i) select context-appropriate indicators, (ii) embed them contractually and managerially, and (iii) track them over time to support continuous improvement. In practical terms, it turns the conceptual and empirical insights from earlier work into a stepwise approach for commissioners and providers tasked with delivering measurable social value.</p>
+          </section>
+
+          <section class="section">
+            <div class="section-head">
+              <span class="section-number">05</span>
+              <h2>What this program of research contributes</h2>
+            </div>
+            <p>Across eight publications, Dr Wang's contributions provide:</p>
+            <ul>
+              <li>A consolidated indicator toolkit for social sustainability at system and project levels (Wang &amp; Ke, 2024a, 2024b; Wang et al., 2024b).</li>
+              <li>Evidence on public expectations and legitimacy drawn from media discourse in both community-based and institutional care (Wang et al., 2021; Wang et al., 2024a).</li>
+              <li>Actionable pathways inside delivery models, especially PPPs, linking procurement design, performance management, and stakeholder engagement to social outcomes (Wang et al., 2022, 2023).</li>
+              <li>An applied case guide that operationalises “social sustainability” for decision-makers responsible for commissioning and running aged-care services (Wang et al., 2025).</li>
+            </ul>
+            <p>For my website audience, e.g. policy leaders, providers, and researchers, the takeaway is clear: if we want aged-care systems and projects to be socially sustainable, we must (1) measure what matters to people, (2) align contracts and governance with those measures, and (3) track performance transparently over time. Dr Wang's work offers the integrated evidence base to do exactly that.</p>
+          </section>
+
+          <section class="section">
+            <div class="section-head">
+              <span class="section-number">06</span>
+              <h2>Journal papers discussed on this page</h2>
+            </div>
+            <ul>
+              <li>Wang, K., Ke, Y., &amp; Sankaran, S. (2025). Achieving social sustainability in public-private partnership elderly care projects: A Chinese case study. <i>Buildings</i>, <i>15</i>(17), 3202. <a href="https://doi.org/10.3390/buildings15173202" target="_blank" rel="noopener noreferrer">https://doi.org/10.3390/buildings15173202</a></li>
+              <li>Wang, K., &amp; Ke, Y. (2024a). Social sustainability of communities: A systematic literature review. <i>Sustainable Production and Consumption</i>, <i>47</i>, 585-597. <a href="https://doi.org/10.1016/j.spc.2024.04.031" target="_blank" rel="noopener noreferrer">https://doi.org/10.1016/j.spc.2024.04.031</a></li>
+              <li>Wang, K., &amp; Ke, Y. (2024b). Towards sustainable development: Assessing social sustainability of Australian aged care system. <i>Sustainable Development</i>, <i>32</i>(6), 7186-7200. <a href="https://doi.org/10.1002/sd.3086" target="_blank" rel="noopener noreferrer">https://doi.org/10.1002/sd.3086</a></li>
+              <li>Wang, K., Ke, Y., &amp; Sankaran, S. (2024a). How socially sustainable is the institutional care environment in China: A content analysis of media reporting. <i>Buildings</i>, <i>14</i>(9), 2953. <a href="https://doi.org/10.3390/buildings14092953" target="_blank" rel="noopener noreferrer">https://doi.org/10.3390/buildings14092953</a></li>
+              <li>Wang, K., Ke, Y., &amp; Sankaran, S. (2024b). The social pillar of sustainable development: Measurement and current status of social sustainability of aged care projects in China. <i>Sustainable Development</i>, <i>32</i>(1), 227-243. <a href="https://doi.org/10.1002/sd.2654" target="_blank" rel="noopener noreferrer">https://doi.org/10.1002/sd.2654</a></li>
+              <li>Wang, K., Ke, Y., &amp; Sankaran, S. (2023). Social sustainability of aged care public-private partnership projects in China: Critical practices and realisation paths. <i>Journal of Cleaner Production</i>, <i>422</i>, 138644. <a href="https://doi.org/10.1016/j.jclepro.2023.138644" target="_blank" rel="noopener noreferrer">https://doi.org/10.1016/j.jclepro.2023.138644</a></li>
+              <li>Wang, K., Ke, Y., Liu, T., &amp; Sankaran, S. (2022). Social sustainability in public-private partnership projects: Case study of the Northern Beaches Hospital in Sydney. <i>Engineering, Construction and Architectural Management</i>, <i>29</i>(6), 2437-2460. <a href="https://doi.org/10.1108/ECAM-10-2020-0835" target="_blank" rel="noopener noreferrer">https://doi.org/10.1108/ECAM-10-2020-0835</a></li>
+              <li>Wang, K., Ke, Y., Sankaran, S., &amp; Xia, B. (2021). Problems in the home and community-based long-term care for the elderly in China: A content analysis of news coverage. <i>International Journal of Health Planning and Management</i>, <i>36</i>(5), 1727-1741. <a href="https://doi.org/10.1002/hpm.3255" target="_blank" rel="noopener noreferrer">https://doi.org/10.1002/hpm.3255</a></li>
+            </ul>
+          </section>
+        </main>
+
+        <footer>&copy; Yongjian Ke. Last Updated on 24 Mar 2026.</footer>
+      </div>
+    </div>
+  </body>
+</html>

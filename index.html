@@ -2,477 +2,224 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0"/>
     <title>Yongjian Ke @ UTS</title>
     <meta name="description" content="This is the personal website of Associate Professor Yongjian Ke from the University of Technology Sydney in Australia"/>
     <meta name="author" content="Yongjian Ke"/>
     <link rel="canonical" href="https://pm-professor.com"/>
-    <meta property="og:title" content="Yongjian Ke @ UTS" />
+    <!-- Open Graph Tags for better social sharing -->
+    <meta property="og:title" content="Yongjian Ke (柯永建) @ UTS" />
     <meta property="og:description" content="Personal website of Associate Professor Yongjian Ke, University of Technology Sydney" />
     <meta property="og:url" content="https://pm-professor.com" />
-    <meta property="og:type" content="website" />
-    <meta name="color-scheme" content="light" />
+    <meta property="og:type" content="website" /> 
     <style>
-      :root {
-        --bg: #f3efe7;
-        --paper: #fffdf8;
-        --paper-2: #f8f3ea;
-        --ink: #1f2329;
-        --muted: #636b75;
-        --line: #ddd3c4;
-        --accent: #7b4f2a;
-        --accent-soft: #efe4d5;
-        --max: 820px;
-        --section-x: 38px;
-        --section-y: 28px;
-        --section-gap: 26px;
-        --radius-lg: 20px;
-        --radius-md: 10px;
-      }
-
-      * {
-        box-sizing: border-box;
-      }
-
-      html {
-        scroll-behavior: smooth;
-      }
-
       body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
         margin: 0;
-        font-family: "Avenir Next", "Segoe UI", Inter, Arial, sans-serif;
-        background:
-          linear-gradient(180deg, rgba(123, 79, 42, 0.06) 0, rgba(123, 79, 42, 0.06) 160px, transparent 160px),
-          var(--bg);
-        color: var(--ink);
-        line-height: 1.76;
-        -webkit-text-size-adjust: 100%;
-      }
-
-      a {
-        color: var(--accent);
-        text-decoration: none;
-        border-bottom: 1px solid rgba(123, 79, 42, 0.28);
-        transition: color 0.2s ease, border-color 0.2s ease;
-      }
-
-      a:hover {
-        border-color: transparent;
-      }
-
-      .page {
-        width: min(calc(100% - 32px), var(--max));
-        margin: 28px auto 34px;
-      }
-
-      .sheet {
-        background: var(--paper);
-        border: 1px solid rgba(221, 211, 196, 0.9);
-        border-radius: var(--radius-lg);
-        overflow: hidden;
-        box-shadow: 0 10px 30px rgba(50, 42, 30, 0.06);
-      }
-
-      .hero {
-        padding: 34px 38px 28px;
-        background:
-          linear-gradient(180deg, rgba(255, 253, 248, 0.98), rgba(255, 253, 248, 0.98)),
-          repeating-linear-gradient(
-            90deg,
-            transparent,
-            transparent 18px,
-            rgba(123, 79, 42, 0.03) 18px,
-            rgba(123, 79, 42, 0.03) 19px
-          );
-        border-bottom: 1px solid var(--line);
-      }
-
-      h1 {
-        margin: 0;
-        font-size: clamp(1.9rem, 4.2vw, 3.2rem);
-        line-height: 1.04;
-        letter-spacing: -0.03em;
-        font-weight: 700;
-      }
-
-      .summary-note {
-        margin-top: 18px;
-        padding: 16px 18px;
-        background: var(--paper-2);
-        border-left: 4px solid var(--accent);
-        border-radius: var(--radius-md);
-      }
-
-      .summary-note p {
-        margin: 0 0 8px;
-      }
-
-      .summary-note p:last-child {
-        margin-bottom: 0;
-      }
-
-      main {
-        padding: 8px 0 0;
-      }
-
-      .section {
-        padding: 0 var(--section-x) var(--section-y);
-      }
-
-      .section:first-child {
-        padding-top: var(--section-gap);
-      }
-
-      .section + .section {
-        border-top: 1px solid var(--line);
-        padding-top: var(--section-gap);
-      }
-
-      .section-head {
-        display: flex;
-        align-items: center;
-        gap: 14px;
-        margin-bottom: 14px;
-      }
-
-      .section-number {
-        flex: 0 0 auto;
-        width: 34px;
-        height: 34px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        background: var(--accent-soft);
-        color: var(--accent);
-        font-size: 0.86rem;
-        font-weight: 700;
-      }
-
-      h2 {
-        margin: 0;
-        font-size: 1.42rem;
-        line-height: 1.2;
-        font-weight: 700;
-      }
-
-      p {
-        margin: 0 0 14px;
-        font-size: 1rem;
-      }
-
-      p:last-child,
-      ul:last-child,
-      li:last-child {
-        margin-bottom: 0;
-      }
-
-      ul {
-        margin: 10px 0 0;
-        padding-left: 1.15rem;
-      }
-
-      li {
-        margin-bottom: 14px;
-      }
-
-      li::marker {
-        color: var(--accent);
-      }
-
-      .reading-list {
-        list-style: none;
         padding: 0;
-        margin: 12px 0 0;
+        background: #f2f2f2;
+        color: #444444;
+        line-height: 1.8;
+        text-shadow: 0 1px 0 #ffffff;        
       }
-
-      .reading-list li {
-        margin: 0;
-        padding: 14px 0;
-        border-top: 1px solid var(--line);
+      header, main, footer {
+        margin: 15px auto;
+        max-width: 1080px;
+        padding: 15px;
       }
-
-      .reading-list li:first-child {
-        padding-top: 0;
-        border-top: none;
+      a{ 
+        border-bottom: 1px solid #444444; 
+        color: #444444; 
+        text-decoration: none; 
       }
-
-      .reading-list li:last-child {
-        padding-bottom: 0;
+      a:hover{ 
+        border-bottom: 0; 
       }
-
-      .links-list {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
-        margin-top: 10px;
-      }
-
-      .links-list a {
-        display: block;
-        padding: 12px 14px;
-        background: var(--paper-2);
-        border: 1px solid rgba(123, 79, 42, 0.1);
-        border-radius: var(--radius-md);
-      }
-
-      footer {
-        padding: 20px var(--section-x) 24px;
-        border-top: 1px solid var(--line);
-        color: var(--muted);
-        font-size: 0.9rem;
-        background: rgba(248, 243, 234, 0.55);
-      }
-
-      @media (max-width: 680px) {
-        :root {
-          --section-x: 16px;
-          --section-y: 20px;
-          --section-gap: 18px;
-          --radius-lg: 16px;
-        }
-
-        .page {
-          width: min(calc(100% - 14px), var(--max));
-          margin: 14px auto 20px;
-        }
-
-        .sheet {
-          border-radius: var(--radius-lg);
-        }
-
-        .hero {
-          padding: 22px 16px 18px;
-        }
-        p,
-        li {
-          font-size: 0.97rem;
-        }
-
-        footer {
-          padding: 16px;
-        }
-
-        .section-head {
-          gap: 10px;
-          margin-bottom: 12px;
-        }
-
-        .section-number {
-          width: 28px;
-          height: 28px;
-          font-size: 0.78rem;
-        }
-
-        h2 {
-          font-size: 1.2rem;
-        }
-
-        .links-list {
-          grid-template-columns: 1fr;
-        }
-      }
-      @media (max-width: 420px) {
-        h1 {
-          font-size: 1.62rem;
+      @media (max-width: 768px) {
+        header, main, footer {
+          max-width: 90%;
         }
       }
     </style>
   </head>
   <body>
-    <div class="page">
-      <div class="sheet">
-        <header class="hero">
-          <h1>YONGJIAN KE</h1>
-          <div class="summary-note">
-            <p>I am an Associate Professor in Project Management at the School of Built Environment, University of Technology Sydney, Australia.</p>
-            <p>My name is pronounced "yong-jyen ker". In Chinese, it is written as 柯永建.</p>
-            <p>This site (<a href="https://pm-professor.com">pm-professor.com</a>) is for a short narrative about my work and thinking.</p>
-          </div>
-        </header>
+    <header>
+      <h1>YONGJIAN KE (柯永建)</h1>
+    </header>
 
-        <main>
-          <section class="section">
-            <div class="section-head">
-              <span class="section-number">01</span>
-              <h2>A position</h2>
-            </div>
-            <p>
-              I approach projects as temporary governance arrangements rather than neutral delivery tasks.
-              Even when projects are technically competent and economically justified, their outcomes depend on how authority, responsibility, and accountability are structured, and how these arrangements respond to social expectations over time.
-            </p>
-            <p>
-              In contemporary infrastructure and public service contexts, project success is judged not only by delivery performance but also by fairness, accountability, and long-term public value.
-              When projects struggle under these conditions, the causes are rarely technical alone.
-              They are often institutional and social, shaped by governance choices such as contracts, risk allocation, performance measures, and engagement practices.
-            </p>
-            <p>
-              This way of thinking guides how I study infrastructure and public service projects, and how I engage with practitioners, policy actors, and researchers.
-            </p>
-          </section>
+    <main>
+      <h2>G'day</h2>
+      <p>
+        I am an Associate Professor in Project Management at the School of Built Environment, University of Technology Sydney, Australia.
+        This is why the domain name is "<a href="https://pm-professor.com">pm-professor.com</a>".
+      </p>
+      <p>
+        My name is pronounced "yong-jyen ker".
+        In Chinese, it is written as 柯永建.
+      </p>
+      <p>
+        This site is not a record of credentials.
+        My full CV, university profile and publication databases already do that.
+        This site is for a short narrative about my work and thinking, and for research briefs that I will continue to add over time.
+      </p>
 
-          <section class="section">
-            <div class="section-head">
-              <span class="section-number">02</span>
-              <h2>How this position shapes my work</h2>
-            </div>
-            <p>
-              Starting from this position, my work concentrates on settings where governance choices are visible, contested, and difficult to reverse.
-              Infrastructure and public service projects provide such settings.
-              They involve long time horizons, multiple actors, and public scrutiny, which makes questions of responsibility, legitimacy, and trust unavoidable.
-            </p>
-            <p>
-              One stream of my work examines public private partnerships and related contracting models.
-              I study how risk allocation, performance criteria, and contractual flexibility shape behaviour across the project life cycle.
-              Rather than treating contracts as technical instruments, I analyse them as governance devices that influence cooperation, opportunism, and adaptation under uncertainty.
-            </p>
-            <p>
-              Another strand of my work focuses on legitimacy, social licence, and public acceptance in infrastructure projects.
-              I treat acceptance not as a fixed attitude or a one-off consultation outcome, but as an evolving condition shaped by how decisions are made, communicated, and experienced.
-              This helps explain why projects that meet technical and regulatory requirements can still face persistent resistance.
-            </p>
-            <p>
-              A further strand engages with digitalisation and artificial intelligence in project settings.
-              Rather than assuming technological improvement, I examine how project-level readiness and institutional conditions shape what data-driven tools can and cannot achieve in temporary and complex project organisations.
-            </p>
-          </section>
+      <h2>A position</h2>
+      <p>
+        I approach projects as temporary governance arrangements rather than neutral delivery tasks. 
+        Even when projects are technically competent and economically justified, their outcomes depend on how authority, responsibility, and accountability are structured, and how these arrangements respond to social expectations over time.
+      </p>
+      <p>
+        In contemporary infrastructure and public service contexts, project success is judged not only by delivery performance but also by fairness, accountability, and long-term public value. 
+        When projects struggle under these conditions, the causes are rarely technical alone. 
+        They are often institutional and social, shaped by governance choices such as contracts, risk allocation, performance measures, and engagement practices.
+      </p>
+      <p>
+        This way of thinking guides how I study infrastructure and public service projects, and how I engage with practitioners, policy actors, and researchers.
+      </p>
 
-          <section class="section">
-            <div class="section-head">
-              <span class="section-number">03</span>
-              <h2>What I am working on now</h2>
-            </div>
-            <p>
-              At the moment, I am extending a comprehensive theoretical framework of social licence for infrastructure that clarifies what social licence is, who grants it, how it changes across the project life cycle, and what governance levers can be used to sustain it.
-              In parallel, my work on social procurement in China is developing an ontology of social value to clarify what “social value” means in this context, and then using it to evaluate current views on, and the present status of, social procurement practice and policy in China.
-              I am also developing a project-level view of AI readiness, asking what readiness means in temporary project organisations and what governance guardrails are needed when data-driven tools begin to shape decisions.
-            </p>
-          </section>
+      <h2>How this position shapes my work</h2>
+      <p>
+        Starting from this position, my work concentrates on settings where governance choices are visible, contested, and difficult to reverse. 
+        Infrastructure and public service projects provide such settings. 
+        They involve long time horizons, multiple actors, and public scrutiny, which makes questions of responsibility, legitimacy, and trust unavoidable.
+      </p>
+      <p>
+        One stream of my work examines public private partnerships and related contracting models. 
+        I study how risk allocation, performance criteria, and contractual flexibility shape behaviour across the project life cycle. 
+        Rather than treating contracts as technical instruments, I analyse them as governance devices that influence cooperation, opportunism, and adaptation under uncertainty.
+      </p>
+      <p>
+        Another strand of my work focuses on legitimacy, social licence, and public acceptance in infrastructure projects. 
+        I treat acceptance not as a fixed attitude or a one-off consultation outcome, but as an evolving condition shaped by how decisions are made, communicated, and experienced. 
+        This helps explain why projects that meet technical and regulatory requirements can still face persistent resistance.
+      </p>
+      <p>
+        A further strand engages with digitalisation and artificial intelligence in project settings. 
+        Rather than assuming technological improvement, I examine how project-level readiness and institutional conditions shape what data-driven tools can and cannot achieve in temporary and complex project organisations.
+      </p>
 
-          <section class="section">
-            <div class="section-head">
-              <span class="section-number">04</span>
-              <h2>Research briefs</h2>
-            </div>
-            <p>
-              I use research briefs to develop ideas in a more direct and accessible way.
-              They are not summaries of journal papers.
-              Each brief focuses on a core problem, clarifies how I think about it, and draws out implications for practice and policy.
-              This section will continue to grow as new briefs are added.
-            </p>
-            <ul class="reading-list">
-              <li>
-                <a href="1.html" target="_blank" rel="noopener noreferrer">Social licence and public acceptance in infrastructure projects</a><br>
-                Why technically approved projects still face resistance, how social licence differs from public acceptance, and what this means for governing contentious infrastructure.
-              </li>
-              <li>
-                <a href="2.html" target="_blank" rel="noopener noreferrer">Advancing social sustainability in aged care</a><br>
-                How social sustainability can be understood, assessed, and strengthened in aged care systems, with attention to access, workforce conditions, and lived experience.
-              </li>
-              <li>
-                <a href="3.html" target="_blank" rel="noopener noreferrer">Risk allocation and management in public private partnerships</a><br>
-                Why risk allocation is a governance choice that shapes behaviour, incentives, and long-term outcomes, rather than a contractual afterthought.
-              </li>
-            </ul>
-          </section>
+      <h2>What I am known for, and why it matters</h2>
+      <p>
+        I am best known for establishing risk allocation as a central governance problem in public private partnerships, particularly in the Chinese context. 
+        My early work showed that how risks are allocated is not a technical exercise, but a decision that shapes incentives, behaviour, and accountability across the full project life cycle. 
+        This insight has been widely adopted because it helps explain why formally well-designed PPPs can still fail in practice.
+      </p>
+      <p>
+        A second contribution lies in explaining how large infrastructure projects operate under real institutional conditions. 
+        Across studies of success factors, adoption drivers, and sector-specific risks, my work shows that project performance depends on how public and private actors interpret responsibility, manage uncertainty, and respond to political and community pressures, not only on financial or contractual design.
+      </p>
+      <p>
+        More recently, I have contributed to reframing social licence and public acceptance as dynamic and conditional forms of legitimacy. 
+        This work clarifies why legal approval does not guarantee social acceptance, and why consent can erode quickly when fairness, transparency, or trust are weakened. 
+        It provides a basis for treating legitimacy as something that can be analysed, monitored, and governed over time.
+      </p>
 
-          <section class="section">
-            <div class="section-head">
-              <span class="section-number">05</span>
-              <h2>Start here</h2>
-            </div>
-            <p>
-              A small set of entry points into my work. I keep this list short by design. For the complete publication record, please use <a href="https://scholar.google.com.au/citations?user=8hby4hcAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>.
-            </p>
-            <ul class="reading-list">
-              <li>
-                <a href="https://doi.org/10.1016/j.ijproman.2009.08.007" target="_blank" rel="noopener noreferrer">Preferred risk allocation in China's public-private partnership (PPP) projects</a> (my most cited paper)<br>
-                <i>International Journal of Project Management</i>, 2010<br>
-                A foundation for treating risk allocation as a governance choice that shapes incentives and accountability.
-              </li>
-              <li>
-                <a href="https://doi.org/10.1016/j.landusepol.2022.106453" target="_blank" rel="noopener noreferrer">Social acceptance of NIMBY facilities: A comparative study between public acceptance and the social license to operate analytical frameworks</a><br>
-                <i>Land Use Policy</i>, 2023<br>
-                Clarifies two related lenses and explains why consent can shift even after formal approvals.
-              </li>
-              <li>
-                <a href="https://doi.org/10.1177/87569728251352466" target="_blank" rel="noopener noreferrer">How to Write a Literature Review Article in Project Management Journal®: A Review of Reviews</a><br>
-                <i>Project Management Journal</i>, 2025<br>
-                A practical map of how review articles are designed, evaluated, and published in PMJ, based on evidence from the journal's own review papers.
-              </li>
-              <li>
-                <a href="https://doi.org/10.1177/87569728221131254" target="_blank" rel="noopener noreferrer">A Multilevel Governance Model for Interorganizational Project Networks</a><br>
-                <i>Project Management Journal</i>, 2023<br>
-                A governance lens on how authority, coordination, and accountability operate across organisations and levels in complex project networks.
-              </li>
-              <li>
-                <a href="https://doi.org/10.1002/sd.2654" target="_blank" rel="noopener noreferrer">The social pillar of sustainable development: Measurement and current status of social sustainability of aged care projects in China</a><br>
-                <i>Sustainable Development</i>, 2024<br>
-                A structured approach to defining and measuring social sustainability in a high-stakes public service context.
-              </li>
-            </ul>
-          </section>
+      <h2>Research briefs</h2>
+      <p>
+        I use research briefs to develop ideas in a more direct and accessible way.
+        They are not summaries of journal papers.
+        Each brief focuses on a core problem, clarifies how I think about it, and draws out implications for practice and policy.
+        This section will continue to grow as new briefs are added.
+      </p>
+      <ul>
+        <li>
+          <a href="1.html" target="_blank">Social licence and public acceptance in infrastructure projects</a><br />
+          Why technically approved projects still face resistance, how social licence differs from public acceptance, and what this means for governing contentious infrastructure.
+        </li>
+        <li>
+          <a href="2.html" target="_blank">Advancing social sustainability in aged care</a><br />
+          How social sustainability can be understood, assessed, and strengthened in aged care systems, with attention to access, workforce conditions, and lived experience.
+        </li>
+        <li>
+          <a href="3.html" target="_blank">Risk allocation and management in public private partnerships</a><br />
+          Why risk allocation is a governance choice that shapes behaviour, incentives, and long-term outcomes, rather than a contractual afterthought.
+        </li>
+      </ul>
 
-          <section class="section">
-            <div class="section-head">
-              <span class="section-number">06</span>
-              <h2>Credibility, without the noise</h2>
-            </div>
-            <p>
-              My work has been published across leading journals in project management, construction management, and infrastructure governance.
-              It has been cited widely across disciplines and policy contexts.
-            </p>
-            <p>
-              I serve on the editorial teams of several international journals, including <a href="https://journals.sagepub.com/editorial-board/PMX" target="_blank" rel="noopener noreferrer">Project Management Journal</a>, <a href="https://www.emeraldgrouppublishing.com/journal/bepam" target="_blank" rel="noopener noreferrer">Built Environment Project and Asset Management</a>, and contribute to academic and professional communities through reviewing, editing, and standards work.
-              These roles keep me close to how research fields evolve, how quality is judged, and how ideas travel from scholarship into practice.
-            </p>
-            <p>
-              For formal records of publications, metrics, and appointments, please refer to my <a href="CV_Ke.pdf" target="_blank" rel="noopener noreferrer">full CV</a>.
-              This page focuses on how the work fits together.
-            </p>
-          </section>
+      <h2>Start here</h2>
+      <p>
+      A small set of entry points into my work. I keep this list short by design. For the complete publication record, please use <a href="https://scholar.google.com.au/citations?user=8hby4hcAAAAJ&hl=en" target="_blank">Google Scholar</a>.
+      </p>
+      <ul>
+        <li>
+          <a href="https://doi.org/10.1016/j.ijproman.2009.08.007" target="_blank">Preferred risk allocation in China's public-private partnership (PPP) projects</a> (my most cited paper)<br />
+          <i>International Journal of Project Management</i>, 2010<br />
+          A foundation for treating risk allocation as a governance choice that shapes incentives and accountability.
+        </li>
+        <li>
+          <a href="https://doi.org/10.1016/j.landusepol.2022.106453" target="_blank">Social acceptance of NIMBY facilities: A comparative study between public acceptance and the social license to operate analytical frameworks</a><br />
+          <i>Land Use Policy</i>, 2023<br />
+          Clarifies two related lenses and explains why consent can shift even after formal approvals.
+        </li>
+        <li>
+          <a href="https://doi.org/10.1177/87569728251352466" target="_blank">How to Write a Literature Review Article in Project Management Journal®: A Review of Reviews</a><br />
+          <i>Project Management Journal</i>, 2025<br />
+          A practical map of how review articles are designed, evaluated, and published in PMJ, based on evidence from the journal's own review papers.
+        </li>
+        <li>
+          <a href="https://doi.org/10.1177/87569728221131254" target="_blank">A Multilevel Governance Model for Interorganizational Project Networks</a><br />
+          <i>Project Management Journal</i>, 2023<br />
+          A governance lens on how authority, coordination, and accountability operate across organisations and levels in complex project networks.
+        </li>
+        <li>
+          <a href="https://doi.org/10.1002/sd.2654" target="_blank">The social pillar of sustainable development: Measurement and current status of social sustainability of aged care projects in China</a><br />
+          <i>Sustainable Development</i>, 2024<br />
+          A structured approach to defining and measuring social sustainability in a high-stakes public service context.
+        </li>
+      </ul>
 
-          <section class="section">
-            <div class="section-head">
-              <span class="section-number">07</span>
-              <h2>Working with me</h2>
-            </div>
-            <p>
-              I work with researchers, practitioners, and policy actors who are interested in infrastructure governance, project delivery, and public value.
-              My collaborations often involve framing problems, developing conceptual models, and translating empirical findings into guidance that can inform decisions.
-            </p>
-            <p>
-              I am open to research collaboration, doctoral supervision, and selected advisory or policy-related engagements where there is a clear analytical question and a shared commitment to careful thinking.
-              I am less interested in short-term consulting or purely instrumental work.
-            </p>
-            <p>
-              If you would like to explore a potential collaboration, the best way to start is by email: <a href="mailto:Yongjian.Ke@uts.edu.au?subject=Enquiry%20from%20pm-professor.com">Yongjian.Ke@uts.edu.au</a>
-            </p>
-          </section>
+      <h2>What I am working on now</h2>
+      <p>
+        At the moment, I am extending a comprehensive theoretical framework of social licence for infrastructure that clarifies what social licence is, who grants it, how it changes across the project life cycle, and what governance levers can be used to sustain it. 
+        In parallel, my work on social procurement in China is developing an ontology of social value to clarify what “social value” means in this context, and then using it to evaluate current views on, and the present status of, social procurement practice and policy in China. 
+        I am also developing a project-level view of AI readiness, asking what readiness means in temporary project organisations and what governance guardrails are needed when data-driven tools begin to shape decisions.
+      </p>
 
-          <section class="section">
-            <div class="section-head">
-              <span class="section-number">08</span>
-              <h2>Elsewhere online</h2>
-            </div>
-            <p>
-              For formal records, publication databases, and profile verification, my work can also be found at the following sites.
-            </p>
-            <div class="links-list">
-              <a href="CV_Ke.pdf" target="_blank" rel="noopener noreferrer">Curriculum Vitae (PDF)</a>
-              <a href="https://profiles.uts.edu.au/yongjian.ke" target="_blank" rel="noopener noreferrer">University of Technology Sydney profile</a>
-              <a href="https://scholar.google.com.au/citations?user=8hby4hcAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>
-              <a href="https://orcid.org/0000-0003-3426-703X" target="_blank" rel="noopener noreferrer">ORCID</a>
-              <a href="https://www.webofscience.com/wos/author/record/C-6071-2014" target="_blank" rel="noopener noreferrer">Web of Science ResearcherID</a>
-              <a href="https://www.researchgate.net/profile/Yongjian-Ke" target="_blank" rel="noopener noreferrer">ResearchGate</a>
-              <a href="https://www.linkedin.com/in/pm-professor" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-              <a href="mailto:Yongjian.Ke@uts.edu.au?subject=Enquiry%20from%20pm-professor.com">Email</a>
-            </div>
-          </section>
-        </main>
+      <h2>Credibility, without the noise</h2>
+      <p>
+        My work has been published across leading journals in project management, construction management, and infrastructure governance. 
+        It has been cited widely across disciplines and policy contexts.
+      </p>
+      <p>
+        I serve on the editorial teams of several international journals, including <a href="https://journals.sagepub.com/editorial-board/PMX" target="_blank">Project Management Journal</a>, <a href="https://www.emeraldgrouppublishing.com/journal/bepam" target="_blank">Built Environment Project and Asset Management</a>, and contribute to academic and professional communities through reviewing, editing, and standards work. 
+        These roles keep me close to how research fields evolve, how quality is judged, and how ideas travel from scholarship into practice.
+      </p>
+      <p>
+        For formal records of publications, metrics, and appointments, please refer to my <a href="CV_Ke.pdf" target="_blank">full CV</a>. 
+        This page focuses on how the work fits together.
+      </p>
 
-        <footer>&copy; Yongjian Ke. Last Updated on 24 Mar 2026.</footer>
-      </div>
-    </div>
-  </body>
+      <h2>Working with me</h2>
+      <p>
+        I work with researchers, practitioners, and policy actors who are interested in infrastructure governance, project delivery, and public value. 
+        My collaborations often involve framing problems, developing conceptual models, and translating empirical findings into guidance that can inform decisions.
+      </p>
+      <p>
+        I am open to research collaboration, doctoral supervision, and selected advisory or policy-related engagements where there is a clear analytical question and a shared commitment to careful thinking. 
+        I am less interested in short-term consulting or purely instrumental work.
+      </p>
+      <p>
+        If you would like to explore a potential collaboration, the best way to start is by email: <a href="mailto:Yongjian.Ke@uts.edu.au?subject=Enquiry%20from%20pm-professor.com">Yongjian.Ke@uts.edu.au</a>
+      </p>
+
+      <h2>Elsewhere online</h2>
+      <p>
+        For formal records, publication databases, and profile verification, my work can also be found at the following sites.
+      </p>
+
+      <ul>
+        <li><a href="CV_Ke.pdf" target="_blank">Curriculum Vitae (PDF)</a></li>        
+        <li><a href="https://profiles.uts.edu.au/yongjian.ke" target="_blank">University of Technology Sydney profile</a></li>
+        <li><a href="https://scholar.google.com.au/citations?user=8hby4hcAAAAJ" target="_blank">Google Scholar</a></li>
+        <li><a href="https://orcid.org/0000-0003-3426-703X" target="_blank">ORCID</a></li>
+        <li><a href="https://www.webofscience.com/wos/author/record/C-6071-2014" target="_blank">Web of Science ResearcherID</a></li>
+        <li><a href="https://www.researchgate.net/profile/Yongjian-Ke" target="_blank">ResearchGate</a></li>
+        <li><a href="https://www.linkedin.com/in/pm-professor" target="_blank">LinkedIn</a></li>
+      </ul>
+    </main>
+
+    <footer>
+      <p>&copy; Yongjian Ke. Last Updated on 11 Feb 2026.</p>
+    </footer>
+  </body>    
 </html>

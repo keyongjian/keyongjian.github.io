@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Social licence and public acceptance in infrastructure projects</title>
+    <meta name="description" content="Why technically approved projects still face resistance, how social licence differs from public acceptance, and what this means for governing contentious infrastructure."/>
+    <meta name="author" content="Yongjian Ke"/>
+    <link rel="canonical" href="https://pm-professor.com/1.html"/>
+    <meta property="og:title" content="Social licence and public acceptance in infrastructure projects" />
+    <meta property="og:description" content="Why technically approved projects still face resistance, how social licence differs from public acceptance, and what this means for governing contentious infrastructure." />
+    <meta property="og:url" content="https://pm-professor.com/1.html" />
+    <meta property="og:type" content="website" />
+    <meta name="color-scheme" content="light" />
+    <style>
+      :root {
+        --bg: #f3efe7;
+        --paper: #fffdf8;
+        --paper-2: #f8f3ea;
+        --ink: #1f2329;
+        --muted: #636b75;
+        --line: #ddd3c4;
+        --accent: #7b4f2a;
+        --accent-soft: #efe4d5;
+        --max: 820px;
+        --section-x: 38px;
+        --section-y: 28px;
+        --section-gap: 26px;
+        --radius-lg: 20px;
+        --radius-md: 10px;
+        --card-border: var(--card-border);
+        --card-shadow: 0 8px 22px rgba(50, 42, 30, 0.04);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Avenir Next", "Segoe UI", Inter, Arial, sans-serif;
+        background:
+          linear-gradient(180deg, rgba(123, 79, 42, 0.06) 0, rgba(123, 79, 42, 0.06) 160px, transparent 160px),
+          var(--bg);
+        color: var(--ink);
+        line-height: 1.76;
+        -webkit-text-size-adjust: 100%;
+      }
+
+      a {
+        color: var(--accent);
+        text-decoration: none;
+        border-bottom: 1px solid rgba(123, 79, 42, 0.28);
+        transition: color 0.2s ease, border-color 0.2s ease;
+      }
+
+      a:hover {
+        border-color: transparent;
+      }
+
+      .page {
+        width: min(calc(100% - 32px), var(--max));
+        margin: 28px auto 34px;
+      }
+
+      .sheet {
+        background: var(--paper);
+        border: var(--card-border);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(50, 42, 30, 0.06);
+      }
+
+      .hero {
+        padding: 34px 38px 28px;
+        background:
+          linear-gradient(180deg, rgba(255, 253, 248, 0.98), rgba(255, 253, 248, 0.98)),
+          repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 18px,
+            rgba(123, 79, 42, 0.03) 18px,
+            rgba(123, 79, 42, 0.03) 19px
+          );
+        border-bottom: 1px solid var(--line);
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(1.45rem, 3vw, 2.15rem);
+        line-height: 1.04;
+        letter-spacing: -0.03em;
+        font-weight: 700;
+      }
+
+      .summary-note {
+        margin-top: 18px;
+        padding: 16px 18px;
+        background: var(--paper-2);
+        border-left: 4px solid var(--accent);
+        border-radius: var(--radius-md);
+      }
+
+      .summary-note p {
+        margin: 0;
+      }
+
+      main {
+        padding: 18px;
+        display: grid;
+        gap: 18px;
+      }
+
+      .section {
+        padding: 22px 24px 20px;
+        background: var(--paper);
+        border: var(--card-border);
+        border-radius: calc(var(--radius-md) + 6px);
+        box-shadow: var(--card-shadow);
+      }
+
+      .section-head {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 14px;
+      }
+
+      .section-number {
+        width: 32px;
+        height: 32px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: var(--accent-soft);
+        color: var(--accent);
+        font-size: 0.84rem;
+        font-weight: 700;
+        flex: 0 0 auto;
+      }
+
+      h2 {
+        margin: 0;
+        font-size: 1.06rem;
+        line-height: 1.35;
+        font-weight: 700;
+      }
+
+      p {
+        margin: 0 0 14px;
+        font-size: 1rem;
+      }
+
+      p:last-child,
+      ul:last-child,
+      li:last-child {
+        margin-bottom: 0;
+      }
+
+      ul {
+        margin: 10px 0 0;
+        padding-left: 1.15rem;
+      }
+
+      li {
+        margin-bottom: 14px;
+      }
+
+      li::marker {
+        color: var(--accent);
+      }
+
+      footer {
+        padding: 20px var(--section-x) 24px;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 0.9rem;
+        background: rgba(248, 243, 234, 0.55);
+      }
+
+      @media (max-width: 680px) {
+        :root {
+          --section-x: 16px;
+          --section-y: 20px;
+          --section-gap: 18px;
+          --radius-lg: 16px;
+        }
+
+        .page {
+          width: min(calc(100% - 14px), var(--max));
+          margin: 14px auto 20px;
+        }
+
+        .sheet {
+          border-radius: var(--radius-lg);
+        }
+
+        .hero {
+          padding: 22px 16px 18px;
+        }
+
+        main {
+          padding: 12px;
+          gap: 12px;
+        }
+
+        .section {
+          padding: 16px 14px 14px;
+          border-radius: calc(var(--radius-md) + 4px);
+        }
+
+        .section-head {
+          gap: 10px;
+          margin-bottom: 12px;
+        }
+
+        .section-number {
+          width: 28px;
+          height: 28px;
+          font-size: 0.78rem;
+        }
+
+        p,
+        li {
+          font-size: 0.97rem;
+        }
+
+        h2 {
+          font-size: 1rem;
+        }
+
+        footer {
+          padding: 16px;
+        }
+      }
+
+      @media (max-width: 420px) {
+        h1 {
+          font-size: 1.28rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <div class="sheet">
+        <header class="hero">
+          <h1>Social licence and public acceptance in infrastructure projects</h1>
+          <div class="summary-note">
+            <p>Why technically approved projects still face resistance, how social licence differs from public acceptance, and what this means for governing contentious infrastructure.</p>
+          </div>
+        </header>
+
+        <main id="main-content">
+          <section class="section">
+            <div class="section-head">
+              <span class="section-number">01</span>
+              <h2>What my program of research shows, in brief</h2>
+            </div>
+            <p>
+              Across ten papers spanning field surveys, behavioural experiments, meta-analysis, modelling, and bibliometric mapping, my collaboration with Prof. Yong Liu from Zhejiang Sci-Tech University shows that communities judge contentious infrastructure, especially waste-to-energy incineration, through a layered blend of procedural fairness, emotions and narratives, and perceived distance and power asymmetry.
+              “Social licence to operate” and “public acceptance” are related but not identical lenses.
+              Social licence captures the ongoing, conditional nature of community consent, and its vulnerability to sudden shifts, while public acceptance often reflects a point-in-time attitude.
+              Together, the studies show that social licence and public acceptance can be measured, explained, and strengthened when proponents, regulators, and communities co-produce fair processes, transparent information, and visible local benefits (He et al., 2023; Xu et al., 2023).
+            </p>
+          </section>
+
+          <section class="section">
+            <div class="section-head">
+              <span class="section-number">02</span>
+              <h2>Conceptual foundations, public acceptance versus social licence</h2>
+            </div>
+            <p>
+              The comparative study in Land Use Policy disentangles public acceptance and social licence to operate in a NIMBY setting.
+              It argues that social licence better reflects relational legitimacy, such as trust, reciprocity, and fairness, than a static attitude score.
+              It positions social licence as a multidimensional, maintainable state that is earned and preserved over time, not simply captured at a single survey wave (Xu et al., 2023).
+            </p>
+            <p>
+              Complementing this, our empirical assessment across waste-to-energy facilities in the Yangtze River Delta finds that baseline social licence levels are relatively low and uneven, with clear structure across dimensions.
+              Practical levers include information disclosure, procedural justice, and community education (He et al., 2023).
+              This helps explain why social licence can lag behind legal approval, since what matters locally is how decisions are made and who bears risks and gains, not only what is technically safe.
+            </p>
+          </section>
+
+          <section class="section">
+            <div class="section-head">
+              <span class="section-number">03</span>
+              <h2>What builds, or breaks, acceptance</h2>
+            </div>
+            <p><strong>1) Procedural fairness</strong></p>
+            <p>Two quantitative syntheses point to the same finding, process fairness matters. Our meta-analysis shows that perceived procedural fairness has a clear positive association with social licence and acceptance across sectors and study designs. The size of the effect varies by context, yet the direction remains positive, fair procedures increase willingness to grant social licence (Jin et al., 2024).</p>
+            <p><strong>Practice implication:</strong> invest up-front in inclusive engagement, two-way influence, and equitable benefit-sharing. These are not add-ons, they are core drivers of legitimacy.</p>
+            <p><strong>2) Emotions and narrative framing</strong></p>
+            <p>Experimental evidence shows that acceptance can shift with emotional framing. Negatively framed, fear-inducing information increases perceived risks and opposition, whereas positively framed, efficacy-building narratives increase support. This “emotional amplification” aligns with emotional contagion theory and loss aversion, and it reminds us that attitudes are not formed in a vacuum of technical facts (Jiang, Luo, Xia, Ke, Skitmore, &amp; Liu, 2025).</p>
+            <p><strong>Practice implication:</strong> treat communication as dialogue, not one-way transmission. Acknowledge fears, be transparent about uncertainty, and use trusted messengers to prevent emotive counter-narratives from eroding social licence.</p>
+            <p><strong>3) Distance and power asymmetry</strong></p>
+            <p>Initial work shows that spatial distance shapes perceptions, those who feel “closer” to a facility perceive higher risks and fewer benefits (Zhou, Xu, Liu, Cui, Xia, Ke, &amp; Skitmore, 2022). Follow-on work integrates psychological distance with power distance, showing that narrowing perceived power gaps, by placing authorities and communities on a more equal footing, increases acceptance, even when physical proximity is close (Zhou, Luo, Gao, Xia, Ke, Skitmore, &amp; Liu, 2024).</p>
+            <p><strong>Practice implication:</strong> go beyond siting metrics. Share decision power through co-design, citizen panels, and independent monitoring to counter NIMBY responses rooted in perceived exclusion.</p>
+            <p><strong>4) Social-cognitive pathways</strong></p>
+            <p>Using social cognitive theory, a large-sample study identifies how risk and benefit beliefs, self- and collective-efficacy, and social influence shape acceptance intentions, and it maps policy levers to each construct, for example efficacy-building communication and visible local benefits (Bao et al., 2023).</p>
+            <p><strong>Practice implication:</strong> build capability and agency in host communities, not only knowledge. People support projects when they believe they can influence outcomes and will share in the benefits.</p>
+          </section>
+
+          <section class="section">
+            <div class="section-head">
+              <span class="section-number">04</span>
+              <h2>Measuring and strengthening social licence over time, resilience</h2>
+            </div>
+            <p>A cloud-model framework proposes indicators for social-licence resilience, the capacity of acceptance to withstand shocks, for example accidents, rumours, policy changes. The model partitions contributions from government, business, and community, and it highlights information disclosure, procedural fairness, and public education as pillars of resilience. A case application shows where social licence is brittle and how targeted interventions can shore it up before a crisis (Jiang, Xu, He, Xia, Ke, Skitmore, &amp; Liu, 2025).</p>
+            <p><strong>Practice implication:</strong> treat social licence as part of risk management. Monitor early-warning indicators, institutionalise grievance handling, and maintain open reporting so that social licence remains elastic under stress.</p>
+          </section>
+
+          <section class="section">
+            <div class="section-head">
+              <span class="section-number">05</span>
+              <h2>Taking stock of the field, bibliometric mapping</h2>
+            </div>
+            <p>A bibliometric analysis maps global SLO scholarship, surfacing core clusters, measurement methods, influencing factors, mechanisms to gain or maintain SLO, and the spatio-temporal evolution of attitudes. It also identifies a geographic skew toward Western contexts, which elevates the value of our China-based evidence for broadening the knowledge base. The study proposes a forward agenda, including comparative, longitudinal, and sector-diverse designs (Chen et al., 2025).</p>
+          </section>
+
+          <section class="section">
+            <div class="section-head">
+              <span class="section-number">06</span>
+              <h2>An integrated sequence for practitioners and policymakers</h2>
+            </div>
+            <p>Pooling the ten studies suggests a practical sequence:</p>
+            <ul>
+              <li>Diagnose the baseline social licence and weak links with a structured dashboard, then prioritise disclosure, fairness, and education (He et al., 2023; Jiang, Xu, He, Xia, Ke, Skitmore, &amp; Liu, 2025).</li>
+              <li>Design fair processes with genuine influence, since fairness has a consistent positive effect on acceptance (Jin et al., 2024).</li>
+              <li>Communicate with empathy, manage emotional narratives by acknowledging concerns and providing credible success examples (Jiang, Luo, Xia, Ke, Skitmore, &amp; Liu, 2025).</li>
+              <li>Close distance and share power, reduce psychological and institutional gaps through citizen panels and open data to convert opposition into partnership (Zhou et al., 2022; Zhou et al., 2024).</li>
+              <li>Institutionalise resilience, maintain early-warning dashboards, grievance resolution, and community education so social licence can withstand shocks (Jiang, Xu, He, Xia, Ke, Skitmore, &amp; Liu, 2025).</li>
+            </ul>
+          </section>
+
+          <section class="section">
+            <div class="section-head">
+              <span class="section-number">07</span>
+              <h2>Closing thought</h2>
+            </div>
+            <p>Across methods and cases, this program reframes social acceptance as co-governance. Communities grant legitimacy when they experience fairness, voice, and credibility, and that legitimacy can be quantified, monitored, and reinforced across a project's life cycle. This is relevant not only for siting waste-to-energy plants, but for any infrastructure that seeks to operate with its host communities, not merely in them (He et al., 2023; Jin et al., 2024; Chen et al., 2025).</p>
+          </section>
+
+          <section class="section">
+            <div class="section-head">
+              <span class="section-number">08</span>
+              <h2>Journal papers discussed on this page</h2>
+            </div>
+            <ul>
+              <li>Chen, Y., Luo, X., Xu, M., Xia, B., Ke, Y., Skitmore, M., &amp; Liu, Y. (2025). Conceptualizing the state of the art of social license to operate: A visualization-based word frequency analysis. <i>Environmental Science and Policy</i>, <i>171</i>, 104163. <a href="https://doi.org/10.1016/j.envsci.2025.104163" target="_blank" rel="noopener noreferrer">https://doi.org/10.1016/j.envsci.2025.104163</a></li>
+              <li>Jiang, T., Xu, Z., He, X., Xia, B., Ke, Y., Skitmore, M., &amp; Liu, Y. (2025). Evaluating the resilience of social license to operate towards NIMBY facilities: A cloud model-based approach. <i>Environmental Impact Assessment Review</i>, <i>112</i>, 107808. <a href="https://doi.org/10.1016/j.eiar.2025.107808" target="_blank" rel="noopener noreferrer">https://doi.org/10.1016/j.eiar.2025.107808</a></li>
+              <li>Jiang, M., Luo, X., Xia, B., Ke, Y., Skitmore, M., &amp; Liu, Y. (2025). Effects of emotional amplification on public perceptions of waste-to-energy incineration facilities: Evidence from a behavioral survey experiment. <i>Energy Efficiency</i>, <i>18</i>, Article 70. <a href="https://doi.org/10.1007/s12053-025-10358-6" target="_blank" rel="noopener noreferrer">https://doi.org/10.1007/s12053-025-10358-6</a></li>
+              <li>Zhou, Q., Luo, X., Gao, X., Xia, B., Ke, Y., Skitmore, M., &amp; Liu, Y. (2024). Impact of psychological distance on public acceptance of waste-to-energy combustion projects. <i>Environmental Impact Assessment Review</i>, <i>109</i>, 107631. <a href="https://doi.org/10.1016/j.eiar.2024.107631" target="_blank" rel="noopener noreferrer">https://doi.org/10.1016/j.eiar.2024.107631</a></li>
+              <li>Jin, K., Yu, S., Xia, B., Ke, Y., Skitmore, M., &amp; Liu, Y. (2024). Exploring the effect of procedural fairness on the social license to operate of resource development projects: A meta-analysis. <i>Resources Policy</i>, <i>96</i>, 105242. <a href="https://doi.org/10.1016/j.resourpol.2024.105242" target="_blank" rel="noopener noreferrer">https://doi.org/10.1016/j.resourpol.2024.105242</a></li>
+              <li>He, X., Xu, M., Cui, C., Xia, B., Ke, Y., Skitmore, M., &amp; Liu, Y. (2023). Evaluating the social license to operate of waste-to-energy incineration projects: A case study from the Yangtze River Delta of China. <i>Journal of Cleaner Production</i>, <i>388</i>, 135966. <a href="https://doi.org/10.1016/j.jclepro.2023.135966" target="_blank" rel="noopener noreferrer">https://doi.org/10.1016/j.jclepro.2023.135966</a></li>
+              <li>Xu, M., Liu, Y., Cui, C., Xia, B., Ke, Y., &amp; Skitmore, M. (2023). Social acceptance of NIMBY facilities: A comparative study between public acceptance and the social license to operate analytical frameworks. <i>Land Use Policy</i>, <i>124</i>, 106453. <a href="https://doi.org/10.1016/j.landusepol.2022.106453" target="_blank" rel="noopener noreferrer">https://doi.org/10.1016/j.landusepol.2022.106453</a></li>
+              <li>Bao, W., Chen, Y., Cui, C., Xia, B., Ke, Y., Skitmore, M., &amp; Liu, Y. (2023). How to shape local public acceptance of Not-In-My-Backyard infrastructures? A social cognitive theory perspective. <i>Sustainability</i>, <i>15</i>(22), 15835. <a href="https://doi.org/10.3390/su152215835" target="_blank" rel="noopener noreferrer">https://doi.org/10.3390/su152215835</a></li>
+              <li>Zhou, Q., Xu, M., Liu, Y., Cui, C., Xia, B., Ke, Y., &amp; Skitmore, M. (2022). Exploring the effects of spatial distance on public perception of waste-to-energy incineration projects. <i>Waste Management</i>, <i>143</i>, 168-176. <a href="https://doi.org/10.1016/j.wasman.2022.02.033" target="_blank" rel="noopener noreferrer">https://doi.org/10.1016/j.wasman.2022.02.033</a></li>
+              <li>Ge, Y., Cui, C., Zhang, C., Ke, Y., &amp; Liu, Y. (2021). Testing a social-psychological model of public acceptance towards highway infrastructure projects: A case study from China. <i>Engineering, Construction and Architectural Management</i>, <i>28</i>(9), 2772-2787. <a href="https://doi.org/10.1108/ECAM-03-2020-0183" target="_blank" rel="noopener noreferrer">https://doi.org/10.1108/ECAM-03-2020-0183</a></li>
+            </ul>
+          </section>
+        </main>
+
+        <footer>&copy; Yongjian Ke. Last Updated on 24 Mar 2026.</footer>
+      </div>
+    </div>
+  </body>
+</html>
