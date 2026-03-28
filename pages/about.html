@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | A/Prof Yongjian Ke</title>
+  <style>
+    :root {
+      --bg: #f9f9ff;
+      --bg-alt: #f0f3ff;
+      --card: #ffffff;
+      --text: #111c2d;
+      --muted: #424754;
+      --primary: #0058be;
+      --primary-strong: #2170e4;
+      --outline: rgba(194, 198, 214, 0.35);
+      --footer: #0f1d37;
+      --shadow: 0 18px 40px rgba(17, 28, 45, 0.06);
+      --radius-card: 18px;
+      --radius-panel: 28px;
+      --max-width: 1200px;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    p,
+    ul {
+      margin: 0;
+    }
+
+    ul {
+      padding: 0;
+      list-style: none;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .container {
+      width: min(var(--max-width), calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 12px;
+      top: -48px;
+      z-index: 1000;
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: var(--text);
+      color: #fff;
+      font-size: 0.95rem;
+      transition: top 0.2s ease;
+    }
+
+    .skip-link:focus {
+      top: 12px;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(20px);
+      background: rgba(249, 249, 255, 0.72);
+      box-shadow: 0 1px 0 rgba(17, 28, 45, 0.04);
+    }
+
+    .nav {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      font-size: 1.45rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .nav-links a {
+      padding-bottom: 6px;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--text);
+    }
+
+    .nav-links a.active {
+      color: var(--primary);
+      border-bottom: 2px solid var(--primary);
+      font-weight: 600;
+    }
+
+    .intro {
+      padding: 96px 0 84px;
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: minmax(320px, 0.92fr) minmax(0, 1.08fr);
+      gap: 34px;
+      align-items: stretch;
+    }
+
+    .portrait-panel {
+      min-height: 540px;
+    }
+
+    .portrait-panel img {
+      height: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border-radius: calc(var(--radius-panel) - 6px);
+      box-shadow: var(--shadow);
+    }
+
+    .section-label,
+    .update-date,
+    .contact-label,
+    .site-footer {
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+
+    .section-label {
+      display: inline-block;
+      margin-bottom: 12px;
+      color: var(--primary);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+    }
+
+    h1 {
+      margin-bottom: 26px;
+      font-size: clamp(3.8rem, 7vw, 5.6rem);
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+      font-weight: 800;
+    }
+
+    h2 {
+      margin-bottom: 16px;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+    }
+
+    h3 {
+      margin-bottom: 10px;
+      font-size: 1.95rem;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+    }
+
+    h4 {
+      margin-bottom: 8px;
+      font-size: 1.45rem;
+      line-height: 1.18;
+      letter-spacing: -0.02em;
+      font-weight: 700;
+    }
+
+    .intro-copy,
+    .cv-card p,
+    .update-item p,
+    .contact-copy p {
+      color: var(--muted);
+      font-size: 1.06rem;
+    }
+
+    .intro-copy p + p {
+      margin-top: 18px;
+    }
+
+    .resources {
+      padding: 76px 0;
+      background: var(--bg-alt);
+    }
+
+    .resources-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 420px);
+      gap: 46px;
+      align-items: start;
+    }
+
+    .profile-links {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .profile-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-height: 52px;
+      padding: 14px 16px;
+      border-radius: 12px;
+      background: var(--card);
+      box-shadow: inset 0 0 0 1px var(--outline);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .profile-link:hover,
+    .profile-link:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 30px rgba(17, 28, 45, 0.06);
+    }
+
+    .profile-link:focus-visible,
+    .cv-button:focus-visible,
+    .updates-link:focus-visible,
+    .contact-value a:focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 3px;
+    }
+
+    .profile-link svg,
+    .cv-button svg,
+    .contact-icon svg {
+      fill: none;
+      stroke: currentColor;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .profile-link svg {
+      width: 22px;
+      height: 22px;
+      color: var(--primary);
+      stroke-width: 1.9;
+      flex: 0 0 auto;
+    }
+
+    .profile-link span {
+      font-size: 1rem;
+      font-weight: 500;
+    }
+
+    .cv-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-self: start;
+      padding: 30px;
+      border-radius: var(--radius-card);
+      background: rgba(216, 226, 255, 0.45);
+      box-shadow: inset 0 0 0 1px rgba(0, 88, 190, 0.08);
+    }
+
+    .cv-card p {
+      margin-bottom: 22px;
+      font-size: 1rem;
+    }
+
+    .cv-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 15px 24px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-strong));
+      color: #fff;
+      font-weight: 700;
+      box-shadow: 0 10px 24px rgba(0, 88, 190, 0.18);
+      transition: opacity 0.2s ease;
+    }
+
+    .cv-button:hover {
+      opacity: 0.92;
+    }
+
+    .cv-button svg {
+      width: 18px;
+      height: 18px;
+      stroke-width: 2;
+    }
+
+    .updates {
+      padding: 86px 0 92px;
+    }
+
+    .section-title {
+      margin-bottom: 30px;
+    }
+
+    .updates-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .update-item {
+      padding: 24px 24px 22px;
+      border-radius: 14px;
+      background: var(--card);
+      box-shadow: inset 0 0 0 1px rgba(194, 198, 214, 0.18);
+    }
+
+    .update-date {
+      display: inline-block;
+      margin-bottom: 10px;
+      color: var(--primary);
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+    }
+
+    .update-item h4 {
+      margin-bottom: 6px;
+    }
+
+    .update-item p {
+      font-size: 0.98rem;
+      line-height: 1.5;
+    }
+
+    .updates-footer {
+      margin-top: 18px;
+    }
+
+    .updates-link {
+      color: var(--primary);
+      font-size: 0.92rem;
+      font-weight: 600;
+      transition: opacity 0.2s ease;
+    }
+
+    .updates-link:hover,
+    .updates-link:focus-visible {
+      opacity: 0.8;
+    }
+
+    .contact {
+      padding-bottom: 88px;
+    }
+
+    .contact-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.65fr);
+      overflow: hidden;
+      border-radius: var(--radius-panel);
+      background: #263143;
+    }
+
+    .contact-copy {
+      padding: 42px 34px 38px;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .contact-copy h2 {
+      margin-bottom: 18px;
+      color: #fff;
+      text-shadow: 0 1px 0 rgba(17, 28, 45, 0.35);
+    }
+
+    .contact-copy p {
+      max-width: 660px;
+      margin-bottom: 28px;
+      color: rgba(216, 227, 251, 0.82);
+    }
+
+    .contact-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px 34px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 240px;
+    }
+
+    .contact-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 999px;
+      background: var(--primary-strong);
+      color: #fff;
+      flex: 0 0 auto;
+    }
+
+    .contact-icon svg {
+      width: 20px;
+      height: 20px;
+      stroke-width: 2;
+    }
+
+    .contact-label {
+      display: block;
+      margin-bottom: 2px;
+      color: rgba(255, 255, 255, 0.62);
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+    }
+
+    .contact-value {
+      color: #fff;
+      font-weight: 700;
+      font-size: 1rem;
+    }
+
+    .contact-visual {
+      position: relative;
+      min-height: 260px;
+      background: var(--bg);
+    }
+
+    .contact-visual img {
+      position: absolute;
+      inset: 0;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .contact-visual::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 88, 190, 0.14);
+      mix-blend-mode: multiply;
+    }
+
+    .site-footer {
+      padding: 34px 24px;
+      background: var(--footer);
+      color: rgba(255, 255, 255, 0.86);
+      text-align: center;
+      font-size: 0.74rem;
+      line-height: 1.6;
+      letter-spacing: 0.12em;
+    }
+
+    @media (max-width: 980px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 16px 0;
+      }
+
+      .intro {
+        padding-top: 72px;
+      }
+
+      .intro-grid,
+      .resources-grid,
+      .contact-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .portrait-panel {
+        min-height: 0;
+      }
+
+      .portrait-panel img {
+        height: auto;
+      }
+
+      .contact-visual {
+        min-height: 300px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(var(--max-width), calc(100% - 32px));
+      }
+
+      .profile-links {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: clamp(2.8rem, 14vw, 4.2rem);
+      }
+
+      .intro-copy,
+      .cv-card p,
+      .contact-copy p,
+      .update-item p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container nav">
+      <div class="brand">A/Prof Yongjian Ke</div>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="../index.html">Home</a>
+        <a class="active" href="about.html" aria-current="page">About</a>
+        <a href="research.html">Research</a>
+        <a href="teaching.html">Teaching</a>
+        <a href="service.html">Service</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="intro" aria-labelledby="about-title">
+      <div class="container intro-grid">
+        <figure class="portrait-panel">
+          <img src="../assets/me.jpg" alt="Portrait of Yongjian Ke">
+        </figure>
+
+        <div>
+          <p class="section-label">Associate Professor</p>
+          <h1 id="about-title">Yongjian Ke</h1>
+          <div class="intro-copy">
+            <p>
+              I am an Associate Professor in the School of Built Environment at the University of
+              Technology Sydney, where I also serve as Director of Postgraduate Project Management
+              Programs. My work brings together academic research, program leadership, editorial
+              contribution, and engagement with the wider project management community.
+            </p>
+            <p>
+              I completed my Bachelor of Engineering in Project Management in 2005 and my PhD in
+              Management Science and Engineering in 2010, both at Tsinghua University. Before joining UTS
+              in 2016, I held academic and research appointments in mainland China, Hong Kong, Singapore,
+              and Australia. These experiences have shaped the way I think about projects, infrastructure,
+              and higher education.
+            </p>
+            <p>
+             Alongside my role at UTS, I contribute to the field through editorial appointments, research leadership, 
+             university governance, accreditation work, and international academic networks. 
+             These roles reflect my broader academic service and my interest in linking scholarly work with the 
+             practical demands of infrastructure delivery, project governance, and postgraduate education.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="resources" aria-labelledby="ecosystem-title">
+      <div class="container resources-grid">
+        <div>
+          <h2 id="ecosystem-title">Scholarly Ecosystem</h2>
+          <ul class="profile-links" aria-label="External academic profiles">
+            <li>
+              <a class="profile-link" href="https://profiles.uts.edu.au/yongjian.ke" aria-label="UTS Profile">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M3 9l9-5 9 5-9 5-9-5z"></path>
+                  <path d="M6 11.5v4.5c0 1.3 2.7 3 6 3s6-1.7 6-3v-4.5"></path>
+                </svg>
+                <span>UTS Profile</span>
+              </a>
+            </li>
+            <li>
+              <a class="profile-link" href="https://scholar.google.com.au/citations?user=8hby4hcAAAAJ" aria-label="Google Scholar">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M3 9l9-5 9 5-9 5-3.5-1.95"></path>
+                  <path d="M7 11.5V16"></path>
+                  <path d="M12 14v6"></path>
+                </svg>
+                <span>Google Scholar</span>
+              </a>
+            </li>
+            <li>
+              <a class="profile-link" href="https://orcid.org/0000-0003-3426-703X" aria-label="ORCID">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <circle cx="9" cy="8" r="2.5"></circle>
+                  <path d="M3 20v-1.5a4.5 4.5 0 0 1 4.5-4.5H12"></path>
+                  <circle cx="17" cy="15" r="4"></circle>
+                  <path d="M22 20l-2-2"></path>
+                </svg>
+                <span>ORCID</span>
+              </a>
+            </li>
+            <li>
+              <a class="profile-link" href="https://www.webofscience.com/wos/author/record/C-6071-2014" aria-label="Web of Science ResearcherID">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M4 6h10a4 4 0 0 1 0 8H8"></path>
+                  <path d="M14 14l6 6"></path>
+                  <circle cx="10" cy="10" r="6"></circle>
+                </svg>
+                <span>Web of Science ResearcherID</span>
+              </a>
+            </li>
+            <li>
+              <a class="profile-link" href="https://www.researchgate.net/profile/Yongjian-Ke" aria-label="ResearchGate">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M10 2v5l-5.5 9.5A3 3 0 0 0 7.1 21h9.8a3 3 0 0 0 2.6-4.5L14 7V2"></path>
+                  <path d="M8 13h8"></path>
+                </svg>
+                <span>ResearchGate</span>
+              </a>
+            </li>
+            <li>
+              <a class="profile-link" href="https://www.linkedin.com/in/pm-professor/" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <circle cx="12" cy="12" r="2.5"></circle>
+                  <path d="M19 8a2 2 0 1 0-2-2"></path>
+                  <path d="M6 19a2 2 0 1 0-2-2"></path>
+                  <path d="M6 8a2 2 0 1 0-2-2"></path>
+                  <path d="M17 17a2 2 0 1 0 2 2"></path>
+                  <path d="M8.2 7.2l2.3 2.3"></path>
+                  <path d="M13.5 13.5l2.3 2.3"></path>
+                  <path d="M13.5 10.5l2.3-2.3"></path>
+                  <path d="M8.2 16.8l2.3-2.3"></path>
+                </svg>
+                <span>LinkedIn</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <aside class="cv-card" aria-labelledby="cv-title">
+          <h3 id="cv-title">Curriculum Vitae</h3>
+          <p>
+            Access a comprehensive record of academic achievements, publications, and professional service.
+          </p>
+          <a class="cv-button" href="../assets/CV_Ke.pdf">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M12 3v11"></path>
+              <path d="M8 10l4 4 4-4"></path>
+              <path d="M4 17v3h16v-3"></path>
+            </svg>
+            Download Full CV
+          </a>
+        </aside>
+      </div>
+    </section>
+
+    <section class="updates" aria-labelledby="updates-title">
+      <div class="container">
+        <div class="section-title">
+          <h2 id="updates-title">Latest Updates</h2>
+        </div>
+
+        <div class="updates-list">
+          <article class="update-item">
+            <p class="update-date">Mar 2026</p>
+            <h4>AUBEA 2026 Scientific Committee</h4>
+            <p>
+              Invited to serve on the Scientific Committee for the 49th Australasian Universities Building Education Association (AUBEA) Conference, to be held at Western Sydney University, Parramatta City Campus, Sydney, Australia, from 15–18 November 2026.
+            </p>
+          </article>
+
+          <article class="update-item">
+            <p class="update-date">Mar 2026</p>
+            <h4>CIB WBC 2028 Scientific Committee</h4>
+            <p>
+              Invited to serve on the Scientific Committee for the 24th CIB World Building Congress, to be hosted by Tsinghua University in Beijing from 21–26 May 2028, representing CIB W122.
+            </p>
+          </article>
+
+          <article class="update-item">
+            <p class="update-date">Feb 2026</p>
+            <h4>New Publication in JCEM</h4>
+            <p>
+              “Bundling Strategies for Routine Expressway Maintenance Projects with Similarity Thresholds” accepted by the Journal of Construction Engineering and Management, co-authored with the Chang’an University team led by A/Prof Xiaoli Shi.
+            </p>
+          </article>
+        </div>
+
+        <div class="updates-footer">
+          <a class="updates-link" href="#">View all updates</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="contact-panel">
+          <div class="contact-copy">
+            <h2 id="contact-title">Collaboration &amp; Inquiries</h2>
+            <p>
+              I am always open to discussing research collaborations, HDR supervision, and industry
+              consultation. Feel free to reach out via email or visit during office hours.
+            </p>
+
+            <div class="contact-items">
+              <div class="contact-item">
+                <div class="contact-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" focusable="false">
+                    <path d="M4 6h16v12H4z"></path>
+                    <path d="M4 8l8 6 8-6"></path>
+                  </svg>
+                </div>
+                <div>
+                  <span class="contact-label">Email Address</span>
+                  <div class="contact-value">
+                    <a href="mailto:yongjian.ke@uts.edu.au">yongjian.ke@uts.edu.au</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" focusable="false">
+                    <circle cx="12" cy="12" r="9"></circle>
+                    <path d="M12 7v6l4 2"></path>
+                  </svg>
+                </div>
+                <div>
+                  <span class="contact-label">Appointments</span>
+                  <div class="contact-value">Usually available on campus on Tuesdays and Wednesdays, by appointment.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-visual" aria-hidden="true">
+            <img src="../assets/uts.jpg" alt="">
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    © 2026 Associate Professor Yongjian Ke. All rights reserved.
+  </footer>
+</body>
+</html>
