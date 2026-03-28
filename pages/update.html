@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Updates | A/Prof Yongjian Ke</title>
+  <style>
+    :root {
+      --bg: #f9f9ff;      --card: #ffffff;
+      --text: #111c2d;
+      --muted: #424754;
+      --primary: #0058be;      --footer: #0f1d37;      --max-width: 1200px;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    h1,
+    h2,
+    h4,
+    p {
+      margin: 0;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(var(--max-width), calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 12px;
+      top: -48px;
+      z-index: 1000;
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: var(--text);
+      color: #fff;
+      font-size: 0.95rem;
+      transition: top 0.2s ease;
+    }
+
+    .skip-link:focus {
+      top: 12px;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(20px);
+      background: rgba(249, 249, 255, 0.72);
+      box-shadow: 0 1px 0 rgba(17, 28, 45, 0.04);
+    }
+
+    .nav {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      font-size: 1.45rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .nav-links a {
+      padding-bottom: 6px;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--text);
+    }
+
+    .page-intro {
+      padding: 92px 0 18px;
+    }
+
+    .section-label,
+    .update-date,
+    .site-footer {
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+
+    .section-label {
+      display: inline-block;
+      margin-bottom: 12px;
+      color: var(--primary);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+    }
+
+    h1 {
+      margin-bottom: 14px;
+      font-size: clamp(2.6rem, 5vw, 4rem);
+      line-height: 0.98;
+      letter-spacing: -0.045em;
+      font-weight: 800;
+    }
+
+    h2 {
+      margin-bottom: 16px;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+    }
+
+    h4 {
+      margin-bottom: 8px;
+      font-size: 1.45rem;
+      line-height: 1.18;
+      letter-spacing: -0.02em;
+      font-weight: 700;
+    }
+
+    .intro-copy,
+    .update-item p,
+    .back-link {
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    .updates {
+      padding: 18px 0 92px;
+    }
+
+    .section-title {
+      margin-bottom: 24px;
+    }
+
+    .updates-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .update-item {
+      padding: 24px 24px 22px;
+      border-radius: 14px;
+      background: var(--card);
+      box-shadow: inset 0 0 0 1px rgba(194, 198, 214, 0.18);
+    }
+
+    .update-date {
+      display: inline-block;
+      margin-bottom: 10px;
+      color: var(--primary);
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+    }
+
+    .update-item p {
+      font-size: 0.98rem;
+      line-height: 1.5;
+    }
+
+    .updates-footer {
+      margin-top: 22px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--primary);
+      font-size: 0.92rem;
+      font-weight: 600;
+      transition: opacity 0.2s ease;
+    }
+
+    .back-link:hover,
+    .back-link:focus-visible {
+      opacity: 0.8;
+    }
+
+    .back-link:focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 3px;
+      border-radius: 8px;
+    }
+
+    .site-footer {
+      padding: 34px 24px;
+      background: var(--footer);
+      color: rgba(255, 255, 255, 0.86);
+      text-align: center;
+      font-size: 0.74rem;
+      line-height: 1.6;
+      letter-spacing: 0.12em;
+    }
+
+    @media (max-width: 980px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 16px 0;
+      }
+
+      .page-intro {
+        padding-top: 72px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(var(--max-width), calc(100% - 32px));
+      }
+
+      h1 {
+        font-size: clamp(2.2rem, 10vw, 3rem);
+      }
+      .intro-copy,
+      .update-item p,
+      .back-link {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container nav">
+      <div class="brand">A/Prof Yongjian Ke</div>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="../index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="research.html">Research</a>
+        <a href="teaching.html">Teaching</a>
+        <a href="service.html">Service</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="page-intro" aria-labelledby="updates-page-title">
+      <div class="container">
+        <div>
+          <p class="section-label">News and Activities</p>
+          <h1 id="updates-page-title">Latest Updates</h1>
+          <p class="intro-copy">
+            This page brings together recent academic activities, appointments, publications, and other professional updates.
+            It provides a fuller record beyond the short preview shown on the About page.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="updates" aria-labelledby="updates-title">
+      <div class="container">
+        <div class="section-title">
+          <h2 id="updates-title">Recent Items</h2>
+        </div>
+
+        <div class="updates-list">
+          <article class="update-item">
+            <p class="update-date">Mar 2026</p>
+            <h4>AUBEA 2026 Scientific Committee</h4>
+            <p>
+              Invited to serve on the Scientific Committee for the 49th Australasian Universities Building Education Association (AUBEA) Conference, to be held at Western Sydney University, Parramatta City Campus, Sydney, Australia, from 15–18 November 2026.
+            </p>
+          </article>
+
+          <article class="update-item">
+            <p class="update-date">Mar 2026</p>
+            <h4>CIB WBC 2028 Scientific Committee</h4>
+            <p>
+              Invited to serve on the Scientific Committee for the 24th CIB World Building Congress, to be hosted by Tsinghua University in Beijing from 21–26 May 2028, representing CIB W122.
+            </p>
+          </article>
+
+          <article class="update-item">
+            <p class="update-date">Feb 2026</p>
+            <h4>New Publication in JCEM</h4>
+            <p>
+              “Bundling Strategies for Routine Expressway Maintenance Projects with Similarity Thresholds”, accepted by the Journal of Construction Engineering and Management, co-authored with the Chang’an University team led by A/Prof Xiaoli Shi.
+            </p>
+          </article>
+                  <article class="update-item">
+            <p class="update-date">Feb 2026</p>
+            <h4>New Publication in IJCM</h4>
+            <p>
+              <a href="https://doi.org/10.1080/15623599.2026.26">“Critical strategies for building urban community resilience through public-private partnerships: a system dynamics modelling”</a>, published online in the International Journal of Construction Management, co-authored with A/Prof Robert Osei–Kyei from Western Sydney University.
+            </p>
+          </article>
+        </div>
+
+        <div class="updates-footer">
+          <a class="back-link" href="about.html">← Back to About page</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    © 2026 Associate Professor Yongjian Ke. All rights reserved.
+  </footer>
+</body>
+</html>
