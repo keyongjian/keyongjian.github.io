@@ -231,7 +231,6 @@
 
     .directions {
       padding: 84px 0;
-      background: var(--bg-alt);
     }
 
     .section-header {
@@ -288,7 +287,92 @@
       flex-grow: 1;
     }
 
-    .briefs,
+        .standing {
+      padding: 86px 0;
+      background: var(--bg-alt);
+    }
+
+    .standing-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .standing-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 240px;
+      padding: 28px 28px 24px;
+      border-radius: var(--radius-card);
+      background: var(--card);
+      box-shadow: inset 0 0 0 1px rgba(194, 198, 214, 0.22);
+    }
+
+    .standing-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 52px;
+      height: 52px;
+      margin-bottom: 20px;
+      border-radius: 14px;
+      background: var(--primary-soft);
+      color: var(--primary);
+    }
+
+    .standing-icon svg {
+      width: 24px;
+      height: 24px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.9;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .standing-card p,
+    .standing-list li {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.45;
+    }
+
+    .standing-card h3 {
+      font-size: 1.65rem;
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+    }
+
+    .standing-list {
+      display: grid;
+      gap: 8px;
+      margin-top: 2px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .standing-list li {
+      position: relative;
+      padding-left: 16px;
+      white-space: nowrap;
+    }
+
+    .standing-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.68em;
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--primary);
+      opacity: 0.8;
+      transform: translateY(-50%);
+    }
+
+.briefs,
     .publications {
       padding: 86px 0;
     }
@@ -445,7 +529,8 @@
       }
 
       .hero-grid,
-      .directions-grid {
+      .directions-grid,
+      .standing-grid {
         grid-template-columns: 1fr;
       }
 
@@ -482,6 +567,10 @@
 
       .hero-copy {
         font-size: 1rem;
+      }
+
+      .standing-list li {
+        white-space: normal;
       }
 
       .hero-media {
@@ -536,10 +625,84 @@
       </div>
     </section>
 
+    <section class="standing" aria-labelledby="standing-title">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-label">Research Standing</p>
+          <h2 id="standing-title">Profile and Recognition</h2>
+        </div>
+
+        <div class="standing-grid">
+          <article class="standing-card">
+            <div class="standing-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M4 19h16"></path>
+                <path d="M6 17V8l6-4 6 4v9"></path>
+                <path d="M9 11h6"></path>
+              </svg>
+            </div>
+            <h3>Competitive Research and Publications</h3>
+            <ul class="standing-list">
+              <li>Led or contributed to 29 competitive international research projects</li>
+              <li>Produced 110+ journal publications and six books</li>
+              <li>Research spans PPPs, infrastructure governance, social sustainability, etc.</li>
+            </ul>
+          </article>
+
+          <article class="standing-card">
+            <div class="standing-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M12 3l2.7 5.5 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.8 1-6.1-4.4-4.3 6.1-.9L12 3z"></path>
+              </svg>
+            </div>
+            <h3>Citation Profile and Recognition</h3>
+            <ul class="standing-list">
+              <li>8,620+ citations and h-index 41</li>
+              <li>Listed on the Stanford World Top 2% Scientist List in 2020 and 2023-25</li>
+              <li>Consistently strong citation and readership across major publication platforms</li>
+            </ul>
+          </article>
+
+          <article class="standing-card">
+            <div class="standing-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M8 21h8"></path>
+                <path d="M12 17v4"></path>
+                <path d="M7 4h10v5a5 5 0 0 1-10 0V4z"></path>
+                <path d="M7 6H4"></path>
+                <path d="M20 6h-3"></path>
+              </svg>
+            </div>
+            <h3>Awards and High-Impact Outputs</h3>
+            <ul class="standing-list">
+              <li>Recipient of multiple research, publication, and reviewing awards</li>
+              <li>Includes Highly Commended Emerald/EFMD Outstanding Doctoral Research</li>
+              <li>Several papers recognised as highly cited or most-read in their journals</li>
+            </ul>
+          </article>
+
+          <article class="standing-card">
+            <div class="standing-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M4 12h16"></path>
+                <path d="M12 4v16"></path>
+                <circle cx="12" cy="12" r="9"></circle>
+              </svg>
+            </div>
+            <h3>Influence Beyond Publications</h3>
+            <ul class="standing-list">
+              <li>Identified by others as highly cited, productive, or influential in PPP research</li>
+              <li>Cited in policy and institutional documents, incl. World Bank and many others</li>
+              <li>Research has informed both academic debate and wider policy discussion</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section class="directions" aria-labelledby="directions-title">
       <div class="container">
         <div class="section-header">
-          <p class="section-label">Active Inquiry</p>
           <h2 id="directions-title">Current Research Topics</h2>
         </div>
 
