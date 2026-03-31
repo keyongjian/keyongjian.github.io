@@ -140,13 +140,15 @@
 
     .intro-grid {
       display: grid;
-      grid-template-columns: minmax(320px, 0.92fr) minmax(0, 1.08fr);
-      gap: 34px;
-      align-items: stretch;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.9fr);
+      gap: 56px;
+      align-items: center;
+      min-height: 68vh;
     }
 
     .portrait-panel {
-      min-height: 540px;
+      min-height: 520px;
+      order: 2;
     }
 
     .portrait-panel img {
@@ -155,6 +157,10 @@
       object-fit: cover;
       border-radius: calc(var(--radius-panel) - 6px);
       box-shadow: var(--shadow);
+    }
+
+    .intro-text {
+      order: 1;
     }
 
     .section-label,
@@ -554,12 +560,12 @@
           <img src="../assets/me.jpg" alt="Portrait of Yongjian Ke">
         </figure>
 
-        <div>
+        <div class="intro-text">
           <p class="section-label">Associate Professor</p>
           <h1 id="about-title">Yongjian Ke</h1>
           <div class="intro-copy">
             <p>
-              I am an Associate Professor of Project Management in the School of Built Environment at the University of
+              I am an Associate Professor in the School of Built Environment at the University of
               Technology Sydney, where I also serve as Director of Postgraduate Project Management
               Programs and School HDR Coordinator.
             </p>
@@ -567,7 +573,7 @@
               I completed my Bachelor of Engineering in Project Management in 2005 and my PhD in Management Science and 
               Engineering in 2010, both at Tsinghua University. Before joining UTS in 2016, I held academic and research 
               appointments in mainland China, Hong Kong SAR, Singapore, and Australia. This international experience has 
-              shaped my perspective on projects, infrastructure, and higher education across different institutional, 
+              shaped my perspective on projects and higher education across different institutional, 
               policy, and cultural contexts.
             </p>
             <p>
@@ -751,7 +757,7 @@
           </div>
 
           <div class="contact-visual" aria-hidden="true">
-            <img src="../assets/uts.jpg" alt="">
+            <img src="../assets/about_uts.jpg" alt="">
           </div>
         </div>
       </div>

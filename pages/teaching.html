@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teaching | A/Prof Yongjian Ke</title>
+  <style>
+    :root {
+      --bg: #f9f9ff;
+      --bg-alt: #f0f3ff;
+      --bg-accent: #dee8ff;
+      --card: #ffffff;
+      --text: #111c2d;
+      --muted: #424754;
+      --primary: #0058be;
+      --primary-strong: #2170e4;
+      --primary-soft: #d8e2ff;
+      --outline: rgba(194, 198, 214, 0.22);
+      --footer: #0f1d37;
+      --shadow: 0 18px 40px rgba(17, 28, 45, 0.06);
+      --radius-card: 18px;
+      --radius-panel: 28px;
+      --max-width: 1200px;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    p,
+    ul {
+      margin: 0;
+    }
+
+    ul {
+      padding: 0;
+      list-style: none;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .container {
+      width: min(var(--max-width), calc(100% - 48px));
+      margin: 0 auto;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 12px;
+      top: -48px;
+      z-index: 1000;
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: var(--text);
+      color: #fff;
+      font-size: 0.95rem;
+      transition: top 0.2s ease;
+    }
+
+    .skip-link:focus {
+      top: 12px;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(20px);
+      background: rgba(249, 249, 255, 0.72);
+      box-shadow: 0 1px 0 rgba(17, 28, 45, 0.04);
+    }
+
+    .nav {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      font-size: 1.45rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .nav-links a {
+      padding-bottom: 6px;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--text);
+    }
+
+    .nav-links a.active {
+      color: var(--primary);
+      border-bottom: 2px solid var(--primary);
+      font-weight: 600;
+    }
+
+    .section-label,
+    .meta-label,
+    .subject-code,
+    .site-footer {
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+
+    .section-label {
+      display: inline-block;
+      margin-bottom: 12px;
+      color: var(--primary);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+    }
+
+    .meta-label {
+      display: inline-block;
+      margin-bottom: 10px;
+      color: var(--primary);
+      font-size: 0.64rem;
+      letter-spacing: 0.12em;
+    }
+
+    h1 {
+      margin-bottom: 22px;
+      font-size: clamp(3.4rem, 6.2vw, 5.5rem);
+      line-height: 0.96;
+      letter-spacing: -0.05em;
+      font-weight: 800;
+      max-width: 640px;
+    }
+
+    h2 {
+      margin-bottom: 14px;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+    }
+
+    h3 {
+      margin-bottom: 12px;
+      font-size: 1.58rem;
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+    }
+
+    h4 {
+      margin-bottom: 8px;
+      font-size: 1.46rem;
+      line-height: 1.1;
+      letter-spacing: -0.035em;
+      font-weight: 700;
+    }
+
+    h5 {
+      margin-bottom: 4px;
+      font-size: 1.02rem;
+      line-height: 1.3;
+      font-weight: 700;
+    }
+
+    .hero {
+      padding: 96px 0 84px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.9fr);
+      gap: 56px;
+      align-items: center;
+      min-height: 68vh;
+    }
+
+    .hero-media-wrap {
+      position: relative;
+      min-height: 520px;
+    }
+
+    .hero-media-backdrop {
+      position: absolute;
+      inset: 8px 0 0 12px;
+      border-radius: var(--radius-panel);
+      background: var(--bg-accent);
+      opacity: 0.55;
+      transform: rotate(1.2deg);
+    }
+
+    .hero-media {
+      position: relative;
+      z-index: 1;
+      height: 520px;
+      overflow: hidden;
+      border-radius: calc(var(--radius-panel) - 6px);
+      box-shadow: var(--shadow);
+      background: #d8d8d8;
+    }
+
+    .hero-media img {
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-copy,
+    .approach-card p,
+    .subject-card p,
+    .history-meta,
+    .supervision-meta,
+    .supervision-note p {
+      color: var(--muted);
+    }
+
+    .hero-copy {
+      max-width: 580px;
+      font-size: 1.05rem;
+    }
+
+    .teaching-approach,
+    .current-subjects,
+    .history,
+    .supervision {
+      padding: 86px 0;
+    }
+
+    .teaching-approach {
+      background: var(--bg-alt);
+    }
+
+    .current-subjects {
+      padding-bottom: 92px;
+    }
+
+    .approach-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .approach-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 220px;
+      padding: 28px 28px 24px;
+      border-radius: var(--radius-card);
+      background: var(--card);
+      box-shadow: inset 0 0 0 1px var(--outline);
+    }
+
+    .approach-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      margin-bottom: 18px;
+      border-radius: 12px;
+      background: var(--primary-soft);
+      color: var(--primary);
+      flex: 0 0 auto;
+    }
+
+    .approach-icon svg {
+      width: 22px;
+      height: 22px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.9;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .approach-card p {
+      font-size: 0.97rem;
+      line-height: 1.55;
+    }
+
+    .section-header {
+      margin-bottom: 38px;
+    }
+
+    .subject-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .subject-card-link {
+      display: flex;
+      height: 100%;
+      color: inherit;
+    }
+
+    .subject-card-link:focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 4px;
+      border-radius: var(--radius-card);
+    }
+
+    .subject-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 240px;
+      padding: 24px 24px 22px;
+      border-radius: var(--radius-card);
+      background: var(--card);
+      box-shadow: inset 0 0 0 1px var(--outline);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .subject-card-link:hover .subject-card,
+    .subject-card-link:focus-visible .subject-card {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 34px rgba(17, 28, 45, 0.06);
+    }
+
+    .subject-code {
+      display: inline-block;
+      align-self: flex-start;
+      margin-bottom: 18px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--primary-soft);
+      color: var(--primary);
+      font-size: 0.72rem;
+      letter-spacing: 0.04em;
+    }
+
+    .subject-card h3 {
+      font-size: 1.46rem;
+      line-height: 1.1;
+      letter-spacing: -0.035em;
+    }
+
+    .subject-card p {
+      font-size: 0.97rem;
+      line-height: 1.55;
+      flex-grow: 1;
+    }
+
+    .supervision-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 20px;
+      color: var(--primary);
+      font-size: 0.92rem;
+      font-weight: 700;
+      transition: opacity 0.2s ease, gap 0.2s ease;
+    }
+
+    .supervision-link:hover,
+    .supervision-link:focus-visible {
+      opacity: 0.84;
+      gap: 11px;
+    }
+
+    .supervision-link svg {
+      width: 16px;
+      height: 16px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .stack-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .stack-item {
+      padding: 22px 22px 20px;
+      border-radius: 14px;
+      background: var(--card);
+      box-shadow: inset 0 0 0 1px rgba(194, 198, 214, 0.16);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .stack-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px rgba(17, 28, 45, 0.05);
+    }
+
+    .history-meta,
+    .supervision-meta {
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    .supervision-group + .supervision-group {
+      margin-top: 34px;
+    }
+
+    .supervision-note {
+      margin-top: 30px;
+      padding: 28px;
+      border-radius: 18px;
+      background: rgba(216, 226, 255, 0.5);
+      box-shadow: inset 0 0 0 1px rgba(0, 88, 190, 0.08);
+    }
+
+    .supervision-note p {
+      font-size: 0.98rem;
+    }
+
+    .site-footer {
+      padding: 34px 24px;
+      background: var(--footer);
+      color: rgba(255, 255, 255, 0.86);
+      text-align: center;
+      font-size: 0.74rem;
+      line-height: 1.6;
+      letter-spacing: 0.12em;
+    }
+
+    .nav-links a:focus-visible,
+    .supervision-link:focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 3px;
+    }
+
+    @media (max-width: 980px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 16px 0;
+      }
+
+      .hero {
+        padding-top: 72px;
+      }
+
+      .hero-grid,
+      .approach-grid,
+      .subject-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-grid {
+        min-height: auto;
+      }
+
+      .hero-media-wrap {
+        min-height: 0;
+      }
+
+      .hero-media {
+        height: 420px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(var(--max-width), calc(100% - 32px));
+      }
+
+      h1 {
+        font-size: clamp(2.8rem, 14vw, 4.1rem);
+      }
+
+      .approach-card p,
+      .subject-card p,
+      .history-meta,
+      .supervision-meta,
+      .supervision-note p {
+        font-size: 1rem;
+      }
+
+      .hero-media {
+        height: 340px;
+      }
+
+      .subject-card {
+        min-height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container nav">
+      <div class="brand">A/Prof Yongjian Ke</div>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="../index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="research.html">Research</a>
+        <a class="active" href="teaching.html" aria-current="page">Teaching</a>
+        <a href="service.html">Service</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="hero" aria-labelledby="teaching-hero-title">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <p class="section-label">Teaching Philosophy</p>
+          <h1 id="teaching-hero-title">Bridging <br />Theory and Practice</h1>
+          <p class="hero-copy">
+            I teach project management by linking conceptual understanding with the practical conditions of project work. My teaching aims to help students think critically, engage with industry practice, and apply ideas with judgement in complex professional settings. This means creating learning environments where concepts are tested against real cases, professional constraints, and diverse stakeholder expectations. It also means helping students connect formal project management knowledge with the decisions they face in their own workplaces and careers.
+          </p>
+        </div>
+
+        <div class="hero-media-wrap" aria-hidden="true">
+          <div class="hero-media-backdrop"></div>
+          <div class="hero-media">
+            <img src="../assets/teaching_hero.png" alt="Students in a university classroom during a teaching session">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="teaching-approach" aria-labelledby="teaching-approach-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="teaching-approach-title">Teaching Approach</h2>
+        </div>
+
+        <div class="approach-grid">
+          <article class="approach-card">
+            <div class="approach-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M12 3l9 4.5-9 4.5-9-4.5 9-4.5z"></path>
+                <path d="M7 10.5V15c0 1.5 2.2 3 5 3s5-1.5 5-3v-4.5"></path>
+              </svg>
+            </div>
+            <h4>Research-Informed Learning</h4>
+            <p>Using current research and published studies to support conceptual clarity, informed discussion, and stronger critical thinking in class.</p>
+          </article>
+
+          <article class="approach-card">
+            <div class="approach-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M3 21h18"></path>
+                <path d="M6 18V9l6-4 6 4v9"></path>
+                <path d="M10 13h4"></path>
+              </svg>
+            </div>
+            <h4>Industry Relevance</h4>
+            <p>Connecting subjects with governance, contracts, risk, stakeholder issues, and the practical realities of project delivery.</p>
+          </article>
+
+          <article class="approach-card">
+            <div class="approach-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M4 19h16"></path>
+                <path d="M6 5h12v10H6z"></path>
+                <path d="M9 9h6"></path>
+                <path d="M12 15v4"></path>
+              </svg>
+            </div>
+            <h4>Reflective Professional Learning</h4>
+            <p>Designing learning activities that ask students to interpret evidence, question assumptions, and relate subject content to practice.</p>
+          </article>
+
+          <article class="approach-card">
+            <div class="approach-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="3"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <h4>Block-Mode Postgraduate Delivery</h4>
+            <p>My current teaching is all in block-mode postgraduate delivery, with many industry experts invited into the classroom to enrich intensive sessions.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="current-subjects" aria-labelledby="current-subjects-title">
+      <div class="container">
+        <div class="section-header">
+          <p class="section-label">Academic Year 2026</p>
+          <h2 id="current-subjects-title">Current Subjects</h2>
+        </div>
+
+        <div class="subject-grid">
+          <a class="subject-card-link" href="https://coursehandbook.uts.edu.au/subject/2026/15317" target="_blank" rel="noopener noreferrer" aria-label="Advanced Project Risk Management, UTS Handbook page">
+            <article class="subject-card">
+              <span class="subject-code">15317</span>
+              <h3>Advanced Project Risk Management</h3>
+              <p>Advanced project risk management for complex projects and programs, with focus on evaluation, allocation, contingency planning, and professional judgement in uncertain delivery settings.</p>
+            </article>
+          </a>
+
+          <a class="subject-card-link" href="https://coursehandbook.uts.edu.au/subject/2026/15319" target="_blank" rel="noopener noreferrer" aria-label="Project Risk, Procurement and Quality Management, UTS Handbook page">
+            <article class="subject-card">
+              <span class="subject-code">15319</span>
+              <h3>Project Risk, Procurement and Quality Management</h3>
+              <p>Core project management practice in risk, procurement, and quality, with emphasis on applying key tools and techniques to project planning, control, and delivery.</p>
+            </article>
+          </a>
+
+          <a class="subject-card-link" href="https://coursehandbook.uts.edu.au/subject/2026/15115" target="_blank" rel="noopener noreferrer" aria-label="Advances in Project Management, UTS Handbook page">
+            <article class="subject-card">
+              <span class="subject-code">15115</span>
+              <h3>Advances in Project Management</h3>
+              <p>Research in project management, including research design, common methods, critical reading, and systematic inquiry into contemporary project issues and debates.</p>
+            </article>
+          </a>
+
+          <a class="subject-card-link" href="https://coursehandbook.uts.edu.au/subject/2026/15362" target="_blank" rel="noopener noreferrer" aria-label="Managing Project Contracts, UTS Handbook page">
+            <article class="subject-card">
+              <span class="subject-code">15362</span>
+              <h3>Managing Project Contracts</h3>
+              <p>Governance and management of project contracts, including contract structure, key clauses, interpretation, administration, and performance issues across project lifecycles.</p>
+            </article>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="history" aria-labelledby="other-teaching-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="other-teaching-title">Other Teaching Experience</h2>
+        </div>
+
+        <div class="stack-list">
+          <article class="stack-item">
+            <h4>Across Universities and Systems</h4>
+            <p class="history-meta">Teaching experience across universities in Australia, China, and Singapore, shaped by different student cohorts, institutional settings, and academic expectations.</p>
+          </article>
+
+          <article class="stack-item">
+            <h4>Across Roles and Levels</h4>
+            <p class="history-meta">Experience in coordination, lecturing, guest teaching, curriculum development, and HDR supervision across undergraduate, postgraduate, and research training contexts.</p>
+          </article>
+
+          <article class="stack-item">
+            <h4>Across Delivery Formats</h4>
+            <p class="history-meta">Teaching in intensive block and weekly formats, across face-to-face, online live, online recorded, and hybrid delivery, with attention to engagement and structure.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="supervision" aria-labelledby="supervision-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="supervision-title">PhD Supervision</h2>
+        </div>
+
+        <div class="supervision-group">
+          <p class="meta-label">Current HDR Student</p>
+          <div class="stack-list">
+            <article class="stack-item">
+              <h5>Ibrahim Dani</h5>
+              <p class="supervision-meta">Research Training Program (RTP) Scholarship Recipient, School of Built Environment, University of Technology Sydney, Principal supervisor.</p>
+              <p class="supervision-meta">Thesis: Developing a capacity profile for Gen Z project managers.</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="supervision-group">
+          <p class="meta-label">PhD Graduates</p>
+          <div class="stack-list">
+            <article class="stack-item">
+              <h5>Dr Juanwen Liu</h5>
+              <p class="supervision-meta">2024 graduate, China Scholarship Council (CSC) Scholarship Recipient, School of Built Environment, University of Technology Sydney, Co-supervisor.</p>
+              <p class="supervision-meta">Thesis: <em>Value Co-creation for Public-Private Partnership (PPP) Projects in China: A Holistic Framework from Antecedents to Outcomes of Interaction</em>.</p>
+              <p class="supervision-meta">Currently at PetroChina International Northwest Co Ltd, Liaoning, China.</p>
+            </article>
+
+            <article class="stack-item">
+              <h5>Dr Kun Wang</h5>
+              <p class="supervision-meta">2023 graduate, Research Training Program (RTP) Scholarship Recipient, School of Built Environment, University of Technology Sydney, Principal supervisor.</p>
+              <p class="supervision-meta">Thesis: <em>Socially Sustainable Development of China’s Aged Care Public-Private Partnership Projects</em>.</p>
+              <p class="supervision-meta">Currently at Ningbo University, Zhejiang, China.</p>
+            </article>
+
+            <article class="stack-item">
+              <h5>Dr Xiaohang Xu</h5>
+              <p class="supervision-meta">2022 graduate, China Scholarship Council (CSC) Scholarship Recipient, School of Built Environment, University of Technology Sydney, Co-supervisor.</p>
+              <p class="supervision-meta">Thesis: <em>A study on the role of opportunism forms in increasing stakeholder satisfaction in PPP projects using Transaction Cost Economics theory</em>.</p>
+              <p class="supervision-meta">Currently at Hunnan District Government, Shenyang City, Liaoning, China.</p>
+            </article>
+
+            <article class="stack-item">
+              <h5>Dr Noah Mwelu</h5>
+              <p class="supervision-meta">2020 graduate, Research Training Program (RTP) Scholarship Recipient, School of Architecture and Built Environment, University of Newcastle, Co-supervisor.</p>
+              <p class="supervision-meta">Thesis: <em>Compliance and Regulatory Framework in Public Procurement of Public Road Construction Projects in Uganda</em>.</p>
+              <p class="supervision-meta">Currently at Makerere University Business School, Kampala, Uganda.</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="supervision-note">
+          <p>
+            I welcome enquiries from prospective HDR students whose interests relate to project management, infrastructure governance, public-private partnerships, social sustainability, risk, contracting, or closely related areas.
+          </p>
+          <a class="supervision-link" href="mailto:yongjian.ke@uts.edu.au">
+            Send Supervision Enquiry
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M4 6h16v12H4z"></path>
+              <path d="M4 8l8 6 8-6"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    © 2026 Associate Professor Yongjian Ke. All rights reserved.
+  </footer>
+</body>
+</html>
