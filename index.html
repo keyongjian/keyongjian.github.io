@@ -4,264 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>A/Prof Yongjian Ke</title>
+  <link rel="stylesheet" href="styles/global.css">
   <style>
-    :root {
-      --bg: #f9f9ff;
-      --bg-alt: #f0f3ff;
-      --bg-accent: #dee8ff;
-      --card: #ffffff;
-      --text: #111c2d;
-      --muted: #424754;
-      --primary: #0058be;
-      --primary-soft: #d8e2ff;
-      --outline: rgba(194, 198, 214, 0.35);
-      --footer: #0f1d37;
-      --shadow: 0 18px 40px rgba(17, 28, 45, 0.06);
-      --radius-card: 18px;
-      --radius-hero: 28px;
-      --max-width: 1200px;
-    }
-
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    h1,
-    h2,
-    h3,
-    p,
-    dl,
-    dt,
-    dd {
-      margin: 0;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
+    /* Home page specific: snapshot only */
+    .hero-title-home span {
       display: block;
-      width: 100%;
-      max-width: 100%;
-    }
-
-    .container {
-      width: min(var(--max-width), calc(100% - 48px));
-      margin: 0 auto;
-    }
-
-    .skip-link {
-      position: absolute;
-      left: 12px;
-      top: -48px;
-      z-index: 1000;
-      padding: 10px 14px;
-      border-radius: 10px;
-      background: var(--text);
-      color: #fff;
-      font-size: 0.95rem;
-      transition: top 0.2s ease;
-    }
-
-    .skip-link:focus {
-      top: 12px;
-    }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      backdrop-filter: blur(20px);
-      background: rgba(249, 249, 255, 0.72);
-      box-shadow: 0 1px 0 rgba(17, 28, 45, 0.04);
-    }
-
-    .nav {
-      min-height: 78px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .brand {
-      font-size: 1.45rem;
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      white-space: nowrap;
-    }
-
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 28px;
-      font-size: 0.95rem;
-      color: var(--muted);
-    }
-
-    .nav-links a {
-      padding-bottom: 6px;
-      transition: color 0.2s ease;
-    }
-
-    .nav-links a:hover,
-    .nav-links a:focus-visible {
-      color: var(--text);
-    }
-
-    .nav-links a.active {
-      color: var(--primary);
-      border-bottom: 2px solid var(--primary);
-      font-weight: 600;
-    }
-
-    .hero,
-    .pillars {
-      padding: 96px 0 84px;
-    }
-
-    .snapshot {
-      padding: 84px 0;
-      background: var(--bg-alt);
-    }
-
-    .hero-grid,
-    .snapshot-grid,
-    .pillars-grid {
-      display: grid;
-    }
-
-    .hero-grid {
-      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.9fr);
-      gap: 56px;
-      align-items: center;
-      min-height: 68vh;
     }
 
     .snapshot-grid {
+      display: grid;
       grid-template-columns: minmax(0, 1.1fr) minmax(280px, 0.9fr);
       gap: 48px;
       align-items: start;
-    }
-
-    .pillars-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 24px;
-      align-items: stretch;
-    }
-
-    .section-label,
-    .fact-label,
-    .site-footer {
-      text-transform: uppercase;
-      font-weight: 800;
-    }
-
-    .section-label {
-      display: inline-block;
-      margin-bottom: 12px;
-      color: var(--primary);
-      font-size: 0.68rem;
-      letter-spacing: 0.12em;
-    }
-
-    h1 {
-      max-width: 640px;
-      margin-bottom: 22px;
-      font-size: clamp(3.6rem, 7vw, 5.6rem);
-      line-height: 0.95;
-      letter-spacing: -0.05em;
-      font-weight: 800;
-    }
-
-    h2 {
-      margin-bottom: 16px;
-      font-size: clamp(2rem, 4vw, 3rem);
-      line-height: 1.05;
-      letter-spacing: -0.04em;
-    }
-
-    h3 {
-      margin-bottom: 12px;
-      font-size: 1.85rem;
-      line-height: 1.1;
-      letter-spacing: -0.03em;
-    }
-
-    .accent {
-      color: var(--primary);
-      font-style: italic;
-    }
-
-    .hero-copy,
-    .snapshot-copy,
-    .pillars-intro,
-    .pillar-card p {
-      color: var(--muted);
-    }
-
-    .hero-copy,
-    .snapshot-copy,
-    .pillars-intro {
-      font-size: 1.06rem;
-    }
-
-    .hero-copy {
-      max-width: 700px;
-    }
-
-    .snapshot-copy {
-      max-width: 760px;
-    }
-
-    .pillars-header {
-      margin-bottom: 44px;
-    }
-
-    .hero-media-wrap {
-      position: relative;
-      min-height: 520px;
-    }
-
-    .hero-media-backdrop {
-      position: absolute;
-      inset: 6px 0 0 12px;
-      border-radius: var(--radius-hero);
-      background: var(--bg-accent);
-      opacity: 0.55;
-      transform: rotate(1.4deg);
-    }
-
-    .hero-media {
-      position: relative;
-      z-index: 1;
-      height: 520px;
-      overflow: hidden;
-      border-radius: calc(var(--radius-hero) - 6px);
-      box-shadow: var(--shadow);
-      background: #d8d8d8;
-    }
-
-    .hero-media img {
-      height: 100%;
-      object-fit: cover;
-      filter: grayscale(100%);
     }
 
     .facts {
@@ -270,20 +24,16 @@
       gap: 14px;
     }
 
-    .fact-card,
-    .pillar-card {
+    .fact-card {
       display: flex;
       flex-direction: column;
-      background: var(--card);
-    }
-
-    .fact-card {
       min-height: 120px;
       padding: 18px 20px;
       justify-content: center;
       align-items: center;
       text-align: center;
       border-radius: 14px;
+      background: var(--card);
       box-shadow: inset 0 0 0 1px var(--outline);
     }
 
@@ -296,128 +46,15 @@
       font-weight: 800;
     }
 
-    .fact-label {
-      color: var(--muted);
-      font-size: 0.68rem;
-      letter-spacing: 0.08em;
-    }
-
-    .pillar-card-link {
-      display: flex;
-      height: 100%;
-      color: inherit;
-    }
-
-    .pillar-card-link:focus-visible {
-      outline: 2px solid var(--primary);
-      outline-offset: 4px;
-      border-radius: var(--radius-card);
-    }
-
-    .pillar-card {
-      width: 100%;
-      min-height: 290px;
-      padding: 28px 28px 26px;
-      border-radius: var(--radius-card);
-      box-shadow: inset 0 0 0 1px rgba(194, 198, 214, 0.22);
-      transition: transform 0.22s ease, box-shadow 0.22s ease;
-    }
-
-    .pillar-card-link:hover .pillar-card,
-    .pillar-card-link:focus-visible .pillar-card {
-      transform: translateY(-3px);
-      box-shadow: 0 22px 44px rgba(17, 28, 45, 0.08);
-    }
-
-    .pillar-icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 56px;
-      height: 56px;
-      margin-bottom: 22px;
-      border-radius: 14px;
-      background: var(--primary-soft);
-      color: var(--primary);
-    }
-
-    .pillar-icon svg {
-      width: 28px;
-      height: 28px;
-      fill: none;
-      stroke: currentColor;
-      stroke-width: 1.9;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    .pillar-card p {
-      flex-grow: 1;
-      font-size: 1rem;
-    }
-
-    .site-footer {
-      padding: 34px 24px;
-      background: var(--footer);
-      color: rgba(255, 255, 255, 0.86);
-      text-align: center;
-      font-size: 0.74rem;
-      line-height: 1.6;
-      letter-spacing: 0.12em;
-    }
-
     @media (max-width: 980px) {
-      .nav {
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
-        padding: 16px 0;
-      }
-
-      .hero {
-        padding-top: 40px;
-      }
-
-      .hero-grid,
-      .snapshot-grid,
-      .pillars-grid {
+      .snapshot-grid {
         grid-template-columns: 1fr;
-      }
-
-      .hero-grid {
-        min-height: auto;
-      }
-
-      .hero-media-wrap {
-        min-height: 0;
-      }
-
-      .hero-media {
-        height: 420px;
       }
     }
 
     @media (max-width: 640px) {
-      .container {
-        width: min(var(--max-width), calc(100% - 32px));
-      }
-
-      h1 {
-        font-size: clamp(2.8rem, 14vw, 4rem);
-      }
-
-      .hero-copy,
-      .snapshot-copy,
-      .pillars-intro {
-        font-size: 1rem;
-      }
-
       .facts {
         grid-template-columns: 1fr;
-      }
-
-      .pillar-card {
-        min-height: auto;
       }
     }
   </style>
@@ -429,7 +66,7 @@
     <div class="container nav">
       <div class="brand">A/Prof Yongjian Ke</div>
       <nav class="nav-links" aria-label="Primary">
-        <a class="active" href="#home" aria-current="page">Home</a>
+        <a class="active" href="index.html" aria-current="page">Home</a>
         <a href="pages/about.html">About</a>
         <a href="pages/research.html">Research</a>
         <a href="pages/teaching.html">Teaching</a>
@@ -441,15 +78,15 @@
   <main id="main-content">
     <section class="hero" id="home" aria-labelledby="hero-title">
       <div class="container hero-grid">
-        <div>
+        <div class="hero-text">
           <p class="section-label">Associate Professor Yongjian Ke</p>
-          <h1 id="hero-title">
+          <h1 id="hero-title" class="hero-title-home">
             Advancing<br>
             Excellence in<br>
-            <span class="accent">Project</span><br>
+            <span class="accent">Project</span>
             <span class="accent">Management</span>
           </h1>
-          <p class="hero-copy">
+          <p class="hero-copy hero-copy--wide">
             Developing research and professional insight on how major infrastructure projects are
             governed, contracted, and accepted, with particular focus on public-private partnerships,
             risk allocation, and social sustainability.
@@ -459,18 +96,18 @@
         <div class="hero-media-wrap" aria-hidden="true">
           <div class="hero-media-backdrop"></div>
           <div class="hero-media">
-            <img src="assets/home_hero.jpg" alt="Sydney Harbour Bridge at dusk, shown as a monochrome hero image">
+            <img src="assets/home_hero.jpg" alt="Sydney Harbour Bridge at dusk as the home page hero image">
           </div>
         </div>
       </div>
     </section>
 
-    <section class="snapshot" aria-labelledby="snapshot-title">
+    <section class="section section--alt" aria-labelledby="snapshot-title">
       <div class="container snapshot-grid">
         <div>
           <p class="section-label">Current Snapshot</p>
           <h2 id="snapshot-title">Associate Professor at UTS</h2>
-          <p class="snapshot-copy">
+          <p class="section-copy">
             Based in the School of Built Environment, I serve as Director of Postgraduate Project
             Management Programs and lead teaching, curriculum, and academic development across the
             postgraduate project management portfolio.
@@ -498,51 +135,48 @@
       </div>
     </section>
 
-    <section class="pillars" aria-labelledby="pillars-title">
+    <section class="section" aria-labelledby="pillars-title">
       <div class="container">
-        <div class="pillars-header">
+        <div class="section-header">
           <h2 id="pillars-title">Pillars of Impact</h2>
-          <p class="pillars-intro">
-            A sustained commitment to research, teaching, and academic service in project management.
-          </p>
         </div>
 
-        <div class="pillars-grid">
-          <a class="pillar-card-link" href="pages/research.html" aria-label="Research page">
-            <article class="pillar-card">
-              <div class="pillar-icon" aria-hidden="true">
+        <div class="grid-3">
+          <a class="card-link" href="pages/research.html" aria-label="Research page">
+            <article class="card card--feature card-hover">
+              <div class="icon-box icon-box--large" aria-hidden="true">
                 <svg viewBox="0 0 24 24" focusable="false">
                   <path d="M10 2v5l-5.5 9.5A3 3 0 0 0 7.1 21h9.8a3 3 0 0 0 2.6-4.5L14 7V2"></path>
                   <path d="M8 13h8"></path>
                 </svg>
               </div>
               <h3>Research</h3>
-              <p>
+              <p class="card-copy">
                 Examining how infrastructure projects are governed, financed, contracted, and accepted,
                 with emphasis on public-private partnerships, risk allocation, and social sustainability.
               </p>
             </article>
           </a>
 
-          <a class="pillar-card-link" href="pages/teaching.html" aria-label="Teaching page">
-            <article class="pillar-card">
-              <div class="pillar-icon" aria-hidden="true">
+          <a class="card-link" href="pages/teaching.html" aria-label="Teaching page">
+            <article class="card card--feature card-hover">
+              <div class="icon-box icon-box--large" aria-hidden="true">
                 <svg viewBox="0 0 24 24" focusable="false">
                   <path d="M2 9l10-5 10 5-10 5-10-5z"></path>
                   <path d="M6 11.5v4.5c0 1.3 2.7 3 6 3s6-1.7 6-3v-4.5"></path>
                 </svg>
               </div>
               <h3>Teaching</h3>
-              <p>
+              <p class="card-copy">
                 Teaching project management across postgraduate and executive contexts, with attention to
                 research capability, industry relevance, and reflective professional learning.
               </p>
             </article>
           </a>
 
-          <a class="pillar-card-link" href="pages/service.html" aria-label="Service page">
-            <article class="pillar-card">
-              <div class="pillar-icon" aria-hidden="true">
+          <a class="card-link" href="pages/service.html" aria-label="Service page">
+            <article class="card card--feature card-hover">
+              <div class="icon-box icon-box--large" aria-hidden="true">
                 <svg viewBox="0 0 24 24" focusable="false">
                   <path d="M16 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"></path>
                   <circle cx="9.5" cy="7" r="3"></circle>
@@ -551,7 +185,7 @@
                 </svg>
               </div>
               <h3>Service</h3>
-              <p>
+              <p class="card-copy">
                 Contributing to the academic community through editorial work, peer review, professional
                 engagement, and leadership in project management education.
               </p>

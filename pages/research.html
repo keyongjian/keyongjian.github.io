@@ -4,591 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Research | A/Prof Yongjian Ke</title>
-  <style>
-    :root {
-      --bg: #f9f9ff;
-      --bg-alt: #f0f3ff;
-      --bg-accent: #dee8ff;
-      --card: #ffffff;
-      --text: #111c2d;
-      --muted: #424754;
-      --primary: #0058be;
-      --primary-strong: #2170e4;
-      --primary-soft: #d8e2ff;
-      --outline: rgba(194, 198, 214, 0.22);
-      --footer: #0f1d37;
-      --shadow: 0 18px 40px rgba(17, 28, 45, 0.06);
-      --radius-card: 18px;
-      --radius-panel: 28px;
-      --max-width: 1200px;
-    }
-
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    p {
-      margin: 0;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      display: block;
-      width: 100%;
-      max-width: 100%;
-    }
-
-    .container {
-      width: min(var(--max-width), calc(100% - 48px));
-      margin: 0 auto;
-    }
-
-    .skip-link {
-      position: absolute;
-      left: 12px;
-      top: -48px;
-      z-index: 1000;
-      padding: 10px 14px;
-      border-radius: 10px;
-      background: var(--text);
-      color: #fff;
-      font-size: 0.95rem;
-      transition: top 0.2s ease;
-    }
-
-    .skip-link:focus {
-      top: 12px;
-    }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      backdrop-filter: blur(20px);
-      background: rgba(249, 249, 255, 0.72);
-      box-shadow: 0 1px 0 rgba(17, 28, 45, 0.04);
-    }
-
-    .nav {
-      min-height: 78px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .brand {
-      font-size: 1.45rem;
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      white-space: nowrap;
-    }
-
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 28px;
-      font-size: 0.95rem;
-      color: var(--muted);
-    }
-
-    .nav-links a {
-      padding-bottom: 6px;
-      transition: color 0.2s ease;
-    }
-
-    .nav-links a:hover,
-    .nav-links a:focus-visible {
-      color: var(--text);
-    }
-
-    .nav-links a.active {
-      color: var(--primary);
-      border-bottom: 2px solid var(--primary);
-      font-weight: 600;
-    }
-
-    .section-label,
-    .publication-year,
-    .journal-name,
-    .site-footer {
-      text-transform: uppercase;
-      font-weight: 800;
-    }
-
-    .section-label {
-      display: inline-block;
-      margin-bottom: 12px;
-      color: var(--primary);
-      font-size: 0.68rem;
-      letter-spacing: 0.12em;
-    }
-
-    h1 {
-      margin-bottom: 22px;
-      font-size: clamp(3.4rem, 6.2vw, 5.5rem);
-      line-height: 0.96;
-      letter-spacing: -0.05em;
-      font-weight: 800;
-      max-width: 640px;
-    }
-
-    h2 {
-      margin-bottom: 14px;
-      font-size: clamp(2rem, 4vw, 3rem);
-      line-height: 1.05;
-      letter-spacing: -0.04em;
-    }
-
-    h3 {
-      margin-bottom: 12px;
-      font-size: 1.65rem;
-      line-height: 1.12;
-      letter-spacing: -0.03em;
-    }
-
-    h4 {
-      margin-bottom: 6px;
-      font-size: 1.12rem;
-      line-height: 1.3;
-      letter-spacing: -0.02em;
-      font-weight: 700;
-    }
-
-    .hero-copy,
-    .direction-card p,
-    .brief-text p,
-    .publication-meta {
-      color: var(--muted);
-    }
-
-    .hero {
-      padding: 96px 0 84px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(320px, 0.9fr);
-      gap: 56px;
-      align-items: center;
-      min-height: 68vh;
-    }
-
-    .hero-copy {
-      max-width: 620px;
-      font-size: 1.08rem;
-    }
-    .hero-media-wrap {
-      position: relative;
-      min-height: 520px;
-    }
-
-    .hero-media-backdrop {
-      position: absolute;
-      inset: 8px 0 0 12px;
-      border-radius: var(--radius-panel);
-      background: var(--bg-accent);
-      opacity: 0.55;
-      transform: rotate(1.2deg);
-    }
-
-    .hero-media {
-      position: relative;
-      z-index: 1;
-      height: 520px;
-      overflow: hidden;
-      border-radius: calc(var(--radius-panel) - 6px);
-      box-shadow: var(--shadow);
-      background: #d8d8d8;
-    }
-
-    .hero-media img {
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .directions {
-      padding: 84px 0;
-    }
-
-    .section-header {
-      margin-bottom: 42px;
-    }
-
-    .directions-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-      align-items: stretch;
-    }
-
-    .direction-card {
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-      min-height: 290px;
-      padding: 28px 28px 26px;
-      border-radius: var(--radius-card);
-      background: var(--card);
-      box-shadow: inset 0 0 0 1px rgba(194, 198, 214, 0.22);
-    }
-
-    .direction-icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 56px;
-      height: 56px;
-      margin-bottom: 22px;
-      border-radius: 14px;
-      background: var(--primary-soft);
-      color: var(--primary);
-    }
-
-    .direction-icon svg,
-    .scholar-link svg {
-      fill: none;
-      stroke: currentColor;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    .direction-icon svg {
-      width: 28px;
-      height: 28px;
-      stroke-width: 1.9;
-    }
-
-    .direction-card p {
-      font-size: 0.98rem;
-      line-height: 1.55;
-      flex-grow: 1;
-    }
-
-        .standing {
-      padding: 86px 0;
-      background: var(--bg-alt);
-    }
-
-    .standing-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-      align-items: stretch;
-    }
-
-    .standing-card {
-      display: flex;
-      flex-direction: column;
-      min-height: 240px;
-      padding: 28px 28px 24px;
-      border-radius: var(--radius-card);
-      background: var(--card);
-      box-shadow: inset 0 0 0 1px rgba(194, 198, 214, 0.22);
-    }
-
-    .standing-icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 52px;
-      height: 52px;
-      margin-bottom: 20px;
-      border-radius: 14px;
-      background: var(--primary-soft);
-      color: var(--primary);
-    }
-
-    .standing-icon svg {
-      width: 24px;
-      height: 24px;
-      fill: none;
-      stroke: currentColor;
-      stroke-width: 1.9;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    .standing-card p,
-    .standing-list li {
-      color: var(--muted);
-      font-size: 0.9rem;
-      line-height: 1.45;
-    }
-
-    .standing-card h3 {
-      font-size: 1.65rem;
-      line-height: 1.12;
-      letter-spacing: -0.03em;
-      margin-bottom: 12px;
-    }
-
-    .standing-list {
-      display: grid;
-      gap: 8px;
-      margin-top: 2px;
-      padding: 0;
-      list-style: none;
-    }
-
-    .standing-list li {
-      position: relative;
-      padding-left: 16px;
-      white-space: nowrap;
-    }
-
-    .standing-list li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0.68em;
-      width: 6px;
-      height: 6px;
-      border-radius: 999px;
-      background: var(--primary);
-      opacity: 0.8;
-      transform: translateY(-50%);
-    }
-
-.briefs,
-    .publications {
-      padding: 86px 0;
-    }
-
-    .brief-list,
-    .publication-list {
-      display: grid;
-      gap: 12px;
-    }
-
-    .brief-item,
-    .publication-item {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      padding: 18px 18px 16px;
-      border-radius: 12px;
-      background: var(--card);
-      box-shadow: inset 0 0 0 1px var(--outline);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .brief-card-link {
-      display: block;
-      width: 100%;
-      color: inherit;
-    }
-
-    .brief-card-link:focus-visible,
-    .publication-card-link:focus-visible {
-      outline: 2px solid var(--primary);
-      outline-offset: 4px;
-      border-radius: 12px;
-    }
-
-    .brief-card-link:hover .brief-item,
-    .brief-card-link:focus-visible .brief-item,
-    .publication-card-link:hover .publication-item,
-    .publication-card-link:focus-visible .publication-item {
-      transform: translateY(-2px);
-      box-shadow: 0 16px 30px rgba(17, 28, 45, 0.06);
-    }
-
-    .brief-text,
-    .publication-content {
-      min-width: 0;
-      flex: 1 1 auto;
-    }
-
-    .brief-text p,
-    .publication-meta {
-      font-size: 0.88rem;
-      line-height: 1.45;
-    }
-
-    .publication-card-link {
-      display: block;
-      width: 100%;
-      color: inherit;
-    }
-
-    .scholar-link:hover,
-    .scholar-link:focus-visible {
-      opacity: 0.84;
-    }
-
-    .scholar-link:focus-visible,
-    .nav-links a:focus-visible {
-      outline: 2px solid var(--primary);
-      outline-offset: 3px;
-    }
-
-    .scholar-link svg {
-      width: 16px;
-      height: 16px;
-      stroke-width: 2;
-    }
-
-    .publications {
-      padding-top: 72px;
-    }
-
-    .publication-item {
-      align-items: center;
-    }
-
-    .publication-main {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      min-width: 0;
-      flex: 1 1 auto;
-    }
-
-    .publication-year {
-      width: 64px;
-      color: rgba(0, 88, 190, 0.5);
-      font-size: 1.5rem;
-      letter-spacing: 0.02em;
-      line-height: 1;
-      flex: 0 0 auto;
-    }
-
-    .journal-name {
-      display: block;
-      margin-bottom: 4px;
-      color: var(--muted);
-      font-size: 0.56rem;
-      letter-spacing: 0.08em;
-    }
-
-    .publication-meta {
-      margin-top: 4px;
-    }
-
-    .scholar-wrap {
-      margin-top: 32px;
-      text-align: center;
-    }
-
-    .scholar-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 14px 24px;
-      border-radius: 10px;
-      background: linear-gradient(135deg, var(--primary), var(--primary-strong));
-      color: #fff;
-      font-size: 0.9rem;
-      font-weight: 700;
-      box-shadow: 0 10px 24px rgba(0, 88, 190, 0.18);
-    }
-
-    .site-footer {
-      padding: 34px 24px;
-      background: var(--footer);
-      color: rgba(255, 255, 255, 0.86);
-      text-align: center;
-      font-size: 0.74rem;
-      line-height: 1.6;
-      letter-spacing: 0.12em;
-    }
-
-    @media (max-width: 980px) {
-      .nav {
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
-        padding: 16px 0;
-      }
-
-      .hero {
-        padding-top: 72px;
-      }
-
-      .hero-grid,
-      .directions-grid,
-      .standing-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-grid {
-        min-height: auto;
-      }
-
-      .hero-media-wrap {
-        min-height: 0;
-      }
-
-      .hero-media {
-        height: 420px;
-      }
-
-      .brief-item,
-      .publication-item {
-        align-items: flex-start;
-      }
-
-      .publication-main {
-        align-items: flex-start;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .container {
-        width: min(var(--max-width), calc(100% - 32px));
-      }
-
-      h1 {
-        font-size: clamp(2.8rem, 14vw, 4.1rem);
-      }
-
-      .hero-copy {
-        font-size: 1rem;
-      }
-
-      .standing-list li {
-        white-space: normal;
-      }
-
-      .hero-media {
-        height: 340px;
-      }
-
-      .brief-item,
-      .publication-item,
-      .publication-main {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .publication-year {
-        width: auto;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="../styles/global.css">
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -609,12 +25,13 @@
   <main id="main-content">
     <section class="hero" aria-labelledby="research-hero-title">
       <div class="container hero-grid">
-        <div>
+        <div class="hero-text">
           <p class="section-label">A Position</p>
-          <h1 id="research-hero-title">Beyond Delivery: Governance Social Value</h1>
+          <h1 id="research-hero-title" class="hero-title-internal">Beyond Delivery: Governance Social Value</h1>
           <p class="hero-copy">
             I study projects as temporary governance arrangements rather than neutral delivery tasks. In infrastructure and public service settings, outcomes depend not only on technical competence, but also on how authority, responsibility, accountability, and social expectations are managed over time.
-          </p>        </div>
+          </p>
+        </div>
 
         <div class="hero-media-wrap" aria-hidden="true">
           <div class="hero-media-backdrop"></div>
@@ -625,16 +42,16 @@
       </div>
     </section>
 
-    <section class="standing" aria-labelledby="standing-title">
+    <section class="section section--alt" aria-labelledby="standing-title">
       <div class="container">
         <div class="section-header">
           <p class="section-label">Research Standing</p>
           <h2 id="standing-title">Profile and Recognition</h2>
         </div>
 
-        <div class="standing-grid">
-          <article class="standing-card">
-            <div class="standing-icon" aria-hidden="true">
+        <div class="grid-2">
+          <article class="card card--standard">
+            <div class="icon-box" aria-hidden="true">
               <svg viewBox="0 0 24 24" focusable="false">
                 <path d="M4 19h16"></path>
                 <path d="M6 17V8l6-4 6 4v9"></path>
@@ -642,29 +59,29 @@
               </svg>
             </div>
             <h3>Competitive Research and Publications</h3>
-            <ul class="standing-list">
+            <ul class="bullet-list">
               <li>Led or contributed to 29 competitive international research projects</li>
               <li>Produced 110+ journal publications and six books</li>
               <li>Research spans PPPs, infrastructure governance, social sustainability, etc.</li>
             </ul>
           </article>
 
-          <article class="standing-card">
-            <div class="standing-icon" aria-hidden="true">
+          <article class="card card--standard">
+            <div class="icon-box" aria-hidden="true">
               <svg viewBox="0 0 24 24" focusable="false">
                 <path d="M12 3l2.7 5.5 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.8 1-6.1-4.4-4.3 6.1-.9L12 3z"></path>
               </svg>
             </div>
             <h3>Citation Profile and Recognition</h3>
-            <ul class="standing-list">
+            <ul class="bullet-list">
               <li>8,620+ citations and h-index 41</li>
               <li>Listed on the Stanford World Top 2% Scientist List in 2020 and 2023-25</li>
-              <li>Consistently strong citation and readership across major publication platforms</li>
+              <li>Consistently strong citation and readership across publication platforms</li>
             </ul>
           </article>
 
-          <article class="standing-card">
-            <div class="standing-icon" aria-hidden="true">
+          <article class="card card--standard">
+            <div class="icon-box" aria-hidden="true">
               <svg viewBox="0 0 24 24" focusable="false">
                 <path d="M8 21h8"></path>
                 <path d="M12 17v4"></path>
@@ -674,15 +91,15 @@
               </svg>
             </div>
             <h3>Awards and High-Impact Outputs</h3>
-            <ul class="standing-list">
+            <ul class="bullet-list">
               <li>Recipient of multiple research, publication, and reviewing awards</li>
-              <li>Includes Highly Commended Emerald/EFMD Outstanding Doctoral Research</li>
+              <li>Highly Commended Award, Emerald/EFMD Outstanding Doctoral Research</li>
               <li>Several papers recognised as highly cited or most-read in their journals</li>
             </ul>
           </article>
 
-          <article class="standing-card">
-            <div class="standing-icon" aria-hidden="true">
+          <article class="card card--standard">
+            <div class="icon-box" aria-hidden="true">
               <svg viewBox="0 0 24 24" focusable="false">
                 <path d="M4 12h16"></path>
                 <path d="M12 4v16"></path>
@@ -690,9 +107,9 @@
               </svg>
             </div>
             <h3>Influence Beyond Publications</h3>
-            <ul class="standing-list">
-              <li>Identified by others as highly cited, productive, or influential in PPP research</li>
-              <li>Cited in policy and institutional documents, incl. World Bank and many others</li>
+            <ul class="bullet-list">
+              <li>Identified as highly cited, productive, or influential in PPP research</li>
+              <li>Cited in policy and institutional documents, incl. World Bank & many others</li>
               <li>Research has informed both academic debate and wider policy discussion</li>
             </ul>
           </article>
@@ -700,15 +117,15 @@
       </div>
     </section>
 
-    <section class="directions" aria-labelledby="directions-title">
+    <section class="section" aria-labelledby="directions-title">
       <div class="container">
         <div class="section-header">
           <h2 id="directions-title">Current Research Topics</h2>
         </div>
 
-        <div class="directions-grid">
-          <article class="direction-card">
-            <div class="direction-icon" aria-hidden="true">
+        <div class="grid-3">
+          <article class="card card--feature">
+            <div class="icon-box icon-box--large" aria-hidden="true">
               <svg viewBox="0 0 24 24" focusable="false">
                 <path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"></path>
                 <circle cx="9" cy="7" r="3"></circle>
@@ -717,13 +134,13 @@
               </svg>
             </div>
             <h3>Social Licence to Operate</h3>
-            <p>
+            <p class="card-copy">
               Developing the concept of social licence specifically for infrastructure, with attention to who grants it, how it changes across the project lifecycle, and how it can be understood and assessed in practice.
             </p>
           </article>
 
-          <article class="direction-card">
-            <div class="direction-icon" aria-hidden="true">
+          <article class="card card--feature">
+            <div class="icon-box icon-box--large" aria-hidden="true">
               <svg viewBox="0 0 24 24" focusable="false">
                 <path d="M3 21h18"></path>
                 <path d="M5 21V7l7-4 7 4v14"></path>
@@ -732,20 +149,20 @@
               </svg>
             </div>
             <h3>Social Procurement in China</h3>
-            <p>
-              Examining the current status of social procurement in China, including how social objectives are interpreted, incorporated into procurement processes, and linked with broader governance and development priorities.
+            <p class="card-copy">
+              Examining the current status of social procurement in China, including how social values are interpreted, incorporated into procurement, and linked with broader governance and development priorities.
             </p>
           </article>
 
-          <article class="direction-card">
-            <div class="direction-icon" aria-hidden="true">
+          <article class="card card--feature">
+            <div class="icon-box icon-box--large" aria-hidden="true">
               <svg viewBox="0 0 24 24" focusable="false">
                 <path d="M12 3c4.5 0 8 3 8 8 0 5.5-4 9-8 10-4-1-8-4.5-8-10 0-5 3.5-8 8-8z"></path>
                 <path d="M10 12l2 2 4-5"></path>
               </svg>
             </div>
             <h3>Project-level AI Readiness</h3>
-            <p>
+            <p class="card-copy">
               Investigating how individual construction projects can assess their readiness for AI adoption, with focus on project conditions, governance arrangements, team capability, and practical pathways for implementation.
             </p>
           </article>
@@ -753,40 +170,40 @@
       </div>
     </section>
 
-    <section class="briefs" aria-labelledby="briefs-title">
+    <section class="section" aria-labelledby="briefs-title">
       <div class="container">
         <div class="section-header">
           <h2 id="briefs-title">Research Briefs</h2>
         </div>
 
-        <div class="brief-list">
-          <a class="brief-card-link" href="research_brief_1.html" aria-label="Open research brief on social licence and public acceptance in infrastructure projects">
-            <article class="brief-item">
-              <div class="brief-text">
+        <div class="stack-list">
+          <a class="card-link--block" href="research_brief_1.html" aria-label="Open research brief on social licence and public acceptance in infrastructure projects">
+            <article class="row-item">
+              <div class="row-content">
                 <h4>Social licence and public acceptance in infrastructure projects</h4>
-                <p>
+                <p class="row-meta">
                   Why technically approved projects still face resistance, how social licence differs from public acceptance, and what this means for governing contentious infrastructure.
                 </p>
               </div>
             </article>
           </a>
 
-          <a class="brief-card-link" href="research_brief_2.html" aria-label="Open research brief on advancing social sustainability in aged care">
-            <article class="brief-item">
-              <div class="brief-text">
+          <a class="card-link--block" href="research_brief_2.html" aria-label="Open research brief on advancing social sustainability in aged care">
+            <article class="row-item">
+              <div class="row-content">
                 <h4>Advancing social sustainability in aged care</h4>
-                <p>
+                <p class="row-meta">
                   How social sustainability can be understood, assessed, and strengthened in aged care systems, with attention to access, workforce conditions, and lived experience.
                 </p>
               </div>
             </article>
           </a>
 
-          <a class="brief-card-link" href="research_brief_3.html" aria-label="Open research brief on risk allocation and management in public private partnerships">
-            <article class="brief-item">
-              <div class="brief-text">
+          <a class="card-link--block" href="research_brief_3.html" aria-label="Open research brief on risk allocation and management in public private partnerships">
+            <article class="row-item">
+              <div class="row-content">
                 <h4>Risk allocation and management in public private partnerships</h4>
-                <p>
+                <p class="row-meta">
                   Why risk allocation is a governance choice that shapes behaviour, incentives, and long-term outcomes, rather than a contractual afterthought.
                 </p>
               </div>
@@ -796,120 +213,127 @@
       </div>
     </section>
 
-    <section class="publications" aria-labelledby="publications-title">
+    <section class="section section--compact" aria-labelledby="publications-title">
       <div class="container">
         <div class="section-header">
           <h2 id="publications-title">Selected Publications</h2>
         </div>
 
-        <div class="publication-list">
-          <a class="publication-card-link" href="https://doi.org/10.1177/87569728251386332" aria-label="Open publication from 2026">
-            <article class="publication-item">
-              <div class="publication-main">
-                <div class="publication-year">2026</div>
-                <div class="publication-content">
-                  <span class="journal-name">Project Management Journal</span>
-                  <h4>The future of project management in Industry 5.0: A narrative literature review</h4>
-                  <p class="publication-meta">Ibrahim Dani, Yongjian Ke, and Suhair Al Kilani</p>
-                </div>
+        <div class="stack-list">
+          <a class="card-link--block" href="https://doi.org/10.1080/15623599.2026.2641179" aria-label="Open publication from 2026">
+            <article class="row-item">
+              <div class="row-year">2026</div>
+              <div class="row-content">
+                <span class="journal-name">International Journal of Construction Management</span>
+                <h4>Critical strategies for building urban community resilience through public-private partnerships: A system dynamic modelling</h4>
+                <p class="row-meta">Robert Osei-Kyei, Timur Narbaev, Godslove Ampratwum and Yongjian Ke</p>
               </div>
             </article>
           </a>
 
-          <a class="publication-card-link" href="https://doi.org/10.1177/87569728251352466" aria-label="Open publication from 2025">
-            <article class="publication-item">
-              <div class="publication-main">
-                <div class="publication-year">2025</div>
-                <div class="publication-content">
-                  <span class="journal-name">Project Management Journal</span>
-                  <h4>How to write a literature review article in Project Management Journal®: A review of reviews</h4>
-                  <p class="publication-meta">Yongjian Ke, Kun Wang, and Shankar Sankaran</p>
-                </div>
+          <a class="card-link--block" href="https://doi.org/10.1177/87569728251386332" aria-label="Open publication from 2026">
+            <article class="row-item">
+              <div class="row-year">2026</div>
+              <div class="row-content">
+                <span class="journal-name">Project Management Journal</span>
+                <h4>The future of project management in Industry 5.0: A narrative literature review</h4>
+                <p class="row-meta">Ibrahim Dani, Yongjian Ke and Suhair Al Kilani</p>
               </div>
             </article>
           </a>
 
-          <a class="publication-card-link" href="https://doi.org/10.1080/09537287.2024.2427645" aria-label="Open publication from 2025">
-            <article class="publication-item">
-              <div class="publication-main">
-                <div class="publication-year">2025</div>
-                <div class="publication-content">
-                  <span class="journal-name">Production Planning &amp; Control</span>
-                  <h4>Does opportunism always reduce stakeholder satisfaction in public-private partnership (PPP) projects? A theory of benign opportunism</h4>
-                  <p class="publication-meta">Xiaohang Xu, Linzhuo Wang, Shankar Sankaran, Yongjian Ke, Ralf Müller</p>
-                </div>
+          <a class="card-link--block" href="https://doi.org/10.1177/87569728251350667" aria-label="Open publication from 2026">
+            <article class="row-item">
+              <div class="row-year">2026</div>
+              <div class="row-content">
+                <span class="journal-name">Project Management Journal</span>
+                <h4>Cross-boundary tensions between the project owner and project manager in value creation</h4>
+                <p class="row-meta">Ning Sun, Yan Ning, Yongjian Ke, Fengjing Zheng and Yadi Li</p>
               </div>
             </article>
           </a>
 
-          <a class="publication-card-link" href="https://doi.org/10.1108/BEPAM-01-2023-0009" aria-label="Open publication from 2024">
-            <article class="publication-item">
-              <div class="publication-main">
-                <div class="publication-year">2024</div>
-                <div class="publication-content">
-                  <span class="journal-name">Built Environment Project and Asset Management</span>
-                  <h4>Making sense of the definition of public-private partnerships</h4>
-                  <p class="publication-meta">Yongjian Ke, Zhe Cheng, Jingxiao Zhang, Yong Liu</p>
-                </div>
+          <a class="card-link--block" href="https://doi.org/10.1177/87569728251352466" aria-label="Open publication from 2025">
+            <article class="row-item">
+              <div class="row-year">2025</div>
+              <div class="row-content">
+                <span class="journal-name">Project Management Journal</span>
+                <h4>How to write a literature review article in Project Management Journal®: A review of reviews</h4>
+                <p class="row-meta">Yongjian Ke, Kun Wang and Shankar Sankaran</p>
               </div>
             </article>
           </a>
 
-          <a class="publication-card-link" href="https://doi.org/10.1002/sd.2654" aria-label="Open publication from 2024">
-            <article class="publication-item">
-              <div class="publication-main">
-                <div class="publication-year">2024</div>
-                <div class="publication-content">
-                  <span class="journal-name">Sustainable Development</span>
-                  <h4>The social pillar of sustainable development: Measurement and current status of social sustainability of aged care projects in China</h4>
-                  <p class="publication-meta">Kun Wang, Yongjian Ke, Shankar Sankaran</p>
-                </div>
+          <a class="card-link--block" href="https://doi.org/10.1108/ECAM-11-2023-1179" aria-label="Open publication from 2025">
+            <article class="row-item">
+              <div class="row-year">2025</div>
+              <div class="row-content">
+                <span class="journal-name">Engineering, Construction and Architectural Management</span>
+                <h4>Exploring the impact of job satisfaction on turnover intention among professionals in the Chinese construction industry</h4>
+                <p class="row-meta">Shang Zhang, Jinpeng Wang, Yongjian Ke, Nan Li and Zhenwen Su</p>
               </div>
             </article>
           </a>
 
-          <a class="publication-card-link" href="https://doi.org/10.1177/87569728221131254" aria-label="Open publication from 2023">
-            <article class="publication-item">
-              <div class="publication-main">
-                <div class="publication-year">2023</div>
-                <div class="publication-content">
-                  <span class="journal-name">Project Management Journal</span>
-                  <h4>A multilevel governance model for interorganizational project networks</h4>
-                  <p class="publication-meta">Christine Unterhitzenberger, Ralf Müller, Anne Live Vaagaasar, Yongjian Ke, etc.</p>
-                </div>
+          <a class="card-link--block" href="https://doi.org/10.1016/j.eiar.2025.107808" aria-label="Open publication from 2025">
+            <article class="row-item">
+              <div class="row-year">2025</div>
+              <div class="row-content">
+                <span class="journal-name">Environmental Impact Assessment Review</span>
+                <h4>Evaluating the resilience of social license to operate towards NIMBY facilities: A cloud model-based approach</h4>
+                <p class="row-meta">Tao Jiang, Zhenchao Xu, Xinyao He, Bo Xia, Yongjian Ke, Martin Skitmore and Yong Liu </p>
               </div>
             </article>
           </a>
 
-          <a class="publication-card-link" href="https://doi.org/10.1016/j.jclepro.2023.138644" aria-label="Open publication from 2023">
-            <article class="publication-item">
-              <div class="publication-main">
-                <div class="publication-year">2023</div>
-                <div class="publication-content">
-                  <span class="journal-name">Journal of Cleaner Production</span>
-                  <h4>Social sustainability of aged care public-private partnership projects in China: Critical practices and realisation paths</h4>
-                  <p class="publication-meta">Kun Wang, Yongjian Ke, Shankar Sankaran</p>
-                </div>
+          <a class="card-link--block" href="https://doi.org/10.1108/BEPAM-01-2023-0009" aria-label="Open publication from 2024">
+            <article class="row-item">
+              <div class="row-year">2024</div>
+              <div class="row-content">
+                <span class="journal-name">Built Environment Project and Asset Management</span>
+                <h4>Making sense of the definition of public-private partnerships</h4>
+                <p class="row-meta">Yongjian Ke, Zhe Cheng, Jingxiao Zhang and Yong Liu</p>
               </div>
             </article>
           </a>
 
-          <a class="publication-card-link" href="https://doi.org/10.1016/j.landusepol.2022.106453" aria-label="Open publication from 2023">
-            <article class="publication-item">
-              <div class="publication-main">
-                <div class="publication-year">2023</div>
-                <div class="publication-content">
-                  <span class="journal-name">Land Use Policy</span>
-                  <h4>Social acceptance of NIMBY facilities: A comparative study between public acceptance and the social license to operate analytical frameworks</h4>
-                  <p class="publication-meta">Min Xu, Yong Liu, Caiyun Cui, Bo Xia, Yongjian Ke, Martin Skitmore</p>
-                </div>
+          <a class="card-link--block" href="https://doi.org/10.1002/sd.3086" aria-label="Open publication from 2024">
+            <article class="row-item">
+              <div class="row-year">2024</div>
+              <div class="row-content">
+                <span class="journal-name">Sustainable Development</span>
+                <h4>Towards sustainable development: Assessing social sustainability of Australian aged care system</h4>
+                <p class="row-meta">Kun Wang and Yongjian Ke</p>
               </div>
             </article>
           </a>
+
+          <a class="card-link--block" href="https://doi.org/10.1177/87569728221131254" aria-label="Open publication from 2023">
+            <article class="row-item">
+              <div class="row-year">2023</div>
+              <div class="row-content">
+                <span class="journal-name">Project Management Journal</span>
+                <h4>A multilevel governance model for interorganizational project networks</h4>
+                <p class="row-meta">Christine Unterhitzenberger, Ralf Müller, Anne Live Vaagaasar, Yongjian Ke, etc.</p>
+              </div>
+            </article>
+          </a>
+
+          <a class="card-link--block" href="https://doi.org/10.1016/j.jclepro.2023.138644" aria-label="Open publication from 2023">
+            <article class="row-item">
+              <div class="row-year">2023</div>
+              <div class="row-content">
+                <span class="journal-name">Journal of Cleaner Production</span>
+                <h4>Social sustainability of aged care public-private partnership projects in China: Critical practices and realisation paths</h4>
+                <p class="row-meta">Kun Wang, Yongjian Ke and Shankar Sankaran</p>
+              </div>
+            </article>
+          </a>
+
         </div>
 
-        <div class="scholar-wrap">
-          <a class="scholar-link" href="../assets/CV_Ke.pdf">
+        <div class="section-action section-action--center">
+          <a class="button-primary" href="../assets/CV_Ke.pdf">
             View Full Publication List on My CV
           </a>
         </div>
