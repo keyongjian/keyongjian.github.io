@@ -677,3 +677,165 @@ a:focus-visible {
     width: auto;
   }
 }
+
+
+/* ------------------------------
+   16. Research brief manuscript template
+   ------------------------------ */
+.brief-page {
+  background:
+    linear-gradient(180deg, rgba(222, 232, 255, 0.55) 0, rgba(222, 232, 255, 0) 240px),
+    var(--bg);
+}
+
+.brief-hero {
+  padding: 70px 0 36px;
+}
+
+.brief-hero-inner {
+  max-width: none;
+}
+
+.brief-backlink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 22px;
+  color: var(--primary);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.brief-backlink svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.brief-title {
+  max-width: none;
+  margin-bottom: 18px;
+  font-size: clamp(2.8rem, 5.5vw, 4.6rem);
+  line-height: 0.98;
+  letter-spacing: -0.05em;
+}
+
+.brief-dek {
+  max-width: none;
+  color: var(--muted);
+  font-size: 1.08rem;
+  line-height: 1.8;
+}
+
+.brief-shell {
+  padding: 0 0 92px;
+}
+
+.brief-layout {
+  display: block;
+}
+
+.brief-article {
+  min-width: 0;
+}
+
+.brief-intro {
+  padding: 34px 0 26px;
+  border-top: 1px solid rgba(194, 198, 214, 0.42);
+  border-bottom: 1px solid rgba(194, 198, 214, 0.42);
+}
+
+.brief-intro p {
+  max-width: none;
+  color: var(--text);
+  font-size: 1.1rem;
+  line-height: 1.85;
+}
+
+.brief-section {
+  padding: 34px 0;
+  border-bottom: 1px solid rgba(194, 198, 214, 0.34);
+}
+
+.brief-section:last-child {
+  border-bottom: 0;
+}
+
+.brief-section h2 {
+  max-width: none;
+  margin-bottom: 18px;
+  font-size: clamp(1.8rem, 3vw, 2.45rem);
+  line-height: 1.08;
+}
+
+.brief-section h3 {
+  max-width: none;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 1.18rem;
+  letter-spacing: -0.02em;
+}
+
+.brief-section p,
+.brief-section li {
+  max-width: none;
+  color: var(--text);
+  font-size: 1rem;
+  line-height: 1.85;
+}
+
+.brief-section p + p,
+.brief-section ul + p,
+.brief-section p + ul,
+.brief-section ul + ul {
+  margin-top: 14px;
+}
+
+.brief-list {
+  padding-left: 1.2rem;
+  list-style: disc;
+}
+
+.brief-list li {
+  padding-left: 0;
+}
+
+.brief-list li + li {
+  margin-top: 8px;
+}
+
+.brief-reference-list {
+  padding-left: 1.25rem;
+  list-style: disc;
+}
+
+.brief-reference-list li {
+  max-width: none;
+}
+
+.brief-reference-list a {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+@media (max-width: 640px) {
+  .brief-hero {
+    padding-top: 42px;
+  }
+
+  .brief-title {
+    font-size: clamp(2.2rem, 11vw, 3.2rem);
+  }
+
+  .brief-dek,
+  .brief-intro p,
+  .brief-section p,
+  .brief-section li {
+    font-size: 1rem;
+  }
+}
