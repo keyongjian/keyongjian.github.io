@@ -724,11 +724,17 @@ a:focus-visible {
   letter-spacing: -0.05em;
 }
 
-.brief-dek {
+.brief-dek,
+.brief-intro p,
+.brief-section p,
+.brief-section li {
   max-width: none;
+  font-size: 1rem;
+  line-height: 1.85;
+}
+
+.brief-dek {
   color: var(--muted);
-  font-size: 1.08rem;
-  line-height: 1.8;
 }
 
 .brief-shell {
@@ -750,10 +756,7 @@ a:focus-visible {
 }
 
 .brief-intro p {
-  max-width: none;
   color: var(--text);
-  font-size: 1.1rem;
-  line-height: 1.85;
 }
 
 .brief-section {
@@ -782,10 +785,7 @@ a:focus-visible {
 
 .brief-section p,
 .brief-section li {
-  max-width: none;
   color: var(--text);
-  font-size: 1rem;
-  line-height: 1.85;
 }
 
 .brief-section p + p,
