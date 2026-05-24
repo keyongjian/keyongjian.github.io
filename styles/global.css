@@ -120,23 +120,13 @@ select {
 /* ------------------------------
    3. Typography
    ------------------------------ */
-.section-label,
 .meta-label,
-.fact-label,
 .journal-name,
 .contact-label,
 .network-abbr,
 .site-footer {
   text-transform: uppercase;
   font-weight: 800;
-}
-
-.section-label {
-  display: inline-block;
-  margin-bottom: 12px;
-  color: var(--primary);
-  font-size: 0.68rem;
-  letter-spacing: 0.12em;
 }
 
 .meta-label {
@@ -147,17 +137,11 @@ select {
   letter-spacing: 0.12em;
 }
 
-.hero-title-home,
 .hero-title-internal {
   margin-bottom: 22px;
   line-height: 0.96;
   letter-spacing: -0.05em;
   font-weight: 800;
-}
-
-.hero-title-home {
-  max-width: 700px;
-  font-size: clamp(3.6rem, 7vw, 5.6rem);
 }
 
 .hero-title-internal {
@@ -648,7 +632,6 @@ a:focus-visible {
     width: min(var(--max-width), calc(100% - 32px));
   }
 
-  .hero-title-home,
   .hero-title-internal {
     font-size: clamp(2.8rem, 14vw, 4.1rem);
   }
