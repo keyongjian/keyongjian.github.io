@@ -84,6 +84,11 @@ hgroup{display:flex; flex-direction:column; gap:10px}
 hgroup > p{color:var(--dim)}
 article{display:flex; flex-direction:column; gap:20px}
 article h2{margin-top:16px}
+/* h3 sits one level under h2. Same size as everything else, so the step
+   down is colour, not weight: h2 is ink, h3 is the quote grey. The
+   negative bottom margin eats part of the flex gap so the heading binds
+   to the text below it rather than floating between two blocks. */
+article h3{color:var(--quote); margin-top:10px; margin-bottom:-8px}
 /* Lists sit flush with the prose. The padding reserves a slot the exact
    width of the marker, and the negative text-indent pulls the first
    line back into it, so numbers start at the text edge and any wrapped
