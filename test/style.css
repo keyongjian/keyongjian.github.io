@@ -1,32 +1,29 @@
 /* ============================================================
    pm-professor.com  ·  one stylesheet, no classes in the markup
-   Everything is selected by element type and position, so the
-   HTML carries content only. Retune the whole site from :root.
-   No webfonts: system monospace only, so nothing is fetched from a
-   third-party domain and the site renders instantly from China.
-   Fixed-width markers mean the dates in each list align by default.
+   Everything is selected by element type, attribute or position,
+   so the HTML carries content only. Retune the site from :root.
+
+   System monospace only: nothing is fetched from a third-party
+   domain, the page paints instantly from anywhere including
+   mainland China, and fixed-width characters are what keep the
+   dates in each list aligned down the right-hand edge.
    ============================================================ */
 
 :root{
-  --bg:#fdfdfc; --ink:#1a1a19; --body:#33332f; --dim:#b5b5ae; --rule:#e4e3df;
-  --link:#2f5d8c; --quote:#6f6f6a; --code:#f6f5f2;
-  /* System monospace only. Each entry targets one platform, so every
-     visitor gets a real screen mono without a single network request:
-     Apple -> SF Mono / Menlo, Windows -> Cascadia Mono / Consolas,
-     Linux -> Liberation or DejaVu, Android and anything else -> generic. */
-  --font-mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,
+  --bg:#fdfdfc; --ink:#1a1a19; --body:#33332f; --dim:#b5b5ae;
+  --rule:#e4e3df; --link:#2f5d8c; --quote:#6f6f6a;
+  --font:ui-monospace,"SF Mono",SFMono-Regular,Menlo,
     "Cascadia Mono",Consolas,"Liberation Mono","DejaVu Sans Mono",monospace;
-  --font:var(--font-mono);
-  --size:14px; --measure:44rem;
-  --gap-page:40px; --gap-block:12px; --gap-row:9px; --pad:56px 24px 72px;
+  --size:14px; --measure:52.8rem;
+  --gap-page:40px; --gap-row:9px; --pad:56px 24px 72px;
 }
 
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{
   margin:0; background:var(--bg); color:var(--ink);
-  font-family:var(--font);
-  font-size:var(--size); line-height:1.7; text-wrap:pretty;
+  font-family:var(--font); font-size:var(--size);
+  line-height:1.7; text-wrap:pretty;
 }
 
 /* one size everywhere; hierarchy comes from weight and colour only */
@@ -36,6 +33,12 @@ a{color:var(--link); text-decoration:none; border-bottom:1px solid rgba(47,93,14
 a:hover{color:var(--ink); border-bottom-color:var(--ink)}
 a:focus-visible{outline:2px solid var(--link); outline-offset:3px; border-bottom-color:transparent}
 ::selection{background:#e8eef5}
+
+/* every ~/path on the site: written in data-path, drawn by CSS */
+[data-path]::after{
+  content:attr(data-path); font-weight:400;
+  color:var(--dim); white-space:nowrap;
+}
 
 /* ---- page frame ------------------------------------------- */
 main{
@@ -47,7 +50,6 @@ main > p{color:var(--body)}                      /* page lede */
 header{display:flex; flex-direction:column; gap:10px}
 header > p{display:flex; align-items:baseline; flex-wrap:wrap; gap:10px}
 header > p > a{color:var(--ink); font-weight:600; border:0}
-header > p > span{color:var(--dim)}              /* ~/path */
 nav{display:flex; flex-wrap:wrap; gap:4px 16px}
 
 footer{
@@ -57,20 +59,15 @@ footer{
 footer a{color:var(--dim); border-bottom-color:rgba(181,181,174,.5)}
 
 /* ---- sections --------------------------------------------- */
-section{display:flex; flex-direction:column; gap:var(--gap-block)}
+section{display:flex; flex-direction:column; gap:12px}
 section > h2{
   font-weight:500; color:var(--body);
   display:flex; align-items:baseline; justify-content:space-between; gap:12px;
   border-bottom:1px solid var(--rule); padding-bottom:5px;
 }
-/* the ~/path label is generated from data-path, not written in the HTML */
-section > h2[data-path]::after{
-  content:"~/" attr(data-path);
-  font-weight:400; color:var(--dim); white-space:nowrap;
-}
 section > a{align-self:flex-start}               /* "all notes ->" */
 
-/* rows: title left, marker pinned right, one line each */
+/* one row = one line, marker pinned right */
 section > ul{
   margin:0; padding:0; list-style:none;
   display:flex; flex-direction:column; gap:var(--gap-row);
@@ -95,24 +92,16 @@ blockquote{
   margin:0; padding:4px 0 4px 18px; border-left:2px solid var(--rule);
   color:var(--quote); font-style:italic;
 }
-pre,code{font-family:var(--font-mono); font-size:inherit}
-pre{
-  margin:0; padding:14px 16px; background:var(--code);
-  border:1px solid var(--rule); border-radius:3px; overflow-x:auto;
-  color:var(--body); line-height:1.6;
-}
 
 /* ---- narrow screens --------------------------------------- */
 /* A two-column row breaks down on a phone: the title wraps to two or
-   three lines while the marker stays pinned to the top right, stranded
-   beside the first line. Below this width the row stops being a grid
-   and becomes one block of text, with the marker following the title
-   inline after a middot. It then wraps with the sentence instead of
-   floating away from it, and no vertical gap has to be tuned. */
+   three lines while the marker stays pinned beside the first one.
+   Below this width the row stops being a grid and the marker runs on
+   inline after the title, so it wraps with the text instead of
+   floating away from it. */
 @media (max-width:34rem){
   :root{--gap-page:32px; --gap-row:12px; --pad:40px 22px 56px}
   section > ul > li{display:block}
   section > ul > li > span::before{content:" \00b7 "}
   nav{gap:2px 14px}
-  pre{white-space:pre-wrap; overflow-wrap:anywhere}
 }
