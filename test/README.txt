@@ -1,4 +1,4 @@
-# pm-professor.com — static site
+# pm-professor.com - static site
 
 Files
 -----
@@ -7,32 +7,55 @@ index.html                       landing page (about / now / updates / notes / p
 notes.html                       full notes index, grouped by year
 notes/concession-agreement.html  a note; copy this file to start a new one
 
+Principle
+---------
+The HTML carries content only. There are no class attributes anywhere.
+Every rule in style.css selects by element type and position, so the
+markup below is all you ever need to write.
+
 Add a row to any list (index.html or notes.html)
 ------------------------------------------------
-    <li><a href="notes/my-new-note.html">Title of the thing</a><span class="meta">Jul 2026</span></li>
+    <li><a href="notes/my-new-note.html">Title of the thing</a><span>Jul 2026</span></li>
+    <li>Plain text with no link<span>UTS</span></li>
 
-Left side can be a link or plain <span>Text</span>. Right side is always
-<span class="meta"> — a date, a journal, a one-word marker. Rows stay on one
-line: the marker is pinned right, so keep titles under ~55 characters.
+Left side is either a link or bare text. Right side is always the last
+<span> in the row: a date, a journal, a one-word marker. On wide screens
+the marker is pinned right on the same line, so keep titles under about
+55 characters. Below 34rem the row stacks and the marker drops onto its
+own line beneath the title, so long titles are safe on mobile.
 
 Add a section
 -------------
     <section>
-      <div class="head"><h2>teaching</h2><span class="dim">~/teaching</span></div>
-      <ul class="rows">
-        <li><span>Project Management Fundamentals</span><span class="meta">Spring</span></li>
+      <h2 data-path="teaching">teaching</h2>
+      <ul>
+        <li>Project Management Fundamentals<span>Spring</span></li>
       </ul>
-      <a class="more" href="teaching.html">all subjects →</a>   <!-- optional -->
+      <a href="teaching.html">all subjects -></a>   <!-- optional -->
     </section>
+
+data-path holds the path shown in grey at the right of the heading rule.
+The "~/" prefix, colour and weight are added by CSS, so write the path
+without it: data-path="notes/2026" renders as ~/notes/2026.
 
 Add a page
 ----------
-Copy the nearest existing page and replace the body. Pages one folder deep
-(notes/*.html) link to ../style.css, ../index.html, ../notes.html — everything
-else is the same markup.
+Copy the nearest existing page and replace the body. Pages one folder
+deep (notes/*.html) link to ../style.css, ../index.html, ../notes.html
+and ../assets/CV_Ke.pdf; everything else is identical markup.
+
+Note pages open with an <hgroup>: an <h1> then a <p> holding the date
+and reading time. No wrapper div, no classes.
 
 Rules the CSS enforces
 ----------------------
-One font (IBM Plex Mono), one size (14px, --size in :root), one accent (--link).
-No images. Headings inherit the body size; hierarchy comes from weight and
-colour only. Change --size or --measure in :root to retune the whole site.
+One font (IBM Plex Mono), one size (14px, --size in :root), one accent
+(--link). No images. Headings inherit the body size; hierarchy comes
+from weight and colour only. Change --size, --measure or any --gap-* in
+:root to retune the whole site, including the mobile overrides.
+
+Known gaps
+----------
+The nav block and the head/footer markup are duplicated in every page,
+which is the only real maintenance cost left. Note and post links in
+index.html and notes.html point to files that do not exist yet.

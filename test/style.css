@@ -1,9 +1,16 @@
-/* ---- one file, everything ---- */
+/* ============================================================
+   pm-professor.com  ·  one stylesheet, no classes in the markup
+   Everything is selected by element type and position, so the
+   HTML carries content only. Retune the whole site from :root.
+   ============================================================ */
+
 :root{
   --bg:#fdfdfc; --ink:#1a1a19; --body:#33332f; --dim:#b5b5ae; --rule:#e4e3df;
-  --link:#2f5d8c; --code:#f6f5f2;
+  --link:#2f5d8c; --quote:#6f6f6a; --code:#f6f5f2;
   --size:14px; --measure:44rem;
+  --gap-page:40px; --gap-block:12px; --gap-row:9px; --pad:56px 24px 72px;
 }
+
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{
@@ -11,49 +18,87 @@ body{
   font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
   font-size:var(--size); line-height:1.7; text-wrap:pretty;
 }
-h1,h2,h3{font-size:inherit; font-weight:600; margin:0}
 
+/* one size everywhere; hierarchy comes from weight and colour only */
+h1,h2,h3{font-size:inherit; font-weight:600; margin:0}
+p{margin:0}
 a{color:var(--link); text-decoration:none; border-bottom:1px solid rgba(47,93,140,.28)}
 a:hover{color:var(--ink); border-bottom-color:var(--ink)}
+a:focus-visible{outline:2px solid var(--link); outline-offset:3px; border-bottom-color:transparent}
 ::selection{background:#e8eef5}
 
-/* layout */
-.wrap{max-width:var(--measure); margin:0 auto; padding:56px 24px 72px; display:flex; flex-direction:column; gap:40px}
-.site-head{display:flex; flex-direction:column; gap:10px}
-.site-head .name{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap}
-.site-head .name a{color:var(--ink); font-weight:600; border:0}
+/* ---- page frame ------------------------------------------- */
+main{
+  max-width:var(--measure); margin:0 auto; padding:var(--pad);
+  display:flex; flex-direction:column; gap:var(--gap-page);
+}
+main > p{color:var(--body)}                      /* page lede */
+
+header{display:flex; flex-direction:column; gap:10px}
+header > p{display:flex; align-items:baseline; flex-wrap:wrap; gap:10px}
+header > p > a{color:var(--ink); font-weight:600; border:0}
+header > p > span{color:var(--dim)}              /* ~/path */
 nav{display:flex; flex-wrap:wrap; gap:4px 16px}
 
-section{display:flex; flex-direction:column; gap:12px}
-/* section label + ~/path */
-.head{display:flex; align-items:baseline; justify-content:space-between; gap:12px;
-      border-bottom:1px solid var(--rule); padding-bottom:5px}
-.head h2{font-weight:500; color:var(--body)}
+footer{
+  border-top:1px solid var(--rule); padding-top:14px; color:var(--dim);
+  display:flex; flex-wrap:wrap; justify-content:space-between; gap:8px 16px;
+}
+footer a{color:var(--dim); border-bottom-color:rgba(181,181,174,.5)}
 
-/* lists: one row = one line, marker pinned right */
-ul.rows{margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:9px}
-ul.rows li{display:grid; grid-template-columns:minmax(0,1fr) auto; column-gap:12px; align-items:baseline}
-ul.rows li > *:first-child{min-width:0}
-ul.rows li > a{justify-self:start}
-ul.rows li > span:first-child{color:var(--body)}
+/* ---- sections --------------------------------------------- */
+section{display:flex; flex-direction:column; gap:var(--gap-block)}
+section > h2{
+  font-weight:500; color:var(--body);
+  display:flex; align-items:baseline; justify-content:space-between; gap:12px;
+  border-bottom:1px solid var(--rule); padding-bottom:5px;
+}
+/* the ~/path label is generated from data-path, not written in the HTML */
+section > h2[data-path]::after{
+  content:"~/" attr(data-path);
+  font-weight:400; color:var(--dim); white-space:nowrap;
+}
+section > a{align-self:flex-start}               /* "all notes ->" */
 
-.meta,.dim,time{color:var(--dim)}
-.more{align-self:flex-start}
-.lede{margin:0; color:var(--body)}
+/* rows: title left, marker pinned right, one line each */
+section > ul{
+  margin:0; padding:0; list-style:none;
+  display:flex; flex-direction:column; gap:var(--gap-row);
+}
+section > ul > li{
+  display:grid; grid-template-columns:minmax(0,1fr) auto;
+  column-gap:12px; align-items:baseline; color:var(--body);
+}
+section > ul > li > *{min-width:0; justify-self:start}
+section > ul > li > span{color:var(--dim); justify-self:end}
 
-/* article */
+/* ---- article ---------------------------------------------- */
+hgroup{display:flex; flex-direction:column; gap:10px}
+hgroup > p{color:var(--dim)}
 article{display:flex; flex-direction:column; gap:20px}
 article h2{margin-top:16px}
-article p,article ol,article ul{margin:0}
-article ol,article ul{padding-left:22px; display:flex; flex-direction:column; gap:6px}
-blockquote{margin:0; padding:4px 0 4px 18px; border-left:2px solid var(--rule); color:#6f6f6a; font-style:italic}
-pre{margin:0; padding:14px 16px; background:var(--code); border:1px solid var(--rule);
-    border-radius:3px; overflow-x:auto; line-height:1.6; color:var(--body); font:inherit}
-.post-head{display:flex; flex-direction:column; gap:10px}
-.post-meta{display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 12px; color:var(--dim)}
+article ol,article ul{
+  margin:0; padding-left:22px;
+  display:flex; flex-direction:column; gap:6px;
+}
+blockquote{
+  margin:0; padding:4px 0 4px 18px; border-left:2px solid var(--rule);
+  color:var(--quote); font-style:italic;
+}
+pre{
+  margin:0; padding:14px 16px; background:var(--code);
+  border:1px solid var(--rule); border-radius:3px; overflow-x:auto;
+  color:var(--body); font:inherit; line-height:1.6;
+}
 
-footer{border-top:1px solid var(--rule); padding-top:14px; display:flex; flex-wrap:wrap; gap:8px 16px; color:var(--dim)}
-footer a{color:var(--dim); border-bottom-color:rgba(181,181,174,.5)}
-footer .spacer{flex:1}
-
-@media (max-width:32rem){ .wrap{padding:36px 18px 56px; gap:32px} }
+/* ---- narrow screens --------------------------------------- */
+/* A wrapped title with the date still pinned to the top right reads
+   badly, so below this width each row becomes a single column and the
+   marker sits on its own line under the title. */
+@media (max-width:34rem){
+  :root{--gap-page:32px; --gap-row:15px; --pad:36px 18px 56px}
+  section > ul > li{grid-template-columns:minmax(0,1fr); row-gap:2px}
+  section > ul > li > span{justify-self:start}
+  nav{gap:2px 14px}
+  pre{overflow-wrap:anywhere; white-space:pre-wrap}
+}
