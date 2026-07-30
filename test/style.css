@@ -84,10 +84,17 @@ hgroup{display:flex; flex-direction:column; gap:10px}
 hgroup > p{color:var(--dim)}
 article{display:flex; flex-direction:column; gap:20px}
 article h2{margin-top:16px}
+/* Lists sit flush with the prose. The padding reserves a slot the exact
+   width of the marker, and the negative text-indent pulls the first
+   line back into it, so numbers start at the text edge and any wrapped
+   line aligns under the text rather than under the number. Change
+   --marker to 4ch for a list that runs past nine items. */
 article ol,article ul{
-  margin:0; padding-left:22px;
-  display:flex; flex-direction:column; gap:6px;
+  --marker:3ch;
+  margin:0; padding-left:var(--marker); list-style-position:inside;
 }
+article li{text-indent:calc(var(--marker) * -1)}
+article li + li{margin-top:6px}
 blockquote{
   margin:0; padding:4px 0 4px 18px; border-left:2px solid var(--rule);
   color:var(--quote); font-style:italic;
