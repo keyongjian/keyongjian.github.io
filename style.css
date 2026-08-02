@@ -14,16 +14,8 @@
   --rule:#e4e3df; --link:#2f5d8c; --quote:#6f6f6a;
   --font:ui-monospace,"SF Mono",SFMono-Regular,Menlo,
     "Cascadia Mono",Consolas,"Liberation Mono","DejaVu Sans Mono",monospace;
-  /* Monospace has a small x-height for its advance width, so 15px here
-     reads about the same as 14px in a proportional face. This value
-     applies on the phone as well: the narrow-screen block below adjusts
-     spacing only. */
-  --size:15px;
-  /* Measure in ch, not rem: one ch is the width of a character in the
-     current font, so the line stays near 80 characters whatever --size
-     becomes. In rem it would stay a fixed pixel width and the line would
-     grow longer every time the type got smaller. */
-  --measure:96ch;
+  --size:15px;      /* mono runs small for its width: 15px reads like 14px sans */
+  --measure:96ch;   /* in ch, so the line holds 96 characters at any --size */
   --gap-page:40px; --gap-row:9px; --pad:56px 24px 72px;
 }
 
@@ -38,12 +30,21 @@ body{
 /* one size everywhere; hierarchy comes from weight and colour only */
 h1,h2,h3{font-size:inherit; font-weight:600; margin:0}
 p{margin:0}
-a{color:var(--link); text-decoration:none; border-bottom:1px solid rgba(47,93,140,.28)}
-a:hover{color:var(--ink); border-bottom-color:var(--ink)}
+
+/* The underline is mixed from the link's own colour, so the other link
+   rules only set colour and the rule follows. Hover promotes it to the
+   full colour. */
+a{
+  color:var(--link); text-decoration:none;
+  border-bottom:1px solid color-mix(in srgb,currentColor 30%,transparent);
+}
+a:hover{color:var(--ink); border-bottom-color:currentColor}
 a:focus-visible{outline:2px solid var(--link); outline-offset:3px; border-bottom-color:transparent}
 ::selection{background:#e8eef5}
 
-/* every ~/path on the site: written in data-path, drawn by CSS */
+/* Every ~/path on the site: written in data-path on the header line and
+   on each section heading, drawn by CSS. In the header it follows the
+   name; in a section heading the flex row pins it to the right. */
 [data-path]::after{
   content:attr(data-path); font-weight:400;
   color:var(--dim); white-space:nowrap;
@@ -61,11 +62,13 @@ header > p{display:flex; align-items:baseline; flex-wrap:wrap; gap:10px}
 header > p > a{color:var(--ink); font-weight:600; border:0}
 nav{display:flex; flex-wrap:wrap; gap:4px 16px}
 
+/* Two items, one at each end: copyright and date on the index, back
+   link and count on a section page, two back links on a brief. */
 footer{
   border-top:1px solid var(--rule); padding-top:14px; color:var(--dim);
   display:flex; flex-wrap:wrap; justify-content:space-between; gap:8px 16px;
 }
-footer a{color:var(--dim); border-bottom-color:rgba(138,138,132,.5)}
+footer a{color:var(--dim)}
 
 /* ---- sections --------------------------------------------- */
 section{display:flex; flex-direction:column; gap:12px}
@@ -74,9 +77,10 @@ section > h2{
   display:flex; align-items:baseline; justify-content:space-between; gap:12px;
   border-bottom:1px solid var(--rule); padding-bottom:5px;
 }
-section > a{align-self:flex-start}               /* "all notes ->" */
+section > a{align-self:flex-start}               /* "all updates ->" */
 
-/* one row = one line, marker pinned right */
+/* one row = one line, date pinned right. minmax(0,1fr) is what lets a
+   long title wrap instead of pushing the date off the grid. */
 section > ul{
   margin:0; padding:0; list-style:none;
   display:flex; flex-direction:column; gap:var(--gap-row);
@@ -85,12 +89,15 @@ section > ul > li{
   display:grid; grid-template-columns:minmax(0,1fr) auto;
   column-gap:12px; align-items:baseline; color:var(--body);
 }
+/* Grid items stretch to fill their track by default, which would run a
+   link's underline the full width of the column instead of stopping at
+   the text. justify-self:start sizes each item to its content. */
 section > ul > li > *{min-width:0; justify-self:start}
 section > ul > li > span{color:var(--dim); justify-self:end}
 
 /* ---- article ---------------------------------------------- */
 hgroup{display:flex; flex-direction:column; gap:10px}
-hgroup > p{color:var(--dim)}
+hgroup > p{color:var(--dim)}                     /* date · reading time */
 article{display:flex; flex-direction:column; gap:20px}
 article h2{margin-top:16px}
 /* h3 sits one level under h2. Same size as everything else, so the step
@@ -100,9 +107,11 @@ article h2{margin-top:16px}
 article h3{color:var(--quote); margin-top:10px; margin-bottom:-8px}
 /* Lists sit flush with the prose. The padding reserves a slot the exact
    width of the marker, and the negative text-indent pulls the first
-   line back into it, so numbers start at the text edge and any wrapped
-   line aligns under the text rather than under the number. Change
-   --marker to 4ch for a list that runs past nine items. */
+   line back into it, so markers start at the text edge and any wrapped
+   line aligns under the text rather than under the marker. This is what
+   keeps the reference list at the foot of a brief square with the
+   paragraphs above it. Change --marker to 4ch for a numbered list that
+   runs past nine items. */
 article ol,article ul{
   --marker:3ch;
   margin:0; padding-left:var(--marker); list-style-position:inside;
@@ -116,12 +125,11 @@ blockquote{
 
 /* ---- narrow screens --------------------------------------- */
 /* A two-column row breaks down on a phone: the title wraps to two or
-   three lines while the marker stays pinned beside the first one.
-   Below this width the row stops being a grid and the marker runs on
-   inline after the title, so it wraps with the text instead of
-   floating away from it. The row gap goes up because a stacked row can
-   be two or three lines tall, and 12px was close enough to the line
-   spacing inside a row that the rows ran together. */
+   three lines while the date stays pinned beside the first one. Below
+   this width the row stops being a grid and the date runs on inline
+   after the title, so it wraps with the text. The row gap goes up
+   because a stacked row can be two or three lines tall, and 12px was
+   close enough to the line spacing inside a row that rows ran together. */
 @media (max-width:34rem){
   :root{--gap-page:32px; --gap-row:16px; --pad:40px 22px 56px}
   section > ul > li{display:block}
