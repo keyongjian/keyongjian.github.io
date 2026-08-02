@@ -31,15 +31,23 @@ body{
 h1,h2,h3{font-size:inherit; font-weight:600; margin:0}
 p{margin:0}
 
-/* The underline is mixed from the link's own colour, so the other link
-   rules only set colour and the rule follows. Hover promotes it to the
-   full colour. */
+/* The underline is text-decoration rather than a border, because a link
+   that is a grid item (every row title in a section list) is blockified,
+   and a border would then be drawn once along the bottom edge of the box:
+   under the last line only, and running the full width of the column.
+   text-decoration follows the text on every line. The colour is mixed
+   from the link's own colour, so the other link rules only set colour and
+   the underline follows. Hover promotes it to the full colour.
+   --- Tune text-underline-offset if the rule sits too close to the text. */
 a{
-  color:var(--link); text-decoration:none;
-  border-bottom:1px solid color-mix(in srgb,currentColor 30%,transparent);
+  color:var(--link);
+  text-decoration:underline;
+  text-decoration-thickness:1px;
+  text-decoration-color:color-mix(in srgb,currentColor 30%,transparent);
+  text-underline-offset:3px;
 }
-a:hover{color:var(--ink); border-bottom-color:currentColor}
-a:focus-visible{outline:2px solid var(--link); outline-offset:3px; border-bottom-color:transparent}
+a:hover{color:var(--ink); text-decoration-color:currentColor}
+a:focus-visible{outline:2px solid var(--link); outline-offset:3px; text-decoration-color:transparent}
 ::selection{background:#e8eef5}
 
 /* Every ~/path on the site: written in data-path on the header line and
@@ -59,7 +67,7 @@ main > p{color:var(--body)}                      /* page lede */
 
 header{display:flex; flex-direction:column; gap:10px}
 header > p{display:flex; align-items:baseline; flex-wrap:wrap; gap:10px}
-header > p > a{color:var(--ink); font-weight:600; border:0}
+header > p > a{color:var(--ink); font-weight:600; text-decoration:none}
 nav{display:flex; flex-wrap:wrap; gap:4px 16px}
 
 /* Two items, one at each end: copyright and date on the index, back
@@ -89,9 +97,11 @@ section > ul > li{
   display:grid; grid-template-columns:minmax(0,1fr) auto;
   column-gap:12px; align-items:baseline; color:var(--body);
 }
-/* Grid items stretch to fill their track by default, which would run a
-   link's underline the full width of the column instead of stopping at
-   the text. justify-self:start sizes each item to its content. */
+/* Grid items stretch to fill their track by default, which would leave a
+   short link's box wider than its text. justify-self:start sizes each
+   item to its content. A title long enough to wrap still fills the
+   column, since its content has already taken the full width; this is
+   why the underline is text-decoration and not a border. */
 section > ul > li > *{min-width:0; justify-self:start}
 section > ul > li > span{color:var(--dim); justify-self:end}
 
@@ -123,16 +133,26 @@ blockquote{
   color:var(--quote); font-style:italic;
 }
 
-/* ---- narrow screens --------------------------------------- */
-/* A two-column row breaks down on a phone: the title wraps to two or
-   three lines while the date stays pinned beside the first one. Below
-   this width the row stops being a grid and the date runs on inline
-   after the title, so it wraps with the text. The row gap goes up
-   because a stacked row can be two or three lines tall, and 12px was
-   close enough to the line spacing inside a row that rows ran together. */
-@media (max-width:34rem){
-  :root{--gap-page:32px; --gap-row:16px; --pad:40px 22px 56px}
+/* ---- stacked rows ----------------------------------------- */
+/* A two-column row breaks down as soon as the row is too narrow to hold
+   a title and its date on one line: the title wraps to two or three
+   lines while the date stays pinned beside the first one. Below this
+   width the row stops being a grid and the date runs on inline after the
+   title, so it wraps with the text. 48rem clears a tablet in portrait
+   (the iPad mini reports a 744px viewport) as well as a phone. The row
+   gap goes up because a stacked row can be two or three lines tall, and
+   9px was close enough to the line spacing inside a row that rows ran
+   together. Units in a media query resolve against the browser's initial
+   font, not the site's monospace stack, so this is rem and not ch. */
+@media (max-width:48rem){
+  :root{--gap-row:16px}
   section > ul > li{display:block}
   section > ul > li > span::before{content:" \00b7 "}
+}
+
+/* ---- narrow screens --------------------------------------- */
+/* Frame only: tighter page margins and a denser nav on a phone. */
+@media (max-width:34rem){
+  :root{--gap-page:32px; --pad:40px 22px 56px}
   nav{gap:2px 14px}
 }
