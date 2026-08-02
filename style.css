@@ -14,11 +14,11 @@
   --rule:#e4e3df; --link:#2f5d8c; --quote:#6f6f6a;
   --font:ui-monospace,"SF Mono",SFMono-Regular,Menlo,
     "Cascadia Mono",Consolas,"Liberation Mono","DejaVu Sans Mono",monospace;
-  /* Monospace has a small x-height for its advance width, so 16px here
-     reads about the same as 15px in a proportional face. This value
+  /* Monospace has a small x-height for its advance width, so 15px here
+     reads about the same as 14px in a proportional face. This value
      applies on the phone as well: the narrow-screen block below adjusts
      spacing only. */
-  --size:16px;
+  --size:15px;
   /* Measure in ch, not rem: one ch is the width of a character in the
      current font, so the line stays near 80 characters whatever --size
      becomes. In rem it would stay a fixed pixel width and the line would
