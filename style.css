@@ -7,16 +7,47 @@
    domain, the page paints instantly from anywhere including
    mainland China, and fixed-width characters are what keep the
    dates in each list aligned down the right-hand edge.
+
+   The look is built from four devices and nothing else:
+     1. one accent, a rust of the same lightness and chroma as
+        the link blue, spent only on the ~/paths, on hover and
+        on the rule beside a pull quote;
+     2. leader dots from the end of a title to its date, so a row
+        reads as one line across the full measure;
+     3. case and tracking, not size: section headings are the
+        body size, uppercased and letterspaced;
+     4. one size for the page, as before. The name in the header
+        is the single exception.
    ============================================================ */
 
 :root{
-  --bg:#fdfdfc; --ink:#1a1a19; --body:#33332f; --dim:#8a8a84;
-  --rule:#e4e3df; --link:#2f5d8c; --quote:#6f6f6a;
+  color-scheme:light dark;
+
+  --bg:#faf9f6;      /* warm paper, chroma kept under 0.01 */
+  --ink:#1b1a17;     /* headings, hovered links */
+  --body:#3b3934;    /* running text and rows */
+  --dim:#8b8780;     /* dates and meta */
+  --rule:#dddbd2;    /* heading, header and footer rules */
+  --leader:#cfcdc3;  /* the dots run lighter than they measure */
+  --link:#2f5d8c;
+  --accent:#9c5b3e;
+  --quote:#605d55;
+
   --font:ui-monospace,"SF Mono",SFMono-Regular,Menlo,
     "Cascadia Mono",Consolas,"Liberation Mono","DejaVu Sans Mono",monospace;
   --size:15px;      /* mono runs small for its width: 15px reads like 14px sans */
+  --name:17px;      /* the one place the page steps out of a single size */
   --measure:96ch;   /* in ch, so the line holds 96 characters at any --size */
-  --gap-page:40px; --gap-row:9px; --pad:56px 24px 72px;
+  --gap-page:38px; --gap-row:9px; --pad:60px 24px 76px;
+}
+
+/* Same paper at night: only the values change, never the rules. */
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#141412; --ink:#edebe4; --body:#b9b6ac; --dim:#7f7b72;
+    --rule:#2e2d28; --leader:#38362f;
+    --link:#8db3dd; --accent:#cf8d64; --quote:#98958c;
+  }
 }
 
 *{box-sizing:border-box}
@@ -25,37 +56,52 @@ body{
   margin:0; background:var(--bg); color:var(--ink);
   font-family:var(--font); font-size:var(--size);
   line-height:1.7; text-wrap:pretty;
+  font-variant-numeric:tabular-nums;   /* belt and braces: the stack is
+                                          fixed-width, but a fallback face
+                                          might not be, and every column of
+                                          dates on the site depends on it */
 }
 
-/* one size everywhere; hierarchy comes from weight and colour only */
+/* one size everywhere; hierarchy comes from case, weight and colour */
 h1,h2,h3{font-size:inherit; font-weight:600; margin:0}
 p{margin:0}
 
-/* The underline is text-decoration rather than a border, because a link
-   that is a grid item (every row title in a section list) is blockified,
-   and a border would then be drawn once along the bottom edge of the box:
-   under the last line only, and running the full width of the column.
-   text-decoration follows the text on every line. The colour is mixed
-   from the link's own colour, so the other link rules only set colour and
-   the underline follows. Hover promotes it to the full colour.
-   --- Tune text-underline-offset if the rule sits too close to the text. */
+/* Links are set in the link colour and left unruled: with forty-odd rows
+   on the index, a rule under every title made the page look ruled twice
+   over. The underline is declared and transparent, and brought in on
+   hover, so the affordance is there when the pointer is on the row and
+   the type is clean when it is not. It is text-decoration rather than a
+   border because a link that is a grid item (every row title in a section
+   list) is blockified, and a border would then be drawn once along the
+   bottom edge of the box: under the last line only, and running the full
+   width of the column. text-decoration follows the text on every line.
+   --- To bring the resting underline back, set text-decoration-color to
+   color-mix(in srgb,currentColor 28%,transparent). */
 a{
   color:var(--link);
   text-decoration:underline;
   text-decoration-thickness:1px;
-  text-decoration-color:color-mix(in srgb,currentColor 30%,transparent);
+  text-decoration-color:transparent;
   text-underline-offset:3px;
+  /* breaks only a word that cannot fit a line on its own, which on this
+     site means a bare DOI in a reference list on a phone */
+  overflow-wrap:break-word;
+  transition:color .12s ease, text-decoration-color .12s ease;
 }
 a:hover{color:var(--ink); text-decoration-color:currentColor}
-a:focus-visible{outline:2px solid var(--link); outline-offset:3px; text-decoration-color:transparent}
-::selection{background:#e8eef5}
+a:focus-visible{outline:2px solid var(--accent); outline-offset:3px; text-decoration-color:transparent}
+::selection{background:color-mix(in srgb,var(--accent) 18%,transparent)}
 
 /* Every ~/path on the site: written in data-path on the header line and
    on each section heading, drawn by CSS. In the header it follows the
-   name; in a section heading the flex row pins it to the right. */
+   name; in a section heading the flex row pins it to the right. It is
+   the one place the accent runs at full strength, which makes it the
+   site's mark. text-transform is reset because the section headings are
+   uppercased and a path is a filename: it stays lower case. */
 [data-path]::after{
   content:attr(data-path); font-weight:400;
-  color:var(--dim); white-space:nowrap;
+  letter-spacing:0; text-transform:lowercase;
+  color:var(--accent); white-space:nowrap;
 }
 
 /* ---- page frame ------------------------------------------- */
@@ -63,51 +109,86 @@ main{
   max-width:var(--measure); margin:0 auto; padding:var(--pad);
   display:flex; flex-direction:column; gap:var(--gap-page);
 }
-main > p{color:var(--body)}                      /* page lede */
+main > p{color:var(--body)}                       /* page lede */
 
-header{display:flex; flex-direction:column; gap:10px}
+header{
+  display:flex; flex-direction:column; gap:12px;
+  border-bottom:1px solid var(--rule); padding-bottom:18px;
+}
 header > p{display:flex; align-items:baseline; flex-wrap:wrap; gap:10px}
-header > p > a{color:var(--ink); font-weight:600; text-decoration:none}
+header > p > a{
+  color:var(--ink); font-size:var(--name); font-weight:600;
+  letter-spacing:-.01em; text-decoration:none;
+}
+header > p > a:hover{color:var(--accent)}
+
+/* Seven blue links was the loudest thing on the page and the least
+   important. They step back to text colour and pick the accent up on
+   hover, so the header reads as one line of navigation. */
 nav{display:flex; flex-wrap:wrap; gap:4px 16px}
+nav a{color:var(--body)}
+nav a:hover{color:var(--accent); text-decoration-color:currentColor}
 
 /* Two items, one at each end: copyright and date on the index, back
    link and count on a section page, two back links on a brief. */
 footer{
-  border-top:1px solid var(--rule); padding-top:14px; color:var(--dim);
+  border-top:1px solid var(--rule); padding-top:16px; color:var(--dim);
   display:flex; flex-wrap:wrap; justify-content:space-between; gap:8px 16px;
 }
 footer a{color:var(--dim)}
+footer a:hover{color:var(--accent); text-decoration-color:currentColor}
 
 /* ---- sections --------------------------------------------- */
 section{display:flex; flex-direction:column; gap:12px}
 section > h2{
-  font-weight:500; color:var(--body);
+  font-weight:600; letter-spacing:.07em; text-transform:uppercase;
+  color:var(--ink);
   display:flex; align-items:baseline; justify-content:space-between; gap:12px;
   border-bottom:1px solid var(--rule); padding-bottom:5px;
 }
-section > a{align-self:flex-start}               /* "all updates ->" */
+section > a{align-self:flex-start; color:var(--body)}   /* "all updates ->" */
+section > a:hover{color:var(--accent); text-decoration-color:currentColor}
 
-/* one row = one line, date pinned right. minmax(0,1fr) is what lets a
-   long title wrap instead of pushing the date off the grid. */
+/* one row = one line, date pinned right, leader dots between the two.
+   Three tracks: the title at max-content, the leader flexible, the date
+   at auto. A max-content track takes the width it wants when there is
+   room and gives it back when there is not, so a long title still wraps
+   inside its track instead of pushing the date off the grid — the job
+   minmax(0,1fr) did before, with the leader now taking up the slack.
+   The 2ch floor on the leader track is the gap that survives when a
+   title runs the full width, so a title and a date never touch. */
 section > ul{
   margin:0; padding:0; list-style:none;
   display:flex; flex-direction:column; gap:var(--gap-row);
 }
 section > ul > li{
-  display:grid; grid-template-columns:minmax(0,1fr) auto;
-  column-gap:12px; align-items:baseline; color:var(--body);
+  display:grid; grid-template-columns:max-content minmax(2ch,1fr) auto;
+  align-items:baseline; color:var(--body);
 }
-/* Grid items stretch to fill their track by default, which would leave a
-   short link's box wider than its text. justify-self:start sizes each
-   item to its content. A title long enough to wrap still fills the
-   column, since its content has already taken the full width; this is
-   why the underline is text-decoration and not a border. */
-section > ul > li > *{min-width:0; justify-self:start}
-section > ul > li > span{color:var(--dim); justify-self:end}
+section > ul > li > *{min-width:0}
+/* The leader is generated last in the markup and ordered into the middle
+   of the row. It is an empty box, so its baseline is its bottom margin
+   edge: pulling that edge up 4px drops the dots 4px under the text
+   baseline, where an underline would sit. The 1ch side margins are what
+   hold the dots clear of the words at either end.
+   --- border-bottom:1px dashed reads as a longer dash; --leader sets how
+   dark the run is. */
+section > ul > li::after{
+  content:""; order:1; align-self:baseline;
+  border-bottom:1px dotted var(--leader);
+  margin:0 1ch -4px;
+}
+section > ul > li > span{order:2; color:var(--dim); justify-self:end}
+/* Hovering anywhere on a row brings its date up with the title, which is
+   what ties the two ends of a wide row together. :has is the whole test,
+   so a browser without it simply gets no hover here and nothing else
+   changes. */
+section > ul > li:has(a):hover > span{color:var(--body)}
+section > ul > li:has(a):hover::after{border-bottom-color:var(--dim)}
 
 /* ---- article ---------------------------------------------- */
 hgroup{display:flex; flex-direction:column; gap:10px}
-hgroup > p{color:var(--dim)}                     /* date · reading time */
+hgroup > p{color:var(--dim)}                      /* date · reading time */
 article{display:flex; flex-direction:column; gap:20px}
 article h2{margin-top:16px}
 /* h3 sits one level under h2. Same size as everything else, so the step
@@ -115,6 +196,9 @@ article h2{margin-top:16px}
    negative bottom margin eats part of the flex gap so the heading binds
    to the text below it rather than floating between two blocks. */
 article h3{color:var(--quote); margin-top:10px; margin-bottom:-8px}
+article p{color:var(--body)}
+/* The opening paragraph carries the brief: same size, full ink. */
+article > p:first-of-type{color:var(--ink)}
 /* Lists sit flush with the prose. The padding reserves a slot the exact
    width of the marker, and the negative text-indent pulls the first
    line back into it, so markers start at the text edge and any wrapped
@@ -125,11 +209,15 @@ article h3{color:var(--quote); margin-top:10px; margin-bottom:-8px}
 article ol,article ul{
   --marker:3ch;
   margin:0; padding-left:var(--marker); list-style-position:inside;
+  color:var(--body);
 }
 article li{text-indent:calc(var(--marker) * -1)}
 article li + li{margin-top:6px}
+/* The references at the foot of a brief: apparatus, not argument. */
+article > ul:last-child{color:var(--quote)}
+article > ul:last-child li + li{margin-top:9px}
 blockquote{
-  margin:0; padding:4px 0 4px 18px; border-left:2px solid var(--rule);
+  margin:0; padding:4px 0 4px 18px; border-left:2px solid var(--accent);
   color:var(--quote); font-style:italic;
 }
 
@@ -137,22 +225,37 @@ blockquote{
 /* A two-column row breaks down as soon as the row is too narrow to hold
    a title and its date on one line: the title wraps to two or three
    lines while the date stays pinned beside the first one. Below this
-   width the row stops being a grid and the date runs on inline after the
-   title, so it wraps with the text. 48rem clears a tablet in portrait
-   (the iPad mini reports a 744px viewport) as well as a phone. The row
-   gap goes up because a stacked row can be two or three lines tall, and
-   9px was close enough to the line spacing inside a row that rows ran
-   together. Units in a media query resolve against the browser's initial
-   font, not the site's monospace stack, so this is rem and not ch. */
+   width the row stops being a grid, the leader goes with it, and the
+   date runs on inline after the title so it wraps with the text. 48rem
+   clears a tablet in portrait (the iPad mini reports a 744px viewport)
+   as well as a phone. The row gap goes up because a stacked row can be
+   two or three lines tall, and 9px was close enough to the line spacing
+   inside a row that rows ran together. Units in a media query resolve
+   against the browser's initial font, not the site's monospace stack, so
+   this is rem and not ch. */
 @media (max-width:48rem){
   :root{--gap-row:16px}
   section > ul > li{display:block}
-  section > ul > li > span::before{content:" \00b7 "}
+  section > ul > li::after{display:none}
+  /* space, middot, no-break space: the row may break before the middot,
+     never between the middot and the date */
+  section > ul > li > span::before{content:" \00b7\00a0"; color:var(--dim)}
 }
 
 /* ---- narrow screens --------------------------------------- */
 /* Frame only: tighter page margins and a denser nav on a phone. */
 @media (max-width:34rem){
-  :root{--gap-page:32px; --pad:40px 22px 56px}
+  :root{--gap-page:30px; --pad:40px 20px 56px; --name:16px}
   nav{gap:2px 14px}
+}
+
+/* ---- paper ------------------------------------------------ */
+@media print{
+  :root{
+    --bg:#fff; --ink:#000; --body:#1a1a1a; --dim:#555;
+    --rule:#bbb; --leader:#c8c8c8; --link:#000; --accent:#444; --quote:#333;
+  }
+  nav{display:none}
+  main{max-width:none; padding:0}
+  section,article h2,blockquote{break-inside:avoid}
 }
