@@ -1,31 +1,23 @@
 @font-face{
-  font-family:"Courier Prime"; font-style:normal; font-weight:400;
+  font-family:"IBM Plex Mono"; font-style:normal; font-weight:400;
   font-display:block;
-  src:url(assets/fonts/courier-prime-400.woff2) format("woff2");
+  src:url(assets/fonts/ibm-plex-mono-400.woff2) format("woff2");
   unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,
     U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,
     U+2212,U+2215,U+FEFF,U+FFFD;
 }
 @font-face{
-  font-family:"Courier Prime"; font-style:italic; font-weight:400;
+  font-family:"IBM Plex Mono"; font-style:italic; font-weight:400;
   font-display:block;
-  src:url(assets/fonts/courier-prime-400-italic.woff2) format("woff2");
+  src:url(assets/fonts/ibm-plex-mono-400-italic.woff2) format("woff2");
   unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,
     U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,
     U+2212,U+2215,U+FEFF,U+FFFD;
 }
 @font-face{
-  font-family:"Courier Prime"; font-style:normal; font-weight:700;
+  font-family:"IBM Plex Mono"; font-style:normal; font-weight:600;
   font-display:block;
-  src:url(assets/fonts/courier-prime-700.woff2) format("woff2");
-  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,
-    U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,
-    U+2212,U+2215,U+FEFF,U+FFFD;
-}
-@font-face{
-  font-family:"Special Elite"; font-style:normal; font-weight:400;
-  font-display:block;
-  src:url(assets/fonts/special-elite-400.woff2) format("woff2");
+  src:url(assets/fonts/ibm-plex-mono-600.woff2) format("woff2");
   unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,
     U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,
     U+2212,U+2215,U+FEFF,U+FFFD;
@@ -44,13 +36,11 @@
   --accent:#9c5b3e;
   --quote:#605d55;
 
-  --font:"Courier Prime",ui-monospace,"SF Mono",SFMono-Regular,Menlo,
+  --font:"IBM Plex Mono",ui-monospace,"SF Mono",SFMono-Regular,Menlo,
     "Cascadia Mono",Consolas,"Liberation Mono","DejaVu Sans Mono",monospace;
-  --display:"Special Elite",var(--font);
-  --size:17px;
-  --name:21px;
-  --title:22px;
-  --measure:90ch;
+  --size:15px;
+  --name:17px;
+  --measure:96ch;
   --gap-page:38px; --gap-row:9px; --pad:60px 24px 76px;
 }
 
@@ -67,11 +57,11 @@ html{-webkit-text-size-adjust:100%}
 body{
   margin:0; background:var(--bg); color:var(--ink);
   font-family:var(--font); font-size:var(--size);
-  line-height:1.65; text-wrap:pretty;
+  line-height:1.7; text-wrap:pretty;
   font-variant-numeric:tabular-nums;
 }
 
-h1,h2,h3{font-size:inherit; font-weight:700; margin:0}
+h1,h2,h3{font-size:inherit; font-weight:600; margin:0}
 p{margin:0}
 
 a{
@@ -88,8 +78,7 @@ a:focus-visible{outline:2px solid var(--accent); outline-offset:3px; text-decora
 ::selection{background:color-mix(in srgb,var(--accent) 18%,transparent)}
 
 [data-path]::after{
-  content:attr(data-path);
-  font-family:var(--font); font-weight:400; font-size:var(--size);
+  content:attr(data-path); font-weight:400;
   letter-spacing:0; text-transform:lowercase;
   color:var(--accent); white-space:nowrap;
 }
@@ -106,8 +95,8 @@ header{
 }
 header > p{display:flex; align-items:baseline; flex-wrap:wrap; gap:10px}
 header > p > a{
-  color:var(--ink); font-family:var(--display); font-size:var(--name);
-  font-weight:400; letter-spacing:.01em; text-decoration:none;
+  color:var(--ink); font-size:var(--name); font-weight:600;
+  letter-spacing:-.01em; text-decoration:none;
 }
 
 nav{display:flex; flex-wrap:wrap; gap:4px 16px}
@@ -126,9 +115,7 @@ section > a:hover{color:var(--accent); text-decoration-color:currentColor}
 
 section{display:flex; flex-direction:column; gap:12px}
 section > h2{
-  font-family:var(--display); font-weight:400;
-  letter-spacing:.05em; text-transform:uppercase;
-  color:var(--ink);
+  letter-spacing:.07em; text-transform:uppercase; color:var(--ink);
   display:flex; align-items:baseline; justify-content:space-between; gap:12px;
   border-bottom:1px solid var(--rule); padding-bottom:5px;
 }
@@ -153,15 +140,11 @@ section > ul > li:has(a):hover > span{color:var(--body)}
 section > ul > li:has(a):hover::after{border-bottom-color:var(--dim)}
 
 hgroup{display:flex; flex-direction:column; gap:10px}
-hgroup > h1{
-  font-family:var(--display); font-weight:400; font-size:var(--title);
-  line-height:1.35; letter-spacing:.01em;
-}
 hgroup > p{color:var(--dim)}
 
 article{display:flex; flex-direction:column; gap:20px}
 article h2{margin-top:16px}
-article h3{color:var(--quote); font-weight:400; margin-top:10px; margin-bottom:-8px}
+article h3{color:var(--quote); margin-top:10px; margin-bottom:-8px}
 article p{color:var(--body)}
 article > p:first-of-type{color:var(--ink)}
 
@@ -188,7 +171,7 @@ blockquote{
 }
 
 @media (max-width:34rem){
-  :root{--size:16px; --name:19px; --title:20px; --gap-page:30px; --pad:40px 20px 56px}
+  :root{--gap-page:30px; --pad:40px 20px 56px; --name:16px}
   nav{gap:2px 14px}
   header [data-path]::after{white-space:normal; overflow-wrap:anywhere}
 }
