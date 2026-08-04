@@ -3,10 +3,14 @@
    Everything is selected by element type, attribute or position,
    so the HTML carries content only. Retune the site from :root.
 
-   System monospace only: nothing is fetched from a third-party
-   domain, the page paints instantly from anywhere including
-   mainland China, and fixed-width characters are what keep the
-   dates in each list aligned down the right-hand edge.
+   One monospace face, served from this origin: nothing is fetched
+   from a third-party domain, the page still paints from anywhere
+   including mainland China, and fixed-width characters are what
+   keep the dates in each list aligned down the right-hand edge.
+   Self-hosting rather than the system stack so that the page is
+   the same page everywhere, and so that ch, which sets --measure,
+   the leader floor and the list marker, is one width and not a
+   different one on every machine.
 
    The look is built from four devices and nothing else:
      1. one accent, a rust of the same lightness and chroma as
@@ -19,6 +23,47 @@
      4. one size for the page, as before. The name in the header
         is the single exception.
    ============================================================ */
+
+/* ---- the face --------------------------------------------- */
+/* IBM Plex Mono, SIL Open Font License 1.1, three files and 36KB
+   in total, sitting in assets/fonts and served from this domain.
+   Latin subset only, which covers the site whole: every page is
+   ASCII apart from the middot and the copyright sign. The
+   unicode-range is kept all the same, so that a character from
+   outside the subset — an em dash pasted in from Word, a name
+   with a diacritic — falls back to the system stack rather than
+   drawing an empty box out of Plex.
+   font-display is block, not swap. The date column and the leader
+   dots are ruled by the character width, so a face that swapped
+   in late would visibly re-measure every row on the page. The
+   files are small and local, so the block period is not something
+   you see. Weight 600 is a real semibold and the italic is a real
+   italic: the headings and the journal titles in the reference
+   lists are no longer synthesised by the browser. */
+@font-face{
+  font-family:"IBM Plex Mono"; font-style:normal; font-weight:400;
+  font-display:block;
+  src:url(assets/fonts/ibm-plex-mono-400.woff2) format("woff2");
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,
+    U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,
+    U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face{
+  font-family:"IBM Plex Mono"; font-style:italic; font-weight:400;
+  font-display:block;
+  src:url(assets/fonts/ibm-plex-mono-400-italic.woff2) format("woff2");
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,
+    U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,
+    U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face{
+  font-family:"IBM Plex Mono"; font-style:normal; font-weight:600;
+  font-display:block;
+  src:url(assets/fonts/ibm-plex-mono-600.woff2) format("woff2");
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,
+    U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,
+    U+2212,U+2215,U+FEFF,U+FFFD;
+}
 
 :root{
   color-scheme:light dark;
@@ -33,11 +78,19 @@
   --accent:#9c5b3e;
   --quote:#605d55;
 
-  --font:ui-monospace,"SF Mono",SFMono-Regular,Menlo,
+  /* The stack behind Plex is the old system one, kept as it was: it
+     is what draws the page in the block period, and what draws any
+     character the subset does not carry. */
+  --font:"IBM Plex Mono",ui-monospace,"SF Mono",SFMono-Regular,Menlo,
     "Cascadia Mono",Consolas,"Liberation Mono","DejaVu Sans Mono",monospace;
   --size:15px;      /* mono runs small for its width: 15px reads like 14px sans */
   --name:17px;      /* the one place the page steps out of a single size */
-  --measure:96ch;   /* in ch, so the line holds 96 characters at any --size */
+  --measure:96ch;   /* in ch, so the page is the same width at any --size.
+                       It measures the box, and the side padding sits inside
+                       it, so the line itself holds 91 characters, not 96.
+                       One width for every page, briefs included. If you ever
+                       narrow it, 80ch is the floor: below that the seven nav
+                       items no longer hold one line. */
   --gap-page:38px; --gap-row:9px; --pad:60px 24px 76px;
 }
 
