@@ -84,6 +84,11 @@ a:focus-visible{outline:2px solid var(--highlight); outline-offset:3px}
   min-height:100vh;
 }
 
+/* min-width:0 lets the grid tracks shrink below their min-content width. Without
+   it an unbreakable string (a DOI URL in a reference list) sizes the track and
+   pushes the whole page wider than a phone screen. */
+.sidebar,.main-content{min-width:0}
+
 .sidebar{
   background-color:var(--primary-color);
   color:#fff;
@@ -251,7 +256,6 @@ a:focus-visible{outline:2px solid var(--highlight); outline-offset:3px}
 }
 
 .entry-summary{font-size:.95rem; color:var(--light-text)}
-.entry-venue{font-size:.9rem; color:var(--accent-color); font-style:italic}
 
 /* ---------- cards ---------- */
 
@@ -290,8 +294,6 @@ a:focus-visible{outline:2px solid var(--highlight); outline-offset:3px}
 
 .topic-nav a:hover{background-color:#e2e8f0; color:var(--primary-color)}
 .topic-nav a span{color:var(--light-text)}
-
-.section-count{font-weight:400; font-size:.9rem; color:var(--light-text)}
 
 .publication-list{margin:0}
 .publication-list > li::before{content:none}
@@ -362,8 +364,6 @@ footer{
 footer p{margin-bottom:.25rem}
 footer p:last-child{margin-bottom:0}
 
-.footer-nav{display:flex; flex-wrap:wrap; gap:.5rem 1.5rem; margin-bottom:.75rem}
-
 /* ---------- responsive ---------- */
 
 /* Stacked: the sidebar becomes a compact banner rather than a full screen. */
@@ -401,6 +401,10 @@ footer p:last-child{margin-bottom:0}
   .card-grid{grid-template-columns:1fr}
   .entry-list li{display:block}
   .entry-date{display:block}
+
+  /* Pills are a tap target on a phone, not just a label. */
+  .topic-nav{gap:.6rem}
+  .topic-nav a{padding:.7rem 1rem}
 }
 
 /* ---------- print ---------- */
