@@ -22,7 +22,14 @@
 
 *{margin:0; padding:0; box-sizing:border-box}
 
-html{-webkit-text-size-adjust:100%}
+html{
+  -webkit-text-size-adjust:100%;
+  /* Reserve the scrollbar gutter so short pages (Now, Briefs, Talks) sit in
+     the same place as long ones; without it the layout jumps sideways when
+     navigating between a scrolling and a non-scrolling page. */
+  overflow-y:scroll;
+  scrollbar-gutter:stable;
+}
 
 body{
   font-family:var(--font-sans);
@@ -219,6 +226,32 @@ a:focus-visible{outline:2px solid var(--highlight); outline-offset:3px}
   font-size:.85rem;
   white-space:nowrap;
 }
+
+/* Dated rows carrying a second line, built like .publication so briefs and
+   talks read the same way as the publication list. */
+
+.entry-list-detailed > li::before{content:none}
+
+.entry-list-detailed > .entry{
+  display:block;
+  margin:0;
+  padding:.9rem 1.25rem;
+  border-left:3px solid transparent;
+  transition:border-color .2s, background-color .2s;
+}
+
+.entry:hover{border-left-color:var(--highlight); background-color:var(--secondary-color)}
+.entry p{margin:0}
+
+.entry-title{
+  display:flex; align-items:baseline;
+  justify-content:space-between; gap:1.5rem;
+  flex-wrap:wrap;
+  font-weight:600;
+}
+
+.entry-summary{font-size:.95rem; color:var(--light-text)}
+.entry-venue{font-size:.9rem; color:var(--accent-color); font-style:italic}
 
 /* ---------- cards ---------- */
 
