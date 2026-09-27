@@ -1,21 +1,30 @@
 /* ============================================================
    Yongjian Ke — global stylesheet
-   Sidebar + content template, one file for every page.
+   Single centred column with a top bar, one file for every page.
    ============================================================ */
 
 :root{
-  --primary-color:#1e3a5f;
-  --secondary-color:#f0f4f8;
-  --accent-color:#3d7b9e;
-  --text-color:#2d3748;
-  --light-text:#4a5568;
-  --border-color:#e2e8f0;
-  --highlight:#f6ad55;
-  --page-bg:#f8fafc;
+  --bg:#fafafa;
+  --text:#18181b;
+  --muted:#71717a;
+  --faint:#a1a1aa;
+  --line:#e4e4e7;
+  --chip:#f0f0f1;
+  --chip-hover:#e4e4e7;
+  --accent:#1e3a5f;
+  --accent-soft:#3d7b9e;
+  --btn-text:#fafafa;
 
-  --font-sans:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;
-  --sidebar-width:280px;
-  --max-width:1280px;
+  --font-sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;
+  --col:620px;
+}
+
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#111113; --text:#ededef; --muted:#a1a1aa; --faint:#71717a;
+    --line:#27272a; --chip:#1c1c1f; --chip-hover:#27272a;
+    --accent:#9cc0e4; --accent-soft:#9cc0e4; --btn-text:#111113;
+  }
 }
 
 /* ---------- base ---------- */
@@ -24,396 +33,171 @@
 
 html{
   -webkit-text-size-adjust:100%;
-  /* Reserve the scrollbar gutter so short pages (Now, Briefs, Talks) sit in
-     the same place as long ones; without it the layout jumps sideways when
-     navigating between a scrolling and a non-scrolling page. */
+  /* Reserve the scrollbar gutter so short pages sit in the same place as
+     long ones; without it the column jumps sideways between pages. */
   overflow-y:scroll;
   scrollbar-gutter:stable;
 }
 
 body{
   font-family:var(--font-sans);
+  font-size:15px;
   line-height:1.6;
-  color:var(--text-color);
-  background-color:var(--page-bg);
+  color:var(--text);
+  background:var(--bg);
+  -webkit-font-smoothing:antialiased;
 }
 
-h1,h2,h3{font-family:var(--font-sans); font-weight:700}
+a{color:inherit; text-decoration:none; overflow-wrap:break-word}
+a:focus-visible{outline:2px solid var(--accent-soft); outline-offset:3px; border-radius:2px}
+ul{list-style:none}
+:target{scroll-margin-top:24px}
+::selection{background:rgba(61,123,158,.2)}
 
-h1{font-size:1.8rem; margin-bottom:.5rem; line-height:1.2}
+/* ---------- top bar ---------- */
 
-h2{
-  font-size:1.5rem;
-  margin:2rem 0 1rem;
-  color:var(--primary-color);
-  position:relative;
-  padding-bottom:.5rem;
+.top{
+  display:flex; justify-content:space-between; align-items:center; gap:16px;
+  max-width:1200px; margin:0 auto; padding:24px;
 }
 
-h2::after{
-  content:'';
-  position:absolute;
-  bottom:0; left:0;
-  width:3rem; height:3px;
-  background-color:var(--highlight);
+.mark{width:30px; height:30px; display:block}
+
+.top nav{display:flex; gap:24px; font-size:14px; color:var(--muted); flex-wrap:wrap; justify-content:flex-end}
+.top nav a:hover, .top nav a[aria-current]{color:var(--accent)}
+
+/* ---------- column ---------- */
+
+.main-content{max-width:calc(var(--col) + 48px); margin:0 auto; padding:64px 24px 48px}
+
+/* ---------- page header ---------- */
+
+.back{font-size:14px; color:var(--muted); display:inline-block; margin-bottom:32px}
+.back:hover{color:var(--accent)}
+
+h1{font-size:24px; font-weight:600; letter-spacing:-.01em; line-height:1.35; margin-bottom:12px; color:var(--accent)}
+.page-meta{font-size:13px; color:var(--faint); margin-bottom:40px}
+.intro{color:var(--muted)}
+
+/* ---------- sections ---------- */
+
+.section{margin-top:72px}
+.section h2{font-size:17px; font-weight:600; letter-spacing:-.01em; margin-bottom:20px}
+.section > p{margin-bottom:16px}
+.section > ul:not([class]){list-style:disc; padding-left:20px}
+.section > ul:not([class]) li{margin-bottom:8px}
+.section > ul:not([class]) a, .section > p a:not([class]){color:var(--accent)}
+
+.label, .section h2.label{font-size:12px; font-weight:500; color:var(--muted); margin-bottom:20px}
+
+/* ---------- links ---------- */
+
+.view-more, .more{display:inline-block; margin-top:22px; font-size:14px; font-weight:500; color:var(--accent)}
+.view-more:hover, .more:hover{text-decoration:underline; text-underline-offset:3px}
+
+/* ---------- chips: profiles and topic jump links ---------- */
+
+.chips, .topic-nav{display:flex; gap:8px; flex-wrap:wrap; margin-top:20px}
+.chips a, .topic-nav a{font-size:13px; color:var(--muted); background:var(--chip); padding:5px 10px; border-radius:6px}
+.chips a:hover, .topic-nav a:hover{color:var(--accent); background:var(--chip-hover)}
+
+/* ---------- title + description lists (cards, briefs, talks) ---------- */
+
+.card-grid{display:block}
+.card + .card{margin-top:22px}
+.card h3{font-size:15px; font-weight:500}
+.card p{color:var(--muted); font-size:14px; margin-top:2px}
+
+.entry-list-detailed .entry + .entry{margin-top:22px}
+.entry-title{font-weight:500}
+.entry-summary{color:var(--muted); font-size:14px; margin-top:2px}
+.entry-summary + .entry-summary{margin-top:0}
+
+.card h3 a::after, .entry-title a::after{content:" \2192"}
+.card h3 a:hover, .entry-title a:hover{color:var(--accent); text-decoration:underline; text-underline-offset:3px}
+
+/* ---------- dated rows (home, updates) ---------- */
+
+.entry-list:not(.entry-list-detailed) li{
+  display:flex; gap:16px; justify-content:space-between;
+  padding:10px 0; border-bottom:1px solid var(--line); font-size:14px;
 }
-
-h3{font-size:1.2rem; margin:1.5rem 0 .75rem; color:var(--accent-color)}
-
-p{margin-bottom:1rem}
-
-ul{list-style-type:none; margin-bottom:1.5rem}
-
-li{margin-bottom:.75rem; position:relative; padding-left:1.25rem}
-
-li::before{content:'\2022'; position:absolute; left:0; color:var(--accent-color)}
-
-a{color:var(--accent-color); text-decoration:none; transition:color .2s; overflow-wrap:break-word}
-a:hover{color:var(--highlight)}
-a:focus-visible{outline:2px solid var(--highlight); outline-offset:3px}
-
-::selection{background:rgba(246,173,85,.3)}
-
-/* ---------- layout ---------- */
-
-.container{
-  max-width:var(--max-width);
-  margin:0 auto;
-  display:grid;
-  grid-template-columns:var(--sidebar-width) 1fr;
-  min-height:100vh;
-}
-
-/* min-width:0 lets the grid tracks shrink below their min-content width. Without
-   it an unbreakable string (a DOI URL in a reference list) sizes the track and
-   pushes the whole page wider than a phone screen. */
-.sidebar,.main-content{min-width:0}
-
-.sidebar{
-  background-color:var(--primary-color);
-  color:#fff;
-  padding:2.5rem 1.5rem;
-  position:relative;
-}
-
-.main-content{padding:2.5rem; background-color:#fff}
-
-/* ---------- sidebar: profile ---------- */
-
-.profile-header{margin-bottom:2rem}
-
-.profile-image{
-  width:160px; height:160px;
-  border-radius:50%;
-  overflow:hidden;
-  background-color:rgba(255,255,255,.1);
-  margin:0 auto 1.5rem;
-  border:3px solid rgba(255,255,255,.2);
-}
-
-.profile-image img{width:100%; height:100%; object-fit:cover; display:block}
-
-.profile-title{
-  color:#fff;
-  font-size:1.8rem; font-weight:700; line-height:1.2;
-  margin-bottom:.25rem;
-}
-
-.profile-title a{color:#fff}
-.profile-title a:hover{color:var(--highlight)}
-
-.profile-subtitle{color:rgba(255,255,255,.8); font-size:1rem; margin-bottom:.25rem}
-
-.profile-pronunciation{
-  color:rgba(255,255,255,.6);
-  font-size:.9rem; font-style:italic;
-  margin-bottom:0;
-}
-
-/* ---------- sidebar: sections ---------- */
-
-.sidebar-section{margin-bottom:2rem}
-.sidebar-section:last-child{margin-bottom:0}
-
-.sidebar-heading{
-  color:#fff;
-  font-size:1.1rem;
-  margin:0 0 1rem;
-  padding-bottom:.5rem;
-  border-bottom:1px solid rgba(255,255,255,.2);
-}
-
-.sidebar-heading::after{content:none}
-
-.contact-item{
-  display:flex; align-items:center;
-  margin-bottom:.75rem;
-  color:rgba(255,255,255,.8);
-  font-size:.9rem;
-}
-
-.contact-item:last-child{margin-bottom:0}
-.contact-item a{color:rgba(255,255,255,.8)}
-.contact-item a:hover{color:#fff}
-
-.contact-icon{
-  flex:0 0 auto;
-  margin-right:.75rem;
-  width:1rem; height:1rem;
-  opacity:.8;
-}
-
-.nav-list{margin:0}
-.nav-list li{margin:0; padding:0}
-.nav-list li::before{content:none}
-
-.nav-link{
-  display:block;
-  padding:.5rem .75rem;
-  margin-bottom:.5rem;
-  background-color:rgba(255,255,255,.1);
-  border-radius:4px;
-  color:rgba(255,255,255,.9);
-  font-size:.9rem;
-  transition:background-color .2s ease, color .2s ease, transform .2s ease;
-}
-
-.nav-link:hover{background-color:rgba(255,255,255,.2); color:#fff; transform:translateX(3px)}
-
-.nav-link[aria-current="page"]{
-  background-color:rgba(255,255,255,.18);
-  color:#fff;
-  box-shadow:inset 3px 0 0 var(--highlight);
-}
-
-.nav-link-text{display:flex; align-items:center}
-
-.nav-link-logo{
-  flex:0 0 auto;
-  width:16px; height:16px;
-  margin-right:8px;
-  display:flex; align-items:center; justify-content:center;
-  font-weight:700; font-size:.75rem;
-}
-
-/* ---------- main content ---------- */
-
-.section{margin-bottom:3rem}
-.section:last-of-type{margin-bottom:2rem}
-.section > h2:first-child{margin-top:0}
-
-.page-header{
-  margin-bottom:2rem;
-  padding-bottom:1rem;
-  border-bottom:1px solid var(--border-color);
-}
-
-.page-header h1{color:var(--primary-color)}
-.page-meta{color:var(--light-text); font-size:.9rem; margin-bottom:0}
-
-.intro{font-size:1.05rem; color:var(--light-text); margin-bottom:2rem}
-.page-header .intro{margin-bottom:0}
-
-.view-more{display:inline-block; margin-top:1rem; font-weight:600}
-
-/* ---------- entry lists (dated rows) ---------- */
-
-.entry-list{margin-bottom:0}
-
-.entry-list li{
-  display:flex; align-items:baseline;
-  justify-content:space-between; gap:1.5rem;
-}
-
-.entry-date{
-  flex:0 0 auto;
-  color:var(--light-text);
-  font-size:.85rem;
-  white-space:nowrap;
-}
-
-/* Dated rows carrying a second line, built like .publication so briefs and
-   talks read the same way as the publication list. */
-
-.entry-list-detailed > li::before{content:none}
-
-.entry-list-detailed > .entry{
-  display:block;
-  margin:0;
-  padding:.9rem 1.25rem;
-  border-left:3px solid transparent;
-  transition:border-color .2s, background-color .2s;
-}
-
-.entry:hover{border-left-color:var(--highlight); background-color:var(--secondary-color)}
-.entry p{margin:0}
-
-.entry-title{
-  display:flex; align-items:baseline;
-  justify-content:space-between; gap:1.5rem;
-  flex-wrap:wrap;
-  font-weight:600;
-}
-
-.entry-summary{font-size:.95rem; color:var(--light-text)}
-
-/* ---------- cards ---------- */
-
-.card-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
-  gap:1.5rem;
-  margin:1.5rem 0 0;
-}
-
-.card{
-  background-color:var(--secondary-color);
-  padding:1.5rem;
-  border-radius:4px;
-  border-left:3px solid var(--accent-color);
-  transition:transform .2s, box-shadow .2s;
-}
-
-.card:hover{transform:translateY(-3px); box-shadow:0 4px 12px rgba(0,0,0,.05)}
-.card h3{margin-top:0; margin-bottom:.5rem; color:var(--primary-color)}
-.card h3 a{color:inherit}
-.card h3 a:hover{color:var(--accent-color)}
-.card p{color:var(--light-text); font-size:.95rem; margin-bottom:0}
+.entry-list:not(.entry-list-detailed) li:first-child{border-top:1px solid var(--line)}
+.entry-list a{font-weight:500}
+.entry-list:not(.entry-list-detailed) a:hover{color:var(--accent); text-decoration:underline; text-underline-offset:3px}
+.entry-date{color:var(--faint); font-variant-numeric:tabular-nums; white-space:nowrap}
+/* Each dated row reads as a single line; the wording is kept short enough to
+   fit the column, and anything longer is clipped rather than wrapped. */
+.entry-list:not(.entry-list-detailed) li > span:first-child{min-width:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
 
 /* ---------- publications ---------- */
 
-.topic-nav{display:flex; flex-wrap:wrap; gap:.5rem; margin:0 0 2.5rem}
+.publication + .publication{margin-top:22px}
+.publication-title{font-weight:500}
+.publication-title a:hover{color:var(--accent); text-decoration:underline; text-underline-offset:3px}
+.publication-authors{color:var(--muted); font-size:14px; margin-top:2px}
+.publication-journal{color:var(--faint); font-size:13px}
 
-.topic-nav a{
-  background-color:var(--secondary-color);
-  font-size:.85rem;
-  padding:.3rem .85rem;
-  border-radius:2rem;
-  transition:background-color .2s, color .2s;
-}
+.tag{font-size:11px; color:var(--muted); background:var(--chip); padding:1px 6px; border-radius:4px; margin-left:6px; white-space:nowrap}
 
-.topic-nav a:hover{background-color:#e2e8f0; color:var(--primary-color)}
-.topic-nav a span{color:var(--light-text)}
+/* ---------- article prose (briefs, Now pages) ---------- */
 
-.publication-list{margin:0}
-.publication-list > li::before{content:none}
-
-.publication-list > .publication{
-  margin:0;
-  padding:.9rem 1.25rem;
-  border-left:3px solid transparent;
-  transition:border-color .2s, background-color .2s;
-}
-
-.publication:hover{border-left-color:var(--highlight); background-color:var(--secondary-color)}
-.publication p{margin:0}
-.publication-title{font-weight:600}
-.publication-authors{font-size:.95rem; color:var(--light-text)}
-.publication-journal{font-size:.9rem; color:var(--accent-color); font-style:italic}
-
-.tag{
-  display:inline-block;
-  background-color:var(--secondary-color);
-  color:var(--accent-color);
-  font-size:.75rem; font-style:normal; line-height:1.5;
-  padding:0 .6rem;
-  border-radius:2rem;
-  margin-left:.5rem;
-}
-
-.publication:hover .tag,.card .tag{background-color:#e2e8f0}
-
-/* ---------- article prose ---------- */
-
-article p{margin-bottom:1rem}
-article h2{margin-top:2.5rem}
+article{font-size:16px; line-height:1.75}
+article p, article ul, article ol, article blockquote{margin-bottom:20px}
+article h2{font-size:17px; font-weight:600; letter-spacing:-.01em; margin:48px 0 12px}
 article h2:first-child{margin-top:0}
+article h3{font-size:15px; font-weight:600; margin:32px 0 8px}
+article a{color:var(--accent); text-decoration:underline; text-decoration-color:var(--line); text-underline-offset:3px}
+article a:hover{text-decoration-color:currentColor}
+article ul{padding-left:20px; list-style:disc}
+article ol{padding-left:20px; list-style:decimal}
+article li{margin-bottom:8px; padding-left:4px}
+article li::marker{color:var(--faint)}
+article blockquote{border-left:2px solid var(--accent-soft); padding:2px 0 2px 20px; color:var(--muted)}
+article blockquote p:last-child{margin-bottom:0}
 
-article ol{
-  list-style:decimal;
-  padding-left:1.5rem;
-  margin-bottom:1.5rem;
+/* The closing reference list on a brief. */
+article > ul:last-child{list-style:none; padding-left:0; font-size:13.5px; line-height:1.6; color:var(--muted)}
+article > ul:last-child li{padding-left:24px; text-indent:-24px; margin-bottom:12px}
+article > ul:last-child a{word-break:break-all}
+
+/* ---------- home ---------- */
+
+.avatar{width:80px; height:80px; border-radius:12px; object-fit:cover; display:block; margin-bottom:24px}
+.home h1{font-size:20px}
+
+.cta h2{font-size:15px; margin-bottom:4px}
+.cta p{color:var(--muted)}
+.cta-row{display:flex; gap:8px; margin:20px 0 0; flex-wrap:wrap}
+.btn{
+  display:inline-block; font-size:14px; font-weight:500;
+  padding:9px 16px; border-radius:6px; background:var(--accent); color:var(--btn-text);
 }
-
-article ol li{padding-left:.25rem}
-article ol li::before{content:none}
-
-article > ul:last-child{font-size:.95rem; color:var(--light-text)}
-
-blockquote{
-  margin:1.5rem 0;
-  padding:1rem 1.5rem;
-  background-color:var(--secondary-color);
-  border-left:3px solid var(--highlight);
-  color:var(--light-text);
-  font-style:italic;
-}
-
-blockquote p:last-child{margin-bottom:0}
+.btn.ghost{background:var(--chip); color:var(--text)}
+.btn:hover{opacity:.88}
 
 /* ---------- footer ---------- */
 
-footer{
-  margin-top:3rem;
-  padding-top:1.5rem;
-  border-top:1px solid var(--border-color);
-  color:var(--light-text);
-  font-size:.9rem;
-}
-
-footer p{margin-bottom:.25rem}
-footer p:last-child{margin-bottom:0}
+footer{margin-top:88px; padding-top:24px; border-top:1px solid var(--line); font-size:13px; color:var(--faint)}
+footer a:hover{color:var(--accent)}
 
 /* ---------- responsive ---------- */
 
-/* Stacked: the sidebar becomes a compact banner rather than a full screen. */
-@media (max-width:900px){
-  .container{grid-template-columns:1fr}
-  .sidebar{padding:2rem 1.5rem}
-
-  .profile-header{
-    display:grid;
-    grid-template-columns:96px 1fr;
-    grid-template-areas:"img title" "img subtitle" "img pron";
-    column-gap:1.25rem;
-    align-content:center;
-    margin-bottom:1.75rem;
-  }
-
-  .profile-image{grid-area:img; align-self:center; width:96px; height:96px; margin:0}
-  .profile-title{grid-area:title; align-self:end; font-size:1.5rem}
-  .profile-subtitle{grid-area:subtitle}
-  .profile-pronunciation{grid-area:pron; align-self:start}
-
-  .sidebar-section{margin-bottom:1.5rem}
-
-  .nav-list{
-    display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(170px,1fr));
-    gap:.5rem;
-  }
-
-  .nav-link{margin-bottom:0}
-}
-
-@media (max-width:600px){
-  .main-content{padding:1.5rem}
-  .card-grid{grid-template-columns:1fr}
-  .entry-list li{display:block}
-  .entry-date{display:block}
-
+@media (max-width:560px){
+  .main-content{padding-top:32px}
+  .top nav{gap:14px}
+  .entry-list:not(.entry-list-detailed) li{flex-direction:column; gap:0}
+  .entry-list:not(.entry-list-detailed) li > span:first-child{white-space:normal}
   /* Pills are a tap target on a phone, not just a label. */
-  .topic-nav{gap:.6rem}
-  .topic-nav a{padding:.7rem 1rem}
+  .chips a, .topic-nav a{padding:8px 12px}
 }
 
 /* ---------- print ---------- */
 
 @media print{
-  body{background:#fff}
-  .container{display:block; max-width:none}
-  .sidebar{display:none}
-  .main-content{padding:0}
+  body{background:#fff; color:#000}
+  .top{display:none}
+  .main-content{padding:0; max-width:none}
   a{color:#000}
-  .card,blockquote,.section{break-inside:avoid}
+  .card, .publication, .entry, blockquote, .section{break-inside:avoid}
 }
