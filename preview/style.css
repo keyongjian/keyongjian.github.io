@@ -1,0 +1,203 @@
+/* ============================================================
+   Yongjian Ke — global stylesheet
+   Single centred column with a top bar, one file for every page.
+   ============================================================ */
+
+:root{
+  --bg:#fafafa;
+  --text:#18181b;
+  --muted:#71717a;
+  --faint:#a1a1aa;
+  --line:#e4e4e7;
+  --chip:#f0f0f1;
+  --chip-hover:#e4e4e7;
+  --accent:#1e3a5f;
+  --accent-soft:#3d7b9e;
+  --btn-text:#fafafa;
+
+  --font-sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;
+  --col:620px;
+}
+
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#111113; --text:#ededef; --muted:#a1a1aa; --faint:#71717a;
+    --line:#27272a; --chip:#1c1c1f; --chip-hover:#27272a;
+    --accent:#9cc0e4; --accent-soft:#9cc0e4; --btn-text:#111113;
+  }
+}
+
+/* ---------- base ---------- */
+
+*{margin:0; padding:0; box-sizing:border-box}
+
+html{
+  -webkit-text-size-adjust:100%;
+  /* Reserve the scrollbar gutter so short pages sit in the same place as
+     long ones; without it the column jumps sideways between pages. */
+  overflow-y:scroll;
+  scrollbar-gutter:stable;
+}
+
+body{
+  font-family:var(--font-sans);
+  font-size:15px;
+  line-height:1.6;
+  color:var(--text);
+  background:var(--bg);
+  -webkit-font-smoothing:antialiased;
+}
+
+a{color:inherit; text-decoration:none; overflow-wrap:break-word}
+a:focus-visible{outline:2px solid var(--accent-soft); outline-offset:3px; border-radius:2px}
+ul{list-style:none}
+:target{scroll-margin-top:24px}
+::selection{background:rgba(61,123,158,.2)}
+
+/* ---------- top bar ---------- */
+
+.top{
+  display:flex; justify-content:space-between; align-items:center; gap:16px;
+  max-width:1200px; margin:0 auto; padding:24px;
+}
+
+.mark{width:30px; height:30px; display:block}
+
+.top nav{display:flex; gap:24px; font-size:14px; color:var(--muted); flex-wrap:wrap; justify-content:flex-end}
+.top nav a:hover, .top nav a[aria-current]{color:var(--accent)}
+
+/* ---------- column ---------- */
+
+.main-content{max-width:calc(var(--col) + 48px); margin:0 auto; padding:64px 24px 48px}
+
+/* ---------- page header ---------- */
+
+.back{font-size:14px; color:var(--muted); display:inline-block; margin-bottom:32px}
+.back:hover{color:var(--accent)}
+
+h1{font-size:24px; font-weight:600; letter-spacing:-.01em; line-height:1.35; margin-bottom:12px; color:var(--accent)}
+.page-meta{font-size:13px; color:var(--faint); margin-bottom:40px}
+.intro{color:var(--muted)}
+
+/* ---------- sections ---------- */
+
+.section{margin-top:72px}
+.section h2{font-size:17px; font-weight:600; letter-spacing:-.01em; margin-bottom:20px}
+.section > p{margin-bottom:16px}
+.section > ul:not([class]){list-style:disc; padding-left:20px}
+.section > ul:not([class]) li{margin-bottom:8px}
+.section > ul:not([class]) a, .section > p a:not([class]){color:var(--accent)}
+
+.label, .section h2.label{font-size:12px; font-weight:500; color:var(--muted); margin-bottom:20px}
+
+/* ---------- links ---------- */
+
+.view-more, .more{display:inline-block; margin-top:22px; font-size:14px; font-weight:500; color:var(--accent)}
+.view-more:hover, .more:hover{text-decoration:underline; text-underline-offset:3px}
+
+/* ---------- chips: profiles and topic jump links ---------- */
+
+.chips, .topic-nav{display:flex; gap:8px; flex-wrap:wrap; margin-top:20px}
+.chips a, .topic-nav a{font-size:13px; color:var(--muted); background:var(--chip); padding:5px 10px; border-radius:6px}
+.chips a:hover, .topic-nav a:hover{color:var(--accent); background:var(--chip-hover)}
+
+/* ---------- title + description lists (cards, briefs, talks) ---------- */
+
+.card-grid{display:block}
+.card + .card{margin-top:22px}
+.card h3{font-size:15px; font-weight:500}
+.card p{color:var(--muted); font-size:14px; margin-top:2px}
+
+.entry-list-detailed .entry + .entry{margin-top:22px}
+.entry-title{font-weight:500}
+.entry-summary{color:var(--muted); font-size:14px; margin-top:2px}
+.entry-summary + .entry-summary{margin-top:0}
+
+.card h3 a::after, .entry-title a::after{content:" \2192"}
+.card h3 a:hover, .entry-title a:hover{color:var(--accent); text-decoration:underline; text-underline-offset:3px}
+
+/* ---------- dated rows (home, updates) ---------- */
+
+.entry-list:not(.entry-list-detailed) li{
+  display:flex; gap:16px; justify-content:space-between;
+  padding:10px 0; border-bottom:1px solid var(--line); font-size:14px;
+}
+.entry-list:not(.entry-list-detailed) li:first-child{border-top:1px solid var(--line)}
+.entry-list a{font-weight:500}
+.entry-list:not(.entry-list-detailed) a:hover{color:var(--accent); text-decoration:underline; text-underline-offset:3px}
+.entry-date{color:var(--faint); font-variant-numeric:tabular-nums; white-space:nowrap}
+/* Each dated row reads as a single line; the wording is kept short enough to
+   fit the column, and anything longer is clipped rather than wrapped. */
+.entry-list:not(.entry-list-detailed) li > span:first-child{min-width:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+
+/* ---------- publications ---------- */
+
+.publication + .publication{margin-top:22px}
+.publication-title{font-weight:500}
+.publication-title a:hover{color:var(--accent); text-decoration:underline; text-underline-offset:3px}
+.publication-authors{color:var(--muted); font-size:14px; margin-top:2px}
+.publication-journal{color:var(--faint); font-size:13px}
+
+.tag{font-size:11px; color:var(--muted); background:var(--chip); padding:1px 6px; border-radius:4px; margin-left:6px; white-space:nowrap}
+
+/* ---------- article prose (briefs, Now pages) ---------- */
+
+article{font-size:16px; line-height:1.75}
+article p, article ul, article ol, article blockquote{margin-bottom:20px}
+article h2{font-size:17px; font-weight:600; letter-spacing:-.01em; margin:48px 0 12px}
+article h2:first-child{margin-top:0}
+article h3{font-size:15px; font-weight:600; margin:32px 0 8px}
+article a{color:var(--accent); text-decoration:underline; text-decoration-color:var(--line); text-underline-offset:3px}
+article a:hover{text-decoration-color:currentColor}
+article ul{padding-left:20px; list-style:disc}
+article ol{padding-left:20px; list-style:decimal}
+article li{margin-bottom:8px; padding-left:4px}
+article li::marker{color:var(--faint)}
+article blockquote{border-left:2px solid var(--accent-soft); padding:2px 0 2px 20px; color:var(--muted)}
+article blockquote p:last-child{margin-bottom:0}
+
+/* The closing reference list on a brief. */
+article > ul:last-child{list-style:none; padding-left:0; font-size:13.5px; line-height:1.6; color:var(--muted)}
+article > ul:last-child li{padding-left:24px; text-indent:-24px; margin-bottom:12px}
+article > ul:last-child a{word-break:break-all}
+
+/* ---------- home ---------- */
+
+.avatar{width:80px; height:80px; border-radius:12px; object-fit:cover; display:block; margin-bottom:24px}
+.home h1{font-size:20px}
+
+.cta h2{font-size:15px; margin-bottom:4px}
+.cta p{color:var(--muted)}
+.cta-row{display:flex; gap:8px; margin:20px 0 0; flex-wrap:wrap}
+.btn{
+  display:inline-block; font-size:14px; font-weight:500;
+  padding:9px 16px; border-radius:6px; background:var(--accent); color:var(--btn-text);
+}
+.btn.ghost{background:var(--chip); color:var(--text)}
+.btn:hover{opacity:.88}
+
+/* ---------- footer ---------- */
+
+footer{margin-top:88px; padding-top:24px; border-top:1px solid var(--line); font-size:13px; color:var(--faint)}
+footer a:hover{color:var(--accent)}
+
+/* ---------- responsive ---------- */
+
+@media (max-width:560px){
+  .main-content{padding-top:32px}
+  .top nav{gap:14px}
+  .entry-list:not(.entry-list-detailed) li{flex-direction:column; gap:0}
+  .entry-list:not(.entry-list-detailed) li > span:first-child{white-space:normal}
+  /* Pills are a tap target on a phone, not just a label. */
+  .chips a, .topic-nav a{padding:8px 12px}
+}
+
+/* ---------- print ---------- */
+
+@media print{
+  body{background:#fff; color:#000}
+  .top{display:none}
+  .main-content{padding:0; max-width:none}
+  a{color:#000}
+  .card, .publication, .entry, blockquote, .section{break-inside:avoid}
+}
