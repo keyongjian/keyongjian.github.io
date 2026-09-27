@@ -185,7 +185,11 @@ footer a:hover{color:var(--accent)}
 
 @media (max-width:560px){
   .main-content{padding-top:32px}
-  .top nav{gap:14px}
+  /* Five menu items and the mark on one row down to a 320px phone. */
+  .top{padding:20px 16px}
+  .mark{width:26px; height:26px}
+  .top nav{gap:12px; font-size:13px; flex-wrap:nowrap}
+  .main-content{padding-left:16px; padding-right:16px}
   .entry-list:not(.entry-list-detailed) li{flex-direction:column; gap:0}
   .entry-list:not(.entry-list-detailed) li > span:first-child{white-space:normal}
   /* Pills are a tap target on a phone, not just a label. */
