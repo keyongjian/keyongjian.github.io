@@ -1,0 +1,53 @@
+# Compiles cv/CV_Ke.tex and commits the PDF to /CV_Ke.pdf, the path every
+# page links to. The site is served by GitHub Pages straight from main, so
+# that commit is what publishes the new CV.
+#
+# No build loop: this only runs on changes under cv/, and the commit it makes
+# touches only /CV_Ke.pdf (outside cv/). Pushes made with GITHUB_TOKEN also
+# never start another workflow run.
+
+name: Build CV
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "cv/**"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-cv
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Compile CV with pdflatex
+        uses: xu-cheng/latex-action@6549dc21effb2730855a1281407ecfcececc6c1b # 4.1.0
+        with:
+          working_directory: cv
+          root_file: CV_Ke.tex
+          # latexmk -pdf runs pdflatex as many times as cross-references need
+          compiler: latexmk
+          args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
+
+      - name: Commit compiled PDF
+        run: |
+          cp cv/CV_Ke.pdf CV_Ke.pdf
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add CV_Ke.pdf
+          if git diff --cached --quiet; then
+            echo "CV_Ke.pdf unchanged"
+            exit 0
+          fi
+          git commit -m "Rebuild CV_Ke.pdf from cv/CV_Ke.tex"
+          git pull --rebase origin main
+          git push origin HEAD:main

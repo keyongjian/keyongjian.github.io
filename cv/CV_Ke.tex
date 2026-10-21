@@ -1,0 +1,1552 @@
+% !TeX program = pdflatex
+% Yongjian Ke's Curriculum Vitae
+% Email: Yongjian.Ke@uts.edu.au
+% Web: https://pm-professor.com/
+
+% MIT License
+% Copyright (c) 2017-2025 Geoff Boeing
+%
+% Permission is hereby granted, free of charge, to any person obtaining a copy
+% of this software and associated documentation files (the "Software"), to deal
+% in the Software without restriction, including without limitation the rights
+% to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+% copies of the Software, and to permit persons to whom the Software is
+% furnished to do so, subject to the following conditions:
+%
+% The above copyright notice and this permission notice shall be included in all
+% copies or substantial portions of the Software.
+%
+% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+% IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+% FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+% AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+% LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+% SOFTWARE.
+
+\RequirePackage[l2tabu,orthodox]{nag} % warn if using any obsolete commands
+\documentclass[11pt,a4paper]{report} % document style
+
+% load encoding and font packages for pdflatex, in order
+\usepackage[T1]{fontenc}    % output 8-bit encoded fonts
+\usepackage[utf8]{inputenc} % allow input of utf-8 encoded characters
+\usepackage[lining]{CrimsonPro} % document's serif font
+\usepackage{tgheros} % document's sans serif font
+
+% load babel, csquotes, and microtype in order
+\usepackage[USenglish]{babel} % auto-regionalize hyphens, quote marks, etc
+\usepackage[strict,autostyle]{csquotes} % smart and nestable quote marks
+\usepackage[babel=true]{microtype} % enable micro-typographic adjustments
+
+% load everything else
+\usepackage{datetime} % enable formatting of date output
+\usepackage{enumitem} % enumerate with [resume] option
+\usepackage{geometry} % manually set page margins
+\usepackage{setspace} % custom line spacing
+\usepackage{tabto}    % make nice tabbing
+\usepackage{titlesec} % allow custom section fonts
+\usepackage[flushmargin]{footmisc} % remove footnote indentation
+
+% load hyperref last for compatibility
+\usepackage{hyperref} % enable hyperlinks and pdf metadata
+
+% what is your name?
+\newcommand{\myname}{Yongjian Ke}
+
+% how far to tab for list items with left-aligned date: different fonts need different widths
+\newcommand{\listtabwidth}{1.8cm}
+
+% define font to use as document's title
+\newcommand{\namefont}[1]{{\normalfont\bfseries\Huge{#1}}}
+
+% set section heading fonts and before/after spacing
+\SetTracking{encoding=*, family=\sfdefault}{30} % increase heading font tracking
+\titleformat{\section}{\lsstyle\sffamily\small\bfseries\uppercase}{}{}{}{}
+\titlespacing{\section}{0pt}{30pt plus 4pt minus 4pt}{8pt plus 2pt minus 2pt}
+
+% set subsection heading fonts and before/after spacing
+\titleformat{\subsection}{\lsstyle\sffamily\footnotesize\bfseries}{}{}{}{}
+\titlespacing{\subsection}{0pt}{16pt plus 4pt minus 4pt}{4pt plus 2pt minus 2pt}
+
+% set page margins (assumes A4 paper)
+\geometry{body={16cm, 24.7cm},
+    left=2.5cm,
+    top=2.5cm}
+
+% prevent paragraph indentation
+\setlength\parindent{0em}
+
+% set line spacing
+\setstretch{0.9}
+
+% define space between list items
+\newcommand{\listitemspace}{0.25em}
+
+% make unordered lists without bullets and use compact spacing
+\renewenvironment{itemize}
+{\begin{list}{}{\setlength{\leftmargin}{0em}
+                \setlength{\parskip}{0em}
+                \setlength{\itemsep}{\listitemspace}
+                \setlength{\parsep}{\listitemspace}}}
+{\end{list}}
+
+% make tabbed lists so content is left-aligned next to years
+\TabPositions{\listtabwidth}
+\newlist{tablist}{description}{3}
+\setlist[tablist]{leftmargin=\listtabwidth,
+    labelindent=0em,
+    topsep=0em,
+    partopsep=0em,
+    itemsep=\listitemspace,
+    parsep=\listitemspace,
+    font=\normalfont}
+
+% print only the month and year when using \today
+\newdateformat{monthyeardate}{\monthname[\THEMONTH] \THEYEAR}
+
+% define hyperlink appearance and metadata for pdf properties
+\hypersetup{
+    colorlinks  = true,
+    urlcolor    = black,
+    citecolor   = black,
+    linkcolor   = black,
+    pdfauthor   = {\myname},
+    pdfkeywords = {construction management, project management, public-private partnership, infrastructure, mega-project, social licence},
+    pdftitle    = {\myname: Curriculum Vitae},
+    pdfsubject  = {Curriculum Vitae},
+    pdfpagemode = UseNone
+}
+
+\begin{document}
+    \raggedright{}
+
+
+
+    % display your name as the document title
+    \namefont{\myname}
+
+    % affiliation and contact info blocks
+    \vspace{1em}
+    \begin{minipage}[t]{0.700\textwidth}
+        % current primary affiliation, left-aligned
+        School of Architecture and Built Environment \\
+        Faculty of Design and Society \\
+        University of Technology Sydney
+    \end{minipage}
+    \begin{minipage}[t]{0.295\textwidth}
+        % contact info details, right-aligned
+        \raggedleft{}
+        \href{mailto:Yongjian.Ke@uts.edu.au}{Yongjian.Ke@uts.edu.au} \\
+        +61 414 934 835 \\
+        \href{https://pm-professor.com}{pm-professor.com}
+    \end{minipage}
+
+
+
+    \section*{Education}
+
+    \begin{tablist}
+
+        \item[2010] \tab{}Ph.D., Management Science and Engineering, Tsinghua University, China
+        \item[2005] \tab{}B.Eng., Project Management, Tsinghua University, China
+
+    \end{tablist}
+
+
+
+    \section*{Appointments}
+
+    \begin{tablist}
+
+        \item[2016--]   \tab{}University of Technology Sydney, Australia \\
+                              Associate Professor, Graduate Research School, 2026--28 \\
+                              Associate Professor, School of Architecture and Built Environment, 2022-- \\
+                              (School of Built Environment until Jul 2026) \\
+                              Research Associate, Australia-China Relations Institute, 2020-- \\
+                              Senior Lecturer, School of Built Environment, 2016--22
+
+        \item[2013--16]   \tab{}University of Newcastle, Australia \\
+                              Lecturer, School of Architecture and Built Environment
+
+        \item[2010--13] \tab{}National University of Singapore, Singapore \\
+                              Research Fellow, Department of The Built Environment
+
+        \item[2007--08] \tab{}Hong Kong Polytechnic University, Hong Kong SAR, China \\
+                              Research Assistant, Department of Building and Real Estate
+
+    \end{tablist}
+
+
+
+    \section*{Leadership}
+
+    \subsection*{Teaching and Education}
+    
+    \begin{itemize}
+    
+        \item Director, Postgraduate Project Management Programs (2019--20; 2026--), leading program governance, curriculum quality, and accreditation activity, including PMI Global Accreditation Center re-accreditation
+        
+        \item Faculty-level curriculum and product leadership through committee roles, including Faculty Curriculum Committee and Faculty New Product Committee
+        
+    \end{itemize}
+    
+    \subsection*{Research}
+    
+    \begin{itemize}
+    
+        \item Led or contributed to 30 competitive international research projects, with 110+ journal publications and 9,000+ citations (h-index 42), and listed on the Stanford World Top 2\% Scientist List (2020, 2023--26)
+        
+        \item Editorial leadership across the field as Editor (PMJ, IJPOM), Associate Editor (BEPAM, HSSC), and journal advisory/review board member, plus guest editorship of special issues
+        
+    \end{itemize}
+    
+    \subsection*{Service and Engagement}
+    
+    \begin{itemize}
+    
+        \item University governance roles, including School Higher Degree by Research Coordinator, Faculty Research Degree Committee member, Faculty Board member, and University Academic Board member
+
+        \item University-wide graduate research leadership as Associate Professor of Graduate Research in the Graduate Research School, designing and delivering supervisor development across UTS
+        
+        \item Professional standards and external quality assurance through PMI Global Accreditation Center onsite review and Standards Australia MB012 membership, plus international service through CIB W122 communications coordination, grant assessment, and PhD thesis examination  
+        
+    \end{itemize}
+
+
+
+    \section*{Research Areas}
+
+    \begin{itemize}
+
+        \item Public-Private Partnerships: governance, risk allocation, performance, stakeholder, contracts, lite PPPs
+        
+        \item Sustainable Infrastructure: social sustainability, social licence for infrastructure, public acceptance
+        
+        \item Industry Transformation: digital transformation, social media use, artificial intelligence readiness
+
+    \end{itemize}
+
+
+
+    \section*{Grants and Awards}
+
+    \subsection*{Awards and Honors}
+
+    \begin{tablist}
+
+        \item[2024] \tab{}Merit Paper Award, 29th CRIOCM 2024, Xi'an, China.
+        
+        \item[2020] \tab{}DAB Awards for Excellence in Publications, University of Technology Sydney, Australia.
+        
+        \item[2020] \tab{}Outstanding Contribution Award, 7th Infrastructure Research \& Innovation Competition, China.
+        
+        \item[2016] \tab{}Outstanding Contribution in Reviewing, \textit{International Journal of Project Management}.
+        
+        \item[2015] \tab{}Best Paper Award, CIB Conference “Going North for Sustainability”, London, UK.
+        
+        \item[2015] \tab{}Outstanding Reviewer Award, \textit{Built Environment Project and Asset Management}.
+        
+        \item[2014] \tab{}Highly Commended Paper, \textit{Journal of Financial Management of Property and Construction}.
+        
+        \item[2014] \tab{}Outstanding Contribution in Reviewing, \textit{Utilities Policy}.
+        
+        \item[2010] \tab{}Highly Commended Award, Emerald/EFMD Outstanding Doctoral Research.
+        
+        \item[2010] \tab{}Outstanding PhD Dissertation Award, GuanKe Foundation of Construction Economics and Management, China.
+        
+        \item[2010] \tab{}Outstanding PhD Dissertation Award, Tsinghua University, China.
+        
+        \item[2010] \tab{}Outstanding PhD Graduate Award, Tsinghua University, China.
+        
+        \item[2010] \tab{}Third Prize, 2nd National Public-Private Partnership Paper Competition, China.
+        
+        \item[2010] \tab{}Pinsent Masons Outstanding Research Award, Tsinghua University, China.
+        
+        \item[2010] \tab{}National Excellent Paper, Architectural Society of China, China.
+        
+        \item[2009--10] \tab{}Outstanding Young Researcher Award, Tsinghua University, China.
+        
+        \item[2009] \tab{}Outstanding Teaching Assistant Award, Tsinghua University, China.
+        
+        \item[2008--09] \tab{}Outstanding Postgraduate Student Award, Tsinghua University, China.
+        
+        \item[2006] \tab{}Outstanding Postgraduate Student Award, Tsinghua University, China.
+
+    \end{tablist}
+
+    \subsection*{Competitive Grants and Fellowships\footnote{Roles follow Australian grant terminology: Lead-CI = first-named Chief Investigator responsible for overall project leadership, CI = Chief Investigator listed on the grant, and PI = Partner Investigator from a collaborating organisation.}}
+
+    \begin{tablist}
+
+        \item[2027--30] \tab{}\textit{Modularity Reductionism of Project Management for Project Delivery Firms: A Large Language Model Enabled Approach} (CNY 420,000). General Research Grant, National Natural Science Foundation of China. CI.
+        
+        \item[2026--27] \tab{}\textit{Enhanced Data-driven Decision-making with Imperfect Data through AI-enabled Knowledge Management in Major Projects} (AUD 40,000). PGCS CASG Research Grant. Project and Program Management Symposium (PGCS). CI.
+
+        \item[2025--26] \tab{}\textit{AI Readiness for Construction Project Management: A One-Year Pilot for Framework Development} (AUD 10,000). Key Technology Partnerships Seed Funding Scheme, University of Technology Sydney. Lead CI.
+        
+        \item[2024--25] \tab{}\textit{Using Digital Media to Measure Social Licence for Infrastructure Projects} (AUD 10,000). UTS \& Abu Dhabi University Research Partnership, University of Technology Sydney. Lead CI.
+        
+        \item[2024] \tab{}\textit{Develop a Conceptual Framework for Assessing the Value of Information in the Era of AI} (AUD 3,000). DAB Research Outputs Support Scheme, University of Technology Sydney. CI.
+        
+        \item[2024--25] \tab{}\textit{Governing for ESG Performance in Mega-projects: An Inter-organizational Perspective} (USD 50,000). PMI Sponsored Research Grant, Project Management Institute. CI.
+        
+        \item[2024--27] \tab{}\textit{Social License for Infrastructure (SLI): Dynamic Evolution, Resilience Evaluation and Sustainable Enhancement} (CNY 410,000). General Research Grant, National Natural Science Foundation of China. CI.
+        
+        \item[2023--26] \tab{}\textit{Evaluation, Problems and Countermeasures of Social Sustainability of Home and Community-based Aged Care in the Context of Common Prosperity} (CNY 30,000). General Research Grant, Zhejiang Provincial Philosophy \& Social Science Planning Office. CI.
+        
+        \item[2023--26] \tab{}\textit{Life-cycle Value Co-Creation in Infrastructure Projects: Goal, Behavior, and Governance} (CNY 460,000). General Research Grant, National Natural Science Foundation of China. CI.
+        
+        \item[2022--23] \tab{}\textit{Collaborative Management and Optimisation of Construction Project Portfolio under Dual-Carbon Goals} (CNY 300,000). High-End Foreign Expert Project, Ministry of Science \& Technology of China. CI.
+        
+        \item[2021--22] \tab{}\textit{Public Perceptions of Chinese Investment in Australian Infrastructure: A Twitter Study} (AUD 5,000). Australia-China Relations Institute Research Grant, University of Technology Sydney. Lead CI.
+        
+        \item[2021--24] \tab{}\textit{Social License to Operate of NIMBY Infrastructures: Theoretical Framework, Formative Mechanism and Dynamic Measurement} (CNY 500,000). General Research Grant, National Natural Science Foundation of China. CI.
+        
+        \item[2020--21] \tab{}\textit{Social Media Use in Project Management: Multiple Case Studies of Transport Projects} (AUD 10,000). Academic Grant, Project Governance \& Controls Symposium. Lead CI.
+        
+        \item[2020--21] \tab{}\textit{Governance of Inter-organizational Project Networks} (USD 50,000). PMI Sponsored Research Program Grant, Project Management Institute. CI.
+        
+        \item[2019] \tab{}\textit{Using Social Media Data to Evaluate Benefits from Urban Rail Projects in Australia} (AUD 2,500). ARBE Research Grant, University of Technology Sydney. Lead CI.
+        
+        \item[2019--22] \tab{}\textit{Big Data Based Multi-Dimensional Collaborative Governance of Competition in Internet Information Services Industry} (CNY 200,000). Western Research Grant, National Social Science Fund of China. PI.
+        
+        \item[2019] \tab{}DAB Research Outputs Support Scheme (AUD 2,500). Faculty of Design, Architecture \& Building, University of Technology Sydney.
+        
+        \item[2018--21] \tab{}\textit{Technology Development for Chinese Enterprises Backward in the Advanced Manufacturing Industry} (CNY 200,000). General Research Grant, National Social Science Fund of China. PI.
+        
+        \item[2017] \tab{}\textit{Designing a Collaborative Group Activity to Facilitate Mastery of Complex Concepts and Equip Students for Individual Assignments in 15327} (AUD 2,000). Learner Experience Design Grant, University of Technology Sydney. Lead CI.
+        
+        \item[2017] \tab{}\textit{Investigating the Psychological Contract in Construction Procurement in Order to Validate a Conceptual Model} (AUD 15,500). Faculty Strategic Pilot Grant, University of Newcastle. CI.
+        
+        \item[2017] \tab{}DAB Research Outputs Support Scheme (AUD 1,800). Faculty of Design, Architecture \& Building, University of Technology Sydney.
+        
+        \item[2016] \tab{}DAB Conference Travel Grant (AUD 2,500). Faculty of Design, Architecture \& Building, University of Technology Sydney.
+        
+        \item[2015] \tab{}\textit{Identification of Unethical Behaviours in Public-Private Partnership Projects} (AUD 2,500). CIBER SABE Research Grant, University of Newcastle. Lead CI.
+        
+        \item[2015--18] \tab{}\textit{Developing a Pricing, Optimization and Adjustment Model for Waste Disposal Fee of PPP Waste-to-Energy Projects} (CNY 600,000). General Research Grant, National Natural Science Foundation of China. CI.
+        
+        \item[2015] \tab{}CIBER SABE Travel Grant (AUD 2,500). School of Architecture and Built Environment, University of Newcastle.
+        
+        \item[2014--15] \tab{}\textit{Investment of Social Capital in PPP Urban Rail Transportation Projects in China} (CNY 250,000). Beijing Infrastructure Investment Co., Ltd Research Grant. Lead CI.
+        
+        \item[2014] \tab{}\textit{Investigating the Psychological Contract in Construction Procurement in Order to Develop a Conceptual Model} (AUD 15,000). Faculty Strategic Pilot Grant, University of Newcastle. CI.
+        
+        \item[2014] \tab{}\textit{Governing Public Construction Projects through Relational Contracting Principles} (AUD 10,000). New Staff Grant, University of Newcastle. Lead CI.
+        
+        \item[2014] \tab{}\textit{Contextualising the Relationship Behaviour in Competitive and Non-Competitive Alliances in Australia} (AUD 5,000). CIBER SABE Research Grant, University of Newcastle. Lead CI.
+        
+        \item[2014] \tab{}CIBER SABE Travel Grant (AUD 2,500). School of Architecture and Built Environment, University of Newcastle.
+        
+        \item[2013] \tab{}CIBER SABE Travel Grant (AUD 2,500). School of Architecture and Built Environment, University of Newcastle.
+        
+        \item[2010--13] \tab{}\textit{Boosting Public Sector Construction Project Outcomes by Improving Relational Transactions} (SGD 295,500). Academic Research Fund Tier 1 Grant, National University of Singapore. CI.
+
+        \item[2008--10] \tab{}\textit{Developing an Equitable Risk Sharing Mechanism for PPP Projects in China} (CNY 300,000). NSFC/RGC Joint Research Scheme, National Natural Science Foundation of China \& Research Grants Council Hong Kong. CI.
+        
+        \item[2007--08] \tab{}\textit{Application of Public-Private Partnership in Urban Rail-Based Transportation Projects} (USD 500,000). Asian Development Bank Technical Assistance Project. CI.
+        
+        \item[2007--08] \tab{}Joint PhD Supervision Scheme with Leading Universities (HKD 120,000). The Hong Kong Polytechnic University.
+        
+        \item[2005--07] \tab{}\textit{Improved Financial Evaluation Method Incorporating Risk Analysis for PPP/BOT Projects} (CNY 150,000). General Research Grant, National Natural Science Foundation of China. CI.
+        
+        \item[2004--07] \tab{}\textit{EU-Asia Network of Competence Enhancement on PPPs in Infrastructure Development} (EUR 45,000). Asia-Link Programme, European Union. CI.
+        
+    \end{tablist}
+
+    
+
+    \section*{Publications}
+
+    \subsection*{Journal Articles}
+
+    \begin{tablist}
+
+        \item[2026] \tab{}Wang, Y., Zhang, B., Ke, Y., \& Onishi, M. (2026). How contract design shapes investment commitment in PPPs: Evidence from Chinese local governments. \textit{Local Government Studies}. Advance online publication. \href{http://doi.org/10.1080/03003930.2026.2731595}{http://doi.org/10.1080/03003930.2026.2731595}
+        
+        \item[2026] \tab{}Shi, X., Ke, Y., Wu, X., Gong, X., \& Zhang, J. (2026). How performance-based are China’s public-private partnership road projects? A KPI framework and scoring method. \textit{Built Environment Project and Asset Management}. Advance online publication. \href{https://doi.org/10.1108/BEPAM-08-2025-0235}{https://doi.org/10.1108/BEPAM-08-2025-0235}
+        
+        \item[2026] \tab{}Zhang, S., Wang, J., Ke, Y., \& Xu, H. (2026). The impact of inter-stakeholder knowledge sharing on project performance in the construction industry. \textit{Engineering, Construction and Architectural Management}. Advance online publication. \href{https://doi.org/10.1108/ECAM-11-2024-1580}{https://doi.org/10.1108/ECAM-11-2024-1580}
+
+        \item[2026] \tab{}Osei-Kyei, R., Narbaev, T., Ampratwum, G., \& Ke, Y. (2026). Critical strategies for building urban community resilience through public-private partnerships: A system dynamic modelling. \textit{International Journal of Construction Management}. Advance online publication. \href{https://doi.org/10.1080/15623599.2026.2641179}{https://doi.org/10.1080/15623599.2026.2641179}
+
+        \item[2026] \tab{}Shi, X., Gong, X., Ke, Y., \& Wu, X. (2026). Bundling strategies for routine expressway maintenance projects with similarity thresholds. \textit{Journal of Construction Engineering and Management}, \textit{152}(8), 04026125. \href{https://doi.org/10.1061/JCEMD4.COENG-18202}{https://doi.org/10.1061/JCEMD4.COENG-18202} 
+
+        \item[2026] \tab{}Dani, I., Ke, Y., \& Alkilani, S. (2026). The future of project management in industry 5.0: A narrative literature review. \textit{Project Management Journal}, \textit{57}(2), 222--239. \href{https://doi.org/10.1177/87569728251386332}{https://doi.org/10.1177/87569728251386332}
+
+        \item[2026] \tab{}Sun, N., Ning, Y., Ke, Y., Zheng, F., \& Li, Y. (2026). Cross-boundary tensions between the project owner and project manager in value creation. \textit{Project Management Journal}, \textit{57}(1), 97--116. \href{https://doi.org/10.1177/87569728251350667}{https://doi.org/10.1177/87569728251350667}
+        
+        \item[2025] \tab{}Zhang, S., Wang, J., Ke, Y., Li, N., \& Su, Z. (2025). Exploring the impact of job satisfaction on turnover intention among professionals in the Chinese construction industry. \textit{Engineering, Construction and Architectural Management}, \textit{32}(11), 7426--7448. \href{https://doi.org/10.1108/ECAM-11-2023-1179}{https://doi.org/10.1108/ECAM-11-2023-1179}
+
+        \item[2025] \tab{}Xu, X., Wang, L., Sankaran, S., Ke, Y., \& Müller, R. (2025). Does opportunism always reduce stakeholder satisfaction in public-private partnership (PPP) projects? A theory of benign opportunism. \textit{Production Planning \& Control}, \textit{36}(14), 1901--1918. \href{https://doi.org/10.1080/09537287.2024.2427645}{https://doi.org/10.1080/09537287.2024.2427645}
+
+        \item[2025] \tab{}Wang, K., Ke, Y., \& Sankaran, S. (2025). Achieving social sustainability in public-private partnership elderly care projects: A Chinese case study. \textit{Buildings}, \textit{15}(17), 3202. \href{https://doi.org/10.3390/buildings15173202}{https://doi.org/10.3390/buildings15173202}
+
+        \item[2025] \tab{}Jiang, M., Luo, X., Xia, B., Ke, Y., Skitmore, M., \& Liu, Y. (2025). Effects of emotional amplification on public perceptions of waste-to-energy incineration facilities: Evidence from a behavioral survey experiment. \textit{Energy Efficiency}, \textit{18}, Article 70. \href{https://doi.org/10.1007/s12053-025-10358-6}{https://doi.org/10.1007/s12053-025-10358-6}
+
+        \item[2025] \tab{}Ke, Y., Wang, K., \& Sankaran, S. (2025). How to write a literature review article in the Project Management Journal: A review of reviews. \textit{Project Management Journal}, \textit{56}(4), 431--444. \href{https://doi.org/10.1177/87569728251352466}{https://doi.org/10.1177/87569728251352466}
+
+        \item[2025] \tab{}Chen, Y., Luo, X., Xu, M., Xia, B., Ke, Y., Skitmore, M., \& Liu, Y. (2025). Conceptualizing the state of the art of social license to operate: A visualization-based word frequency analysis. \textit{Environmental Science and Policy}, \textit{171}, 104163. \href{https://doi.org/10.1016/j.envsci.2025.104163}{https://doi.org/10.1016/j.envsci.2025.104163}
+        
+        \item[2025] \tab{}Bai, L., Lin, J., Zhang, L., Pan, T., Ke, Y., \& Zhou, X. (2025). Modeling for project portfolio synergy benefits measurement. \textit{International Journal of Modelling and Simulation}, \textit{45}(2), 752--772. \href{https://doi.org/10.1080/02286203.2023.2238370}{https://doi.org/10.1080/02286203.2023.2238370}
+        
+        \item[2025] \tab{}Jiang, M., Cui, C., Xia, B., Skitmore, M., Ke, Y., \& Liu, Y. (2025). Local government's intention to use public-private partnerships for infrastructure projects in China: Antecedents in a technology acceptance model. \textit{Sustainability}, \textit{17}(6), 2451. \href{https://doi.org/10.3390/su17062451}{https://doi.org/10.3390/su17062451}
+        
+        \item[2025] \tab{}Jiang, T., Xu, Z., He, X., Xia, B., Ke, Y., Skitmore, M., \& Liu, Y. (2025). Evaluating the resilience of social license to operate towards NIMBY facilities: A cloud model-based approach. \textit{Environmental Impact Assessment Review}, \textit{112}, 107808. \href{https://doi.org/10.1016/j.eiar.2025.107808}{https://doi.org/10.1016/j.eiar.2025.107808}
+        
+        \item[2025] \tab{}Zhang, S., Sunindijo, R. Y., Wang, J., Su, Z., Ke, Y., \& Liu, X. (2025). The causation of design error in the construction industry: A multi-stakeholder perspective. \textit{Journal of Performance of Constructed Facilities}, \textit{39}(1), 04024055. \href{https://doi.org/10.1061/JPCFEV.CFENG-4862}{https://doi.org/10.1061/JPCFEV.CFENG-4862}
+        
+        \item[2024] \tab{}Wang, K., \& Ke, Y. (2024). Towards sustainable development: Assessing social sustainability of Australian aged care system. \textit{Sustainable Development}, \textit{32}(6), 7186--7200. \href{https://doi.org/10.1002/sd.3086}{https://doi.org/10.1002/sd.3086}
+        
+        \item[2024] \tab{}Wu, X., Shi, X., Ke, Y., Li, Y., Wan, M., \& Gong, X. (2024). A dynamic framework for contractors to measure the performance of highway maintenance based on grey theory. \textit{Scientific Reports}, \textit{14}, 21893. \href{https://doi.org/10.1038/s41598-024-72372-5}{https://doi.org/10.1038/s41598-024-72372-5}
+        
+        \item[2024] \tab{}Wang, K., Ke, Y., \& Sankaran, S. (2024). How socially sustainable is the institutional care environment in China: A content analysis of media reporting. \textit{Buildings}, \textit{14}(9), 2953. \href{https://doi.org/10.3390/buildings14092953}{https://doi.org/10.3390/buildings14092953}
+        
+        \item[2024] \tab{}Cheng, Z., Zhu, Y., Wang, H., \& Ke, Y. (2024). Developing a suitability assessment model for public private partnerships: A case in urban China. \textit{Humanities and Social Sciences Communications}, \textit{11}, 1215. \href{https://doi.org/10.1057/s41599-024-03733-8}{https://doi.org/10.1057/s41599-024-03733-8}
+        
+        \item[2024] \tab{}Zhou, Q., Luo, X., Gao, X., Xia, B., Ke, Y., Skitmore, M., \& Liu, Y. (2024). Impact of psychological distance on public acceptance of waste-to-energy combustion projects. \textit{Environmental Impact Assessment Review}, \textit{109}, 107631. \href{https://doi.org/10.1016/j.eiar.2024.107631}{https://doi.org/10.1016/j.eiar.2024.107631}
+        
+        \item[2024] \tab{}Jin, K., Yu, S., Xia, B., Ke, Y., Skitmore, M., \& Liu, Y. (2024). Exploring the effect of procedural fairness on the social license to operate of resource development projects: A meta-analysis. \textit{Resources Policy}, \textit{96}, 105242. \href{https://doi.org/10.1016/j.resourpol.2024.105242}{https://doi.org/10.1016/j.resourpol.2024.105242}
+        
+        \item[2024] \tab{}Müller, R., Alix-Séguin, C., Alonderienė, R., Bourgault, M., Chmieliauskas, A., Drouin, N., Ke, Y., Wang, L., Pilkienė, M., Minelgaite, I., Šimkonis, S., Unterhitzenberger, C., Vaagaasar, A. L., \& Zhu, F. (2024). A (meta)governance framework for multi-level governance of inter-organizational project networks. \textit{Production Planning \& Control}, \textit{35}(10), 1043--1062. \href{https://doi.org/10.1080/09537287.2022.2146018}{https://doi.org/10.1080/09537287.2022.2146018}
+        
+        \item[2024] \tab{}Wang, K., \& Ke, Y. (2024). Social sustainability of communities: A systematic literature review. \textit{Sustainable Production and Consumption}, \textit{47}, 585--597. \href{https://doi.org/10.1016/j.spc.2024.04.031}{https://doi.org/10.1016/j.spc.2024.04.031}
+        
+        \item[2024] \tab{}Wang, K., Ke, Y., \& Sankaran, S. (2024). The social pillar of sustainable development: Measurement and current status of social sustainability of aged care projects in China. \textit{Sustainable Development}, \textit{32}(1), 227--243. \href{https://doi.org/10.1002/sd.2654}{https://doi.org/10.1002/sd.2654}
+        
+        \item[2024] \tab{}Albornoz, V., Ke, Y., \& Millán, J. (2024). Public-private partnerships: Pro-cyclical or counter-cyclical? An empirical study. \textit{International Journal of Construction Management}, \textit{24}(1), 97--107. \href{https://doi.org/10.1080/15623599.2023.2245629}{https://doi.org/10.1080/15623599.2023.2245629}
+        
+        \item[2024] \tab{}Laishram, B., Devkar, G., Ke, Y., \& Aziz, A. A. (2024). Guest editorial: Public private partnerships: Past, present and future. \textit{Built Environment Project and Asset Management}, \textit{14}(1), 1--3. \href{https://doi.org/10.1108/BEPAM-02-2024-207}{https://doi.org/10.1108/BEPAM-02-2024-207}
+        
+        \item[2024] \tab{}Ke, Y., Cheng, Z., Zhang, J., \& Liu, Y. (2024). Making sense of the definition of public-private partnerships. \textit{Built Environment Project and Asset Management}, \textit{14}(1), 4--21. \href{https://doi.org/10.1108/BEPAM-01-2023-0009}{https://doi.org/10.1108/BEPAM-01-2023-0009}
+        
+        \item[2023] \tab{}Bao, W., Chen, Y., Cui, C., Xia, B., Ke, Y., Skitmore, M., \& Liu, Y. (2023). How to shape local public acceptance of Not-In-My-Backyard infrastructures? A social cognitive theory perspective. \textit{Sustainability}, \textit{15}(22), 15835. \href{https://doi.org/10.3390/su152215835}{https://doi.org/10.3390/su152215835}
+        
+        \item[2023] \tab{}Ma, L., Hu, Y., Zhu, L., \& Ke, Y. (2023). Are public-private partnerships still an answer for social infrastructure? A systematic literature review. \textit{Frontiers of Engineering Management}, \textit{10}(3), 467--482. \href{https://doi.org/10.1007/s42524-023-0249-1}{https://doi.org/10.1007/s42524-023-0249-1}
+        
+        \item[2023] \tab{}Wang, K., Ke, Y., \& Sankaran, S. (2023). Social sustainability of aged care public-private partnership projects in China: Critical practices and realisation paths. \textit{Journal of Cleaner Production}, \textit{422}, 138644. \href{https://doi.org/10.1016/j.jclepro.2023.138644}{https://doi.org/10.1016/j.jclepro.2023.138644}
+        
+        \item[2023] \tab{}Ke, Y., Zhang, J., \& Philbin, S. P. (2023). Tradition and innovation in construction project management. \textit{Buildings}, \textit{13}(6), 1537. \href{https://doi.org/10.3390/buildings13061537}{https://doi.org/10.3390/buildings13061537}
+        
+        \item[2023] \tab{}Zhang, J., Chen, M., Ballesteros-Pérez, P., Ke, Y., Gong, Z., \& Ni, Q. (2023). A new framework to evaluate and optimize digital transformation policies in the construction industry: A China case study. \textit{Journal of Building Engineering}, \textit{70}, 106388. \href{https://doi.org/10.1016/j.jobe.2023.106388}{https://doi.org/10.1016/j.jobe.2023.106388}
+        
+        \item[2023] \tab{}Sun, Q., Zhang, S., Ke, Y., Ma, X., \& Galvin, S. (2023). Comparative analysis on the PPP research in Chinese and international journals: A bibliometric perspective. \textit{International Journal of Construction Management}, \textit{23}(2), 307--318. \href{https://doi.org/10.1080/15623599.2020.1866431}{https://doi.org/10.1080/15623599.2020.1866431}
+        
+        \item[2023] \tab{}Unterhitzenberger, C., Müller, R., Vaagaasar, A. L., Ke, Y., Alonderienė, R., Minelgaite, I., Pilkienė, M., Wang, L., Drouin, N., Chmieliauskas, A., Šimkonis, S., \& Mongeon, M. (2023). A multi-level governance model for inter-organizational project networks. \textit{Project Management Journal}, \textit{54}(1), 88--105. \href{https://doi.org/10.1177/87569728221131254}{https://doi.org/10.1177/87569728221131254}
+        
+        \item[2023] \tab{}Zhang, J., Zhu, Z., Liu, H., Zuo, J., Ke, Y., Philbin, S. P., Zhou, Z., Feng, Y., \& Ni, Q. (2023). System framework for digital monitoring of the construction of asphalt concrete pavement based on IoT, Beidou navigation system and 5G technology. \textit{Buildings}, \textit{13}(2), 503. \href{https://doi.org/10.3390/buildings13020503}{https://doi.org/10.3390/buildings13020503}
+        
+        \item[2023] \tab{}He, X., Xu, M., Cui, C., Xia, B., Ke, Y., Skitmore, M., \& Liu, Y. (2023). Evaluating the social license to operate of waste-to-energy incineration projects: A case study from the Yangtze River Delta of China. \textit{Journal of Cleaner Production}, \textit{388}, 135966. \href{https://doi.org/10.1016/j.jclepro.2023.135966}{https://doi.org/10.1016/j.jclepro.2023.135966}
+        
+        \item[2023] \tab{}Xu, M., Liu, Y., Cui, C., Xia, B., Ke, Y., \& Skitmore, M. (2023). Social acceptance of NIMBY facilities: A comparative study between public acceptance and the social license to operate analytical frameworks. \textit{Land Use Policy}, \textit{124}, 106453. \href{https://doi.org/10.1016/j.landusepol.2022.106453}{https://doi.org/10.1016/j.landusepol.2022.106453}
+        
+        \item[2022] \tab{}Zhang, J., Peng, X., Ouyang, Y., Ballesteros-Pérez, P., Ke, Y., Lu, Q., Li, H., \& Skitmore, M. (2022). Environmental life cycle impact assessment of transportation infrastructure: A multi-case study in international perspective. \textit{International Journal of Sustainable Transportation}, \textit{16}(11), 1020--1031. \href{https://doi.org/10.1080/15568318.2021.1959684}{https://doi.org/10.1080/15568318.2021.1959684}
+        
+        \item[2022] \tab{}Li, H., Han, Z., Zhang, J., Philbin, S. P., Liu, D., \& Ke, Y. (2022). Systematic identification of the influencing factors for the digital transformation of the construction industry based on LDA-DEMATEL-ANP. \textit{Buildings}, \textit{12}(9), 1409. \href{https://doi.org/10.3390/buildings12091409}{https://doi.org/10.3390/buildings12091409}
+        
+        \item[2022] \tab{}Chen, S., Zhang, J., Skitmore, M., Ballesteros-Pérez, P., Ke, Y., Zuo, J., \& Sun, H. (2022). Data-driven platform framework for digital whole-process expressway construction management. \textit{Frontiers in Neuroscience}, \textit{16}, 891772. \href{https://doi.org/10.3389/fnins.2022.891772}{https://doi.org/10.3389/fnins.2022.891772}
+        
+        \item[2022] \tab{}Li, X., Yuan, J., Liu, X., Ke, Y., \& Jia, S. (2022). Identifying critical influencing factors of the value creation of urban rail transit PPPs projects in China. \textit{Buildings}, \textit{12}(8), 1080. \href{https://doi.org/10.3390/buildings12081080}{https://doi.org/10.3390/buildings12081080}
+        
+        \item[2022] \tab{}Wang, K., Ke, Y., Liu, T., \& Sankaran, S. (2022). Social sustainability in public-private partnership projects: Case study of the Northern Beaches Hospital in Sydney. \textit{Engineering, Construction and Architectural Management}, \textit{29}(6), 2437--2460. \href{https://doi.org/10.1108/ECAM-10-2020-0835}{https://doi.org/10.1108/ECAM-10-2020-0835}
+        
+        \item[2022] \tab{}Zhou, Q., Xu, M., Liu, Y., Cui, C., Xia, B., Ke, Y., \& Skitmore, M. (2022). Exploring the effects of spatial distance on public perception of waste-to-energy incineration projects. \textit{Waste Management}, \textit{143}, 168--176. \href{https://doi.org/10.1016/j.wasman.2022.02.033}{https://doi.org/10.1016/j.wasman.2022.02.033}
+        
+        \item[2021] \tab{}Ge, Y., Cui, C., Zhang, C., Ke, Y., \& Liu, Y. (2021). Testing a social-psychological model of public acceptance towards highway infrastructure projects: A case study from China. \textit{Engineering, Construction and Architectural Management}, \textit{28}(9), 2772--2787. \href{https://doi.org/10.1108/ECAM-03-2020-0183}{https://doi.org/10.1108/ECAM-03-2020-0183}
+        
+        \item[2021] \tab{}Wang, K., Ke, Y., Sankaran, S., \& Xia, B. (2021). Problems in the home and community-based long-term care for the elderly in China: A content analysis of news coverage. \textit{International Journal of Health Planning and Management}, \textit{36}(5), 1727--1741. \href{https://doi.org/10.1002/hpm.3255}{https://doi.org/10.1002/hpm.3255}
+        
+        \item[2021] \tab{}Zhang, J., Jin, W., Yang, G., Li, H., Ke, Y., \& Philbin, S. P. (2021). Optimizing regional allocation of CO$_2$ emissions considering output under overall efficiency. \textit{Socio-Economic Planning Sciences}, \textit{77}, 101012. \href{https://doi.org/10.1016/j.seps.2021.101012}{https://doi.org/10.1016/j.seps.2021.101012}
+        
+        \item[2021] \tab{}Mathur, S., Ninan, J., Vuorinen, L., Ke, Y., \& Sankaran, S. (2021). An exploratory study of the use of social media to assess benefits realization in transport infrastructure projects. \textit{Project Leadership and Society}, \textit{2}, 100010. \href{https://doi.org/10.1016/j.plas.2021.100010}{https://doi.org/10.1016/j.plas.2021.100010}
+        
+        \item[2021] \tab{}Mwelu, N., Davis, P., Ke, Y., Watundu, S., \& Jefferies, M. (2021). Success factors for implementing Uganda's public road construction projects. \textit{International Journal of Construction Management}, \textit{21}(6), 598--614. \href{https://doi.org/10.1080/15623599.2019.1573481}{https://doi.org/10.1080/15623599.2019.1573481}
+
+        \item[2021] \tab{}Ke, Y. (2021). Social media use in project management: An exploratory study of multiple transport projects. \textit{Project Governance\& Controls Annual Review}, 2020/2021, 65--85. \href{https://link.pm-professor.com/WfPS4f}{https://link.pm-professor.com/WfPS4f}
+        
+        \item[2020] \tab{}Cheng, Z., Ke, Y., Yang, Z., Cai, J., \& Wang, H. (2020). Diversification or convergence: An international comparison of PPP policy and management between the UK, India, and China. \textit{Engineering, Construction and Architectural Management}, \textit{27}(6), 1315--1335. \href{https://doi.org/10.1108/ECAM-06-2019-0290}{https://doi.org/10.1108/ECAM-06-2019-0290}
+        
+        \item[2020] \tab{}Mwelu, N., Davis, P., Ke, Y., \& Watundu, S. (2020). Compliance mediating role within road construction regulatory framework. \textit{Journal of Public Procurement}, \textit{20}(3), 209--233. \href{https://doi.org/10.1108/JOPP-12-2018-0052}{https://doi.org/10.1108/JOPP-12-2018-0052}
+        
+        \item[2020] \tab{}Yuan, J., Li, X., Ke, Y., Xu, W., Xu, Z., \& Skibniewski, M. (2020). Developing a building information modeling-based performance management system for public-private partnerships. \textit{Engineering, Construction and Architectural Management}, \textit{27}(8), 1727--1762. \href{https://doi.org/10.1108/ECAM-06-2019-0328}{https://doi.org/10.1108/ECAM-06-2019-0328}
+        
+        \item[2020] \tab{}Zhao, X., Ke, Y., Zuo, J., Xiong, W., \& Wu, P. (2020). Evaluation of sustainable transport research in 2000--2019. \textit{Journal of Cleaner Production}, \textit{256}, 120404. \href{https://doi.org/10.1016/j.jclepro.2020.120404}{https://doi.org/10.1016/j.jclepro.2020.120404}
+        
+        \item[2019] \tab{}Du, Y., Fang, J., Ke, Y., Philbin, S. P., \& Zhang, J. (2019). Developing a revenue sharing method for an operational transfer-operate-transfer project. \textit{Sustainability}, \textit{11}, 6436. \href{https://doi.org/10.3390/su11226436}{https://doi.org/10.3390/su11226436}
+        
+        \item[2019] \tab{}Ke, Y., Ling, F. Y. Y., Ning, Y., \& Zhang, Z. (2019). Managing relationships in large public projects: Comparative study of China and Singapore. \textit{Built Environment Project and Asset Management}, \textit{9}(3), 348--363. \href{https://doi.org/10.1108/BEPAM-10-2018-0128}{https://doi.org/10.1108/BEPAM-10-2018-0128}
+        
+        \item[2019] \tab{}Ma, L., Li, J., Jin, R., \& Ke, Y. (2019). A holistic review of public-private partnership literature published between 2008 and 2018. \textit{Advances in Civil Engineering}, \textit{2019}, 7094653. \href{https://doi.org/10.1155/2019/7094653}{https://doi.org/10.1155/2019/7094653}
+        
+        \item[2019] \tab{}Osei-Kyei, R., Chan, A. P. C., Yu, Y., Chen, C., Ke, Y., \& Tijani, B. (2019). Social responsibility initiatives for public-private partnership projects: A comparative study between China and Ghana. \textit{Sustainability}, \textit{11}, 1338. \href{https://doi.org/10.3390/su11051338}{https://doi.org/10.3390/su11051338}
+
+        \item[2019] \tab{}Wang, K., Ke, Y., \& Sankaran, S. (2019). Public-private partnerships in non-profit hospitals: Case study of China. \textit{International Journal of Health Planning and Management}, \textit{34}(4), e1862--1898. \href{https://doi.org/10.1002/hpm.2891}{https://doi.org/10.1002/hpm.2891}
+        
+        \item[2018] \tab{}Cheng, Z., Ke, Y., \& Lin, J. (2018). 2014 yǐ lái zhōng guó PPP xīn zhèng de yí gè jiǎn yào píng gū [A brief assessment of China's new PPP policies since 2014]. \textit{Chéng Shì Yǔ Dì Fāng Zhì Lǐ Yán Jiū} [Urban and Local Governance Review], \textit{1}, 18--33. \href{https://link.pm-professor.com/ag7sEd}{https://link.pm-professor.com/ag7sEd}
+        
+        \item[2018] \tab{}Cheng, Z., Wang, H., Song, J., \& Ke, Y. (2018). Kōng jiān duì PPP zhòng yào ma: zhōng guó PPP kōng jiān zhì lǐ jī zhì tàn suǒ [Does the spatial dimension matter to PPPs? Exploring China's PPP spatial governance mechanism]. \textit{Zhèng Fǔ Guǎn Zhì Píng Lùn} [Government Regulation Review], \textit{14}, 102--115. \href{https://link.pm-professor.com/PIEWoL}{https://link.pm-professor.com/PIEWoL}
+        
+        \item[2018] \tab{}Ke, Y. (2018). Formation of optimal private involvement in urban rail public-private partnership projects in China. \textit{International Journal of Project Organisation and Management}, \textit{10}(3), 268--286. \href{https://doi.org/10.1504/IJPOM.2018.093991}{https://doi.org/10.1504/IJPOM.2018.093991}
+        
+        \item[2018] \tab{}Mwelu, N., Davis, P., Ke, Y., \& Watundu, S. (2018). Compliance within a regulatory framework in implementing public road construction projects. \textit{Construction Economics and Building}, \textit{18}(4), 1--23. \href{https://doi.org/10.5130/AJCEB.v18i4.6362}{https://doi.org/10.5130/AJCEB.v18i4.6362}
+        
+        \item[2018] \tab{}Wang, K., \& Ke, Y. (2018). Wǒ guó gōng lì yī yuàn PPP xiàng mù kāi zhǎn cún zài wèn tí jí duì cè tàn xī [Problems and countermeasures in implementing public hospital PPP projects in China: An exploratory analysis]. \textit{Zhōng Huá Yī Yuàn Guǎn Lǐ Zá Zhì} [Chinese Journal of Hospital Administration], \textit{34}(11), 894--899. \href{https://doi.org/10.3760/cma.j.issn.1000-6672.2018.11.004}{https://doi.org/10.3760/cma.j.issn.1000-6672.2018.11.004}
+        
+        \item[2018] \tab{}Wang, K., \& Ke, Y. (2018). Public-private partnerships in the electric vehicle charging infrastructure in China: An illustrative case study. \textit{Advances in Civil Engineering}, \textit{2018}, 9061647. \href{https://doi.org/10.1155/2018/9061647}{https://doi.org/10.1155/2018/9061647}
+        
+        \item[2017] \tab{}Davis, P., Jefferies, M., \& Ke, Y. (2017). Psychological contracts: A framework for relationships in construction procurement. \textit{Journal of Construction Engineering and Management}, \textit{143}(8), 04017028. \href{https://doi.org/10.1061/(ASCE)CO.1943-7862.0001327}{https://doi.org/10.1061/(ASCE)CO.1943-7862.0001327}
+        
+        \item[2017] \tab{}Ke, Y., Hao, W., Ding, H., \& Wang, Y. (2017). Factors influencing the private involvement in urban rail public-private partnership projects in China. \textit{Construction Economics and Building}, \textit{17}(1), 90--106. \href{https://doi.org/10.5130/AJCEB.v17i1.5105}{https://doi.org/10.5130/AJCEB.v17i1.5105}
+        
+        \item[2016] \tab{}Cheng, Z., Ke, Y., Lin, J., Yang, Z., \& Cai, J. (2016). Spatio-temporal dynamics of public-private partnership projects in China. \textit{International Journal of Project Management}, \textit{34}(7), 1242--1251. \href{https://doi.org/10.1016/j.ijproman.2016.05.006}{https://doi.org/10.1016/j.ijproman.2016.05.006}
+        
+        \item[2016] \tab{}Ke, Y., Davis, P., \& Jefferies, M. (2016). A conceptual model of psychological contracts in construction projects. \textit{Construction Economics and Building}, \textit{16}(3), 20--37. \href{http://doi.org/10.5130/AJCEB.v16i3.4993}{https://doi.org/10.5130/AJCEB.v16i3.4993}
+        
+        \item[2016] \tab{}Zhang, S., Chan, A. P. C., Feng, Y., Duan, H., \& Ke, Y. (2016). Critical review on PPP research: A search from the Chinese and international journals. \textit{International Journal of Project Management}, \textit{34}(4), 597--612. \href{https://doi.org/10.1016/j.ijproman.2016.02.008}{https://doi.org/10.1016/j.ijproman.2016.02.008}
+        
+        \item[2015] \tab{}Chan, A. P. C., Lam, P. T. I., Wen, Y., Ameyaw, E. E., Wang, S. Q., \& Ke, Y. (2015). Cross-sectional analysis of critical risk factors for PPP water projects in China. \textit{Journal of Infrastructure Systems}, \textit{21}(1), 04014031. \href{https://doi.org/10.1061/(ASCE)IS.1943-555X.0000214}{https://doi.org/10.1061/(ASCE)IS.1943-555X.0000214}
+        
+        \item[2015] \tab{}Hao, W., Ding, H., Ke, Y., \& Wang, Y. (2015). Are relational contracting approaches applicable to public projects in China? \textit{Frontiers of Engineering Management}, \textit{1}(4), 358--363. \href{https://doi.org/10.15302/J-FEM-2014052}{https://doi.org/10.15302/J-FEM-2014052}
+        
+        \item[2015] \tab{}Ke, Y., Ling, F. Y. Y., \& Zou, P. X. W. (2015). Effects of contract strategy on interpersonal relations and project outcomes of public-sector construction contracts in Australia. \textit{Journal of Management in Engineering}, \textit{31}(4), 04014062. \href{https://doi.org/10.1061/(ASCE)ME.1943-5479.0000273}{https://doi.org/10.1061/(ASCE)ME.1943-5479.0000273}
+        
+        \item[2014] \tab{}Ke, Y. (2014). Is public-private partnership a panacea for infrastructure development? The case of Beijing National Stadium. \textit{International Journal of Construction Management}, \textit{14}(2), 90--100. \href{https://doi.org/10.1080/15623599.2014.899127}{https://doi.org/10.1080/15623599.2014.899127}
+        
+        \item[2014] \tab{}Ke, Y., Jefferies, M., Shrestha, A., \& Jin, X. (2014). Public private partnership in China: Where to from here. \textit{Organization, Technology and Management in Construction: An International Journal}, \textit{6}(3), 1156--1162. \href{https://doi.org/10.5592/otmcj.2014.3.10}{https://doi.org/10.5592/otmcj.2014.3.10}
+        
+        \item[2014] \tab{}Ling, F. Y. Y., Ke, Y., Kumaraswamy, M. M., \& Wang, S. Q. (2014). Key relational contracting practices affecting performance of public construction projects in China. \textit{Journal of Construction Engineering and Management}, \textit{140}(1), 04013034. \href{https://doi.org/10.1061/(ASCE)CO.1943-7862.0000781}{https://doi.org/10.1061/(ASCE)CO.1943-7862.0000781}
+        
+        \item[2014] \tab{}Ling, F. Y. Y., Ong, S. Y., Ke, Y., Wang, S. Q., \& Zou, P. (2014). Drivers and barriers to adopting relational contracting practices in public projects: Comparative study of Beijing and Sydney. \textit{International Journal of Project Management}, \textit{32}(2), 275--285. \href{https://doi.org/10.1016/j.ijproman.2013.04.008}{https://doi.org/10.1016/j.ijproman.2013.04.008}
+        
+        \item[2014] \tab{}Wu, M., Tang, W. C., Ke, Y., \& Luo, C. M. (2014). An environmental study on the collapse of a tenement building in Hong Kong. \textit{Advanced Materials Research}, \textit{838-841}, 2208--2211. \href{https://doi.org/10.4028/www.scientific.net/AMR.838-841.2208}{https://doi.org/10.4028/www.scientific.net/AMR.838-841.2208}
+        
+        \item[2013] \tab{}Ke, Y., Ling, F. Y. Y., \& Ning, Y. (2013). Public construction project delivery process in Singapore, Beijing, Hong Kong and Sydney. \textit{Journal of Financial Management of Property and Construction}, \textit{18}(1), 6--25. \href{https://doi.org/10.1108/13664381311305050}{https://doi.org/10.1108/13664381311305050}
+        
+        \item[2013] \tab{}Ke, Y., Wang, S. Q., \& Chan, A. P. C. (2013). Risk misallocation in public-private partnership projects in China. \textit{International Public Management Journal}, \textit{16}(3), 438--460. \href{https://doi.org/10.1080/10967494.2013.825508}{https://doi.org/10.1080/10967494.2013.825508}
+        
+        \item[2013] \tab{}Ling, F. Y. Y., Ning, Y., Ke, Y., \& Kumaraswamy, M. M. (2013). Modelling relational transaction and relationship quality among team members in public projects in Hong Kong. \textit{Automation in Construction}, \textit{36}, 16--24. \href{https://doi.org/10.1016/j.autcon.2013.08.006}{https://doi.org/10.1016/j.autcon.2013.08.006}
+        
+        \item[2013] \tab{}Sheng, H., Liang, W., Wang, S. Q., \& Ke, Y. (2013). PPP project risk relationships based on the interpretive structure model. \textit{Advances in Information Sciences and Service Sciences}, \textit{5}(9), 618--627. \href{https://doi.org/10.4156/AISS.vol5.issue9.73}{https://doi.org/10.4156/AISS.vol5.issue9.73}
+        
+        \item[2012] \tab{}Cheung, E., Chan, A. P. C., Lam, P. T. I., Chan, D. W. M., \& Ke, Y. (2012). A comparative study of critical success factors for public-private partnerships between Mainland China and the Hong Kong Special Administrative Region. \textit{Facilities}, \textit{30}(13), 647--666. \href{https://doi.org/10.1108/02632771211273132}{https://doi.org/10.1108/02632771211273132}
+        
+        \item[2012] \tab{}Ke, Y., Wang, S. Q., \& Chan, A. P. C. (2012). Risk management practice in China's public-private partnership projects. \textit{Journal of Civil Engineering and Management}, \textit{18}(5), 675--684. \href{https://doi.org/10.3846/13923730.2012.723380}{https://doi.org/10.3846/13923730.2012.723380}
+        
+        \item[2012] \tab{}Sheng, H., Wang, S. Q., \& Ke, Y. (2012). Mín yíng qǐ yè fā zhǎn BOT xiàng mù de fēng xiǎn guǎn lǐ yán jiū: jī yú mǒu wū ní chǔ lǐ xiàng mù de àn lì fēn xī [Risk management in private enterprises developing BOT projects: A case study of a sludge treatment project]. \textit{Tǔ Mù Gōng Chéng Xué Bào} [China Civil Engineering Journal], \textit{45}(1), 142--147. \href{https://link.pm-professor.com/AfbEqA}{https://link.pm-professor.com/AfbEqA}
+        
+        \item[2011] \tab{}Chan, A. P. C., Yeung, J. F. Y., Yu, C. C. P., Wang, S. Q., \& Ke, Y. (2011). Empirical study of risk assessment and allocation of public-private partnership projects in China. \textit{Journal of Management in Engineering}, \textit{27}(3), 136--148. \href{https://doi.org/10.1061/(ASCE)ME.1943-5479.0000049}{https://doi.org/10.1061/(ASCE)ME.1943-5479.0000049}
+        
+        \item[2011] \tab{}Ke, Y., Wang, S. Q., Chan, A. P. C., \& Cheung, E. (2011). Understanding the risks in China's PPP projects: Ranking of their probability and consequence. \textit{Engineering, Construction and Architectural Management}, \textit{18}(5), 481--496. \href{https://doi.org/10.1108/09699981111165176}{https://doi.org/10.1108/09699981111165176}
+        
+        \item[2011] \tab{}Ke, Y., Wang, S. Q., \& Chan, A. P. C. (2011). Equitable risk allocation of projects inside China: Analyses from Delphi survey studies. \textit{Chinese Management Studies}, \textit{5}(3), 298--310. \href{https://doi.org/10.1108/17506141111163372}{https://doi.org/10.1108/17506141111163372}
+        
+        \item[2010] \tab{}Chan, A. P. C., Lam, P. T. I., Chan, D. W. M., Cheung, E., \& Ke, Y. (2010). Critical success factors for public-private partnerships in infrastructure developments: Chinese perspective. \textit{Journal of Construction Engineering and Management}, \textit{136}(5), 484--494. \href{https://doi.org/10.1061/(ASCE)CO.1943-7862.0000152}{https://doi.org/10.1061/(ASCE)CO.1943-7862.0000152}
+        
+        \item[2010] \tab{}Chan, A. P. C., Lam, P. T. I., Chan, D. W. M., Cheung, E., \& Ke, Y. (2010). Potential obstacles to successful implementation of public-private partnerships in Beijing and the Hong Kong Special Administrative Region. \textit{Journal of Management in Engineering}, \textit{26}(1), 30--40. \href{https://doi.org/10.1061/(ASCE)0742-597X(2010)26:1(30)}{https://doi.org/10.1061/(ASCE)0742-597X(2010)26:1(30)}
+        
+        \item[2010] \tab{}Xu, Y., Yeung, J. F. Y., Chan, A. P. C., Chan, D. W. M., Wang, S. Q., \& Ke, Y. (2010). Developing a risk assessment model for PPP projects in China: A fuzzy synthetic evaluation approach. \textit{Automation in Construction}, \textit{19}(7), 929--943. \href{https://doi.org/10.1016/j.autcon.2010.06.006}{https://doi.org/10.1016/j.autcon.2010.06.006}
+        
+        \item[2010] \tab{}Ke, Y., Wang, S. Q., \& Chan, A. P. C. (2010). Preferred risk allocation in China's public-private partnership projects. \textit{International Journal of Project Management}, \textit{28}(5), 482-492. \href{https://doi.org/10.1016/j.ijproman.2009.08.007}{https://doi.org/10.1016/j.ijproman.2009.08.007}
+        
+        \item[2010] \tab{}Ke, Y., Wang, S. Q., \& Chan, A. P. C. (2010). Risk allocation in public-private partnership infrastructure projects: Comparative study. \textit{Journal of Infrastructure Systems}, \textit{16}(4), 343--351. \href{https://doi.org/10.1061/(ASCE)IS.1943-555X.0000030}{https://doi.org/10.1061/(ASCE)IS.1943-555X.0000030}
+        
+        \item[2009] \tab{}Qi, X., Ke, Y., \& Wang, S. Q. (2009). Jī yú àn lì de zhōng guó PPP xiàng mù de zhǔ yào fēng xiǎn yīn sù fēn xī [Analysis of critical risk factors causing the failures of China’s PPP projects]. \textit{Zhōng Guó Ruǎn Kē Xué} [China Soft Science], \textit{5}, 107--113. \href{https://doi.org/10.3969/j.issn.1002-9753.2009.05.014}{https://doi.org/10.3969/j.issn.1002-9753.2009.05.014}
+        
+        \item[2009] \tab{}Ke, Y., Zhao, X., Wang, Y., \& Wang, S. Q. (2009). SWOT analysis of domestic private enterprises in developing infrastructure projects in China. \textit{Journal of Financial Management of Property and Construction}, \textit{14}(2), 152--170. \href{https://doi.org/10.1108/13664380910977600}{https://doi.org/10.1108/13664380910977600}
+        
+        \item[2009] \tab{}Ke, Y., Zhao, X., Wang, Y., \& Wang, S. Q. (2009). Mín yíng qǐ yè fā zhǎn jī chǔ shè shī xiàng mù de tóu zī jué cè mó xíng [Investment decision model for private enterprises developing infrastructure projects]. \textit{Xiàng Mù Guǎn Lǐ Jì Shù} [Project Management Technology], \textit{2}, 9--14. \href{https://doi.org/10.3969/j.issn.1672-4313.2009.02.001}{https://doi.org/10.3969/j.issn.1672-4313.2009.02.001}
+        
+        \item[2009] \tab{}Ke, Y., Wang, S. Q., \& Teng, T. (2009). Jìng wài guó jì hé zī gōng sī de fēng xiǎn guǎn lǐ [Risk management of overseas international joint venture companies]. \textit{Hǎi Wài Tóu Zī Yǔ Chū Kǒu Xìn Dài} [Overseas Investment and Export Credits], \textit{30}(2), 36--39.
+        
+        \item[2009] \tab{}Ke, Y., Wang, S. Q., Chan, A. P. C., \& Cheung, E. (2009). Research trend of public-private partnership in construction journals. \textit{Journal of Construction Engineering and Management}, \textit{135}(10), 1076--1086. \href{https://doi.org/10.1061/(ASCE)0733-9364(2009)135:10(1076)}{https://doi.org/10.1061/(ASCE)0733-9364(2009)135:10(1076)}
+        
+        \item[2009] \tab{}Ke, Y., Wang, S. Q., \& Chan, A. P. C. (2009). Sī yíng zī běn cān yù jī chǔ shè shī PPP xiàng mù de zhèng fǔ jī lì cuò shī [Government incentives for private sector involvement in infrastructure PPP projects]. \textit{Qīng Huá Dà Xué Xué Bào (Zì Rán Kē Xué Bǎn)} [Journal of Tsinghua University (Science and Technology)], \textit{49}(9), 1480--1483. \href{https://doi.org/10.3321/j.issn:1000-0054.2009.09.013}{https://doi.org/10.3321/j.issn:1000-0054.2009.09.013}
+        
+        \item[2009] \tab{}Huang, T., Ke, Y., Li, Z., \& Wang, S. Q. (2009). Zhōng wài PPP mó shì de zhèng fǔ guǎn lǐ bǐ jiào fēn xī [Comparative Analysis of Government Administration in Domestic and Foreign PPP Models]. \textit{Xiàng Mù Guǎn Lǐ Jì Shù} [Project Management Technology], \textit{1}, 9--13. \href{https://doi.org/10.3969/j.issn.1672-4313.2009.01.001}{https://doi.org/10.3969/j.issn.1672-4313.2009.01.001}
+        
+        \item[2009] \tab{}Chan, A. P. C., Lam, P. T. I., Chan, D. W. M., Cheung, E., \& Ke, Y. (2009). Drivers for adopting public-private partnerships: Empirical comparison between China and Hong Kong Special Administrative Region. \textit{Journal of Construction Engineering and Management}, \textit{135}(11), 1115--1124. \href{https://doi.org/10.1061/(ASCE)CO.1943-7862.0000088}{https://doi.org/10.1061/(ASCE)CO.1943-7862.0000088}
+        
+        \item[2008] \tab{}Zhao, X., Wang, Y., Ke, Y., \& Wang, S. Q. (2008). Mín yíng qǐ yè fā zhǎn jī chǔ shè shī xiàng mù tóu zī cuò shī [Investment measures for private enterprises to develop infrastructure projects]. \textit{Jiàn Zhù Jīng Jì} [Construction Economy], \textit{7}, 58--61. \href{https://link.pm-professor.com/KZpLJ1}{https://link.pm-professor.com/KZpLJ1}
+        
+        \item[2008] \tab{}Wang, Y., Ke, Y., \& Wang, S. Q. (2008). Zhōng guó PPP xiàng mù zhōng zhèng zhì fēng xiǎn de biàn huà hé qū shì [Changes and trends in political risks in China’s PPP projects]. \textit{Jiàn Zhù Jīng Jì} [Construction Economy], \textit{12}, 58--61. \href{https://link.pm-professor.com/Zrgi2c}{https://link.pm-professor.com/Zrgi2c}
+        
+        \item[2008] \tab{}Ke, Y., Zhao, X., Wang, Y., \& Wang, S. Q. (2008). Mín yíng qǐ yè fā zhǎn jī chǔ shè shī xiàng mù de SWOT fēn xī [SWOT analysis of private enterprises developing infrastructure projects]. \textit{Shāng Yè Yán Jiū} [Commercial Research], \textit{12}, 7--10. \href{https://doi.org/10.3969/j.issn.1001-148X.2008.12.003}{https://doi.org/10.3969/j.issn.1001-148X.2008.12.003}
+        
+        \item[2008] \tab{}Ke, Y., Wang, S. Q., \& Chan, A. P. C. (2008). Jī chǔ shè shī PPP xiàng mù de fēng xiǎn fēn dān [Risk allocation in infrastructure PPP projects]. \textit{Jiàn Zhù Jīng Jì} [Construction Economy], \textit{4}, 31--35. \href{https://link.pm-professor.com/UiTzRh}{https://link.pm-professor.com/UiTzRh}
+        
+        \item[2008] \tab{}Ke, Y., Wang, S. Q., \& Chan, A. P. C. (2008). Yīng fǎ hǎi xiá suì dào de shī bài duì PPP xiàng mù fēng xiǎn fēn dān de qǐ shì [Lessons for PPP project risk allocation from the failure of the Channel Tunnel]. \textit{Tǔ Mù Gōng Chéng Xué Bào} [China Civil Engineering Journal], \textit{41}(12), 97--102. \href{https://doi.org/10.3321/j.issn:1000-131X.2008.12.016}{https://doi.org/10.3321/j.issn:1000-131X.2008.12.016}
+        
+        \item[2008] \tab{}Ke, Y., \& Wang, S. Q. (2008). EPC zǒng chéng bāo zài guó jì gōng chéng zhōng de yìng yòng [Application of EPC general contracting in international projects]. \textit{Guó Jì Gōng Chéng Chéng Bāo Yǔ Láo Wù} [International Project Contracting and Labor Services], \textit{10}, 6--7. \href{https://link.pm-professor.com/CL2jeU}{https://link.pm-professor.com/CL2jeU}
+        
+        \item[2008] \tab{}Ke, Y., Liu, X., \& Wang, S. Q. (2008). Equitable financial evaluation method for public-private partnership projects. \textit{Tsinghua Science and Technology}, \textit{13}(5), 702--707. \href{https://doi.org/10.1016/S1007-0214(08)70111-1}{https://doi.org/10.1016/S1007-0214(08)70111-1}
+        
+        \item[2008] \tab{}Chan, A. P. C., Lam, P. T. I., Chan, D. W. M., Cheung, E., \& Ke, Y. (2008). Xiāng gǎng jī chǔ shè shī róng zī mó shì bǐ jiào yán jiū [Comparative study of infrastructure financing models in Hong Kong]. \textit{Jiàn Zhù Jīng Jì} [Construction Economy], \textit{10}, 89--92. \href{https://link.pm-professor.com/lA43sN}{https://link.pm-professor.com/lA43sN}
+
+        \item[2008] \tab{}Wang, S. Q. \& Ke, Y. (2008). Zhōng guó de BOT/PPP shí jiàn hé jīng yàn [Application and experience of BOT/PPP in China]. \textit{Tóu Zī Běi Jīng} [Invest Beijing], \textit{10}, 82--83. \href{https://link.pm-professor.com/8gm5AC}{https://link.pm-professor.com/8gm5AC}        
+        
+        \item[2007] \tab{}Ke, Y., Wang, S. Q., \& Yao, C. (2007). Jī chǔ shè shī tè xǔ jīng yíng zhōng de xīn lǒng duàn wèn tí fēn xī [Analysis of new monopoly issues in infrastructure concessions]. \textit{Shāng Yè Yán Jiū} [Commercial Research], \textit{5}, 17--19. \href{https://doi.org/10.3969/j.issn.1001-148X.2007.05.006}{https://doi.org/10.3969/j.issn.1001-148X.2007.05.006}
+        
+        \item[2006] \tab{}Wang, S. Q., Ke, Y., \& Teng, T. (2006). Guó jì gōng chéng lián yíng tǐ de fēng xiǎn guǎn lǐ [Risk management of international construction joint ventures]. \textit{Guó Jì Gōng Chéng Chéng Bāo Yǔ Láo Wù} [International Project Contracting and Labor Services], \textit{10}, 4--7. \href{https://link.pm-professor.com/vNfHBZ}{https://link.pm-professor.com/vNfHBZ}
+        
+        \item[2006] \tab{}Ke, Y., \& Wang, S. Q. (2006). Jī yú hù lián wǎng de zhāo tóu biāo tǐ xì gòu jiàn yán jiū [Research on the construction of an internet-based tendering system]. \textit{Jiàn Zhù Jīng Jì} [Construction Economy], \textit{S1}, 153--156. \href{https://link.pm-professor.com/QdBDE9}{https://link.pm-professor.com/QdBDE9}
+        
+        \item[2006] \tab{}Ke, Y., \& Wang, S. Q. (2006). Risk management framework using a linguistic variable-based belief network for construction projects. \textit{Chinese Journal of Management Science}, \textit{14}(S), 211--215.
+        
+        \item[2005] \tab{}Wang, S. Q., Ke, Y., Li, Z., Liu, X., \& Liu, S. (2005). Zài tè xǔ jīng yíng xiàng mù róng zī guó jì qián yán lùn tán shàng guān yú BOT/PPP de duì huà [Discussions on BOT/PPP at the first international project finance workshop]. \textit{Guó Jì Gōng Chéng Chéng Bāo Yǔ Láo Wù} [International Project Contracting and Labor Services], \textit{6}, 54--57. \href{https://link.pm-professor.com/VOhcUp}{https://link.pm-professor.com/VOhcUp}
+
+    \end{tablist}
+
+    \subsection*{Books}
+
+    \begin{tablist}
+
+        \item[2026] \tab{}Ke, Y. \& Osei-Kyei, R. (2026). \textit{Consolidating and developing a body of knowledge for public-private partnership project management}. World Scientific Publishing. \href{https://doi.org/10.1142/13563}{https://doi.org/10.1142/13563}
+
+        \item[2024] \tab{}Clegg, S. R., Ke, Y., Devkar, G., Mangione, V., \& Sankaran, S. (2024). \textit{Handbook on public-private partnerships in international infrastructure development: A critical perspective}. Edward Elgar Publishing. \href{https://doi.org/10.4337/9781839102769}{https://doi.org/10.4337/9781839102769}
+
+        \item[2023] \tab{}Ke, Y., Zhang, J., \& Philbin, S.P. (2023). \textit{Tradition and innovation in construction project management}. MDPI Books. \href{https://doi.org/10.3390/books978-3-0365-8115-6}{https://doi.org/10.3390/books978-3-0365-8115-6}
+
+        \item[2018] \tab{}Ke, Y. \& Ye, J. (2018). \textit{Ào dà lì yà zhèng fǔ hé shè huì zī běn hé zuò (PPP) yán jiū} [A study of public-private partnerships (PPPs) in Australia]. Qīng Huá Dà Xué Chū Bǎn Shè [Tsinghua University Press]. \href{https://link.pm-professor.com/hKrdJ6}{https://link.pm-professor.com/hKrdJ6}        
+
+        \item[2011] \tab{}Ke, Y. \& Wang, S. Q. (2011). \textit{Tè xǔ jīng yíng xiàng mù róng zī (PPP): fēng xiǎn fēn dān guǎn lǐ} [Public-private partnership: Risk allocation and management]. Qīng Huá Dà Xué Chū Bǎn Shè [Tsinghua University Press]. \href{https://link.pm-professor.com/zXUh0y}{https://link.pm-professor.com/zXUh0y}
+
+        \item[2008] \tab{}Wang, S. Q. \& Ke, Y. (2008). \textit{Tè xǔ jīng yíng xiàng mù róng zī (BOT, PFI hé PPP)} [Concession project financing (BOT/PFI/PPP)]. Qīng Huá Dà Xué Chū Bǎn Shè [Tsinghua University Press]. \href{https://link.pm-professor.com/a2im2F}{https://link.pm-professor.com/a2im2F}
+
+    \end{tablist}
+
+    \subsection*{Book Chapters}
+
+    \begin{tablist}
+
+        \item[2026] \tab{}Ke, Y. (2026). Background, needs and methodology for a PPP-PM BOK. In Y. Ke \& R. Osei-Kyei (Eds.), \textit{Consolidating and developing a body of knowledge for public-private partnership project management} (pp. 1--19). World Scientific Publishing. \href{https://doi.org/10.1142/9789811282089_0001}{https://doi.org/10.1142/9789811282089\_0001}
+        
+        \item[2026] \tab{}Jiang, X., Shao, L., He, S., Xu, E., \& Ke, Y. (2026). BIM-based value for money evaluation method for PPP projects at decision-making and design: A case study. In Y. Ke \& R. Osei-Kyei (Eds.), \textit{Consolidating and developing a body of knowledge for public-private partnership project management} (pp. 135--156). World Scientific Publishing. \href{https://doi.org/10.1142/9789811282089_0007}{https://doi.org/10.1142/9789811282089\_0007}
+        
+        \item[2026] \tab{}Ke, Y. (2026). Risk allocation and structuring in public-private partnership projects. In Y. Ke \& R. Osei-Kyei (Eds.), \textit{Consolidating and developing a body of knowledge for public-private partnership project management} (pp. 157--178). World Scientific Publishing. \href{https://doi.org/10.1142/9789811282089_0008}{https://doi.org/10.1142/9789811282089\_0008}
+        
+        \item[2026] \tab{}Wang, K., \& Ke, Y. (2026). Performance objectives and criteria in public-private partnership. In Y. Ke \& R. Osei-Kyei (Eds.), \textit{Consolidating and developing a body of knowledge for public-private partnership project management} (pp. 179--197). World Scientific Publishing. \href{https://doi.org/10.1142/9789811282089_0009}{https://doi.org/10.1142/9789811282089\_0009}
+        
+        \item[2026] \tab{}Ke, Y. (2026). Synthesis and vision for the PPP-PM BOK. In Y. Ke \& R. Osei-Kyei (Eds.), \textit{Consolidating and developing a body of knowledge for public-private partnership project management} (pp. 389--407). World Scientific Publishing. \href{https://doi.org/10.1142/9789811282089_0018}{https://doi.org/10.1142/9789811282089\_0018}
+        
+        \item[2024] \tab{}Ke, Y., \& Wang, K. (2024). An overview of PPPs in Australia. In S. R. Clegg, Y. Ke, G. Devkar, V. Mangione, \& S. Sankaran (Eds.), \textit{Handbook on public-private partnerships in international infrastructure development: A critical perspective} (pp. 50--57). Edward Elgar Publishing. \href{https://doi.org/10.4337/9781839102769}{https://doi.org/10.4337/9781839102769}
+        
+        \item[2024] \tab{}Wang, K., \& Ke, Y. (2024). A less successful Australian case: The Northern Beaches Hospital in Sydney. In S. R. Clegg, Y. Ke, G. Devkar, V. Mangione, \& S. Sankaran (Eds.), \textit{Handbook on public-private partnerships in international infrastructure development: A critical perspective} (pp. 72--85). Edward Elgar Publishing. \href{https://doi.org/10.4337/9781839102769}{https://doi.org/10.4337/9781839102769}
+        
+        \item[2024] \tab{}Clegg, S. R., Ke, Y., Devkar, G., Mangione, V., \& Sankaran, S. (2024). Introduction: Handbook on public-private partnerships in international infrastructure development. In S. R. Clegg, Y. Ke, G. Devkar, V. Mangione, \& S. Sankaran (Eds.), \textit{Handbook on public-private partnerships in international infrastructure development: A critical perspective} (pp. 1--6). Edward Elgar Publishing. \href{https://doi.org/10.4337/9781839102769}{https://doi.org/10.4337/9781839102769}
+        
+        \item[2023] \tab{}Feng, K., Ke, Y., \& Qi, X. (2023). PPP xiàng mù fēng xiǎn guǎn lǐ [Risk management in PPP projects]. In Y. Yang \& S. Q. Wang (Eds.), \textit{PPP lǐ lùn yǔ shí jiàn} [PPP theories and practices] (pp. 73--99). Kē Xué Chū Bǎn Shè [Science Press]. \href{https://link.pm-professor.com/Iz5JUp}{https://link.pm-professor.com/Iz5JUp}
+        
+        \item[2022] \tab{}Ninan, J., Ke, Y., Sankaran, S., Mathur, S., Vuorinen, L., \& Devkar, G. (2022). Social media for improving metro rail project operations. In J. Ninan (Ed.), \textit{Social media for project management} (pp. 104--120). CRC Press. \href{https://doi.org/10.1201/9781003215080}{https://doi.org/10.1201/9781003215080}
+        
+        \item[2016] \tab{}Xie, J., Wang, S. Q., Jefferies, M., \& Ke, Y. (2016). Public-private partnerships in China: The past, present and future. In M. Jefferies \& S. Rowlinson (Eds.), \textit{New forms of procurement: PPP and relational contracting in the 21st century} (pp. 216--234). Routledge. \href{https://doi.org/10.4324/9781315758053}{https://doi.org/10.4324/9781315758053}
+        
+        \item[2015] \tab{}Ke, Y., \& Wang, S. Q. (2015). Public-private partnership development in China. In A. Akintoye, M. Beck, \& M. M. Kumaraswamy (Eds.), \textit{Public-private partnerships: A global review} (pp. 74--88). Routledge. \href{https://link.pm-professor.com/50xXJb}{https://link.pm-professor.com/50xXJb}
+
+        \item[2015] \tab{}Ke, Y., Wang, S. Q., Chan, A. P. C., \& Cheung, E. (2015). Understanding the risks in China's PPP projects: Ranking of their probability and consequence. In \textit{Built environment and property management: A focus on China and Hong Kong} (pp. 37--54). Emerald Group Publishing. (Reprinted from \textit{Engineering, Construction and Architectural Management}, \textit{18}(5), 481--496, 2011) \href{https://doi.org/10.1108/09699981111165176}{https://doi.org/10.1108/09699981111165176} 
+        
+        \item[2014] \tab{}Ke, Y. (2014). Xiàng mù róng zī [Project financing]. In J. Liu (Ed.), \textit{Gōng chéng guǎn lǐ yán jiū qián yán yǔ qū shì} [Construction management research fronts and trends] (pp. 48--68). Zhōng Guó Chéng Shì Chū Bǎn Shè [China City Press]. \href{https://link.pm-professor.com/7Sh4jj}{https://link.pm-professor.com/7Sh4jj}
+        
+        \item[2012] \tab{}Wang, S. Q., Ke, Y., \& Xie, J. (2012). Public-private partnership implementation in China. In G. M. Winch, M. Onishi, \& S. Schmidt (Eds.), \textit{Taking stock of PPP and PFI around the world} (pp. 29--36). Certified Accountants Educational Trust. \href{https://link.pm-professor.com/J1VaSS}{https://link.pm-professor.com/J1VaSS}
+        
+        \item[2009] \tab{}Wang, S. Q., \& Ke, Y. (2009). Laibin B power project: The first state-approved BOT project in China. In H. W. Alfen (Ed.), \textit{Public-private partnerships in infrastructure development: Case studies from Asia and Europe} (pp. 101--129). Bauhaus-Universität Weimar. \href{https://link.pm-professor.com/oxdBBR}{https://link.pm-professor.com/oxdBBR}
+
+    \end{tablist}
+
+    \subsection*{Theses}
+
+    \begin{tablist}
+
+        \item[2010] \tab{}Ke, Y. (2010). \textit{Zhōng guó PPP xiàng mù fēng xiǎn gōng píng fēn dān} [Equitable risk allocation for public-private partnership projects in China] [Doctoral dissertation, Tsinghua University]. CNKI Master's Theses \& Doctoral Dissertations. \href{https://link.pm-professor.com/9sYqtT}{https://link.pm-professor.com/9sYqtT}
+
+        \item[2005] \tab{}Ke, Y. (2005). \textit{PPP/BOT xiàng mù cái wù píng jià fāng fǎ bǐ jiào yán jiū} [Comparative Study of Financial Evaluation Methods for PPP/BOT Projects] [Unpublished bachelor's dissertation]. Tsinghua University.
+
+    \end{tablist}
+
+    \subsection*{Reports and Other Publications}
+
+    \begin{tablist}
+
+        \item[2022] \tab{}Müller, R., Alonderienė, R., Chmieliauskas, A., Drouin, N., Ke, Y., Minelgaite, I., Mongeon, M., Pilkienė, M., Šimkonis, S., Unterhitzenberger, C., Vaagaasar, A. L., Wang, L., \& Zhu, F. (2022). \textit{Governance of interorganizational project networks}. Project Management Institute Sponsored Research. \href{https://link.pm-professor.com/ZI3iWh}{https://link.pm-professor.com/ZI3iWh}
+                
+        \item[2018] \tab{}Ke, Y., Zhang, L., \& Zhou, B. (2018). \textit{Bù tóng guó jiā de zhèng fǔ yǔ shè huì zī běn hé zuò huán jìng hé yìng yòng bǐ jiào} [A cross-country comparison of public-private partnerships environment and applications]. Jumbo Consulting.
+
+        \item[2018] \tab{}Ke, Y. (2018). \textit{Hé wèi “zhēn” PPP xiàng mù} [What is a True Public-Private Partnership Project?]. Tsinghua University, Center for Public-Private Partnership, PPP Jué Cè Cān Kǎo [Reference for PPP Decision Making]. 
+
+        \item[2018] \tab{}Ke, Y. (2018). \textit{Ào dà lì yà zhèng fǔ yǔ shè huì zī běn hé zuò (PPP) mó shì yán jiū: fā zhǎn yǔ yìng yòng} [Public-Private Partnerships in Australia: History and Application]. Tsinghua University, Center for Public-Private Partnership, PPP Jué Cè Cān Kǎo [Reference for PPP Decision Making]. 
+
+        \item[2018] \tab{}Ke, Y. (2018). \textit{Ào dà lì yà zhèng fǔ yǔ shè huì zī běn hé zuò (PPP) mó shì yán jiū: zhèng cè zhǐ nán kuàng jià} [Public-Private Partnerships in Australia: Regulatory Framework]. Tsinghua University, Center for Public-Private Partnership, PPP Jué Cè Cān Kǎo [Reference for PPP Decision Making]. 
+
+        \item[2017] \tab{}Bannister, P., \& Ke, Y. (2017). \textit{Ào dà lì yà xīn nán wēi ěr shì zhōu PPP xiàng mù de huí gù yǔ fǎn sī: PPP mó shì zhēn de wù yǒu suǒ zhí ma?} [A Review of Public-Private Partnership (PPP) Projects in NSW Australia: Are PPPs Really Value for Money?]. Tsinghua University, Center for Public-Private Partnership, PPP Jué Cè Cān Kǎo [Reference for PPP Decision Making]. 
+        
+        \item[2013] \tab{}Ling, F. Y. Y., Teo, A., Ke, Y., \& Ning, Y. (2013). \textit{Boosting public construction project outcomes through relational transactions}. National University of Singapore.
+
+        \item[2009] \tab{}Wang, S. Q., \& Ke, Y. (2009). Tái wān gāo tiě cái wù wēi jī de yuán yīn yǔ qǐ shì [Reasons and Lessons for Taiwan High Speed Rail's Failure]. \textit{Jì Bāng Tōng Xùn} [Jumbo Newsletter], \textit{11}, 10-11.
+
+        \item[2009] \tab{}Ke, Y., \& Wang, S. Q. (2009). Zhōng guó PPP xiàng mù de fēng xiǎn guǎn lǐ yìng yòng xiàn zhuàng [Current Implementation of Risk Management in China's PPP Projects]. \textit{Jì Bāng Tōng Xùn} [Jumbo Newsletter], \textit{4}, 18-22. 
+        
+        \item[2008] \tab{}Chan, A. P. C., Lam, P. T. I., Chan, D. W. M., Tang, B. S., Chiang, Y. H., Cheung, E., \& Ke, Y. (2008). \textit{Component B report: Concession structures, alternative revenue sources, and legal and regulatory framework}. Asian Development Bank.
+        
+        \item[2007] \tab{}Chan, A. P. C., Lam, P. T. I., Chan, D. W. M., Tang, B. S., Chiang, Y. H., Cheung, E., \& Ke, Y. (2007). \textit{Component A report: International best practices and case studies of public-private partnerships}. Asian Development Bank.
+        
+        \item[2007] \tab{}Chan, A. P. C., Lam, P. T. I., Chan, D. W. M., Tang, B. S., Chiang, Y. H., Cheung, E., \& Ke, Y. (2007). \textit{Inception report: Application of public-private partnerships in urban rail-based transportation project}. Asian Development Bank.
+
+    \end{tablist}
+    
+
+    \section*{Invited Talks}
+
+    \begin{tablist}
+
+        \item[2026] \tab{}\textit{Three applications of social media data in infrastructure projects: Measuring social licence, evaluating benefits realisation, and analysing public attitudes.} Hang Lung Real Estate Center, Tsinghua University, Beijing, China. June.
+
+        \item[2026] \tab{}\textit{Social licence for infrastructure: concept, framework, and governance logic.} School of Public Policy and Management, Tsinghua University, Beijing, China. June.
+
+        \item[2025] \tab{}\textit{Social licence for infrastructure: concept, framework, and governance logic.} School of Economic and Management, Chang'an University. Xi'an, China. November.
+
+        \item[2025] \tab{}\textit{Frontiers of construction management: the application of social licence and digital public sentiment in infrastructure projects.} School of Economic and Management, Chang'an University. Xi'an, China. November.
+
+        \item[2025] \tab{}\textit{How to improve the chances of paper acceptance from an editor's perspective.} School of Economic and Management, Chang'an University. Xi'an, China. November.
+
+        \item[2025] \tab{}\textit{How to improve the chances of paper acceptance from an editor's perspective.} School of Economic and Management, Xi'an University of Technology. Xi'an, China. November.
+        
+        \item[2025] \tab{}\textit{Public-private partnerships in Australia: Overview and a case study.} Faculty of Technology, CEPT University. Gujarat, India. January.
+        
+        \item[2024] \tab{}\textit{How to conduct a literature review study.} School of Public Management, Zhejiang University of Finance and Economics. Hangzhou, China. March.
+        
+        \item[2024] \tab{}\textit{How to conduct a literature review study.} School of Civil Engineering and Architecture, Zhejiang Sci-Tech University. Hangzhou, China. February.
+        
+        \item[2022] \tab{}\textit{Social media use in project management: several examples.} School of Economic and Management, Chang'an University. Xi'an, China. December.
+        
+        \item[2022] \tab{}\textit{Public-private partnerships: introduction, case studies and research.} School of Economic and Management, Chang'an University. Xi'an, China. November.
+        
+        \item[2022] \tab{}\textit{Publishing in \textit{Project Management Journal}.} School of Management Science and Real Estate, Chongqing University. Chongqing, China. October.
+        
+        \item[2022] \tab{}\textit{Perceptions of Chinese investment in Australian infrastructure: a Twitter study.} Australia-China Relations Institute, University of Technology Sydney. Sydney, Australia. July.
+        
+        \item[2022] \tab{}\textit{Public-private partnerships: introduction and case studies.} School of Civil Engineering, Suzhou University of Science and Technology. Suzhou, China. May.
+        
+        \item[2021] \tab{}\textit{Whether PPPs are applicable to the health industry: case study of the Northern Beaches Hospital in Sydney.} School of Civil Engineering, Suzhou University of Science and Technology. Suzhou, China. December.
+        
+        \item[2020] \tab{}\textit{Unconventional project supervision: The case of Sydney CBD and South East Light Rail Project.} School of Civil Engineering, Suzhou University of Science and Technology. Suzhou, China. December.
+        
+        \item[2020] \tab{}\textit{A critical international perspective on value in public-private partnerships.} School of Management, Shanghai University. Shanghai, China. November.
+        
+        \item[2020] \tab{}\textit{Areas for collaborative research in public-private partnerships.} Department of Construction Management, Tsinghua University. Beijing, China. October.
+        
+        \item[2020] \tab{}\textit{Social sustainability in hospital public-private partnerships: Case study of the Northern Beaches Hospital in Sydney.} School of Urban Economics and Management, Beijing University of Civil Engineering and Architecture. Beijing, China. August.
+        
+        \item[2019] \tab{}\textit{Implementation and lessons learnt of public-private partnerships in Australia.} School of Public Administration, Xi'an University of Architecture and Technology. Xi'an, China. September.
+        
+        \item[2019] \tab{}\textit{Unconventional project supervision: The case of Sydney CBD and South East Light Rail Project.} Shanghai Urban Construction Group. Shanghai, China. September.
+        
+        \item[2019] \tab{}\textit{Qualitative research of public-private partnerships.} College of Civil Engineering, Nanjing Forestry University. Nanjing, China. January.
+        
+        \item[2019] \tab{}\textit{Implementation and lessons learnt of public-private partnerships in Australia.} School of Civil \& Environmental Engineering and Geography Science, Ningbo University. Ningbo, China. January.
+        
+        \item[2018] \tab{}\textit{Implementation of public-private partnerships in Australia.} School of Civil Engineering, Suzhou University of Science and Technology. Suzhou, China. November.
+        
+        \item[2018] \tab{}\textit{Implementation and lessons learnt of public-private partnerships in Australia.} College of Civil Engineering, Hefei University of Technology. Hefei, China. November.
+        
+        \item[2018] \tab{}\textit{Implementation and lessons learnt of public-private partnerships in Australia.} Jumbo Consulting. Shanghai, China. November.
+        
+        \item[2018] \tab{}\textit{Implementation and lessons learnt of public-private partnerships in Australia.} School of Economic and Management, Chang'an University. Xi'an, China. November.
+        
+        \item[2018] \tab{}\textit{Risk management of public-private partnerships in Australia.} School of Management Science and Engineering, Central University of Finance and Economics. Beijing, China. November.
+        
+        \item[2018] \tab{}\textit{Implementation and lessons learnt of public-private partnerships in Australia and research agenda.} College of Civil Engineering, Nanjing Forestry University. Nanjing, China. November.
+        
+        \item[2018] \tab{}\textit{Implementation and lessons learnt of public-private partnerships in Australia.} School of Civil Engineering, Southeast University. Nanjing, China. November.
+        
+        \item[2018] \tab{}\textit{Implementation and lessons learnt of public-private partnerships in Australia.} School of Management, Shanghai University. Shanghai, China. November.
+        
+        \item[2018] \tab{}\textit{Qualitative research of public-private partnerships.} School of Civil Engineering and Architecture, Zhejiang Sci-Tech University. Hangzhou, China. May.
+        
+        \item[2015] \tab{}\textit{The fever of public-private partnership in China.} School of Architecture and Built Environment, University of Newcastle. Newcastle, Australia. March.
+        
+        \item[2013] \tab{}\textit{Relational practices in public projects.} School of Architecture and Built Environment, University of Newcastle. Newcastle, Australia. November.
+        
+        \item[2013] \tab{}\textit{Research example: equitable risk allocation for public-private partnership projects in China.} School of Civil and Environmental Engineering, Nanyang Technological University. Singapore. January.
+        
+        \item[2010] \tab{}\textit{Topic selection, research and paper writing in management science and engineering.} Department of Construction Management, Tsinghua University. Beijing, China. April.
+        
+        \item[2009] \tab{}\textit{Risk allocation and management in China's PPP projects.} Jumbo Consulting. Shanghai, China. May.
+
+    \end{tablist}
+
+
+
+    \section*{Conference Activity}
+
+    \subsection*{Keynote and Plenary Addresses}
+
+    \begin{tablist}
+
+        \item[2025] \tab{}\textit{Social licence for infrastructure: concepts, framework, governance logic.} 2025 International Conference on Regulation Theory and Policy. China Institute of Regulation Research, Zhejiang University of Finance and Economics. Hangzhou, China. October.
+
+        \item[2022] \tab{}\textit{Conventional and unconventional project supervision for infrastructures.} 2022 International Conference on Regulation Theory and Policy. China Institute of Regulation Research, Zhejiang University of Finance and Economics. Hangzhou, China. November.
+
+        \item[2021] \tab{}\textit{Social media use in project management: an exploratory study of multiple transport projects.} Project and Program Management Symposium, University of Canberra. Canberra, Australia. August.
+
+        \item[2018] \tab{}\textit{Research agenda for public-private partnerships.} China PPP 30 Forum. School of Management, Shanghai University. Shanghai, China. November.
+
+        \item[2018] \tab{}\textit{Defining public-private partnership from the Wittgenstein family-resemblance philosophy.} 3rd China PPP Summit, School of Economics and Management, Dalian University of Technology. Dalian, China. May.
+
+        \item[2013] \tab{}\textit{Changing environment for public-private partnership in China: Recommendations for international investors.} Seminar on International Project Management. Department of the Built Environment, National University of Singapore. Singapore. April.
+
+    \end{tablist}
+
+    \subsection*{Sessions Chaired/Moderated}
+
+    \begin{tablist}
+
+        \item[2024] \tab{}\textit{CM04: Sustainable construction and development.} 29th International Symposium on Advancement of Construction Management and Real Estate (CRIOCM 2024). School of Economics and Management, Chang'an University. Xi'an, China. October.
+
+    \end{tablist}
+
+    \subsection*{Invited Panelist}
+
+    \begin{tablist}
+
+        \item[2024] \tab{}\textit{Meet the Editors.} Panellist with Prof. Qingbin Cui, Prof. Roger Flanagan, A/Prof. Xianbo Zhao, Prof. Liyin Shen, Prof. Yuzhe Wu; Chaired by Prof. Patrick X. W. Zou. 29th International Symposium on Advancement of Construction Management and Real Estate (CRIOCM 2024). School of Economics and Management, Chang'an University. Xi'an, China. October.
+
+        \item[2024] \tab{}\textit{Transforming China's PPP landscape: Key changes and strategic implications from 2023 onwards.} Panellist with Research Prof. Andreas Wibowo, Eng. Nissanka Wijeratne, and Chanaka De Silva PC; Chaired by Prof.  Mohan Kumaraswamy, Prof. Akintola Akintoye, and Prof. Giovanni Migliaccio. 12th World Construction Symposium, University of Moratuwa. Moratuwa, Sri Lanka. August.
+
+    \end{tablist}
+
+    \subsection*{Member of Conference Advisory/Scientific/Organisation Committee}
+
+    \begin{tablist}
+
+        \item[2028] \tab{}CIB 24th World Building Congress (WBC2028). Department of Civil Engineering, Tsinghua University. Beijing, China. May.
+
+        \item[2026] \tab{}49th Australasian Universities Building Education Association (AUBEA 2026) conference. School of Built Environment and Design, Western Sydney University. Sydney, Australia. November.
+
+        \item[2022] \tab{}45th Australasian Universities Building Education Association (AUBEA 2022) conference. School of Engineering, Design \& Built Environment, Western Sydney University. Sydney, Australia. November.
+        
+        \item[2021] \tab{}Public-Private Partnership Academic Webinar, funded by the Academy of the Social Sciences in Australia. School of Built Environment, University of Technology Sydney. Sydney, Australia. June. 
+        
+        \item[2021] \tab{}Public-Private Partnership Industry Workshop, funded by the Academy of the Social Sciences in Australia. School of Built Environment, University of Technology Sydney. Sydney, Australia. June.
+        
+        \item[2020] \tab{}2020 Asia-Pacific Project Studies (APPS) Conference (online). School of Built Environment, University of Technology Sydney. Sydney, Australia. June.
+        
+        \item[2019] \tab{}43rd Australasian University Building Educators Association (AUBEA 2019) Conference. School of Engineering and Technology, Central Queensland University. Noosa, Australia. November.
+
+        \item[2019] \tab{}CIB World Building Congress (WBC2019). Department of Building and Real Estate, Hong Kong Polytechnic University. Hong Kong SAR, China. June.
+
+        \item[2017] \tab{}International Conference on Innovative Production and Construction (IPC2017). School of Design and the Built Environment, Curtin University. Perth, Australia. November.
+
+        \item[2015] \tab{}International Conference on Building Resilience. School of Architecture and Built Environment, University of Newcastle. Newcastle, Australia. July.
+
+    \end{tablist}
+
+    \subsection*{Reviewer for International Conferences}
+
+    \begin{tablist}
+
+        \item[2026] \tab{}49th Australasian Universities Building Education Association (AUBEA 2026) Conference. School of Built Environment and Design, Western Sydney University. Sydney, Australia. November.
+        
+        \item[2025] \tab{}European Academy of Management (EURAM) 2025 Annual Conference. School of Economics and Management, University of Florence. Florence, Italy. June. 
+        
+        \item[2025] \tab{}CIB World Building Congress 2025. Lyles School of Civil Engineering, Purdue University. West Lafayette, IN, USA. May. 
+        
+        \item[2024] \tab{}International Research Network on Organizing by Projects (IRNOP) 2024 Conference. School of Industrial Engineering and Management, KTH Royal Institute of Technology. Stockholm, Sweden. June.
+        
+        \item[2022] \tab{}45th Australasian Universities Building Education Association (AUBEA 2022) Conference. School of Engineering, Design and Built Environment, Western Sydney University. Sydney, Australia. November.
+        
+        \item[2022] \tab{}CIB World Building Congress 2022. School of Property, Construction and Project Management, RMIT University. Melbourne, Australia. June.
+        
+        \item[2019] \tab{}43rd Australasian Universities Building Education Association (AUBEA 2019) Conference. School of Engineering and Technology, Central Queensland University. Noosa, Australia. November. 
+        
+        \item[2019] \tab{}CIB World Building Congress 2019. Department of Building and Real Estate, Hong Kong Polytechnic University. Hong Kong SAR, China. June.
+        
+        \item[2017] \tab{}Architectural Engineering Institute (AEI) Conference 2017 “Resilience of the Integrated Building: A Community Focus.” College of Architecture, University of Oklahoma. Oklahoma City, OK, USA. April.
+        
+        \item[2014] \tab{}2nd International Conference on Advances in Energy and Environmental Science (ICAEES 2014). College of Environmental Science and Engineering, Guangzhou University. Guangzhou, China. June.
+        
+        \item[2014] \tab{}19th International Symposium on the Advancement of Construction Management and Real Estate (CRIOCM 2014). School of Construction Management and Real Estate, Chongqing University. Chongqing, China. November.
+
+    \end{tablist}
+
+    \subsection*{Conference Papers Presented}
+
+    \begin{tablist}
+    
+        \item[2025] \tab{}Zhang, J., Zhao, X., Philbin, S. P., Hu, R., Perez, P. B., \& Ke, Y. (2025, August). Process model of the chain-type intelligent production line for small prefabricated components in high-speed railway construction [Conference presentation]. \textit{ICCREM 2025: Decarbonization and Digitalization of the Built Environment -- Shaping Resilience in a Changing World}, Department of Applied Physics and Electronics, Umeå University, Umeå, Sweden.
+        
+        \item[2025] \tab{}Ke, Y., Rahi, K., Xue, J., \& Yang, X. (2025, June). Social licence for infrastructure: A conceptual framework and a sentiment-based measurement approach [Conference presentation]. \textit{European Academy of Management (EURAM) 2025 Conference}, School of Economics and Management, University of Florence, Florence, Italy.
+        
+        \item[2024] \tab{}Ke, Y., Wang, K., Xu, X., Liu, J., \& Sankaran, S. (2024, October). Enhancing sustainability in public-private partnerships: An integrated framework of backcasting, forecasting, and action-oriented methods [Conference presentation]. \textit{29th International Symposium on the Advancement of Construction Management and Real Estate (CRIOCM 2024)}, School of Civil Engineering, Chang'an University. Xi'an, China.
+        
+        \item[2022] \tab{}Ke, Y., Tang, L., \& Zhai, C. (2022, November). Do Australians dislike Chinese investment in the Australian infrastructure sector? [Conference presentation]. \textit{45th Australasian Universities Building Education Association (AUBEA) Conference 2022}, School of Engineering, Design and Built Environment, Western Sydney University, Sydney, Australia.
+        
+        \item[2022] \tab{}Wang, L., Müller, R., Chmieliauskas, A., Alonderienė, R., Drouin, N., Ke, Y., \ldots Zhu, F. (2022, June). Balancing hierarchy and network: Governance of inter-organizational networks for projects [Conference presentation]. \textit{European Academy of Management (EURAM) 2022 Conference}, School of Management and Law, Zurich University of Applied Sciences, Winterthur, Switzerland.
+        
+        \item[2021] \tab{}Devkar, G., Sankaran, S., Ke, Y., Ninan, J., Mathur, S., Tsang, I., \& Vuorinen, L. (2021, March). Data analytics to evaluate public value from megaprojects [Conference presentation]. \textit{6th PMI South Asia Research \& Academic Conference 2021}, Indian Institute of Technology Bombay, Mumbai, India.
+        
+        \item[2019] \tab{}Ke, Y., Cheng, Z., \& Liu, L. (2019, June). Defining public-private partnership from the Wittgenstein family-resemblance philosophy [Conference presentation]. \textit{CIB World Building Congress 2019 -- Constructing Smart Cities}, Department of Building \& Real Estate, The Hong Kong Polytechnic University, Hong Kong, China.
+        
+        \item[2019] \tab{}Zhang, B., Wang, S. Q., Ke, Y., \& Feng, K. (2019, June). Drivers of private sector participation in PPP: Impact of contract characteristics in China [Conference presentation]. \textit{CIB World Building Congress 2019 -- Constructing Smart Cities}, Department of Building \& Real Estate, The Hong Kong Polytechnic University, Hong Kong, China.
+        
+        \item[2019] \tab{}Sankaran, S., Ke, Y., Mangioni, V., \& Devkar, G. (2019, December). Responsible leadership of public-private partnerships adopted in infrastructure projects [Conference presentation]. \textit{5th PMI India Research \& Academic Conference 2019}, Indian Institute of Management Kozhikode, Kozhikode, India.
+        
+        \item[2018] \tab{}Xu, X., Sankaran, S., Ke, Y., \& Liu, J. (2018, December). Opportunism forms of public-private partnership projects in China: A principal-agent perspective [Conference presentation]. \textit{15th International Research Network on Organizing by Projects (IRNOP) Conference 2018}, School of Property, Construction \& Project Management, RMIT University, Melbourne, Australia.
+        
+        \item[2018] \tab{}Liu, J., Sankaran, S., Ke, Y., \& Xu, X. (2018, December). Developing a value-capture index for social-infrastructure public-private partnership projects [Conference presentation]. \textit{15th International Research Network on Organizing by Projects (IRNOP) Conference 2018}, School of Property, Construction \& Project Management, RMIT University, Melbourne, Australia.
+        
+        \item[2018] \tab{}Xu, X., Sankaran, S., \& Ke, Y. (2018, June). Relationship between opportunism and innovation during the build phase in PPP projects [Conference presentation]. \textit{European Academy of Management (EURAM) 2018 Conference}, School of Business, Reykjavik University, Reykjavik, Iceland.
+        
+        \item[2017] \tab{}Ke, Y. (2017, July). Psychological contracts in construction: Two case studies [Conference presentation]. \textit{International Conference on Innovative Production and Construction 2017}, School of Civil and Mechanical Engineering, Curtin University, Perth, Australia.
+        
+        \item[2017] \tab{}Devkar, G., Sankaran, S., \& Ke, Y. (2017, September). Evaluation of PPP projects in Australia and India: An information-asymmetry perspective [Conference presentation]. \textit{PMI India Research \& Academic Conference 2017}, Indian Institute of Technology Delhi, New Delhi, India.
+        
+        \item[2016] \tab{}Ke, Y., Jefferies, M., \& Davis, P. (2016, November). A comparison of public-private partnership environments in Australia and China [Conference presentation]. \textit{21st International Conference on the Advancement of Construction Management and Real Estate (CRIOCM 2016)}, Faculty of Architecture, The University of Hong Kong, Hong Kong, China.
+        
+        \item[2015] \tab{}Ling, F. Y. Y., Ke, Y., \& Ning, Y. (2015, July). Motivating and hindering factors to adopt relational norms in public projects: A comparative study of Australia and Singapore [Conference presentation]. \textit{RICS COBRA \& AUBEA Joint International Construction Conference 2015}, University of Technology Sydney, Sydney, Australia.
+        
+        \item[2015] \tab{}Ke, Y., Gajendran, T., \& Davis, P. R. (2015, March). Relational contracting in the construction industry: Mapping practice to theory [Conference presentation]. \textit{Architectural Engineering Institute (AEI) Conference 2015}, Department of Civil, Construction and Environmental Engineering, Marquette University, Milwaukee, WI, USA.
+        
+        \item[2015] \tab{}Jin, X., Zhang, G., Ke, Y., \& Xia, B. (2015, November). Factors influencing transaction costs in construction projects: A critical review [Conference presentation]. \textit{20th International Symposium on the Advancement of Construction Management and Real Estate (CRIOCM 2015)}, College of Civil Engineering and Architecture, Zhejiang University, Hangzhou, China.
+        
+        \item[2015] \tab{}Jefferies, M., Davis, P. R., \& Ke, Y. (2015, November). Psychological contracts in construction procurement [Conference presentation]. \textit{CIB International Conference “Going North for Sustainability: Leveraging Knowledge and Innovation for Sustainable Construction and Development” 2015}, school of Built Environment and Architecture, London South Bank University, London, UK.
+        
+        \item[2014] \tab{}Xia, B., Zuo, J., Wu, P., \& Ke, Y. (2014, November). Sustainable construction trends in journal papers [Conference presentation]. \textit{19th International Symposium on the Advancement of Construction Management and Real Estate (CRIOCM 2014)}, School of Construction Management and Real Estate, Chongqing University, Chongqing, China.
+        
+        \item[2014] \tab{}Ke, Y., Hao, W., \& Wang, Y. (2014, August). Zhōng guó gōng gòng xiàng mù zhōng shí shī guān xì qì yuē de kě xíng xìng fēn xī [Feasibility of implementing relational contracting in China's public projects] [Conference presentation]. \textit{2014 Zhōng Guó Gōng Chéng Guǎn Lǐ Lùn Tán} [2014 China Engineering Management Forum], Chinese Academy of Engineering, Beijing, China.
+        
+        \item[2014] \tab{}Jin, X., Zuo, J., Xia, B., \& Ke, Y. (2014, October). A theoretical framework for reducing tendering costs in infrastructure procurement [Conference presentation]. \textit{ICEC IX World Congress on Cost Engineering, Quantity Surveying \& Project Management 2014}, International Cost Engineering Council, Milan, Italy.
+        
+        \item[2014] \tab{}Jefferies, M., Rowlinson, S., Kumaraswamy, M. M., \& Ke, Y. (2014, May). Using public-private partnerships for procuring public hospitals [Conference presentation]. \textit{CIB International Conference “Construction in a Changing World” 2014}, Department of Building Economics, University of Moratuwa, Dambulla, Sri Lanka.
+        
+        \item[2013] \tab{}Ke, Y., Ling, F. Y. Y., Wang, S. Q., Zou, P. X. W., Kumaraswamy, M. M., \& Ning, Y. (2013, April). Relationships among contracting parties and outcomes of public construction projects in China [Conference presentation]. \textit{Architectural Engineering Institute (AEI) Conference 2013}, Department of Architectural Engineering, Penn State University, State College, PA, USA.
+        
+        \item[2013] \tab{}Ke, Y., Ling, F. Y. Y., \& Wang, S. Q. (2013, July). Effects of relationships on public project delivery in China: A case study [Conference presentation]. \textit{38th Australasian Universities Building Education Association (AUBEA) Conference 2013}, Faculty of Creative Arts and Industries, University of Auckland, Auckland, New Zealand.
+        
+        \item[2012] \tab{}Ke, Y., Ling, F. Y. Y., Zou, P. X. W., Wang, S. Q., \& Kumaraswamy, M. M. (2012, June). Factors influencing the implementation of relational contracting in Australian public projects [Conference presentation]. \textit{CIB International Conference “Management of Construction: Research to Practice” 2012}, École de Technologie Supérieure, Montreal, Canada.
+        
+        \item[2011] \tab{}Ling, F. Y. Y., Chua, M. H., \& Ke, Y. (2011, June). Diversity management: Managing migrant construction workers on Singapore sites [Conference presentation]. \textit{CIB International Conference “Management and Innovation for a Sustainable Built Environment” (MISBE 2011)}, Delft University of Technology, Amsterdam, The Netherlands.
+        
+        \item[2011] \tab{}Ke, Y., Ling, F. Y. Y., Kumaraswamy, M. M., Wang, S. Q., Zou, P. X. W., \& Ning, Y. (2011, September). Applicability of relational-contracting principles to public construction projects [Conference presentation]. \textit{RICS COBRA Conference 2011}, School of the Built Environment, University of Salford, Salford, UK.
+        
+        \item[2011] \tab{}Ke, Y., Wang, S. Q., \& Chan, A. P. C. (2011, May). Equitable risk allocation in Chinese PPP power projects [Conference presentation]. \textit{1st International Conference on Sustainable Construction \& Risk Management 2011}, Chongqing University, Chongqing, China.
+        
+        \item[2010] \tab{}Chan, A. P. C., Lam, P. T. I., Chan, D. W. M., Cheung, E., Wen, Y., \& Ke, Y. (2010, May). Critical risk factors for China's PPP projects: A comparative analysis [Conference presentation]. \textit{CIB World Building Congress 2010}, School of the Built Environment, University of Salford, Salford Quays, UK.
+        
+        \item[2009] \tab{}Ke, Y., Wang, S. Q., \& Chan, A. P. C. (2009, August). Jī chǔ shè shī PPP xiàng mù de fēng xiǎn fēn dān [Risk allocation and management of PPP infrastructure projects] [Conference presentation]. \textit{2009 Guó Jì Gōng Chéng Xiàng Mù Gāo Fēng Lùn Tán} [2009 International Engineering Project Summit Forum], Shandong University, Jinan, China.
+        
+        \item[2009] \tab{}Ke, Y., Wang, S. Q., \& Chan, A. P. C. (2009, October). Public-private partnerships in China's infrastructure development: Lessons learnt [Conference presentation]. \textit{CIB International Conference “Changing Roles: New Roles, New Challenges” 2009}, Delft University of Technology, Noordwijk aan Zee, The Netherlands.
+        
+        \item[2009] \tab{}Chan, A. P. C., Lam, P. T. I., Chan, D. W. M., Cheung, E., \& Ke, Y. (2009, September). Privileges and attractions for private-sector involvement in PPP projects: A China–Hong Kong comparison [Conference presentation]. \textit{5th International Structural Engineering and Construction Conference (ISEC-5) 2009}, Department of Civil \& Environmental Engineering, University of Nevada Las Vegas, Las Vegas, NV, USA.
+        
+        \item[2008] \tab{}Wang, S. Q., \& Ke, Y. (2008, July). Risk management of infrastructure projects in China: Case study of the National Stadium [Conference presentation]. \textit{Inaugural Conference of the Construction Law and Economics Circle in Asia-Pacific 2008}, Graduate School of Global Environmental Studies, Kyoto University, Kyoto, Japan.
+        
+        \item[2008] \tab{}Ke, Y., Wang, S. Q., Chan, A. P. C., \& Li, Z. (2008, May). Zhōng guó PPP xiàng mù zhèng zhì fēng xiǎn de biàn huà [Changes of political risks in China's PPP projects] [Conference presentation]. \textit{Dì Liù Jiè Quán Guó Tǔ Mù Gōng Chéng Yán Jiū Shēng Xué Shù Lùn Tán} [6th National Civil Engineering Forum for Graduate Students], Department of Civil Engineering, Tsinghua University, Beijing, China.
+        
+        \item[2008] \tab{}Chan, A. P. C., Lam, P. T. I., Chan, D. W. M., Cheung, E., \& Ke, Y. (2008, October). Measures that enhance value-for-money in PPP projects [Conference presentation]. \textit{CIB International Conference “Building Abroad: Procurement of Construction and Reconstruction Projects in the International Context” 2008}, École de Technologie Supérieure, Montreal, Canada.
+        
+        \item[2007] \tab{}Ke, Y., Wang, S. Q., \& Chan, A. P. C. (2007, October). Zhōng guó jī chǔ shè shī PPP xiàng mù fēng xiǎn dìng liàng fēn dān yán jiū kuàng jià [Developing a quantitative risk-allocation mechanism for PPP infrastructure projects in China: A research framework] [Conference presentation]. \textit{2007 Nián Gōng Gòng Shì Yè / Jī Chǔ Shè Shī Xiàng Mù Tè Xǔ Jīng Yíng Guó Jì Huì Yì} [2007 International Conference on Public Utility/Infrastructure Concession Projects], School of Economics and Management, Dalian University of Technology, Dalian, China.
+    
+    \end{tablist}
+
+
+
+    \section*{PhD Supervision}
+
+    \begin{tablist}
+
+        \item[Ongoing] \tab{}Mr Ibrahim Dani. Research Training Program (RTP) Scholarship Recipient. School of Architecture and Built Environment, University of Technology Sydney. Principal supervisor.
+
+        \item[2024] \tab{}Dr Juanwen Liu. China Scholarship Council (CSC) Postgraduate Research Scholarship Recipient. School of Built Environment, University of Technology Sydney. Co-supervisor. Currently at PetroChina International Northwest Co Ltd, Liaoning, China.
+
+        \item[2023] \tab{}Dr Kun Wang. Research Training Program (RTP) Scholarship Recipient. School of Built Environment, University of Technology Sydney. Principal supervisor. Currently at Ningbo University, Zhejiang, China.
+
+        \item[2022] \tab{}Dr Xiaohang Xu. China Scholarship Council (CSC) Postgraduate Research Scholarship Recipient. School of Built Environment, University of Technology Sydney. Co-supervisor. Currently at Hunnan District Government, Shenyang City, Liaoning, China.
+
+        \item[2020] \tab{}Dr Noah Mwelu. Research Training Program (RTP) Scholarship Recipient. School of Architecture and Built Environment, University of Newcastle. Co-supervisor. Currently at Makerere University Business School, Kampala, Uganda.
+
+    \end{tablist}
+
+
+
+    \section*{Research Impact}
+
+    \subsection*{Stanford World Top 2\% Scientist List}
+
+    \begin{tablist}
+
+        \item[2026] \tab{}Career-long list
+        
+        \item[2025] \tab{}Career-long and single-year lists
+        
+        \item[2024] \tab{}Career-long and single-year lists
+
+        \item[2023] \tab{}Single-year list
+        
+        \item[2020] \tab{}Single-year list 
+        
+    \end{tablist}
+
+    \subsection*{Google Scholar Metrics}
+
+    \begin{tablist}
+
+        \item[Overall] \tab{}The number of citations is 9105; h-index is 42; i10-index is 92
+
+        \item[2021--] \tab{}The number of citations is 4549; h-index is 36; i10-index is 76
+        
+    \end{tablist}
+
+    \subsection*{SciVal Author Metrics -- Built Environment and Design}
+    
+    \begin{tablist}
+    
+        \item[31.5\%] \tab{}number of publications in the top 10\% most cited publications worldwide  
+        
+        \item[47.9\%] \tab{}number of publications in the top 10\% journals by CiteScore percentile  
+
+        \item[81.3\%] \tab{}number of publications in the Q1 (top 25\%) journals by CiteScore percentile  
+        
+        \item[3,199] \tab{}total citations received by publications  
+        
+        \item[59.2] \tab{}average citations per publication  
+        
+        \item[1.86] \tab{}field-weighted citation impact (86\% above world average)  
+        
+        \item[6,853] \tab{}total Scopus views received by publications  
+        
+        \item[75.5\%] \tab{}number of publications in the top 10\% most viewed worldwide  
+        
+        \item[126.9] \tab{}average Scopus views per publication  
+        
+        \item[2.62] \tab{}field-weighted views impact (162\% above world average)  
+        
+    \end{tablist} 
+
+    \subsection*{Highly Cited / Most Read Individual Papers}
+    
+    \begin{tablist}
+
+        \item[2026] \tab{}The future of project management in industry 5.0: A narrative literature review. 4th most-read and 4th trending article in \textit{Project Management Journal}.
+        
+        \item[2026] \tab{}A Multilevel Governance Model for Interorganizational Project Networks. 10th most-cited articles (published in last 3 yrs) in \textit{Project Management Journal}.  
+        
+        \item[2025--26] \tab{}How to write a literature review article in the Project Management Journal: A review of reviews. 7th most-read article and 39th most-cited articles (published in last 3 yrs) in \textit{Project Management Journal}.
+        
+        \item[2024] \tab{}Enhancing sustainability in public-private partnerships: An integrated framework of backcasting, forecasting, and action-oriented methods.  Merit Paper, \textit{29th International Symposium on the Advancement of Construction Management and Real Estate (CRIOCM 2024)}.
+        
+        \item[2021] \tab{}Evaluation of Sustainable Transport Research in 2000--2019. \textit{Journal of Cleaner Production}. Essential Science Indicators Highly Cited Paper, Clarivate.  
+        
+        \item[2019] \tab{}Critical Review on PPP Research: A Search from Chinese and International Journals. 5th most-cited of 25 tracked articles (published since 2016) in \textit{International Journal of Project Management}.  
+        
+        \item[2018] \tab{}Understanding the Risks in China's PPP Projects: Ranking of Their Probability and Consequence. 2nd most-cited (published in last 3 yrs) in \textit{Engineering, Construction and Architectural Management}.  
+        
+        \item[2013--15] \tab{}Preferred Risk Allocation in China's Public-Private Partnership Projects. Repeatedly top-ranked (3rd--18th) most-cited article lists (published since 2009) in \textit{International Journal of Project Management}.  
+        
+        \item[2015--19] \tab{}Critical Success Factors for PPPs in Infrastructure Developments: Chinese Perspective. Consistent top-10 most-cited status in \textit{Journal of Construction Engineering and Management}.  
+        
+        \item[2016--20] \tab{}Empirical Study of Risk Assessment and Allocation of PPP Projects in China. Top-5 most-cited across four audits in \textit{Journal of Management in Engineering}.  
+        
+        \item[2016] \tab{}Potential Obstacles to Successful Implementation of PPPs in Beijing and Hong Kong. Top-20 most-cited article in \textit{Journal of Management in Engineering}.  
+        
+        \item[2014, 20] \tab{}Risk Allocation in Public-Private Partnership Infrastructure Projects: Comparative Study. Top-20/10 most-cited article listings in \textit{Journal of Infrastructure Systems}.  
+        
+        \item[2015] \tab{}Developing a Risk Assessment Model for PPP Projects in China: A Fuzzy Synthetic Evaluation Approach. Top-25 most-cited (published since 2010) in \textit{Automation in Construction}.  
+        
+        \item[2015] \tab{}An Investigation of Psychological Contracts in Construction Procurement. Best Paper, \textit{CIB International Conference -- Going North for Sustainability: Leveraging Knowledge and Innovation for Sustainable Construction and Development}. 
+        
+        \item[2014] \tab{}Public Construction Project Delivery Process in Singapore, Beijing, Hong Kong and Sydney. Highly Commended Paper, \textit{Journal of Financial Management of Property and Construction}.  
+    
+    \end{tablist} 
+
+    \subsection*{Mentioned by Journal Papers}
+    
+    \begin{tablist}
+
+        \item[2025] \tab{}Public Private Partnership for the Sustainable Infrastructure Development: A Systematic Literature Review. \textit{Quality \& Quantity}. Two of my works ranked \#4, \#7 among the ten most-cited PPP papers. 
+    
+        \item[2024] \tab{}Analyzing Trends and Emerging Issues in Public-Private Partnership (PPP) Projects in Construction: A Bibliometric Study. \textit{Operations Research Forum}. Three of my works ranked \#1, \#4, \#9 among the ten most-cited PPP papers; listed as 8th most collaborative scholar.  
+    
+        \item[2024] \tab{}Public-Private Partnership (PPP) in Road Infrastructure Projects: A Review of Evolution, Approaches, and Prospects. \textit{Sustainability}. Identified my article as the most-cited study on PPPs in road infrastructure.  
+    
+        \item[2024] \tab{}Public-Private Partnership: Bibliometric and Visualized Analysis. \textit{Novi Ekonomist}. Ranked 5th most-productive and 4th most-cited author (2000--2021).  
+    
+        \item[2024] \tab{}Exploring Risk Aspects in Public-Private Partnership Infrastructure Research: A Bibliometric Analysis. \textit{Journal of Infrastructure Policy and Management}. One publication placed 6th among most-cited PPP-risk papers.  
+    
+        \item[2023] \tab{}Review of Risk Management Studies in Public-Private Partnerships: A Scientometric Analysis. \textit{International Journal of Construction Management}. Named 3rd most-collaborative scholar; two articles ranked \#3 and \#8 among high-impact papers.  
+    
+        \item[2022] \tab{}Research Trends, Themes, and Gaps of Public-Private Partnership in the Water Sector: A Two-Decade Review. \textit{Urban Water Journal}. My study listed 11th most-cited in PPP water research.  
+    
+        \item[2021] \tab{}A Bibliometric and Meta-Analysis of Studies on Public-Private Partnership in China. \textit{Construction Management and Economics}. Five papers placed in the top-10 most-cited (\#1, \#2, \#5, \#6, \#8).  
+    
+        \item[2020] \tab{}Systematic Analysis of PPP Research in Construction Journals: 2009--2019. \textit{Engineering, Construction and Architectural Management}. Five papers in the top-10 most-cited (\#1, \#4, \#5, \#7, \#8).  
+    
+        \item[2020] \tab{}Comprehensive Metrological and Content Analysis of the PPP Research Field: A New Bibliometric Journey. \textit{Scientometrics}. Ranked 7th most-influential author; four papers among top-20 locally cited (\#4, \#6, \#7, \#11).  
+    
+        \item[2019] \tab{}A Holistic Review of Public-Private Partnership Literature Published Between 2008 and 2018. \textit{Advances in Civil Engineering}. Placed 2nd most-cited author; five papers among top-cited (\#1, \#2, \#5, \#7, \#10).  
+    
+        \item[2019] \tab{}Cluster Analysis of the Intellectual Structure of PPP Research. \textit{Journal of Management in Engineering}. Two studies ranked \#14 and \#16 among most-cited.  
+    
+        \item[2016] \tab{}Bibliometric Analysis of PPP and PFI Literature: Overview of 25 Years of Research. \textit{Journal of Construction Engineering and Management}. One article ranked 9th most-cited.  
+    
+        \item[2016] \tab{}A Review of Emerging Trends in Global PPP Research: Analysis and Visualization. \textit{Scientometrics}. Recognised as 4th most-productive author worldwide.  
+    
+    \end{tablist}
+
+    \subsection*{Mentioned by Policy Sources and Media}
+    
+    \begin{tablist}
+
+        \item[2025] \tab{}\textit{Sustainable Aged Care through Partnerships}. University of Technology Sydney (UTS) case study, featured under UTS SDG 17: Partnerships for the Goals. Listed me as Lead Researcher and highlighted our research on socially sustainable aged care through public-private partnerships. \href{https://www.uts.edu.au/case-studies/sustainable-aged-care-through-partnerships}{https://www.uts.edu.au/case-studies/sustainable-aged-care-through-partnerships}
+
+        \item[2025] \tab{}\textit{From Loneliness to Social Connection: Charting a Path to Healthier Societies}. World Health Organization (WHO) Commission on Social Connection report. Cited my article “Are Public-Private Partnerships Still an Answer for Social Infrastructure? A Systematic Literature Review.”
+
+        \item[2025] \tab{}\textit{Effects of Curvature, Gradient and Path Width on Cyclist Behaviour: Empirical Analysis of a Bike Path in Stockholm}. Swedish Transport Administration (Trafikverket) report. Cited my article “Evaluation of Sustainable Transport Research in 2000--2019.”        
+
+        \item[2025] \tab{}\textit{Environmental and Climate Protection in Logistics}. Umwelt Bundesamt report. Cited my article “Evaluation of Sustainable Transport Research in 2000--2019.”        
+
+        \item[2024] \tab{}\textit{Public Procurement for Better Value in Tanzania: Empirical Evidence of Challenges and Opportunities}. Public Procurement Regulatory Authority (PPRA), Government of Tanzania report. Cited my article “Compliance within a Regulatory Framework in Implementing Public Road Construction Projects.”   
+
+        \item[2023] \tab{}\textit{Investment Gap in the CEE Region: How Much Investment is Needed and Strategies for Delivering It}. GLOBSEC report. Cited my article “Are Public-Private Partnerships Still an Answer for Social Infrastructure? A Systematic Literature Review.”
+
+        \item[2023] \tab{}\textit{A Research Agenda for Low Carbon Transition and Gender Equity in the Global South - Infrastructure (Transport and Digital)}. Environment for Development report. Cited my article “Social Responsibility Initiatives for Public-Private Partnership Projects: A Comparative Study between China and Ghana.”
+    
+        \item[2023] \tab{}\textit{Risk Allocation and Early Termination of Federal Highway Concessions in Brazil: An Analysis of Concession Contracts Signed by ANTT}. Fundação Getulio Vargas report. Cited my article “Developing a Risk Assessment Model for PPP Projects in China -- A Fuzzy Synthetic Evaluation Approach.”  
+    
+        \item[2023] \tab{}\textit{Green Logistics Networks: Roles \& Symbiotic Relationships}. Swedish National Road and Transport Research Institute (VTI) report. Cited my article “Evaluation of Sustainable Transport Research in 2000--2019.”  
+    
+        \item[2022] \tab{}\textit{Methodology for Evaluating Sustainable Urban Development}. Ministry of Transport of the Czech Republic guideline. Cited my article “Evaluation of Sustainable Transport Research in 2000--2019.”  
+
+        \item[2022] \tab{}\textit{Sustainability Action Study}. State of Utah report. Cited my article “Public-Private Partnerships in the Electric Vehicle Charging Infrastructure in China: An Illustrative Case Study.”  
+    
+        \item[2021] \tab{}\textit{Public-Private Partnerships in the Drinking Water and Sanitation Sector in Latin America and the Caribbean: Environment, Critical Success Factors, and Recommendations}. Inter-American Development Bank report. Cited my article “Developing a Risk Assessment Model for PPP Projects in China -- A Fuzzy Synthetic Evaluation Approach.”  
+    
+        \item[2021] \tab{}\textit{Construction Risks Assessment in Latin American Megaprojects: A Fuzzy Challenge}. Inter-American Development Bank brief. Cited my article “Developing a Risk Assessment Model for PPP Projects in China -- A Fuzzy Synthetic Evaluation Approach.”  
+    
+        \item[2021] \tab{}\textit{Evaluating the Impact of Nature-Based Solutions: Appendix of Methods}. Publications Office of the European Union technical report. Cited my article “Critical Success Factors for PPPs in Infrastructure Developments: Chinese Perspective.”  
+    
+        \item[2021] \tab{}\textit{A Synthesis of Research Gaps}. International Science Council white paper. Cited my article “Evaluation of Sustainable Transport Research in 2000--2019.”  
+
+        \item[2021] \tab{}\textit{2021 Public Institutions and National Policy, Volume 2: Private-Private Cooperation and Innovation}. Korea Institute of Public Finance policy report. Cited my article “Potential Obstacles to Successful Implementation of Public-Private Partnerships in Beijing and the Hong Kong Special Administrative Region.”  
+    
+        \item[2020] \tab{}\textit{Metropolitan Shenzhen: Rail Plus Property for Transit-Oriented Development}. World Bank report. Cited my articles “A Comparative Study of Critical Success Factors for Public-Private Partnerships (PPP) between Mainland China and the Hong Kong Special Administrative Region” and “Understanding the Risks in China's PPP Projects: Ranking of Their Probability and Consequence.”  
+    
+        \item[2020] \tab{}\textit{Equitable Land Use for Asian Infrastructure}. Asian Development Bank working paper. Cited my article “Spatio-Temporal Dynamics of Public-Private Partnership Projects in China.”  
+
+        \item[2020] \tab{}\textit{Greater Than Parts}. World Bank working paper. Cited my article “Understanding the Risks in China's PPP Projects: Ranking of Their Probability and Consequence.”  
+    
+        \item[2019] \tab{}\textit{Public-Private Partnerships as a Vector of Innovation: Successful Cases in Spain}. Euskal Autonomia Erkidegoa report. Cited my article “Critical Success Factors for PPPs in Infrastructure Developments: Chinese Perspective.”  
+
+        \item[2019] \tab{}\textit{Public-Private Partnerships in Developing Countries: The Emerging Evidence-Based Critique}. World Bank policy note. Cited my article “Critical Success Factors for PPPs in Infrastructure Developments: Chinese Perspective.”  
+    
+        \item[2019] \tab{}\textit{Public-Private Partnership Monitor (Second Edition)}. Asian Development Bank reference guide. Cited my articles “Risk Allocation in Public-Private Partnership Infrastructure Projects: Comparative Study” and “Preferred Risk Allocation in China's Public-Private Partnership (PPP) Projects.”  
+    
+        \item[2019] \tab{}\textit{How Better Collaboration Between the Private and Public Sector Can Generate Growth in Denmark}. Copenhagen Economics report. Cited my article “Risk Allocation in Public-Private Partnership Infrastructure Projects: Comparative Study.”  
+    
+        \item[2019] \tab{}\textit{Potential Public-Private Partnership Strategy for Promoting Effective Housing Delivery in Papua New Guinea}. PNG National Research Institute paper. Cited my article “Risk Allocation in Public-Private Partnership Infrastructure Projects: Comparative Study.”  
+    
+        \item[2019] \tab{}\textit{Financing Transit-Oriented Development by Value Capture}. Lincoln Institute of Land Policy working paper. Cited my article “Spatio-Temporal Dynamics of Public-Private Partnership Projects in China.”  
+    
+        \item[2018] \tab{}\textit{The Circular Economy Opportunity for Urban and Industrial Innovation in China}. Ellen MacArthur Foundation flagship report. Cited my article “Factors Influencing the Private Involvement in Urban Rail Public-Private Partnership Projects in China.”  
+
+        \item[2018] \tab{}\textit{Public-Private Partnerships in Developing Countries}. World Bank working paper. Cited my article “Critical Success Factors for PPPs in Infrastructure Developments: Chinese Perspective.”  
+    
+        \item[2018] \tab{}\textit{Emerging Sponge Cities -- Foresight Brief No. 005}. United Nations Environment Programme brief. Cited my article “Critical Review on PPP Research -- A Search from the Chinese and International Journals.”  
+    
+        \item[2017] \tab{}\textit{Public-Private Partnerships: Reference Guide -- Version 3.0}. World Bank \& Global Infrastructure Facility handbook. Cited my article “Risk Allocation in Public-Private Partnership Infrastructure Projects: Comparative Study.”  
+    
+        \item[2017] \tab{}\textit{Public-Private Partnership Monitor}. Asian Development Bank reference guide. Cited my article “Preferred Risk Allocation in China's Public-Private Partnership (PPP) Projects.”  
+    
+        \item[2016] \tab{}\textit{The develoPPP.de Program: A Portfolio Analysis}. German Institute for Development Evaluation (DEval) study. Cited my article “Empirical Study of Risk Assessment and Allocation of Public-Private Partnership Projects in China.”  
+    
+        \item[2015] \tab{}\textit{Evaluating the Environment for Public-Private Partnerships in Asia-Pacific: The 2014 Infrascope}. Asian Development Bank benchmarking study. Cited my article “Empirical Study of Risk Assessment and Allocation of Public-Private Partnership Projects in China.”  
+    
+        \item[2015] \tab{}\textit{Public-Private Partnerships in China: 2014 as a Landmark Year with Past and Future Challenges}. International Institute for Sustainable Development report. Cited my articles “Understanding the Risks in China's PPP Projects: Ranking of Their Probability and Consequence,” “Empirical Study of Risk Assessment and Allocation of Public-Private Partnership Projects in China,” and “Risk Misallocation in Public-Private Partnership Projects in China.”  
+    
+        \item[2014] \tab{}\textit{Public-Private Partnerships: Reference Guide -- Version 2.0}. World Bank \& PPP Knowledge Lab handbook. Cited my article “Risk Allocation in Public-Private Partnership Infrastructure Projects: Comparative Study.”  
+
+        \item[2014] \tab{}\textit{Technology Assessment (TA): Challenges of Sustainable Water Management}. Deutscher Bundestag report. Cited my article “Public Construction Project Delivery Process in Singapore, Beijing, Hong Kong and Sydney.”  
+
+        \item[2014] \tab{}\textit{Business Aspects of Energy-efficient Renovations of Soviet-era Residential Districts: A Case Study from Moscow }. Teknologian tutkimuskeskus VTT report. Cited my article “Equitable Financial Evaluation Method for Public-Private Partnership Projects.”  
+    
+        \item[2013] \tab{}\textit{Public-Private Partnerships: Reference Guide}. World Bank \& PPP Knowledge Lab handbook. Cited my article “Risk Allocation in Public-Private Partnership Infrastructure Projects: Comparative Study.”  
+    
+        \item[2013] \tab{}\textit{Challenges of Sustainable Water Management}. Office of Technology Assessment at the German Bundestag (TAB) study. Cited my article “Public Construction Project Delivery Process in Singapore, Beijing, Hong Kong and Sydney.”  
+    
+        \item[2013] \tab{}\textit{Successful Trade Promotion: Lessons from Emerging Economies}. German Development Institute (DIE) research paper. Cited my article “Critical Success Factors for PPPs in Infrastructure Developments: Chinese Perspective.”  
+
+        \item[2013] \tab{}\textit{Urbanization and Mobility in China: New Patterns and Intermodal Connections}. Institut Français des Relations Internationales policy paper. Cited my article “Understanding the Risks in China's PPP Projects: Ranking of Their Probability and Consequence.”  
+    
+        \item[2011] \tab{}\textit{An Eligibility Indicator to Select Public-Private Partnership Projects in Infrastructure and Services}. Inter-American Development Bank technical note. Cited my article “Equitable Financial Evaluation Method for Public-Private Partnership Projects.”  
+    
+    \end{tablist}
+
+    
+
+    \section*{Courses Taught}
+
+    \subsection*{University of Technology Sydney, Australia}
+
+    \begin{tablist}
+
+        \item[2019--26] \tab{}15115 Advances in Project Management (Postgraduate)
+
+        \item[2023] \tab{}15310	Project Integration Management (Postgraduate)
+        
+        \item[2017--26] \tab{}15317 Advanced Project Risk Management (Postgraduate) 
+        
+        \item[2016--26] \tab{}15319 Project Risk, Procurement and Quality Management (Postgraduate, two deliveries per year) 
+        
+        \item[2017--24] \tab{}15327 Managing Project Complexity (Postgraduate) 
+        
+        \item[2017] \tab{}15356 Project Performance Improvement (Postgraduate) 
+        
+        \item[2023--26] \tab{}15362 Managing Project Contracts (Postgraduate) 
+
+    \end{tablist}
+
+    \subsection*{University of Newcastle, Australia}
+
+    \begin{tablist}
+
+        \item[2014--16] \tab{}ARBE6407 Project Closure (Postgraduate)
+        
+        \item[2015--16] \tab{}ARBE2309 Construction Procurement and Tendering (Undergraduate)
+
+        \item[2013--16] \tab{}ARBE3305 Infrastructure Development (Undergraduate)
+
+        \item[2013--16] \tab{}ARBE4303 Facilities Management (Undergraduate)
+        
+    \end{tablist}
+
+    \subsection*{National University of Singapore, Singapore}
+
+    \begin{tablist}
+        
+        \item[2012--13] \tab{}Project Cost Management (Undergraduate)
+        
+    \end{tablist}
+
+    \subsection*{Tsinghua University, China}
+
+    \begin{tablist}
+
+        \item[2021] \tab{}Public-Private Partnerships (Postgraduate)
+        
+        \item[2009] \tab{}Project Finance  (Postgraduate)
+
+        \item[2008] \tab{}Construction Estimating (Undergraduate)
+
+        \item[2006] \tab{}Engineering Economy (Undergraduate)
+        
+    \end{tablist}
+
+    \subsection*{Chang'an University, China}
+
+    \begin{tablist}
+        
+        \item[2019] \tab{}Introduction to Project Management (Postgraduate)
+        
+    \end{tablist}
+
+    \subsection*{Chongqing University, China}
+
+    \begin{tablist}
+        
+        \item[2021--24] \tab{}Public-Private Partnerships (Postgraduate)
+        
+    \end{tablist}
+
+
+
+    \section*{Service}
+
+    \subsection*{Academic Journal Editorship}
+
+    \begin{tablist}
+
+        \item[2026--] \tab{}\textit{Engineering}, Youth Editorial Board Member
+        
+        \item[2025--] \tab{}\textit{Built Environment Project and Asset Management}, Associate Editor
+        
+        \item[2025--] \tab{}\textit{Construction Innovation: Information, Process, Management}, Editorial Advisory Board Member
+        
+        \item[2023--] \tab{}\textit{Humanities and Social Sciences Communications}, Editorial Board Member
+        
+        \item[2023--] \tab{}\textit{International Journal of Project Organisation and Management}, Australian Editor
+        
+        \item[2022--26] \tab{}\textit{Buildings}, Editorial Board Member \& Section Board Member
+        
+        \item[2022--] \tab{}\textit{ENGINEERING Management (formerly Frontiers of Engineering Management)}, Special Corresponding Expert
+
+        \item[2020--] \tab{}\textit{Project Management Journal}, Department Editor
+
+        \item[2020--] \tab{}\textit{IEEE Transactions on Engineering Management}, Editorial Review Board Member        
+        
+        \item[2017--23] \tab{}\textit{International Journal of Project Organisation and Management}, Editorial Board Member
+
+        \item[2017--25] \tab{}\textit{Built Environment Project and Asset Management}, Editorial Review Board Member  
+        
+        \item[2025--26] \tab{}\textit{Built Environment Project and Asset Management}, Guest Editor, Special Issue \enquote{Public Private Partnership (PPP) - Lessons learned and Ways Forward in Meeting Emerging Needs}
+        
+        \item[2024--25] \tab{}\textit{International Journal of Construction Management}, Guest Editor, Special Issue \enquote{Towards Efficient and Sustainable Construction Project Management: Leveraging AI and Disruptive Technologies} 
+        
+        \item[2023--24] \tab{}\textit{Buildings}, Guest Editor, Special Issue \enquote{Achieving Carbon Neutrality in Urban Infrastructure Development}
+
+        \item[2023--24] \tab{}\textit{Built Environment Project and Asset Management}, Guest Editor, Special Issue \enquote{Public Private Partnerships: Past, Present and Future}        
+
+        \item[2022--23] \tab{}\textit{Buildings}, Guest Editor, Special Issue \enquote{Tradition and Innovation in Construction Project Management}
+
+    \end{tablist}
+
+    \subsection*{Service to the Field}
+
+    \begin{tablist}
+
+        \item[2026--28] \tab{}External Member of Course Advisory Board, Construction and Infrastructure Management, King’s Own Institute, Australia
+
+        \item[2026] \tab{}Subject Outline Developer, Construction and Infrastructure Management, King’s Own Institute, Australia
+        
+        \item[2022--] \tab{}Onsite Visit Team Member, PMI Global Accreditation Center
+
+        \item[2020--] \tab{}Communications Coordinator of CIB W122 - Public Private Partnership
+
+        \item[2020--23] \tab{}Advisory Board Member of Construction Management Discipline, Suzhou University of Science and Technology, China
+
+        \item[2018--19] \tab{}Visiting Research Director, Jumbo Consulting, Shanghai, China
+
+        \item[2018--21] \tab{}Guest Professor, School of Economics and Management, Chang'an University, China 
+
+        \item[2018--21] \tab{}Contributing Specialist, Central University of Finance and Economics, China
+
+        \item[2017--] \tab{}Member of MB012 - Project, Programme and Portfolio Management, Standards Australia
+
+        \item[2016--23] \tab{}Contributing Specialist, Center for Public-Private Partnership, Tsinghua University, China
+
+    \end{tablist}
+
+    \subsection*{Service to My University}
+
+    \begin{tablist}
+        
+        \item[2026--28] \tab{}Associate Professor of Graduate Research, Graduate Research School
+        
+        \item[2026--] \tab{}Director, Postgraduate Project Management Programs
+
+        \item[2025--] \tab{}Member, Graduate Research Students' Appeals Committee
+
+        \item[2025--26] \tab{}Member, Faculty of Design and Society Faculty Board        
+        
+        \item[2024--] \tab{}School Responsible Academic Officer for Misconduct
+        
+        \item[2024--26] \tab{}Member, Faculty Research Degree Committee
+        
+        \item[2024--26] \tab{}School Higher Degree by Research Coordinator
+        
+        \item[2022] \tab{}Member, University Academic Board
+        
+        \item[2022--23] \tab{}Member, DAB Faculty Board
+        
+        \item[2021--25] \tab{}School Short Forms of Learning Coordinator
+        
+        \item[2021--25] \tab{}DAB (FDS from 2025) Representative on Faculty Board in Business
+        
+        \item[2021--22] \tab{}Member, Faculty New Product Committee
+        
+        \item[2019--22] \tab{}Member, Faculty Curriculum Committee
+        
+        \item[2019--22] \tab{}Member, Faculty Teaching and Learning Quality Committee
+        
+        \item[2019--20] \tab{}Director, Postgraduate Project Management Programs
+        
+        \item[2017--19] \tab{}Associate Director, Postgraduate Project Management Programs
+        
+        \item[2017--18] \tab{}Member, Faculty Student Assessment Review Committee
+        
+        \item[2015--16] \tab{}Member, School International and Development Working Group
+        
+        \item[2015--16] \tab{}School Student Academic Conduct Officer
+
+    \end{tablist}
+
+  \subsection*{Academic Journal Peer Review\footnote{117 peer reviews on \href{https://orcid.org/0000-0003-3426-703X}{ORCID}; 103 peer reviews on \href{https://www.webofscience.com/wos/author/record/C-6071-2014}{Web of Science}}}
+
+    \begin{tablist}
+    
+        \item[2026--] \tab{}\textit{Urban Policy and Research}
+
+        \item[2025--] \tab{}\textit{International Review of Administrative Sciences}
+        
+        \item[2025--] \tab{}\textit{European Management Review}
+        
+        \item[2024--] \tab{}\textit{International Journal of Building Pathology and Adaptation}
+        
+        \item[2024--] \tab{}\textit{Public Management Review}
+        
+        \item[2024--] \tab{}\textit{Healthcare Analytics}
+        
+        \item[2024--] \tab{}\textit{Australian Journal of Public Administration}
+        
+        \item[2023--] \tab{}\textit{Developments in the Built Environment}
+        
+        \item[2023--] \tab{}\textit{Journal of Management Studies}
+        
+        \item[2023--] \tab{}\textit{Journal of Global Operations and Strategic Sourcing}
+        
+        \item[2021--] \tab{}\textit{Project Leadership \& Society}
+        
+        \item[2020--] \tab{}\textit{Complexity}
+        
+        \item[2020--] \tab{}\textit{IEEE Transactions on Engineering Management}
+        
+        \item[2020--] \tab{}\textit{International Journal of Health Planning and Management}
+        
+        \item[2019--] \tab{}\textit{Frontiers in Built Environment}
+        
+        \item[2019--] \tab{}\textit{International Journal of Procurement Management}
+        
+        \item[2019--] \tab{}\textit{SAGE Open}
+        
+        \item[2018--] \tab{}\textit{Research in Transportation Economics}
+        
+        \item[2018--] \tab{}\textit{Advances in Civil Engineering}
+        
+        \item[2018--] \tab{}\textit{Transportation Research Part A: Policy and Practice}
+        
+        \item[2017--] \tab{}\textit{Sustainable Development}
+        
+        \item[2017--] \tab{}\textit{Frontiers of Engineering Management}
+        
+        \item[2017--] \tab{}\textit{Abacus}
+        
+        \item[2017--] \tab{}\textit{International Journal of Strategic Property Management}
+        
+        \item[2016--] \tab{}\textit{Science and Engineering Ethics}
+        
+        \item[2016--] \tab{}\textit{Cogent Engineering}
+        
+        \item[2016--] \tab{}\textit{Journal of Construction Engineering and Project Management}
+        
+        \item[2016--] \tab{}\textit{Construction Economics and Building}
+        
+        \item[2016--] \tab{}\textit{Journal of Professional Issues in Engineering Education and Practice}
+        
+        \item[2015--] \tab{}\textit{Journal of Computing in Civil Engineering}
+        
+        \item[2015--] \tab{}\textit{Automation in Construction}
+        
+        \item[2015--] \tab{}\textit{CSID Journal of Infrastructure Development}
+        
+        \item[2015--] \tab{}\textit{Mathematical Problems in Engineering}
+        
+        \item[2014--] \tab{}\textit{Environment, Development and Sustainability}
+        
+        \item[2014--] \tab{}\textit{International Journal of Project Organisation and Management}
+        
+        \item[2014--] \tab{}\textit{International Journal of Public Sector Management}
+        
+        \item[2014--] \tab{}\textit{International Journal of Technology, Policy and Management}
+        
+        \item[2014--] \tab{}\textit{Project Management Journal}
+        
+        \item[2014--] \tab{}\textit{Utilities Policy}
+        
+        \item[2013--] \tab{}\textit{Construction Innovation: Information, Process, Management}
+        
+        \item[2013--] \tab{}\textit{International Journal of Construction Management}
+        
+        \item[2013--] \tab{}\textit{International Journal of Injury Control and Safety Promotion}
+        
+        \item[2012--] \tab{}\textit{Journal of Natural Resources and Development}
+        
+        \item[2012--] \tab{}\textit{Built Environment Project and Asset Management}
+        
+        \item[2012--] \tab{}\textit{Cities (The International Journal of Urban Policy and Planning)}
+        
+        \item[2012--] \tab{}\textit{Journal of Construction in Developing Countries}
+        
+        \item[2012--] \tab{}\textit{Smart and Sustainable Built Environment}
+        
+        \item[2011--] \tab{}\textit{Journal of Management in Engineering}
+        
+        \item[2010--] \tab{}\textit{Chinese Management Studies}
+        
+        \item[2010--] \tab{}\textit{Journal of Financial Management of Property and Construction}
+        
+        \item[2010--] \tab{}\textit{Journal of Infrastructure Systems}
+        
+        \item[2009--] \tab{}\textit{Journal of Construction Engineering and Management}
+        
+        \item[2008--] \tab{}\textit{Construction Management and Economics}
+        
+        \item[2008--] \tab{}\textit{Engineering, Construction and Architectural Management}
+        
+        \item[2008--] \tab{}\textit{International Journal of Project Management}
+    
+    \end{tablist}
+
+    \subsection*{Theses Examination}
+
+    \begin{tablist}
+
+        \item[2026--]    \tab{}External Examiner, PhD thesis, Lingnan University, China
+
+        \item[2025--]    \tab{}External Examiner, PhD thesis, City University of Hong Kong, China
+        
+        \item[2025--]    \tab{}External Examiner, PhD thesis, University of Sydney, Australia
+        
+        \item[2025--]    \tab{}External Examiner, PhD thesis, Western Sydney University, Australia
+        
+        \item[2023--]    \tab{}External Examiner, PhD thesis, University of Newcastle, Australia
+        
+        \item[2022--]  \tab{}External Examiner, PhD thesis, Curtin University, Australia
+        
+        \item[2019--]    \tab{}External Examiner, PhD thesis, RMIT University, Australia
+        
+        \item[2015--]    \tab{}External Examiner, Final-year dissertation, University of South Australia, Australia
+    
+    \end{tablist}
+
+    \subsection*{Academic Press Peer Review}
+
+    \begin{tablist}
+
+        \item[2022--] \tab{}World Scientific Publishing
+        
+        \item[2020--] \tab{}Routledge
+
+        \item[2019--] \tab{}Springer
+
+    \end{tablist}
+
+    \subsection*{Funding Agency Peer Review}
+
+    \begin{tablist}
+
+        \item[2026--] \tab{}Assessor, National Research Foundation, South Africa
+        
+        \item[2020--] \tab{}Assessor, Australian Research Council, Australia
+
+        \item[2020--] \tab{}Assessor, Makerere University Research and Innovations Fund, Uganda
+
+    \end{tablist}
+
+
+
+    \section*{Credentials}
+
+    \begin{tablist}
+
+        \item[2018] \tab{}World Bank Group / APMG Certified PPP Professional (CP3P) Preparation
+
+        \item[2017] \tab{}World Bank Group / APMG Certified PPP Professional (CP3P) Foundation
+
+    \end{tablist}
+
+
+
+    % display today's date as Month Year after a vertical space below the end of the text
+    \begin{center}
+        \vfill
+        Updated \monthyeardate\today
+    \end{center}
+
+\end{document}

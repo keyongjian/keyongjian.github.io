@@ -1,0 +1,9 @@
+# LaTeX build output (CI copies the PDF to /CV_Ke.pdf)
+*.aux
+*.log
+*.out
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.toc
+*.pdf
