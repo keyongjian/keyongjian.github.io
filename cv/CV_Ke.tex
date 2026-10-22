@@ -31,7 +31,7 @@
 \usepackage[T1]{fontenc}    % output 8-bit encoded fonts
 \usepackage[utf8]{inputenc} % allow input of utf-8 encoded characters
 \usepackage[lining]{CrimsonPro} % document's serif font
-\usepackage{tgheros} % document's sans serif font
+\usepackage{inter} % document's sans serif font, matching the website
 
 % load babel, csquotes, and microtype in order
 \usepackage[british]{babel} % auto-regionalize hyphens, quote marks, etc
@@ -46,9 +46,13 @@
 \usepackage{tabto}    % make nice tabbing
 \usepackage{titlesec} % allow custom section fonts
 \usepackage[flushmargin]{footmisc} % remove footnote indentation
+\usepackage{xcolor}   % colour the name and headings
 
 % load hyperref last for compatibility
 \usepackage{hyperref} % enable hyperlinks and pdf metadata
+
+% accent colour shared with the website (--accent in style.css)
+\definecolor{accent}{HTML}{1E3A5F}
 
 % what is your name?
 \newcommand{\myname}{Yongjian Ke}
@@ -57,15 +61,15 @@
 \newcommand{\listtabwidth}{1.8cm}
 
 % define font to use as document's title
-\newcommand{\namefont}[1]{{\normalfont\bfseries\Huge{#1}}}
+\newcommand{\namefont}[1]{{\normalfont\sffamily\bfseries\Huge\color{accent}{#1}}}
 
 % set section heading fonts and before/after spacing
 \SetTracking{encoding=*, family=\sfdefault}{30} % increase heading font tracking
-\titleformat{\section}{\lsstyle\sffamily\small\bfseries\uppercase}{}{}{}{}
+\titleformat{\section}{\color{accent}\lsstyle\sffamily\small\bfseries\uppercase}{}{}{}{}
 \titlespacing{\section}{0pt}{30pt plus 4pt minus 4pt}{8pt plus 2pt minus 2pt}
 
 % set subsection heading fonts and before/after spacing
-\titleformat{\subsection}{\lsstyle\sffamily\footnotesize\bfseries}{}{}{}{}
+\titleformat{\subsection}{\color{accent}\lsstyle\sffamily\footnotesize\bfseries}{}{}{}{}
 \titlespacing{\subsection}{0pt}{16pt plus 4pt minus 4pt}{4pt plus 2pt minus 2pt}
 
 % set page margins (assumes A4 paper)
@@ -408,7 +412,7 @@
         
         \item[2024] \tab{}Jin, K., Yu, S., Xia, B., Ke, Y., Skitmore, M., \& Liu, Y. (2024). Exploring the effect of procedural fairness on the social license to operate of resource development projects: A meta-analysis. \textit{Resources Policy}, \textit{96}, 105242. \href{https://doi.org/10.1016/j.resourpol.2024.105242}{https://doi.org/10.1016/j.resourpol.2024.105242}
         
-        \item[2024] \tab{}Müller, R., Alix-Séguin, C., Alonderienė, R., Bourgault, M., Chmieliauskas, A., Drouin, N., Ke, Y., Wang, L., Pilkienė, M., Minelgaite, I., Šimkonis, S., Unterhitzenberger, C., Vaagaasar, A. L., \& Zhu, F. (2024). A (meta)governance framework for multi-level governance of inter-organizational project networks. \textit{Production Planning \& Control}, \textit{35}(10), 1043--1062. \href{https://doi.org/10.1080/09537287.2022.2146018}{https://doi.org/10.1080/09537287.2022.2146018}
+        \item[2024] \tab{}Müller, R., Alix-Séguin, C., Alonderienė, R., Bourgault, M., Chmieliauskas, A., Drouin, N., Ke, Y., Minelgaite, I., Pilkienė, M., Šimkonis, S., Unterhitzenberger, C., Vaagaasar, A. L., Wang, L., \& Zhu, F. (2024). A (meta)governance framework for multi-level governance of inter-organizational project networks. \textit{Production Planning \& Control}, \textit{35}(10), 1043--1062. \href{https://doi.org/10.1080/09537287.2022.2146018}{https://doi.org/10.1080/09537287.2022.2146018}
         
         \item[2024] \tab{}Wang, K., \& Ke, Y. (2024). Social sustainability of communities: A systematic literature review. \textit{Sustainable Production and Consumption}, \textit{47}, 585--597. \href{https://doi.org/10.1016/j.spc.2024.04.031}{https://doi.org/10.1016/j.spc.2024.04.031}
         
@@ -432,7 +436,7 @@
         
         \item[2023] \tab{}Sun, Q., Zhang, S., Ke, Y., Ma, X., \& Galvin, S. (2023). Comparative analysis on the PPP research in Chinese and international journals: A bibliometric perspective. \textit{International Journal of Construction Management}, \textit{23}(2), 307--318. \href{https://doi.org/10.1080/15623599.2020.1866431}{https://doi.org/10.1080/15623599.2020.1866431}
         
-        \item[2023] \tab{}Unterhitzenberger, C., Müller, R., Vaagaasar, A. L., Ke, Y., Alonderienė, R., Minelgaite, I., Pilkienė, M., Wang, L., Drouin, N., Chmieliauskas, A., Šimkonis, S., \& Mongeon, M. (2023). A multi-level governance model for inter-organizational project networks. \textit{Project Management Journal}, \textit{54}(1), 88--105. \href{https://doi.org/10.1177/87569728221131254}{https://doi.org/10.1177/87569728221131254}
+        \item[2023] \tab{}Unterhitzenberger, C., Müller, R., Vaagaasar, A. L., Ke, Y., Alonderiene, R., Minelgaite, I., Pilkiene, M., Wang, L., Zhu, F., Drouin, N., Chmieliauskas, A., Šimkonis, S., \& Mongeon, M. (2023). A Multilevel Governance Model for Interorganizational Project Networks. \textit{Project Management Journal}, \textit{54}(1), 88--105. \href{https://doi.org/10.1177/87569728221131254}{https://doi.org/10.1177/87569728221131254}
         
         \item[2023] \tab{}Zhang, J., Zhu, Z., Liu, H., Zuo, J., Ke, Y., Philbin, S. P., Zhou, Z., Feng, Y., \& Ni, Q. (2023). System framework for digital monitoring of the construction of asphalt concrete pavement based on IoT, Beidou navigation system and 5G technology. \textit{Buildings}, \textit{13}(2), 503. \href{https://doi.org/10.3390/buildings13020503}{https://doi.org/10.3390/buildings13020503}
         
@@ -952,6 +956,8 @@
     \section*{PhD Supervision}
 
     \begin{tablist}
+
+        \item[Incoming] \tab{}Ms Xinyi Luo. Research Training Program (RTP) Scholarship Recipient. School of Architecture and Built Environment, University of Technology Sydney. Principal supervisor. Commencing November 2026.
 
         \item[Ongoing] \tab{}Mr Ibrahim Dani. Research Training Program (RTP) Scholarship Recipient. School of Architecture and Built Environment, University of Technology Sydney. Principal supervisor.
 
