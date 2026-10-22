@@ -30,9 +30,8 @@
 % load encoding and font packages for pdflatex, in order
 \usepackage[T1]{fontenc}    % output 8-bit encoded fonts
 \usepackage[utf8]{inputenc} % allow input of utf-8 encoded characters
-\usepackage{inter} % sans serif font, matching the website; under pdflatex it claims \rmdefault,
-\edef\sfdefault{\rmdefault} % so hand that family to \sfdefault
-\usepackage[lining]{CrimsonPro} % and load the serif afterwards to take \rmdefault back
+\usepackage[lining]{CrimsonPro} % document's serif font
+\usepackage{tgheros} % document's sans serif font
 
 % load babel, csquotes, and microtype in order
 \usepackage[british]{babel} % auto-regionalize hyphens, quote marks, etc
@@ -62,7 +61,7 @@
 \newcommand{\listtabwidth}{1.8cm}
 
 % define font to use as document's title
-\newcommand{\namefont}[1]{{\normalfont\sffamily\bfseries\Huge\color{accent}{#1}}}
+\newcommand{\namefont}[1]{{\normalfont\bfseries\Huge\color{accent}{#1}}}
 
 % set section heading fonts and before/after spacing
 \SetTracking{encoding=*, family=\sfdefault}{30} % increase heading font tracking
