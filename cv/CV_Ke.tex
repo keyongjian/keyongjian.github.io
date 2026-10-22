@@ -30,9 +30,9 @@
 % load encoding and font packages for pdflatex, in order
 \usepackage[T1]{fontenc}    % output 8-bit encoded fonts
 \usepackage[utf8]{inputenc} % allow input of utf-8 encoded characters
-\usepackage[lining]{CrimsonPro} % document's serif font
-\usepackage{inter} % document's sans serif font, matching the website
-\renewcommand{\familydefault}{\rmdefault} % inter makes itself the body font; keep Crimson Pro
+\usepackage{inter} % sans serif font, matching the website; under pdflatex it claims \rmdefault,
+\edef\sfdefault{\rmdefault} % so hand that family to \sfdefault
+\usepackage[lining]{CrimsonPro} % and load the serif afterwards to take \rmdefault back
 
 % load babel, csquotes, and microtype in order
 \usepackage[british]{babel} % auto-regionalize hyphens, quote marks, etc
