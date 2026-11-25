@@ -107,6 +107,8 @@ h1{font-size:24px; font-weight:600; letter-spacing:-.01em; line-height:1.35; mar
 .card + .card{margin-top:22px}
 .card h3{font-size:15px; font-weight:500}
 .card p{color:var(--muted); font-size:14px; margin-top:2px}
+.card p a{color:var(--accent)}
+.card p a:hover{text-decoration:underline; text-underline-offset:3px}
 
 .entry-list-detailed .entry + .entry{margin-top:22px}
 .entry-title{font-weight:500}
@@ -160,6 +162,11 @@ article blockquote p:last-child{margin-bottom:0}
 article > ul:last-child{list-style:none; padding-left:0; font-size:13.5px; line-height:1.6; color:var(--muted)}
 article > ul:last-child li{padding-left:24px; text-indent:-24px; margin-bottom:12px}
 article > ul:last-child a{word-break:break-all}
+
+/* Embedded video with a one-line caption. */
+.video{display:block; width:100%; aspect-ratio:16/9; border:0; border-radius:8px; background:var(--chip); margin:8px 0 8px}
+.photo{display:block; width:100%; height:auto; border-radius:8px; background:var(--chip); margin:8px 0 8px}
+article .caption{font-size:13px; color:var(--faint); margin-bottom:20px}
 
 /* ---------- home ---------- */
 
